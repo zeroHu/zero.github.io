@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,76 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-xml-httpRequest-ajax-http-body" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/02/08/xml-httpRequest-ajax-http-body/" class="article-date">
+  <time class="dt-published" datetime="2018-02-08T08:35:29.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/02/08/xml-httpRequest-ajax-http-body/">ajax-http-body</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="常见的post提交数据格式-form-data-x-www-form-urlencoded-application-x2F-json-text-x2F-xml"><a href="#常见的post提交数据格式-form-data-x-www-form-urlencoded-application-x2F-json-text-x2F-xml" class="headerlink" title="常见的post提交数据格式 form-data,x-www-form-urlencoded,application&#x2F;json,text&#x2F;xml"></a>常见的post提交数据格式 <br>form-data,x-www-form-urlencoded,application&#x2F;json,text&#x2F;xml</h3><blockquote>
+<p>其中个人觉得在工作中用得多的是 from-data, x-www-form-urlencoded</p>
+</blockquote>
+<h4 id="http"><a href="#http" class="headerlink" title="http"></a>http</h4><blockquote>
+<p>http请求分为3个部分：状态行，请求头，消息主题</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line">&lt;entity-body&gt;</span><br></pre></td></tr></table></figure>
+<p>服务器端解析是根据请求中的headers 中的 Content-Type 字段来获知请求中的消息主体是用何种方式编码，再对主题进行解析。<br><strong>postman 中的 raw 和 binary解释</strong>:<br>binary:相当于Content-Type:application&#x2F;octet-stream,从字面意思得知，只可以上传二进制数据，通常用来上传文件，由于没有键值，所以，一次只能上传一个文件。<br>raw:可以上传任意格式的文本，可以上传text、json、xml、html等</p>
+<h4 id="application-x2F-x-www-form-urlencoded"><a href="#application-x2F-x-www-form-urlencoded" class="headerlink" title="application&#x2F;x-www-form-urlencoded"></a>application&#x2F;x-www-form-urlencoded</h4><blockquote>
+<p>这是最常见的post 提交数据的方式，浏览器的原生form 表单 在不设置 <code>enctype</code>的情况下就是使用 <code>application/x-wwww-form-urlencoded</code>方式提交数据.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com http/1.1</span><br><span class="line">Content-Type: application/x-www-form-urlencoded;charset=utf-8</span><br><span class="line"></span><br><span class="line">key1=val1&amp;key2=val2&amp;key3=val3</span><br></pre></td></tr></table></figure>
+<p><strong>默认的jQuery 中的AJAX 默认值就是「application&#x2F;x-www-form-urlencoded;charset&#x3D;utf-8」</strong></p>
+<h4 id="multipart-x2F-form-data"><a href="#multipart-x2F-form-data" class="headerlink" title="multipart&#x2F;form-data"></a>multipart&#x2F;form-data</h4><blockquote>
+<p>也是一种常见的post提交方式，form表单如果要以这种方式提交需要添加<code>enctype=multipart/form-data</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com http/1.1</span><br><span class="line">------WebKitFormBoundaryIuMF45zoLrsAIvdj</span><br><span class="line">Content-Disposition: form-data; name=&quot;types&quot;</span><br><span class="line"></span><br><span class="line">resume</span><br><span class="line">------WebKitFormBoundaryIuMF45zoLrsAIvdj</span><br><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;test.pdf&quot;</span><br><span class="line">Content-Type: application/pdf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------WebKitFormBoundaryIuMF45zoLrsAIvdj--</span><br></pre></td></tr></table></figure>
+<p><strong>解析</strong>:首先生成一个<code>boundary</code>用于分割不同的字段，为了避免与正文重复，boundary 很长很复杂，然后<code>Content-Type</code>里指明数据是<code>multipart/form-data</code> 来编码，每部分是以<code>--boundary</code>开始,紧接着是内容描述信息，然后是回车，最后是字段具体的内容（文本或二进制）。如果传输的是文件，还要包含文件名和文件类型信息。消息主体最后以<code>--boundary--</code>结尾<strong>这种方式一般用于上传文件</strong>，各大服务器都对这个有良好的支持</p>
+<h4 id="application-x2F-json"><a href="#application-x2F-json" class="headerlink" title="application&#x2F;json"></a>application&#x2F;json</h4><blockquote>
+<p>这个Content-Type作为响应头大家肯定都很熟悉了，实际上很多人也把这个作为请求头，告诉服务器消息主体是<code>序列化后的JSON字符串</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com http/1.1</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">&#123;&quot;title&quot;: &quot;test&quot;, &quot;sub&quot;: [1, 2, 3]&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="text-x2F-xml"><a href="#text-x2F-xml" class="headerlink" title="text&#x2F;xml"></a>text&#x2F;xml</h4><blockquote>
+<p>比较古老的一种请求方式了，但是支持度还是蛮高的</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com HTTP/1.1</span><br><span class="line">Content-Type: text/xml</span><br><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;methodCall&gt;</span><br><span class="line">    &lt;methodName&gt;examples.getStateName&lt;/methodName&gt;</span><br><span class="line">    &lt;params&gt;</span><br><span class="line">        &lt;param&gt;</span><br><span class="line">            &lt;value&gt;&lt;i4&gt;41&lt;/i4&gt;&lt;/value&gt;</span><br><span class="line">        &lt;/param&gt;</span><br><span class="line">    &lt;/params&gt;</span><br><span class="line">&lt;/methodCall&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://imququ.com/post/four-ways-to-post-data-in-http.html">原文链接</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="clb0tk9mf0059v4u918qx7jxp" data-title="ajax-http-body" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-js-math" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -113,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clb0t0bqj003iecu92d9ug3z1" data-title="js-math" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clb0tk9m3003qv4u93uffcbsm" data-title="js-math" class="article-share-link">Share</a>
       
       
       
@@ -194,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clb0t0bq0001mecu9hpg20u9c" data-title="css-grid" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clb0tk9lk001pv4u9hmq976d0" data-title="css-grid" class="article-share-link">Share</a>
       
       
       
@@ -365,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clb0t0br0004wecu99v798xl7" data-title="webpack" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clb0tk9md004yv4u9biyrg7az" data-title="webpack" class="article-share-link">Share</a>
       
       
       
@@ -430,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clb0t0bqa002kecu91lqe3776" data-title="es6-module" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clb0tk9lr002mv4u91b3u03h7" data-title="es6-module" class="article-share-link">Share</a>
       
       
       
@@ -517,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clb0t0bq7002aecu95vk3ahtl" data-title="es6-class" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clb0tk9lp002cv4u98h5behs3" data-title="es6-class" class="article-share-link">Share</a>
       
       
       
@@ -590,7 +660,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clb0t0bq9002iecu958up747a" data-title="es6-set-map" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clb0tk9lq002hv4u96g137kq7" data-title="es6-set-map" class="article-share-link">Share</a>
       
       
       
@@ -674,7 +744,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="clb0t0bq60025ecu9708df5oy" data-title="es6-async-await" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="clb0tk9lo0029v4u9dclkci81" data-title="es6-async-await" class="article-share-link">Share</a>
       
       
       
@@ -735,7 +805,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/18/es6-generator/" data-id="clb0t0bq9002fecu9fvind4f1" data-title="es6-generator" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/12/18/es6-generator/" data-id="clb0tk9lq002ev4u92adh01en" data-title="es6-generator" class="article-share-link">Share</a>
       
       
       
@@ -812,71 +882,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/12/js-type-of-topic-judge/" data-id="clb0t0bqk003oecu9273ghk5b" data-title="类型判断 (typeof,instanceof)" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-class-array-object" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/12/08/class-array-object/" class="article-date">
-  <time class="dt-published" datetime="2017-12-08T07:17:13.000Z" itemprop="datePublished">2017-12-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/12/08/class-array-object/">class-array-object（类数组对象）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="类数组对象"><a href="#类数组对象" class="headerlink" title="类数组对象"></a>类数组对象</h4><p>类数组对象定义</p>
-<blockquote>
-<p>拥有一个length属性，和若干索引属性的对象</p>
-</blockquote>
-<blockquote>
-<p>tips:要说到类数组对象，Arguments 对象就是一个类数组对象。在客户端 JavaScript 中，一些 DOM 方法(document.getElementsByTagName()等)也返回类数组对象。</p>
-</blockquote>
-<p>例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个数组</span></span><br><span class="line"><span class="keyword">var</span> array = [<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;age&#x27;</span>,<span class="string">&#x27;sex&#x27;</span>];</span><br><span class="line"><span class="comment">//这是一个类数组</span></span><br><span class="line"><span class="keyword">var</span> arraylike = &#123;</span><br><span class="line">    <span class="number">0</span>:<span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">    <span class="number">1</span>:<span class="string">&#x27;age&#x27;</span>,</span><br><span class="line">    <span class="number">2</span>:<span class="string">&#x27;sex&#x27;</span>,</span><br><span class="line">    <span class="attr">length</span>:<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>为啥叫类素组是吧？接下来我们从读写，获取长度，遍历等这三个方面来查看这两个对象</p>
-<p>读写</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读：</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(array[<span class="number">0</span>]);<span class="comment">//name</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arraylike[<span class="number">0</span>]);<span class="comment">//name</span></span><br><span class="line"><span class="comment">//写:</span></span><br><span class="line">array[<span class="number">0</span>] = <span class="string">&#x27;new name&#x27;</span>;</span><br><span class="line">arraylike[<span class="number">0</span>] = <span class="string">&#x27;new name&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>获取长度</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array.<span class="property">length</span>;<span class="comment">//3</span></span><br><span class="line">arraylike.<span class="property">length</span>;<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-
-<p>遍历</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = array.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">   ……</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arrayLike.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">   ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。"><a href="#接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。" class="headerlink" title="接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。"></a>接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array.<span class="title function_">push</span>(<span class="string">&#x27;4&#x27;</span>);<span class="comment">//[&#x27;name&#x27;,&#x27;age&#x27;,&#x27;sex&#x27;,&#x27;4&#x27;]</span></span><br><span class="line">arrayLike.<span class="title function_">push</span>(<span class="string">&#x27;4&#x27;</span>);<span class="comment">// 报错 arrayLike.push is not a function</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="那类素组要如何才能当做数组放心的使用呢"><a href="#那类素组要如何才能当做数组放心的使用呢" class="headerlink" title="那类素组要如何才能当做数组放心的使用呢"></a>那类素组要如何才能当做数组放心的使用呢</h4><p>既然无法直接调用，那么我们就可以用Function.call 间接调用</p>
-<p>直接出几个 能将类数组转为数组的方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayLike = &#123;<span class="number">0</span>: <span class="string">&#x27;name&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;age&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;sex&#x27;</span>, <span class="attr">length</span>: <span class="number">3</span> &#125;</span><br><span class="line"><span class="comment">// 1. slice</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(arrayLike); <span class="comment">// [&quot;name&quot;, &quot;age&quot;, &quot;sex&quot;] </span></span><br><span class="line"><span class="comment">// 2. splice</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">splice</span>.<span class="title function_">call</span>(arrayLike, <span class="number">0</span>); <span class="comment">// [&quot;name&quot;, &quot;age&quot;, &quot;sex&quot;] </span></span><br><span class="line"><span class="comment">// 3. ES6 Array.from</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(arrayLike); <span class="comment">// [&quot;name&quot;, &quot;age&quot;, &quot;sex&quot;] </span></span><br><span class="line"><span class="comment">// 4. apply</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">concat</span>.<span class="title function_">apply</span>([], arrayLike)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/08/class-array-object/" data-id="clb0t0bpw0015ecu93w5s36co" data-title="class-array-object（类数组对象）" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/12/12/js-type-of-topic-judge/" data-id="clb0tk9m4003yv4u94fipb6cg" data-title="类型判断 (typeof,instanceof)" class="article-share-link">Share</a>
       
       
       
@@ -894,7 +900,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -925,9 +931,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -935,9 +941,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/11/28/frp/">frp</a>
+          </li>
         
           <li>
             <a href="/2022/04/08/js-variable/">js-variable</a>
@@ -953,10 +963,6 @@
         
           <li>
             <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/18/tools-npm/">npm-tools</a>
           </li>
         
       </ul>

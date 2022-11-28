@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,71 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-33-js-data-structures" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/12/33-js-data-structures/" class="article-date">
+  <time class="dt-published" datetime="2019-06-12T13:55:30.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/12/33-js-data-structures/">33-js-data-structures</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="js的数据结构"><a href="#js的数据结构" class="headerlink" title="js的数据结构"></a>js的数据结构</h3><h4 id="前言-preface"><a href="#前言-preface" class="headerlink" title="前言 (preface)"></a>前言 (preface)</h4><blockquote>
+<p>在一定水平上，有三种基本的数据结构, 栈（Stacks）和队列（Queues)是类数组（array-like)的对象. 区别是插入和取出的顺序。 这里都知道栈是先进后出，后进先出。 队列是先进先出，后进后出。<br>链表（linkedList) 和 树（Trees) 是一种有节点指向其它节点的数据结构。</p>
+</blockquote>
+<h4 id="栈（Stack"><a href="#栈（Stack" class="headerlink" title="栈（Stack)"></a>栈（Stack)</h4><blockquote>
+<p>栈在js中最重要的应用是当我们将function调用时候会push这个函数及作用域进栈，然后再调用栈 (call Stack)。 函数进栈和出栈是 执行 <code>push</code> 和 <code>pop</code> 操作。原则是先进后出（Last In, Frist Out. 缩写：LIFO)</p>
+</blockquote>
+<h4 id="队列（Queue"><a href="#队列（Queue" class="headerlink" title="队列（Queue)"></a>队列（Queue)</h4><blockquote>
+<p>js 是事件型驱动语言这也是支持非阻塞型操作成为可能性。js作为单线程语言，这就需要用队列来将要执行的事件进行排队。然后事件循环来执行队列里面的事件。队列的进出时 执行 <code>unshift</code> 和 <code>pop</code> 。原则是 先进先出(First In, Frist Out, 缩写 FIFO)</p>
+</blockquote>
+<h4 id="链表-LinkedList"><a href="#链表-LinkedList" class="headerlink" title="链表(LinkedList)"></a>链表(LinkedList)</h4><blockquote>
+<p>就像数组（array）一样， 链表也是有序的存储数据。不同的是数组用index来做指针，链表的第一个节点叫做head最后一个叫tail. 在单链表里面(singly-linked-list),单链接表是单向的 只有指向下一个节点的指针。 双链表（doubly-linked-list)是双向的，有指向下一个节点的指针，下一个节点也有指向上一个节点的指针。可以双向走。</p>
+</blockquote>
+<h4 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树(Tree)"></a>树(Tree)</h4><blockquote>
+<p>树是非线性的，分层存储的数据结构。可以用来存储文件或者有序的列表。树都有一个根节点（root node) 下面的子节点称呼上一层的节点为父节点。查找和删除的速度比链表要快。查询的时候有深度优先查询（Depth Frist Traversal）DFT，广度优先查询(Breadth Frist Traversal)BFT</p>
+</blockquote>
+<h4 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h4><blockquote>
+<p>如果树有超过一个父节点，就变成了graph</p>
+</blockquote>
+<h4 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h4><blockquote>
+<p>有键值对和对应的值，成员是无序的，而且不允许存在两个相同名字的成员（key键相同）</p>
+</blockquote>
+<p><strong>reference doc</strong><br>原文写得非常好。极力推荐看原文（需要科学上网）。这一篇偏向于翻译得不太好的翻译文，翻译不到位~ 英文原意表达的到位感觉找词找不到。也尽力在翻译~ </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/siliconwat/data-structures-in-javascript-1b9aed0ea17c">Thon Ly 原文链接</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/12/33-js-data-structures/" data-id="clb0tk9l40006v4u9e2k94hwe" data-title="33-js-data-structures" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-33-js-pure-function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -116,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="clb0t0bpr000oecu9dazy9ppt" data-title="33-js-pure-function" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="clb0tk9lb000mv4u9gr4j0ij1" data-title="33-js-pure-function" class="article-share-link">Share</a>
       
       
       
@@ -182,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="clb0t0bpo000gecu90vzgcn2w" data-title="33-js-object-create-assign" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="clb0tk9l9000gv4u914o2gsj8" data-title="33-js-object-create-assign" class="article-share-link">Share</a>
       
       
       
@@ -267,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="clb0t0bpn000eecu99pp78aer" data-title="33-js-factories-classes" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="clb0tk9l7000bv4u92o4y5939" data-title="33-js-factories-classes" class="article-share-link">Share</a>
       
       
       
@@ -326,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clb0t0bps000secu9b65x0v5s" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clb0tk9lc000sv4u9fffwdlc5" data-title="33-js-setTimeout-setInterval" class="article-share-link">Share</a>
       
       
       
@@ -394,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clb0t0bp90001ecu9400r41el" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clb0tk9l10002v4u95n98bfy8" data-title="33-js-iife-module-namespace" class="article-share-link">Share</a>
       
       
       
@@ -462,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clb0t0bpl0009ecu9hc2l6zuv" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clb0tk9l60009v4u915i9368j" data-title="33-js-expression-statement" class="article-share-link">Share</a>
       
       
       
@@ -526,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clb0t0bpr000qecu99eor53d0" data-title="33-js-scope" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clb0tk9lb000ov4u91xf8gkhr" data-title="33-js-scope" class="article-share-link">Share</a>
       
       
       
@@ -590,7 +655,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clb0t0bpm000becu9bjxs5l16" data-title="33-js-implicit-coercion-equals" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clb0tk9l8000ev4u9dui2hdyl" data-title="33-js-implicit-coercion-equals" class="article-share-link">Share</a>
       
       
       
@@ -694,7 +759,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clb0t0bpt000wecu9etenhi0b" data-title="33-js-value-types" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clb0tk9ld000uv4u9107t1yq4" data-title="33-js-value-types" class="article-share-link">Share</a>
       
       
       
@@ -708,82 +773,11 @@
 
 
   
-    <article id="post-thoughts-if-you-have-500w-money" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/05/23/thoughts-if-you-have-500w-money/" class="article-date">
-  <time class="dt-published" datetime="2019-05-23T03:31:58.000Z" itemprop="datePublished">2019-05-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/05/23/thoughts-if-you-have-500w-money/">if-i-have-500w-money</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>A sudden whim…… </p>
-</blockquote>
-<h3 id="how-to-spend-my-500w-rmb-…-oh-no…-the-truth-is-so-sad-because-that-i-haven’t-500w-all-is-imagine"><a href="#how-to-spend-my-500w-rmb-…-oh-no…-the-truth-is-so-sad-because-that-i-haven’t-500w-all-is-imagine" class="headerlink" title="how to spend my 500w rmb …(oh no….the truth is so sad because that i haven’t 500w. all is imagine)"></a>how to spend my 500w rmb …(oh no….the truth is so sad because that i haven’t 500w. all is imagine)</h3><h4 id="if-this-question-ask-me-when-i-was-5-years-old"><a href="#if-this-question-ask-me-when-i-was-5-years-old" class="headerlink" title="if this question ask me when i was 5 years old"></a>if this question ask me when i was 5 years old</h4><blockquote>
-<p>ok, i will ask you, 500w rmb is too much? or i want to buy the doll。 anyway, when i was 5 years old, if you ask me the question, mustbe you are something wrong. omg, i am a child ok? i don’t know 100 rmb is what….</p>
-</blockquote>
-<h4 id="if-this-question-ask-me-when-i-was-15-years-old"><a href="#if-this-question-ask-me-when-i-was-15-years-old" class="headerlink" title="if this question ask me when i was 15 years old"></a>if this question ask me when i was 15 years old</h4><blockquote>
-<p>ok, let me see, the time i am study in school, and need money. actually in my 15 yeras old i thought if me have 500w rmb, i will go back home, and never ever go to school, because in that time i think the only reason is in the future i can make money use my study knowledge. and really dislike study. i like watch tv and eat junk food. so i will take the money go home and buy a lot of food and buy l very big tv.</p>
-</blockquote>
-<h4 id="if-this-question-ask-me-when-i-was-20-years-old"><a href="#if-this-question-ask-me-when-i-was-20-years-old" class="headerlink" title="if this question ask me when i was 20 years old"></a>if this question ask me when i was 20 years old</h4><blockquote>
-<p>ok, the time i am in university study. also need mondy, because i want the beautiful closes and the latest iphone and everyday go out to eat and more. in my 20 years old, i am a never think about the future girl. i don’t know how to save the money or make the money growth. i just know how to spend it. en …maybe i will spend 100w rmb buy a house. becuase in the time my roomates sometimes talk about the future she will buy a big hourse and life with her love in the house.</p>
-</blockquote>
-<h4 id="now-i-am-25-years-old-if-you-ask-me-how-to-spend-the-500w-rmb"><a href="#now-i-am-25-years-old-if-you-ask-me-how-to-spend-the-500w-rmb" class="headerlink" title="now i am 25 years old, if you ask me how to spend the 500w rmb"></a>now i am 25 years old, if you ask me how to spend the 500w rmb</h4><ul>
-<li><p>1.i will compute the decuction after tax 20% * 500w &#x3D; 400w</p>
-</li>
-<li><p>2.i will compute my life six month will spend how much ? maybe 5k * 6 &#x3D; 3w . but because i am so happy to won the lottery, i should invite friend. so i will leave 10w rmb to spend. and then push the 10w rmb in 3% found. the found can extract anytime and no poundage.</p>
-</li>
-<li><p>3.now i have 390w, in 2019 years this years hourse prices is not too high in second-tier cities. so i will spend 80w to buy a house in my hometown, because my hometown is second-tier  and the hourse price is lower than a lot of other city. why i buy a hourse is because that the hourse is investement and life. </p>
-</li>
-<li><p>4.and buy house should tax some money, and spend in other way maybe 10w.  and 10w decorate it. so my house will spend 80w + 10w + 10w &#x3D; 100w (all in)</p>
-</li>
-<li><p>5.now i have 390w - 100w &#x3D; 290w. ok now i will spend 10w in my parent, buy some insurance(include medical and some important …) for them. and take them go xinjiang travel.</p>
-</li>
-<li><p>6.now i have 290w - 10w &#x3D; 280w. ok now i will divide the money to 50% 30% 20%, because i really don’t know the stock market， i will spend 50% to buy index found, 30% buy stock market(buy the mi, alibaba, tencent)， 20% financial products。</p>
-</li>
-<li><p>7.ok, and i can work and life with my heart. i believe that i can rich to the old. </p>
-</li>
-<li><p>8.the important !!! i haven’t 500w rmb. so what should i do now??? make money !!! do very very good in work and more thought about the world and the life. althought work is not the only way can make money, but is very important for me. work can realize self value. can make me happy. of cause that money can make me happy, but not the only thing can make me happy. in the same way, i should learn more, just a small target 100w rmb ? now i think of the wangjianlin …. (he said that everyone should set a small goal is make 100million . right now his small goal is my big big big goal)</p>
-</li>
-</ul>
-<p><strong>wish in my 30 years old i can answer this question once again, i can see my mind change and know is my little goal is come true?</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="clb0t0bqx004kecu9bz6j30hx" data-title="if-i-have-500w-money" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -814,9 +808,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -824,9 +818,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/11/28/frp/">frp</a>
+          </li>
         
           <li>
             <a href="/2022/04/08/js-variable/">js-variable</a>
@@ -842,10 +840,6 @@
         
           <li>
             <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/18/tools-npm/">npm-tools</a>
           </li>
         
       </ul>
