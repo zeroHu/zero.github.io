@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ajax 请求参数详情，cache 理解 | zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="url参数详解url的组成部分123456789101112schema:&#x2F;&#x2F;host[:port#]&#x2F;path&#x2F;...&#x2F;[?query-string][#anchor]scheme               指定低层使用的协议(例如：http, https, ftp)host                   HTTP服务器的IP地址或者域名port#                 HTT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax 请求参数详情，cache 理解">
+<meta property="og:url" content="http://example.com/2017/08/18/xml-httpRequest-ajax-detail/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:description" content="url参数详解url的组成部分123456789101112schema:&#x2F;&#x2F;host[:port#]&#x2F;path&#x2F;...&#x2F;[?query-string][#anchor]scheme               指定低层使用的协议(例如：http, https, ftp)host                   HTTP服务器的IP地址或者域名port#                 HTT">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-08-18T07:56:38.000Z">
+<meta property="article:modified_time" content="2022-11-28T09:10:05.126Z">
+<meta property="article:author" content="zero">
+<meta property="article:tag" content="XMLHttpRequest">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-xml-httpRequest-ajax-detail" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/08/18/xml-httpRequest-ajax-detail/" class="article-date">
+  <time class="dt-published" datetime="2017-08-18T07:56:38.000Z" itemprop="datePublished">2017-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ajax 请求参数详情，cache 理解
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="url参数详解"><a href="#url参数详解" class="headerlink" title="url参数详解"></a>url参数详解</h3><h4 id="url的组成部分"><a href="#url的组成部分" class="headerlink" title="url的组成部分"></a>url的组成部分</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">schema://host[:port#]/path/.../[?query-string][#anchor]</span><br><span class="line">scheme               指定低层使用的协议(例如：http, https, ftp)</span><br><span class="line"></span><br><span class="line">host                   HTTP服务器的IP地址或者域名</span><br><span class="line"></span><br><span class="line">port#                 HTTP服务器的默认端口是80，这种情况下端口号可以省略。如果使用了别的端口，必须指明，例如 http://www.cnblogs.com:8080/</span><br><span class="line"></span><br><span class="line">path                   访问资源的路径</span><br><span class="line"></span><br><span class="line">query-string       发送给http服务器的数据</span><br><span class="line"></span><br><span class="line">anchor-             锚</span><br></pre></td></tr></table></figure>
+<h4 id="http是无状态协议"><a href="#http是无状态协议" class="headerlink" title="http是无状态协议"></a>http是无状态协议</h4><h4 id="http-消息结构"><a href="#http-消息结构" class="headerlink" title="http 消息结构"></a>http 消息结构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">request 结构：</span><br><span class="line">1）Request line</span><br><span class="line">2）Request header</span><br><span class="line">3）body</span><br><span class="line"></span><br><span class="line">response 结构：</span><br><span class="line">1）Response line</span><br><span class="line">2）Response header</span><br><span class="line">3）body</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="Request-Header-参数详解"><a href="#Request-Header-参数详解" class="headerlink" title="Request Header 参数详解"></a>Request Header 参数详解</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Cache</span><br><span class="line">    If-Modified-Since: 把浏览器请求时间发给服务器</span><br><span class="line">    Pragma: 防止页面被缓存</span><br><span class="line">        Pargma只有一个用法， 例如： Pragma: no-cache</span><br><span class="line">        注意: 在HTTP/1.0版本中，只实现了Pragema:no-cache</span><br><span class="line">    Cache-Control: 这个是非常重要的规则。 这个用来指定Response-Request遵循的缓存机制。各个指令含义如下</span><br><span class="line">        Cache-Control:Public    可以被任何缓存所缓存（）</span><br><span class="line">        Cache-Control:Private   内容只缓存到私有缓存中</span><br><span class="line">        Cache-Control:no-cache  所有内容都不会被缓存</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Client 头域</span><br><span class="line">    Accept: 浏览器端可以接受的媒体类型</span><br><span class="line">        Accept: */*  代表浏览器可以处理所有类型,(一般浏览器发给服务器都是发这个)</span><br><span class="line">    Accept-Encoding：浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate）</span><br><span class="line">        Accept-Encoding: gzip, deflate</span><br><span class="line">    Accept-Language：浏览器申明自己接收的语言</span><br><span class="line">        Accept-Language: en-us</span><br><span class="line">    User-Agent：告诉HTTP服务器， 客户端使用的操作系统和浏览器的名称和版本</span><br><span class="line">    Accept-Charset：浏览器申明自己接收的字符集，这就是本文前面介绍的各种字符集和字符编码</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Cookie/Login 头域</span><br><span class="line">    Cookie：最重要的header, 将cookie的值发送给HTTP 服务器</span><br><span class="line">    Content-Length：发送给HTTP服务器数据的长度</span><br><span class="line">    Content-Type：发送类型</span><br><span class="line">        Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span><br><span class="line">        Content-Type：application/json;charset=UTF-8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Miscellaneous 头域</span><br><span class="line">    Referer：提供了Request的上下文信息的服务器，告诉服务器我是从哪个链接过来的，比如从我主页上链接到一个朋友那里，他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Transport 头域</span><br><span class="line">    Connection：Connection: keep-alive   当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接</span><br><span class="line">    Connection: close  代表一个Request完成后，客户端和服务器之间用于传输HTTP数据的TCP连接会关闭， 当客户端再次发送Request，需要重新建立TCP连接。</span><br><span class="line">    Host:（发送请求时，该报头域是必需的）请求报头域主要用于指定被请求资源的Internet主机和端口号，它通常从HTTP URL中提取出来的</span><br></pre></td></tr></table></figure>
+<h4 id="HTTP-Response-header"><a href="#HTTP-Response-header" class="headerlink" title="HTTP Response header"></a>HTTP Response header</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Cache头域</span><br><span class="line">    Date: 生成消息的具体时间和日期</span><br><span class="line">    Expires: 浏览器会在指定过期时间内使用本地缓存</span><br><span class="line">    Vary:</span><br><span class="line">        Vary: Accept-Encoding</span><br><span class="line">    Cookie/Login 头域</span><br><span class="line">        P3P:用于跨域设置Cookie, 这样可以解决iframe跨域访问cookie的问题</span><br><span class="line">    Set-Cookie: 非常重要的header, 用于把cookie 发送到客户端浏览器， 每一个写入cookie都会生成一个Set-Cookie.</span><br><span class="line">    Entity头域: ETag作用:  和If-None-Match 配合使用。</span><br><span class="line">    Last-Modified: 用于指示资源的最后修改日期和时间。（实例请看上节的If-Modified-Since的实例）</span><br><span class="line">    Content-Type:WEB服务器告诉浏览器自己响应的对象的类型和字符集</span><br><span class="line">        Content-Type: text/html; charset=utf-8</span><br><span class="line">        Content-Type:text/html;charset=GB2312</span><br><span class="line">        Content-Type: image/jpeg</span><br><span class="line">    Content-Length: 指明实体正文的长度，以字节方式存储的十进制数字来表示。在数据下行的过程中，Content-Length的方式要预先在服务器中缓存所有数据，然后所有数据再一股脑儿地发给客户端。</span><br><span class="line">    Content-Encoding: WEB服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Miscellaneous 头域</span><br><span class="line">    Server:指明HTTP服务器的软件信息</span><br><span class="line">    X-AspNet-Version:如果网站是用ASP.NET开发的，这个header用来表示ASP.NET的版本</span><br><span class="line">    X-Powered-By:表示网站是用什么技术开发的</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Transport头域</span><br><span class="line">    Connection:keep-alive   当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Location头域</span><br><span class="line">    Location: 用于重定向一个新的位置, 包含新的URL地址</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="ajax参数详解"><a href="#ajax参数详解" class="headerlink" title="ajax参数详解"></a>ajax参数详解</h3><h4 id="Content-Type-这个是不区分大小写的，可以写为content-type"><a href="#Content-Type-这个是不区分大小写的，可以写为content-type" class="headerlink" title="Content-Type 这个是不区分大小写的，可以写为content-type"></a>Content-Type 这个是不区分大小写的，可以写为content-type</h4><blockquote>
+<p>用于定义用户的浏览器或相关设备如何显示将要加载的数据，或者如何处理将要加载的数据<br>MIME：MIME类型就是设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开。多用于指定一些客户端自定义的文件名，以及一些媒体文件打开方式。</p>
+</blockquote>
+<h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><ul>
+<li>text&#x2F;plain(默认) 将文件设置为纯文本的形式，浏览器在获取到这种文件时并不会对其进行处理</li>
+<li>application&#x2F;x-www-form-urlencoded 窗体数据被编码为名称&#x2F;值对。这是标准的编码格式</li>
+<li>multipart&#x2F;form-data 窗体数据被编码为一条消息，页上的每个控件对应消息中的一个部分。</li>
+<li>text&#x2F;html 浏览器在获取到这种文件时会自动调用html的解析器对文件进行相应的处理。</li>
+</ul>
+<h4 id="Cache-Control-通用消息头被用于在http-请求和响应中通过指定指令来实现缓存机制。缓存指令是单向的-这意味着在响应里设置的指令，在请求中不用包含相同的指令。"><a href="#Cache-Control-通用消息头被用于在http-请求和响应中通过指定指令来实现缓存机制。缓存指令是单向的-这意味着在响应里设置的指令，在请求中不用包含相同的指令。" class="headerlink" title="Cache-Control 通用消息头被用于在http 请求和响应中通过指定指令来实现缓存机制。缓存指令是单向的, 这意味着在响应里设置的指令，在请求中不用包含相同的指令。"></a>Cache-Control 通用消息头被用于在http 请求和响应中通过指定指令来实现缓存机制。缓存指令是单向的, 这意味着在响应里设置的指令，在请求中不用包含相同的指令。</h4><h4 id="缓存请求指令"><a href="#缓存请求指令" class="headerlink" title="缓存请求指令"></a>缓存请求指令</h4><ul>
+<li>Cache-Control: max-age&#x3D;<seconds></li>
+<li>Cache-Control: max-stale[&#x3D;<seconds>]</li>
+<li>Cache-Control: min-fresh&#x3D;<seconds></li>
+<li>Cache-control: no-cache</li>
+<li>Cache-control: no-store</li>
+<li>Cache-control: no-transform</li>
+<li>Cache-control: only-if-cached</li>
+</ul>
+<h4 id="缓存响应指令："><a href="#缓存响应指令：" class="headerlink" title="缓存响应指令："></a>缓存响应指令：</h4><ul>
+<li>Cache-control: must-revalidate</li>
+<li>Cache-control: no-cache</li>
+<li>Cache-control: no-store</li>
+<li>Cache-control: no-transform</li>
+<li>Cache-control: public</li>
+<li>Cache-control: private</li>
+<li>Cache-control: proxy-revalidate</li>
+<li>Cache-Control: max-age&#x3D;<seconds></li>
+<li>Cache-control: s-maxage&#x3D;<seconds></li>
+</ul>
+<h4 id="缓存解释："><a href="#缓存解释：" class="headerlink" title="缓存解释："></a>缓存解释：</h4><p><code>public</code><br>表明响应可以被任何对象（包括：发送请求的客户端，代理服务器，等等）缓存。<br><code>private</code><br>表明响应只能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。<br><code>no-cache</code><br>强制所有缓存了该响应的缓存用户，在使用已存储的缓存数据前，发送带验证器的请求到原始服务器<br><code>only-if-cached</code><br>表明如果缓存存在，只使用缓存，无论原始服务器数据是否有更新。</p>
+<h4 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/lexus/archive/2012/02/21/2360944.html">参阅文章</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/08/18/xml-httpRequest-ajax-detail/" data-id="clb0n0l23004xssu9bg2p0upw" data-title="ajax 请求参数详情，cache 理解" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/21/xml-httpRequest-fetch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          fetch
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/18/xml-httpRequest/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">XMLHttpRequest</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

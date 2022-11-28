@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>miniApp | zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="miniApp 语言概述小程序官方文档，所有的东西都在里面可以查到，学习小程序之前一定仔细看最少1遍https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;debug&#x2F;wxadoc&#x2F;dev&#x2F;api&#x2F;  结构非常简单，app.js,app.json,app.wxss 公用文件.app.js 公用js，小程序启动检测等方法，app.json 配置，app.js中是公用方法, app.wxss 是公用的样式文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="miniApp">
+<meta property="og:url" content="http://example.com/2017/06/27/wechat-miniapp/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:description" content="miniApp 语言概述小程序官方文档，所有的东西都在里面可以查到，学习小程序之前一定仔细看最少1遍https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;debug&#x2F;wxadoc&#x2F;dev&#x2F;api&#x2F;  结构非常简单，app.js,app.json,app.wxss 公用文件.app.js 公用js，小程序启动检测等方法，app.json 配置，app.js中是公用方法, app.wxss 是公用的样式文">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-06-27T10:30:03.000Z">
+<meta property="article:modified_time" content="2022-11-28T09:10:05.125Z">
+<meta property="article:author" content="zero">
+<meta property="article:tag" content="wechat">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-wechat-miniapp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/06/27/wechat-miniapp/" class="article-date">
+  <time class="dt-published" datetime="2017-06-27T10:30:03.000Z" itemprop="datePublished">2017-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      miniApp
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="miniApp"><a href="#miniApp" class="headerlink" title="miniApp"></a>miniApp</h3><hr>
+<h4 id="语言概述"><a href="#语言概述" class="headerlink" title="语言概述"></a>语言概述</h4><p>小程序官方文档，所有的东西都在里面可以查到，学习小程序之前一定仔细看最少1遍<br><code>https://mp.weixin.qq.com/debug/wxadoc/dev/api/</code></p>
+<blockquote>
+<p>结构非常简单，app.js,app.json,app.wxss 公用文件.app.js 公用js，小程序启动检测等方法，app.json 配置，app.js中是公用方法, app.wxss 是公用的样式文件 css 可以 @import引用别的文件的 ，但是这个app.wxss里面的样式 不用引用都会在每个页面中用到。app.json是配置所有路径的配置，还有tabBar,主体色调等，具体看文档</p>
+</blockquote>
+<hr>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>简洁，非常易上手，有点前端基础的同学，需要1天左右看一下文档就可以直接上项目了</li>
+<li>内置很多方法<br>1:获取微信用户的信息非常的便捷<br>2:比如前端经常用的 下拉刷新，上拉加载更多，首次加载，页面进入后台程序等。小程序生命周期非常的清晰，用来写微信端项目比较好，毕竟微信内webview是被移动端的ie浏览器，相当多的问题，兼容性还有一些新属性不支持，用小程序相对来说比较稳定，而且内置的tabBar非常简洁的配置就能够使用<br>3:不存在跨域问题，只要在小程序配置了服务器地址,就可以用微信内置的wx.request来获取</li>
+<li>相应速度非常快，因为小程序实际上运行的不是js语言，在发布后整体速度很快</li>
+</ul>
+<hr>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>有bug，小程序作为一个比较新的语言存在bug，我目前遇到的就有一个，wx.setNavigationBarTitle 在tabBar中的非首页（eg:）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tabBar</span>:&#123;</span><br><span class="line">	<span class="string">&quot;list&quot;</span>: [&#123;</span><br><span class="line">		    ...</span><br><span class="line">		    <span class="string">&quot;首页&quot;</span></span><br><span class="line">		&#125;, &#123;</span><br><span class="line">		    ...</span><br><span class="line">		    <span class="string">&quot;第二&quot;</span></span><br><span class="line">		&#125;, &#123;</span><br><span class="line">		    ...</span><br><span class="line">		    <span class="string">&quot;第三&quot;</span></span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+的第二或者第三页面中，动态修改标题就存在不能及时的修改标题 需要切换到其他页面后再次切回页面标题才正确显示，面对这样的bug，开发者就只能反馈。。。反馈。。。反馈，因为在小程序中大多数的方法都是官方提供的,这种修改标题的方法遇到bug我只能等着</li>
+<li>template 方法不够灵活，只提供传入输入，渲染模板的功能，如果传入函数是不能执行</li>
+<li>wxml模板不够完善 只能运用length 三元等方法，split，indexOf等这些方法都不能使用</li>
+<li>wxml标签元素太过于单一，虽然我也是认为标签元素其实应该简化，html中有很多标签其实我们都没使用，但是官方只提供了 view text这2个，列表这种也只有用view等来写，我个人感觉标签元素有点太单调了</li>
+</ul>
+<h4 id="TODO-一个人开发小程序断断续续开发了4个，抽个时间做总结的时候到了…"><a href="#TODO-一个人开发小程序断断续续开发了4个，抽个时间做总结的时候到了…" class="headerlink" title="TODO 一个人开发小程序断断续续开发了4个，抽个时间做总结的时候到了….."></a>TODO 一个人开发小程序断断续续开发了4个，抽个时间做总结的时候到了…..</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/06/27/wechat-miniapp/" data-id="clb0n0l22004sssu9357x3q86" data-title="miniApp" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/30/es6-standard/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          es6-standard(es6 标准)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

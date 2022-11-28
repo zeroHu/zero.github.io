@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>websocket-http2-https | zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="了解websocket http2 和 http1 和 https的作用是啥websocket 简单而又不失礼貌的答复是：websocket最大的特点是 服务器可以向客户端发送消息。  其余特点:  也是建立在TCP协议之上的，服务器端比较容易实现。 与http协议有良好的兼容性，默认端口是80和443，并且握手段采用http协议，因此握手时不容易屏蔽，能通过各种http代理服务器。 3）数据格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="websocket-http2-https">
+<meta property="og:url" content="http://example.com/2018/03/09/http-websocket-http2-https/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:description" content="了解websocket http2 和 http1 和 https的作用是啥websocket 简单而又不失礼貌的答复是：websocket最大的特点是 服务器可以向客户端发送消息。  其余特点:  也是建立在TCP协议之上的，服务器端比较容易实现。 与http协议有良好的兼容性，默认端口是80和443，并且握手段采用http协议，因此握手时不容易屏蔽，能通过各种http代理服务器。 3）数据格式">
+<meta property="og:locale">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/335/472/3354729685-59f18143c8c3f_articlex">
+<meta property="article:published_time" content="2018-03-09T06:16:56.000Z">
+<meta property="article:modified_time" content="2022-11-28T09:10:05.114Z">
+<meta property="article:author" content="zero">
+<meta property="article:tag" content="http">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sfault-image.b0.upaiyun.com/335/472/3354729685-59f18143c8c3f_articlex">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-http-websocket-http2-https" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/09/http-websocket-http2-https/" class="article-date">
+  <time class="dt-published" datetime="2018-03-09T06:16:56.000Z" itemprop="datePublished">2018-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      websocket-http2-https
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="了解websocket-http2-和-http1-和-https的作用是啥"><a href="#了解websocket-http2-和-http1-和-https的作用是啥" class="headerlink" title="了解websocket http2 和 http1 和 https的作用是啥"></a>了解websocket http2 和 http1 和 https的作用是啥</h3><h4 id="websocket"><a href="#websocket" class="headerlink" title="websocket"></a>websocket</h4><blockquote>
+<p>简单而又不失礼貌的答复是：websocket最大的特点是 服务器可以向客户端发送消息。</p>
+</blockquote>
+<p>其余特点:</p>
+<ol>
+<li>也是建立在TCP协议之上的，服务器端比较容易实现。</li>
+<li>与http协议有良好的兼容性，默认端口是80和443，并且握手段采用http协议，因此握手时不容易屏蔽，能通过各种http代理服务器。<br> 3）数据格式比较轻量，性能开销小，通信高效<br> 4）可以发送文本，也可以发送二进制数据<br> 5）没有同源限制，客户端可以与任意服务器通话</li>
+<li>协议标识符是 （ws), 如果加密是（wss).服务器网址就是 URL<br><code>wx://example.com:80/some/path</code></li>
+</ol>
+<h5 id="客户端示例代码"><a href="#客户端示例代码" class="headerlink" title="客户端示例代码"></a>客户端示例代码</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let ws = new WebSocket(&#123;&quot;wss://echo.websocket.org&quot;&#125;)</span><br><span class="line">ws.onopen = evt =&gt; &#123;</span><br><span class="line">    console.log(&#x27;======&gt; connection open &lt;=======&#x27;);</span><br><span class="line">    ws.send(&#x27;hello i am from clinet&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">ws.onmessage = evt =&gt; &#123;</span><br><span class="line">    console.log(&#x27;======&gt; receive data is&#x27;, evt.data);</span><br><span class="line">    ws.close()</span><br><span class="line">&#125;</span><br><span class="line">ws.onclose = (evt) =&gt; &#123;</span><br><span class="line">    console.log(&#x27;connection closed&#x27;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="websocket-api-讲解"><a href="#websocket-api-讲解" class="headerlink" title="websocket api 讲解"></a>websocket api 讲解</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let ws = new WebSocket(&#123;&quot;wss://echo.websocket.org&quot;&#125;)</span><br><span class="line">ws.readyState 返回值</span><br><span class="line">    0: CONNETCTING 正在连接</span><br><span class="line">    1: OPEN 连接成功</span><br><span class="line">    2: CLOSING 正在关闭</span><br><span class="line">    3: CLOSED 关闭成功</span><br><span class="line"></span><br><span class="line">ws.onopen 用于指定连接成功后的回调函数</span><br><span class="line">ws.onclose 用于指定连接关闭后的回调函数</span><br><span class="line">ws.onmessage 用于指定收到服务器数据后的回调函数</span><br><span class="line">ws.send()  用于向服务器发送数据</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="websocket-服务器端代码实现"><a href="#websocket-服务器端代码实现" class="headerlink" title="websocket 服务器端代码实现"></a>websocket 服务器端代码实现</h5><blockquote>
+<p>给个代码实现链接吧： <a target="_blank" rel="noopener" href="https://github.com/joewalnes/websocketd/tree/master/examples">示例代码</a>    <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/05/websocket.html">阮老师文章链接</a></p>
+</blockquote>
+<h4 id="http-协议"><a href="#http-协议" class="headerlink" title="http 协议"></a>http 协议</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/HTTP.md">好文推荐</a></p>
+</blockquote>
+<h5 id="HTTP是如何建立连接的"><a href="#HTTP是如何建立连接的" class="headerlink" title="HTTP是如何建立连接的"></a>HTTP是如何建立连接的</h5><p><img src="https://sfault-image.b0.upaiyun.com/335/472/3354729685-59f18143c8c3f_articlex" alt="http协议"></p>
+<h5 id="发送一条HTTP请求会发生什么"><a href="#发送一条HTTP请求会发生什么" class="headerlink" title="发送一条HTTP请求会发生什么"></a>发送一条HTTP请求会发生什么</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">获取主机名，例如：http://www.example.com</span><br><span class="line">通过DNS获取服务器IP</span><br><span class="line">获取端口，默认是80端口</span><br><span class="line">连接到 112.23.59.223:80服务器 （这里其实是TCP连接）</span><br><span class="line">通过TCP信道发送一个HTTP请求</span><br><span class="line">服务器读取一个HTTP请求</span><br><span class="line">服务器查找所需资源并通过TCP信道返回资源</span><br><span class="line">关闭TCP连接</span><br></pre></td></tr></table></figure>
+
+<h4 id="http2"><a href="#http2" class="headerlink" title="http2"></a>http2</h4><p>我理解就这下面这几句，具体可以参考 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/08/http.html">阮老师的文章</a></p>
+<blockquote>
+<p>1.头信息压缩<br>  2.支持服务器推送 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/03/http2_server_push.html">阮老师写的</a><br>  3.对同时连接数量不限制</p>
+</blockquote>
+<h4 id="https"><a href="#https" class="headerlink" title="https"></a>https</h4><p>感觉太弱了，字都认识，在一起有点懵，<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html">阮老师链接</a><br>我的自我总结就下面一句话[尴尬]</p>
+<blockquote>
+<p>我的理解是在http协议上新增 SSL&#x2F;TLS 协议，加密保证内容的安全</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="clb0n0l1k002vssu9647g7ln1" data-title="websocket-http2-https" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/14/regexp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          regular expressions(正则表达式)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/02/08/xml-httpRequest-ajax-http-body/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">ajax-http-body</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="zeroBlog">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:locale">
+<meta property="article:author" content="zero">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-css-other" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/04/03/css-other/" class="article-date">
+  <time class="dt-published" datetime="2018-04-03T14:41:06.000Z" itemprop="datePublished">2018-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/04/03/css-other/">css-other</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="css-杂记"><a href="#css-杂记" class="headerlink" title="css 杂记"></a>css 杂记</h3><h4 id="font-family-和-font-weight的关系"><a href="#font-family-和-font-weight的关系" class="headerlink" title="font-family 和 font-weight的关系"></a>font-family 和 font-weight的关系</h4><h5 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a>font-weight</h5><blockquote>
+<p><font color="red">值的取值:</font>「font-weight」的取值范围 normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | inherit</p>
+</blockquote>
+<blockquote>
+<p><font color="red">normal bold 定义: </font>CSS 2.1 中规定 normal 等价于 400，bold 等价于 700</p>
+</blockquote>
+<blockquote>
+<p><font color="red">font-weight 定义的作用:</font> font-weight,不是告诉浏览器用多<strong>重</strong>的颜色来绘制文字。而是告诉浏览器<strong>在font-family匹配到一个字体集合中如何继续匹配字重要求的字体</strong></p>
+</blockquote>
+<p>值对应的字体</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">100 - Thin</span><br><span class="line">200 - Extra Light (Ultra Light)</span><br><span class="line">300 - Light</span><br><span class="line">400 - Normal</span><br><span class="line">500 - Medium</span><br><span class="line">600 - Semi Bold (Demi Bold)</span><br><span class="line">700 - Bold</span><br><span class="line">800 - Extra Bold (Ultra Bold)</span><br><span class="line">900 - Black (Heavy)</span><br></pre></td></tr></table></figure>
+<p>在某字体族真的给出那么多字重的字体时，每个数值对应的字体自重效果都是不同的，400 和 500 的差别就体现出来了。</p>
+<h5 id="font-family"><a href="#font-family" class="headerlink" title="font-family"></a>font-family</h5><blockquote>
+<p>CSS属性font-family允许您通过给定一个有先后顺序的，由字体名或者字体族名组成的列表来为选定的元素设置字体。 属性的值用逗号隔开。浏览器会选择列表中第一个该计算机上有安装的字体，或者是通过 @font-face 指定的可以直接下载的字体。</p>
+</blockquote>
+<p>语法说明</p>
+<ul>
+<li>系统将选择列表中最先可用的字体来显示文字;</li>
+<li>因为规则1，通常在最末添加一个 generic-family 字体系列名，保证文字获得相似的显示效果;</li>
+<li>因为规则1，西文字体名应该写在中文字体前，这样才能中英文同时使用不同字体;</li>
+<li>字体名为中文或包含空格等时，需要加双引号””才能正确识别;</li>
+<li>中文字体建议也是用其对应英文字体名，如”微软雅黑”为”Microsoft YaHei”，以提高编码兼容性。</li>
+</ul>
+<h5 id="font-face-浏览器支持"><a href="#font-face-浏览器支持" class="headerlink" title="@font-face 浏览器支持"></a>@font-face 浏览器支持</h5><blockquote>
+<p><a target="_blank" rel="noopener" href="http://w3help.org/zh-cn/causes/RF1001">查看文档</a></p>
+</blockquote>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-fonts-3/#font-weight-prop">w3</a><br>  <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20352846">知乎大神顾轶灵</a></p>
+</blockquote>
+<h5 id="好文推荐"><a href="#好文推荐" class="headerlink" title="好文推荐"></a>好文推荐</h5><blockquote>
+<p><a target="_blank" rel="noopener" href="http://justineo.github.io/slideshows/font/#/">font</a></p>
+</blockquote>
+<h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><blockquote>
+<p>浮动元素和绝对定位元素，非块级盒子的块级容器（inline-blocks, table-cells, 和 table-captions）以及overflow不为visiable的块级盒子，都会为他们的内容创建新的BFC</p>
+</blockquote>
+<h5 id="创建BFC的方式"><a href="#创建BFC的方式" class="headerlink" title="创建BFC的方式"></a>创建BFC的方式</h5><ul>
+<li>元素的<code>float</code> 不是 <code>none</code></li>
+<li>元素的<code>postion</code>值是<code>absolute</code>或<code>fixed</code></li>
+<li>元素的<code>display</code>值是<code>inline-block</code> || <code>table-cell</code>(HTML表格单元格默认为该值) || <code>table-caption</code>(HTML表格标题默认为该值) || <code>flow-root</code></li>
+<li><code>overflow</code>不为<code>visible</code>的块元素</li>
+<li>弹性元素 (<code>display</code> 为 <code>flex</code> 或 <code>inline-flex</code>元素的直接子元素)</li>
+<li>网格元素 (<code>display</code> 为 <code>grid</code> 或 <code>inline-grid</code> 元素的直接子元素)</li>
+</ul>
+<p><strong><font color="pink">创建了块格式化上下文的元素中的所有内容都会被包含到该BFC中</font>, <font>BFC中的元素的布局是不受外界的影响</font></strong></p>
+<h5 id="BFC特性"><a href="#BFC特性" class="headerlink" title="BFC特性"></a>BFC特性</h5><ul>
+<li>BFC内部BOX会在垂直方向，从顶部开始一个一个的放置</li>
+<li>BFC内Box垂直方向的距离由margin决定，属于同一个BFC两个相邻的BOXmargin会发生叠加</li>
+<li>BFC区域不会与float BOX叠加</li>
+<li>BFC是页面上一个独立的容器，里面的元素不会受到外面的影响，反之亦然。</li>
+<li>计算BFC高度的时候，浮动元素也会参与计算。</li>
+</ul>
+<h5 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h5><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html">深入理解</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context">MDN</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/04/03/css-other/" data-id="clb0n0l19001yssu960ragfn2" data-title="css-other" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-closures-anonymous-function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/29/33-js-closures-anonymous-function/" class="article-date">
+  <time class="dt-published" datetime="2018-03-29T09:58:56.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/29/33-js-closures-anonymous-function/">33-js-closures-anonymous-function</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="闭包和匿名函数的区别和关系，使用场景"><a href="#闭包和匿名函数的区别和关系，使用场景" class="headerlink" title="闭包和匿名函数的区别和关系，使用场景"></a>闭包和匿名函数的区别和关系，使用场景</h3><h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><blockquote>
+<p><font color="blue">就是在一个函数内部创建另一个函数。或者说闭包是函数的嵌套，就是内层的函数可以访问外层函数的所有变量，即使外层函数已经执行完毕（涉及到javascript的作用域链）【忘了谁的博客】</font><br><font color="#ff9090">闭包就是当一个函数即使是在它的词法作用域外被调用时，也可以记住并访问它的词法作用域。【you don’t know js】</font><br><font color="red">闭包指的是有权访问另一个函数作用域中的变量 【js 高程】</font><br><font color="#333">a closure is the combination of a function and the lexical environment within which that function was declared. and i’m sure that you have use closure in your code everywhere. maybe you don’t know that but it’s obvious. </font>【MDN】</p>
+</blockquote>
+<h4 id="closure-code-and-what-happened"><a href="#closure-code-and-what-happened" class="headerlink" title="closure code and what happened"></a>closure code and what happened</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">createCounter</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> counter = <span class="number">0</span></span><br><span class="line">    <span class="keyword">const</span> myFunction = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        counter = counter + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> counter</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> myFunction</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> increment = <span class="title function_">createCounter</span>()</span><br><span class="line"><span class="keyword">const</span> c1 = <span class="title function_">increment</span>()</span><br><span class="line"><span class="keyword">const</span> c2 = <span class="title function_">increment</span>()</span><br><span class="line"><span class="keyword">const</span> c3 = <span class="title function_">increment</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;example increment&#x27;</span>, c1, c2, c3)</span><br></pre></td></tr></table></figure>
+<p>Now that we got the hang of it from the previous two examples, let’s zip through the execution of this, as we expect it to run.</p>
+<ul>
+<li>Lines 1–8. We create a new variable createCounter in the global execution context and it get’s assigned function definition. Same as above.</li>
+<li>Line 9. We declare a new variable named increment in the global execution context. Same as above.</li>
+<li>Line 9 again. We need call the createCounter function and assign its returned value to the increment variable. Same as above.</li>
+<li>Lines 1–8 . Calling the function. Creating new local execution context. Same as above.</li>
+<li>Line 2. Within the local execution context, declare a new variable named counter. Number 0 is assigned to counter. Same as above.</li>
+<li>Line 3–6. Declaring new variable named myFunction. The variable is declared in the local execution context. The content of the variable is yet another function definition. As defined in lines 4 and 5. Now we also create a closure and include it as part of the function definition. The closure contains the variables that are in scope, in this case the variable counter (with the value of 0).</li>
+<li>Line 7. Returning the content of the myFunction variable. Local execution context is deleted. myFunction and counter no longer exist. Control is returned to the calling context. So we are returning the function definition and its closure, the backpack with the variables that were in scope when it was created.</li>
+<li>Line 9. In the calling context, the global execution context, the value returned by createCounter is assigned to increment. The variable increment now contains a function definition (and closure). The function definition that was returned by createCounter. It is no longer labeled myFunction, but it is the same definition. Within the global context, it is called increment.</li>
+<li>Line 10. Declare a new variable (c1).</li>
+<li>Line 10 (continued). Look up the variable increment, it’s a function, call it. It contains the function definition returned from earlier, as defined in lines 4–5. (and it also has a backpack with variables)</li>
+<li>Create a new execution context. There are no parameters. Start execution the function.</li>
+<li>Line 4. counter &#x3D; counter + 1. We need to look for the variable counter. Before we look in the local or global execution context, let’s look in our backpack. Let’s check the closure. Lo and behold, the closure contains a variable named counter, its value is 0. After the expression on line 4, its value is set to 1. And it is stored in the backpack again. The closure now contains the variable counter with a value of 1.</li>
+<li>Line 5. We return the content of counter, or the number 1. We destroy the local execution context.</li>
+<li>Back to line 10. The returned value (1) gets assigned to c1.</li>
+<li>Line 11. We repeat steps 10–14. This time, when we look at our closure, we see that the counter variable has a value of 1. It was set in step 12 or line 4 of the program. Its value gets incremented and stored as 2 in the closure of the increment function. And c2 gets assigned 2.</li>
+<li>Line 12. We repeat steps 10–14, c3 gets assigned 3.</li>
+<li>Line 13. We log the content of variables c1, c2 and c3.</li>
+</ul>
+<p><strong>the closure is a collection of all the variables in scope at the time of createion of the function</strong></p>
+<h5 id="典型的闭包示例"><a href="#典型的闭包示例" class="headerlink" title="典型的闭包示例"></a>典型的闭包示例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">&quot;global scope&quot;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">checkscope</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">&quot;local scope&quot;</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> scope;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="title function_">checkscope</span>();</span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 分析一下</span></span><br><span class="line"><span class="variable constant_">ES</span> = [globalContext, checkscopeContext, fContext]</span><br><span class="line">fContext.<span class="property">scope</span> = [<span class="variable constant_">AO</span>, checkscopeContext.<span class="property">AO</span>, globalContext.<span class="property">VO</span>]</span><br></pre></td></tr></table></figure>
+<h5 id="闭包解决之难题"><a href="#闭包解决之难题" class="headerlink" title="闭包解决之难题"></a>闭包解决之难题</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 闭包只能取得包含函数中任何变量的最 后一个值</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">jisu</span> () &#123;</span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i =<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">        result[i] = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    result[<span class="number">8</span>](); <span class="comment">//10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 改成能够实现的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">jisu</span> () &#123;</span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;<span class="number">10</span>;i++) &#123;</span><br><span class="line">        result[i] = <span class="keyword">function</span> (<span class="params">num</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;(i)</span><br><span class="line">    &#125;</span><br><span class="line">    result[<span class="number">8</span>](); <span class="comment">//8</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 闭包写外面</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">jisu</span> () &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params">i</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">        result[i] = <span class="title function_">test</span>(i)</span><br><span class="line">    &#125;</span><br><span class="line">    result[<span class="number">8</span>](); <span class="comment">//8</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><blockquote>
+<p>javascript中最灵活的一种对象，最简单的理解就是：没有名字的函数</p>
+</blockquote>
+<h5 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;something&#x27;</span>)</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;other&#x27;</span>)</span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure>
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/9">参考地址</a><br><a target="_blank" rel="noopener" href="https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8">dailyjs clousure 特别好的文！必看</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">MDN</a><br><a target="_blank" rel="noopener" href="https://zh.javascript.info/closure">jsinfo</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/29/33-js-closures-anonymous-function/" data-id="clb0n0l0u000bssu9clx40151" data-title="33-js-closures-anonymous-function" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-prototype-proto" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/29/33-js-prototype-proto/" class="article-date">
+  <time class="dt-published" datetime="2018-03-29T03:08:53.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/29/33-js-prototype-proto/">33-js-prototype and __proto__</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="prototype和-proto"><a href="#prototype和-proto" class="headerlink" title="prototype和__proto__"></a>prototype和__proto__</h3><blockquote>
+<p><code>__proto__ </code>(隐式原型) ， <code>prototype</code>(显示原型)</p>
+</blockquote>
+<h4 id="protype-显示原型"><a href="#protype-显示原型" class="headerlink" title="protype (显示原型)"></a><code>protype</code> (显示原型)</h4><blockquote>
+<p><font color="red">只有函数有prototype属性</font>，每一个函数在创建之后都会拥有一个prototype属性。这个属性指向函数的原型对象。（Function.prototype.bind方法构造的函数除外）</p>
+</blockquote>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><blockquote>
+<p>用来实现基于原型的继承和属性的共享</p>
+</blockquote>
+<h4 id="proto-隐式原型"><a href="#proto-隐式原型" class="headerlink" title="__proto__ (隐式原型)"></a><code>__proto__</code> (隐式原型)</h4><blockquote>
+<p>javascript中任意对象（null除外）都有一个内置属性，prototype，es5之前没有标准的方法，但是大多数浏览器支持<code>__proto__</code>来访问，或者用ES5的<code>Object.getPrototypeOf()</code></p>
+</blockquote>
+<h5 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h5><blockquote>
+<p>构成原型链，同样用于实现基于原型的继承。eg:当我们obj.x 的时候如果再obj中找不到，就会沿着<code>__proto__</code>接着找</p>
+</blockquote>
+<h5 id="指向"><a href="#指向" class="headerlink" title="指向"></a><font color="red">指向</font></h5><blockquote>
+<p><font color="red"><code>__proto__</code>指向创建这个对象的函数的显式原型。</font></p>
+</blockquote>
+<h4 id="prototpye-和-proto-关系"><a href="#prototpye-和-proto-关系" class="headerlink" title="prototpye 和 __proto__ 关系"></a><code>prototpye</code> 和 <code>__proto__</code> 关系</h4><blockquote>
+<p><code>__proto__</code>指向<strong>创建</strong>这个对象的函数的<code>prototype</code></p>
+</blockquote>
+<h4 id="几个重要点"><a href="#几个重要点" class="headerlink" title="几个重要点"></a>几个重要点</h4><ul>
+<li>js万物皆对象，方法（function）是对象，方法的原型（Function.prototype）是对象，对象都具有<code>__proto__</code>,一个对象的隐式原型指向构造该对象的构造函数的原型</li>
+<li>方法是一个特殊的对象，除了和其他对象一样拥有<code>__proto__</code>属性以外，还有自己独特的属性(原型<code>prototype</code>),这个属性是一个指针，指向一个对象，这个对象的用途是<font color="red">包含所有实例共享的属性和方法，我们把这个对象叫做<font color="green">原型对象</font></font></li>
+</ul>
+<h4 id="终极大图"><a href="#终极大图" class="headerlink" title="终极大图"></a>终极大图</h4><p><img src="http://www.zeroyh.cn/images/prototype.jpg" alt="proto关系图"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/29/33-js-prototype-proto/" data-id="clb0n0l0y000mssu912du05ap" data-title="33-js-prototype and __proto__" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-this" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/28/33-js-this/" class="article-date">
+  <time class="dt-published" datetime="2018-03-28T07:34:57.000Z" itemprop="datePublished">2018-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/28/33-js-this/">this</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><h4 id="ES5-this"><a href="#ES5-this" class="headerlink" title="ES5 this"></a>ES5 this</h4><blockquote>
+<p><font color="red"><strong>function被作为method调用时，this指向调用对象。</strong></font></p>
+</blockquote>
+<h5 id="默认绑定，也就是直接调用前面不带任何对象-eg-test-function"><a href="#默认绑定，也就是直接调用前面不带任何对象-eg-test-function" class="headerlink" title="默认绑定，也就是直接调用前面不带任何对象 eg: test(), (function() {})()"></a><font color="#0099ff">默认绑定</font>，也就是直接调用前面不带任何对象 eg: test(), (function() {})()</h5><blockquote>
+<p>其实这种可以看为是 <code>Global.test()</code> <code>Global.(function() &#123;&#125;)()</code> 所以调用对象可以看为Global 如果再浏览器就是window</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">alert</span>(x); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="作为对象的方法被调用"><a href="#作为对象的方法被调用" class="headerlink" title="作为对象的方法被调用"></a>作为<font color="#0099ff">对象的方法</font>被调用</h5><blockquote>
+<p>函数作为对象里面的某个方法，被调用的时候，这时的this指向上级对象。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span> () &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">&#125;</span><br><span class="line">o.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h5 id="作为构造函数被调用"><a href="#作为构造函数被调用" class="headerlink" title="作为构造函数被调用"></a>作为<font color="#0099ff">构造函数</font>被调用</h5><blockquote>
+<p>所谓构造函数其实就是，通过这个函数生成一个新的对象，this指向这个对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> test1 = <span class="keyword">new</span> <span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">alert</span>(test1.<span class="property">x</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="title function_">alert</span>(x); <span class="comment">// 1 证明this 不是window  如果是window 就是2</span></span><br></pre></td></tr></table></figure>
+<h5 id="call-调用-或者-apply-调用"><a href="#call-调用-或者-apply-调用" class="headerlink" title="call()调用 或者 apply()调用"></a><font color="#0099ff">call()调用 或者 apply()调用</font></h5><blockquote>
+<p><code>apply</code>和<code>call</code>是函数对象的一个方法，它的作用是改变函数的调用对象，它的第一个参数就表示改变后调用这个函数的对象。所以 <code>this</code>指的是第一个对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span> () &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">x</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.<span class="property">x</span> = <span class="number">3</span>;</span><br><span class="line">o.<span class="property">fn</span>.<span class="title function_">apply</span>(); <span class="comment">// 1</span></span><br><span class="line">o.<span class="property">fn</span>.<span class="title function_">call</span>(obj); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="当调用点适合上面4中规则的时候，优先级处理"><a href="#当调用点适合上面4中规则的时候，优先级处理" class="headerlink" title="当调用点适合上面4中规则的时候，优先级处理"></a>当调用点适合上面4中规则的时候，<font color="#0099ff">优先级处理</font></h5><ul>
+<li>第一优先级: <strong>new 构造函数</strong></li>
+<li>第二优先级: <strong>call apply</strong></li>
+<li>第三优先级: <strong>对象的方法</strong></li>
+<li>第四优先级: <strong>默认绑定</strong></li>
+</ul>
+<h4 id="ES6-this"><a href="#ES6-this" class="headerlink" title="ES6 this"></a>ES6 this</h4><blockquote>
+<p><font color="red"><strong>箭头函数es6 内部的this指向，是由上下文决定</strong></font></p>
+</blockquote>
+<h5 id="栗子证明"><a href="#栗子证明" class="headerlink" title="栗子证明"></a>栗子证明</h5><p>这个是 es5 的this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;i am window&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="string">&#x27;i am o&#x27;</span></span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// &#x27;i am window&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>es5 的setTimeout 函数里面的this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    <span class="attr">fn</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(o.<span class="property">fn</span>, <span class="number">1000</span>); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 为什么会出现这种情况呢? setTimeout(function()&#123;&#125;, time)</span></span><br><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="keyword">var</span> sfn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(sfn, <span class="number">1000</span>);<span class="comment">// 所以成了默认绑定，是window</span></span><br><span class="line"><span class="comment">// 如何才能让输出 ‘1’呢</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    o.<span class="title function_">fn</span>()</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="built_in">setTimeout</span>(o.<span class="property">fn</span>.<span class="title function_">bind</span>(o))</span><br></pre></td></tr></table></figure>
+<p>这个是es6的this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;i am window&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="title function_">foo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="string">&#x27;i am o&#x27;</span></span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// &#x27;i am o&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/28/33-js-this/" data-id="clb0n0l10000sssu95ju8eopr" data-title="this" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-canvas-html2canvas" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/27/canvas-html2canvas/" class="article-date">
+  <time class="dt-published" datetime="2018-03-27T03:25:19.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/27/canvas-html2canvas/">html2canvas</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="html2canvas"><a href="#html2canvas" class="headerlink" title="html2canvas"></a>html2canvas</h3><blockquote>
+<p>小记： 神器 html2canvas记，是有这么个需求，需要生成一个新闻卡片，然后如果直接用canvas画的情况呢，比较复杂，文本内容需要分段而且还需要控制字数，直接用html，css来写呢就会非常的便捷了，众里寻他千百度。蓦然回首，那人却在，<a target="_blank" rel="noopener" href="http://html2canvas.hertzen.com/getting-started/">html2canvas</a>。使用版本记录：html2canvas 1.0.0-alpha.10</p>
+</blockquote>
+<h4 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line"><span class="comment">// 这段就是将你要绘制额的html ID 绘制成 canvas</span></span><br><span class="line"><span class="title function_">html2canvas</span>(<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#share-box-img&quot;</span>), &#123; <span class="attr">canvas</span>: canvas &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">canvas</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> base64Image = canvas.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/png&#x27;</span>);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(canvas);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 这个是绘制整个页面 x,y 是坐标 可以用jq 的position().x positon().y获取， width height 是canvas的宽高</span></span><br><span class="line"><span class="title function_">html2canvas</span>(<span class="variable language_">document</span>.<span class="property">body</span>, &#123; <span class="attr">x</span>: x, <span class="attr">y</span>: y, <span class="attr">width</span>: width, <span class="attr">height</span>: height &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">canvas</span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(canvas);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>目前还不支持部分css3 属性，我自己测试中不兼容的属性有 box-shadow, css 超出行用…表示</li>
+<li>如果绘制的img中图片的地址是 非本域名的 需要添加 <code>useCORS: true</code>才能绘制出来</li>
+<li>scale 是可以设置缩放比例的</li>
+</ul>
+<h4 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://html2canvas.hertzen.com/configuration">参数配置地址</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>async</td>
+<td>true</td>
+<td>是否异步解析和渲染元素</td>
+</tr>
+<tr>
+<td>allowTaint</td>
+<td>false</td>
+<td>是否允许跨域的图像渲染到canvas上</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>#ffffff</td>
+<td>canvas的背景色，如果是<code>none</code>就是dom上的，如果设置为<code>null</code>就是<code>transparent</code>透明</td>
+</tr>
+<tr>
+<td>canvas</td>
+<td>null</td>
+<td>如果传入canvas就用已经存在的在那基础上再绘制</td>
+</tr>
+<tr>
+<td>foreignObjectRendering</td>
+<td>false</td>
+<td>如果浏览器支持，是否使用ForeignObject呈现</td>
+</tr>
+<tr>
+<td>imageTimeout</td>
+<td>15000</td>
+<td>设置image的超时时间，设置<code>0</code>禁止超时</td>
+</tr>
+<tr>
+<td>ignoreElements</td>
+<td>(element) &#x3D;&gt; false</td>
+<td>Predicate function which removes the matching elements from the render（翻译无能）</td>
+</tr>
+<tr>
+<td>logging</td>
+<td>true</td>
+<td>启用日志记录以进行调试</td>
+</tr>
+<tr>
+<td>onclone</td>
+<td>null</td>
+<td>Callback function which is called when the Document has been cloned for rendering, can be used to modify the contents that will be rendered without affecting the original source document（翻译无能）</td>
+</tr>
+<tr>
+<td>proxy</td>
+<td>null</td>
+<td><code>proxy</code>被用来加载跨域的图像，如果设置为空，跨域的图像将不被加载</td>
+</tr>
+<tr>
+<td>removeContainer</td>
+<td>true</td>
+<td>是否清除html2canvas暂时创建的dom结构</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>window.devicePixelRatio</td>
+<td>渲染的时候的缩放倍数，默认是<code>window.devicePixelRatio</code></td>
+</tr>
+<tr>
+<td>useCORS</td>
+<td>false</td>
+<td>是否尝试从服务器跨域加载图片</td>
+</tr>
+<tr>
+<td>width</td>
+<td>element width</td>
+<td>canvas 宽</td>
+</tr>
+<tr>
+<td>height</td>
+<td>element height</td>
+<td>canvas 高</td>
+</tr>
+<tr>
+<td>x</td>
+<td>element x-offset</td>
+<td>x坐标</td>
+</tr>
+<tr>
+<td>y</td>
+<td>element y-offset</td>
+<td>y坐标</td>
+</tr>
+<tr>
+<td>scrollX</td>
+<td>element scrollX</td>
+<td>用于element使用了<code>position:fixed</code></td>
+</tr>
+<tr>
+<td>scrollY</td>
+<td>element scrollY</td>
+<td>用于element使用了<code>position:fixed</code></td>
+</tr>
+<tr>
+<td>windowWidth</td>
+<td>Window.innerWidth</td>
+<td>用于使用 media query 改变大小的时候</td>
+</tr>
+<tr>
+<td>windowHeight</td>
+<td>Window.innerHeight</td>
+<td>用于使用media query 改变大小的时候</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/27/canvas-html2canvas/" data-id="clb0n0l15001cssu9cl1men8p" data-title="html2canvas" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other-how-browser-works" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/27/other-how-browser-works/" class="article-date">
+  <time class="dt-published" datetime="2018-03-27T03:16:46.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/27/other-how-browser-works/">how-browser-works</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="图解browser-work"><a href="#图解browser-work" class="headerlink" title="图解browser work"></a>图解browser work</h3><h4 id="当你向浏览器地址栏输入http-www-google-com会发生什么呢"><a href="#当你向浏览器地址栏输入http-www-google-com会发生什么呢" class="headerlink" title="当你向浏览器地址栏输入http://www.google.com会发生什么呢"></a>当你向浏览器地址栏输入<a target="_blank" rel="noopener" href="http://www.google.com会发生什么呢/">http://www.google.com会发生什么呢</a></h4><ul>
+<li>Resolve DNS</li>
+<li>Request Page</li>
+<li>Tokenize the response</li>
+<li>Parse HTML</li>
+<li>Build Dom tree</li>
+<li>Build Render tree</li>
+<li>Layout the Render tree</li>
+<li>Painting</li>
+</ul>
+<h4 id="Dns-LookUp"><a href="#Dns-LookUp" class="headerlink" title="Dns LookUp"></a>Dns LookUp</h4><blockquote>
+<p>输入的域名 -&gt; 本地DNS服务器 -&gt; 根DNS服务器 -&gt; 本地域名服务器将ip发送到客户端主机</p>
+</blockquote>
+<p><img src="http://upload.zeroyh.cn/dns-look.jpg" alt="原理图"></p>
+<h4 id="Request-a-Page"><a href="#Request-a-Page" class="headerlink" title="Request a Page"></a>Request a Page</h4><blockquote>
+<p>请求回来的二进制数据 -&gt; 解析为字符 -&gt; 解析成dom</p>
+</blockquote>
+<p><img src="http://upload.zeroyh.cn/request-page.jpg" alt="原理图"></p>
+<h4 id="PARSE-RENDER-LAYOUT-amp-PAINT"><a href="#PARSE-RENDER-LAYOUT-amp-PAINT" class="headerlink" title="PARSE, RENDER, LAYOUT &amp; PAINT"></a>PARSE, RENDER, LAYOUT &amp; PAINT</h4><blockquote>
+<p>解析html为dom 树结构(parsing html to construct the dom tree) -&gt; 渲染树结构(render tree construction) -&gt; 将结构布局到位置上(layout of the render tree) -&gt; 绘制GUI整个结构(painting the render tree)</p>
+</blockquote>
+<p>render tree: DOM TREE + CSS &#x3D;&#x3D; RENDER TREE<br><img src="http://upload.zeroyh.cn/render.jpg" alt="layout 图解"></p>
+<h4 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://arvindr21.github.io/howBrowserWorks/#/">http://arvindr21.github.io/howBrowserWorks/#/</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/27/other-how-browser-works/" data-id="clb0n0l1x0045ssu9btbh0nwg" data-title="how-browser-works" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/other/" rel="tag">other</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-css-weights" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/21/css-weights/" class="article-date">
+  <time class="dt-published" datetime="2018-03-21T08:28:54.000Z" itemprop="datePublished">2018-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/21/css-weights/">css-weights</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS-权重"><a href="#CSS-权重" class="headerlink" title="CSS 权重"></a>CSS 权重</h3><blockquote>
+<p>权重决定了css规则怎样被浏览器解析到生效，即你的css规则是如何被显示的</p>
+</blockquote>
+<h4 id="权重之比"><a href="#权重之比" class="headerlink" title="权重之比"></a>权重之比</h4><p><strong>!important &gt; 内联 &gt; ID &gt; 类 &#x3D; 伪类 &#x3D; 属性 &gt; 标签(元素) &#x3D; 伪元素 &gt; 通配符</strong></p>
+<p><strong>名词解释</strong></p>
+<p>名词 | 举例解释 | 权重值<br>——–|—————-<br>内联 | html文档中的定义的sytle, style&#x3D;”color:red” | 1000<br>ID | 元素的一种标识，#div | 100<br>类&#x2F;伪类&#x2F;属性 | .class &#x2F; :hover 或者 :focus &#x2F; p[class~&#x3D;”important”] | 10<br>元素&#x2F;伪元素 | div,p,a &#x2F; ::after,::before,::first-letter,::first-line,::selecton | 1</p>
+<h4 id="权重数量叠加"><a href="#权重数量叠加" class="headerlink" title="权重数量叠加"></a>权重数量叠加</h4><ul>
+<li><code>行内样式</code> + 1000</li>
+<li>ID + 100</li>
+<li>类 | 伪类 | 属性 +10</li>
+<li>元素 | 伪元素 +1</li>
+</ul>
+<h4 id="权重计算"><a href="#权重计算" class="headerlink" title="权重计算"></a>权重计算</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> <span class="selector-id">#content</span> <span class="selector-class">.data</span> <span class="selector-tag">img</span><span class="selector-pseudo">:hover</span></span><br></pre></td></tr></table></figure>
+<p><strong>body +1, #content +100, .data +10, img +1, :hover +10  最后是0122</strong></p>
+<h4 id="几条规则"><a href="#几条规则" class="headerlink" title="几条规则"></a>几条规则</h4><ul>
+<li>同样权重的，以最后一个为样式</li>
+<li>不同权重的，权重高生效</li>
+<li>**慎重用 !important **这样会破坏权重规则</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.w3cplus.com/css/css-specificity-things-you-should-know.html">本文参考链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/21/css-weights/" data-id="clb0n0l1b0023ssu9hor7erzw" data-title="css-weights" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-regexp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/14/regexp/" class="article-date">
+  <time class="dt-published" datetime="2018-03-14T03:02:20.000Z" itemprop="datePublished">2018-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/14/regexp/">regular expressions(正则表达式)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一些经常用的正则表达式"><a href="#一些经常用的正则表达式" class="headerlink" title="一些经常用的正则表达式"></a>一些经常用的正则表达式</h3><h4 id="时间校验正则表达式"><a href="#时间校验正则表达式" class="headerlink" title="时间校验正则表达式"></a>时间校验正则表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">YYYYMMDDReg</span> = <span class="regexp">/[\d]&#123;4&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">YYYYMMDDHHmmReg</span> = <span class="regexp">/[\d]&#123;4&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;\s[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">YYYYMMDDHHmmssReg</span> = <span class="regexp">/[\d]&#123;4&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;\s[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">HHmmssReg</span> = <span class="regexp">/[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">HHmmReg</span> = <span class="regexp">/[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="手机的正则表达式"><a href="#手机的正则表达式" class="headerlink" title="手机的正则表达式"></a>手机的正则表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> phoneReg = <span class="regexp">/^1[3|4|5|7|8|][0-9]&#123;9&#125;$/</span></span><br></pre></td></tr></table></figure>
+<h4 id="邮箱的正则表达式"><a href="#邮箱的正则表达式" class="headerlink" title="邮箱的正则表达式"></a>邮箱的正则表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> emailReg = <span class="regexp">/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]&#123;2,4&#125;)+$/</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/14/regexp/" data-id="clb0n0l1z004dssu9dukbaxrg" data-title="regular expressions(正则表达式)" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-http-websocket-http2-https" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/09/http-websocket-http2-https/" class="article-date">
+  <time class="dt-published" datetime="2018-03-09T06:16:56.000Z" itemprop="datePublished">2018-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/09/http-websocket-http2-https/">websocket-http2-https</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="了解websocket-http2-和-http1-和-https的作用是啥"><a href="#了解websocket-http2-和-http1-和-https的作用是啥" class="headerlink" title="了解websocket http2 和 http1 和 https的作用是啥"></a>了解websocket http2 和 http1 和 https的作用是啥</h3><h4 id="websocket"><a href="#websocket" class="headerlink" title="websocket"></a>websocket</h4><blockquote>
+<p>简单而又不失礼貌的答复是：websocket最大的特点是 服务器可以向客户端发送消息。</p>
+</blockquote>
+<p>其余特点:</p>
+<ol>
+<li>也是建立在TCP协议之上的，服务器端比较容易实现。</li>
+<li>与http协议有良好的兼容性，默认端口是80和443，并且握手段采用http协议，因此握手时不容易屏蔽，能通过各种http代理服务器。<br> 3）数据格式比较轻量，性能开销小，通信高效<br> 4）可以发送文本，也可以发送二进制数据<br> 5）没有同源限制，客户端可以与任意服务器通话</li>
+<li>协议标识符是 （ws), 如果加密是（wss).服务器网址就是 URL<br><code>wx://example.com:80/some/path</code></li>
+</ol>
+<h5 id="客户端示例代码"><a href="#客户端示例代码" class="headerlink" title="客户端示例代码"></a>客户端示例代码</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let ws = new WebSocket(&#123;&quot;wss://echo.websocket.org&quot;&#125;)</span><br><span class="line">ws.onopen = evt =&gt; &#123;</span><br><span class="line">    console.log(&#x27;======&gt; connection open &lt;=======&#x27;);</span><br><span class="line">    ws.send(&#x27;hello i am from clinet&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">ws.onmessage = evt =&gt; &#123;</span><br><span class="line">    console.log(&#x27;======&gt; receive data is&#x27;, evt.data);</span><br><span class="line">    ws.close()</span><br><span class="line">&#125;</span><br><span class="line">ws.onclose = (evt) =&gt; &#123;</span><br><span class="line">    console.log(&#x27;connection closed&#x27;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="websocket-api-讲解"><a href="#websocket-api-讲解" class="headerlink" title="websocket api 讲解"></a>websocket api 讲解</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let ws = new WebSocket(&#123;&quot;wss://echo.websocket.org&quot;&#125;)</span><br><span class="line">ws.readyState 返回值</span><br><span class="line">    0: CONNETCTING 正在连接</span><br><span class="line">    1: OPEN 连接成功</span><br><span class="line">    2: CLOSING 正在关闭</span><br><span class="line">    3: CLOSED 关闭成功</span><br><span class="line"></span><br><span class="line">ws.onopen 用于指定连接成功后的回调函数</span><br><span class="line">ws.onclose 用于指定连接关闭后的回调函数</span><br><span class="line">ws.onmessage 用于指定收到服务器数据后的回调函数</span><br><span class="line">ws.send()  用于向服务器发送数据</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="websocket-服务器端代码实现"><a href="#websocket-服务器端代码实现" class="headerlink" title="websocket 服务器端代码实现"></a>websocket 服务器端代码实现</h5><blockquote>
+<p>给个代码实现链接吧： <a target="_blank" rel="noopener" href="https://github.com/joewalnes/websocketd/tree/master/examples">示例代码</a>    <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/05/websocket.html">阮老师文章链接</a></p>
+</blockquote>
+<h4 id="http-协议"><a href="#http-协议" class="headerlink" title="http 协议"></a>http 协议</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/HTTP.md">好文推荐</a></p>
+</blockquote>
+<h5 id="HTTP是如何建立连接的"><a href="#HTTP是如何建立连接的" class="headerlink" title="HTTP是如何建立连接的"></a>HTTP是如何建立连接的</h5><p><img src="https://sfault-image.b0.upaiyun.com/335/472/3354729685-59f18143c8c3f_articlex" alt="http协议"></p>
+<h5 id="发送一条HTTP请求会发生什么"><a href="#发送一条HTTP请求会发生什么" class="headerlink" title="发送一条HTTP请求会发生什么"></a>发送一条HTTP请求会发生什么</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">获取主机名，例如：http://www.example.com</span><br><span class="line">通过DNS获取服务器IP</span><br><span class="line">获取端口，默认是80端口</span><br><span class="line">连接到 112.23.59.223:80服务器 （这里其实是TCP连接）</span><br><span class="line">通过TCP信道发送一个HTTP请求</span><br><span class="line">服务器读取一个HTTP请求</span><br><span class="line">服务器查找所需资源并通过TCP信道返回资源</span><br><span class="line">关闭TCP连接</span><br></pre></td></tr></table></figure>
+
+<h4 id="http2"><a href="#http2" class="headerlink" title="http2"></a>http2</h4><p>我理解就这下面这几句，具体可以参考 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/08/http.html">阮老师的文章</a></p>
+<blockquote>
+<p>1.头信息压缩<br>  2.支持服务器推送 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/03/http2_server_push.html">阮老师写的</a><br>  3.对同时连接数量不限制</p>
+</blockquote>
+<h4 id="https"><a href="#https" class="headerlink" title="https"></a>https</h4><p>感觉太弱了，字都认识，在一起有点懵，<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html">阮老师链接</a><br>我的自我总结就下面一句话[尴尬]</p>
+<blockquote>
+<p>我的理解是在http协议上新增 SSL&#x2F;TLS 协议，加密保证内容的安全</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="clb0n0l1k002vssu9647g7ln1" data-title="websocket-http2-https" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/" rel="tag">http</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-xml-httpRequest-ajax-http-body" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/02/08/xml-httpRequest-ajax-http-body/" class="article-date">
+  <time class="dt-published" datetime="2018-02-08T08:35:29.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/02/08/xml-httpRequest-ajax-http-body/">ajax-http-body</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="常见的post提交数据格式-form-data-x-www-form-urlencoded-application-x2F-json-text-x2F-xml"><a href="#常见的post提交数据格式-form-data-x-www-form-urlencoded-application-x2F-json-text-x2F-xml" class="headerlink" title="常见的post提交数据格式 form-data,x-www-form-urlencoded,application&#x2F;json,text&#x2F;xml"></a>常见的post提交数据格式 <br>form-data,x-www-form-urlencoded,application&#x2F;json,text&#x2F;xml</h3><blockquote>
+<p>其中个人觉得在工作中用得多的是 from-data, x-www-form-urlencoded</p>
+</blockquote>
+<h4 id="http"><a href="#http" class="headerlink" title="http"></a>http</h4><blockquote>
+<p>http请求分为3个部分：状态行，请求头，消息主题</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line">&lt;entity-body&gt;</span><br></pre></td></tr></table></figure>
+<p>服务器端解析是根据请求中的headers 中的 Content-Type 字段来获知请求中的消息主体是用何种方式编码，再对主题进行解析。<br><strong>postman 中的 raw 和 binary解释</strong>:<br>binary:相当于Content-Type:application&#x2F;octet-stream,从字面意思得知，只可以上传二进制数据，通常用来上传文件，由于没有键值，所以，一次只能上传一个文件。<br>raw:可以上传任意格式的文本，可以上传text、json、xml、html等</p>
+<h4 id="application-x2F-x-www-form-urlencoded"><a href="#application-x2F-x-www-form-urlencoded" class="headerlink" title="application&#x2F;x-www-form-urlencoded"></a>application&#x2F;x-www-form-urlencoded</h4><blockquote>
+<p>这是最常见的post 提交数据的方式，浏览器的原生form 表单 在不设置 <code>enctype</code>的情况下就是使用 <code>application/x-wwww-form-urlencoded</code>方式提交数据.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com http/1.1</span><br><span class="line">Content-Type: application/x-www-form-urlencoded;charset=utf-8</span><br><span class="line"></span><br><span class="line">key1=val1&amp;key2=val2&amp;key3=val3</span><br></pre></td></tr></table></figure>
+<p><strong>默认的jQuery 中的AJAX 默认值就是「application&#x2F;x-www-form-urlencoded;charset&#x3D;utf-8」</strong></p>
+<h4 id="multipart-x2F-form-data"><a href="#multipart-x2F-form-data" class="headerlink" title="multipart&#x2F;form-data"></a>multipart&#x2F;form-data</h4><blockquote>
+<p>也是一种常见的post提交方式，form表单如果要以这种方式提交需要添加<code>enctype=multipart/form-data</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com http/1.1</span><br><span class="line">------WebKitFormBoundaryIuMF45zoLrsAIvdj</span><br><span class="line">Content-Disposition: form-data; name=&quot;types&quot;</span><br><span class="line"></span><br><span class="line">resume</span><br><span class="line">------WebKitFormBoundaryIuMF45zoLrsAIvdj</span><br><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;test.pdf&quot;</span><br><span class="line">Content-Type: application/pdf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------WebKitFormBoundaryIuMF45zoLrsAIvdj--</span><br></pre></td></tr></table></figure>
+<p><strong>解析</strong>:首先生成一个<code>boundary</code>用于分割不同的字段，为了避免与正文重复，boundary 很长很复杂，然后<code>Content-Type</code>里指明数据是<code>multipart/form-data</code> 来编码，每部分是以<code>--boundary</code>开始,紧接着是内容描述信息，然后是回车，最后是字段具体的内容（文本或二进制）。如果传输的是文件，还要包含文件名和文件类型信息。消息主体最后以<code>--boundary--</code>结尾<strong>这种方式一般用于上传文件</strong>，各大服务器都对这个有良好的支持</p>
+<h4 id="application-x2F-json"><a href="#application-x2F-json" class="headerlink" title="application&#x2F;json"></a>application&#x2F;json</h4><blockquote>
+<p>这个Content-Type作为响应头大家肯定都很熟悉了，实际上很多人也把这个作为请求头，告诉服务器消息主体是<code>序列化后的JSON字符串</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com http/1.1</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">&#123;&quot;title&quot;: &quot;test&quot;, &quot;sub&quot;: [1, 2, 3]&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="text-x2F-xml"><a href="#text-x2F-xml" class="headerlink" title="text&#x2F;xml"></a>text&#x2F;xml</h4><blockquote>
+<p>比较古老的一种请求方式了，但是支持度还是蛮高的</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.example.com HTTP/1.1</span><br><span class="line">Content-Type: text/xml</span><br><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;methodCall&gt;</span><br><span class="line">    &lt;methodName&gt;examples.getStateName&lt;/methodName&gt;</span><br><span class="line">    &lt;params&gt;</span><br><span class="line">        &lt;param&gt;</span><br><span class="line">            &lt;value&gt;&lt;i4&gt;41&lt;/i4&gt;&lt;/value&gt;</span><br><span class="line">        &lt;/param&gt;</span><br><span class="line">    &lt;/params&gt;</span><br><span class="line">&lt;/methodCall&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://imququ.com/post/four-ways-to-post-data-in-http.html">原文链接</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="clb0n0l240051ssu9fu48e8uf" data-title="ajax-http-body" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

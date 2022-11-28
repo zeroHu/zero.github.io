@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="zeroBlog">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:locale">
+<meta property="article:author" content="zero">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-33-js-pure-function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/12/33-js-pure-function/" class="article-date">
+  <time class="dt-published" datetime="2019-06-12T08:51:42.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/12/33-js-pure-function/">33-js-pure-function</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="what-is-a-function"><a href="#what-is-a-function" class="headerlink" title="what is a function"></a>what is a function</h3><blockquote>
+<p>a function is a process which takes some input, called arguments, and produces some output called a return value. functions may serve the following purposes:</p>
+</blockquote>
+<ul>
+<li>mapping: produce some output based on given inputs. a function maps input values to output values.</li>
+<li>procedures: a function may be called  to perform a sequence of steps. the sequence is known as a procedure, and programming in this style is known as procedural programming.</li>
+<li>I&#x2F;O: some functions exist to communicate with other parts of the system, such as the screen, storage, system logs, or network.</li>
+</ul>
+<h3 id="pure-functions-are-all-about-mapping"><a href="#pure-functions-are-all-about-mapping" class="headerlink" title="pure functions are all about mapping"></a>pure functions are all about mapping</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">2</span>,<span class="number">1</span>,<span class="number">10</span>,<span class="number">20</span>) <span class="comment">// 20</span></span><br><span class="line"><span class="comment">// in this example, 2, 1, 10, 20 are arguments. they&#x27;re values passed into the function</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="pure-function"><a href="#pure-function" class="headerlink" title="pure function"></a>pure function</h3><ul>
+<li>一个函数的返回结果只依赖于它的参数</li>
+<li>在执行过程中里面没有副作用（表示不会更改外面的数据）</li>
+<li>优点： 纯函数可靠性高，可读性高，bug率少。input一样的情况下output永远一样<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 是纯函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">x, y</span>) =&gt; x+y</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">compute</span> = x =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br><span class="line">  <span class="keyword">return</span> x + obj.<span class="property">a</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不是纯函数</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">x</span>) =&gt; a + x <span class="comment">// 依赖了a</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">compute</span> = (<span class="params">x, obj</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> x + obj.<span class="property">a</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">compute</span>(<span class="number">1</span>, &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;) </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="clb0n0l0x000kssu9eyrjci8h" data-title="33-js-pure-function" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-object-create-assign" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/11/33-js-object-create-assign/" class="article-date">
+  <time class="dt-published" datetime="2019-06-11T07:35:43.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/11/33-js-object-create-assign/">33-js-object-create-assign</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h3><blockquote>
+<p><code>Object.create()</code>方法创建创建一个新对象，使用现在的对象来提供新创建的对象的<code>__proto__</code><br>语法： Object.create(proto_obj, [properties]), proto: 新创建对象的原型， propertiesObject（可选）添加到新创建对象的可枚举属性（即自身定义的属性，而不是其原型链上的枚举属性）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">isHuman</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">printIntroduction</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`hello, my name is zero and is human ? <span class="subst">$&#123;<span class="variable language_">this</span>.isHuman&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="title class_">Object</span>.<span class="title function_">create</span>(person); <span class="comment">// 这里将新创建一个 &#123;&#125;, 且me的__proto__指向 person的 __proto__, 所以当me[key] 会沿着__proto__向上找.</span></span><br><span class="line">me.<span class="property">isHuman</span> <span class="comment">// true</span></span><br><span class="line">me.<span class="property">name</span> = <span class="string">&quot;zero&quot;</span></span><br><span class="line">me.<span class="title function_">printIntroduction</span>(); <span class="comment">// hello, my name is zero and is human ? true</span></span><br><span class="line"></span><br><span class="line">me.<span class="property">name</span> <span class="comment">// zero</span></span><br><span class="line">person.<span class="property">name</span> <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加上properties的看看</span></span><br><span class="line"><span class="keyword">const</span> other = <span class="title class_">Object</span>.<span class="title function_">create</span>(person, &#123;<span class="attr">sex</span>: &#123;<span class="attr">value</span>: <span class="string">&quot;female&quot;</span>, <span class="attr">writable</span>: <span class="literal">true</span>, <span class="attr">enumerable</span>: <span class="literal">true</span>, <span class="attr">configurable</span>: <span class="literal">true</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Object.create 实现类继承</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Shape</span> () &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Shape</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">move</span> = <span class="keyword">function</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> += x;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> += y;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;shape moved&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Rectangle 继承 Shape开始</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Rectangle</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title class_">Shape</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Rectangle</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="title class_">Shape</span>.<span class="property"><span class="keyword">prototype</span></span>);</span><br><span class="line"><span class="title class_">Rectangle</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> = <span class="title class_">Rectangle</span>;</span><br><span class="line"><span class="comment">// Rectangle 继承 Shape结束</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> <span class="title class_">Rectangle</span>(); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rect <span class="keyword">instanceof</span> <span class="title class_">Rectangle</span>) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rect <span class="keyword">instanceof</span> <span class="title class_">Shape</span>) <span class="comment">// true</span></span><br><span class="line">react.<span class="title function_">move</span>(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">// shape moved</span></span><br></pre></td></tr></table></figure>
+<p><strong>es5 或者以前版本 polyfill Object.create</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="title class_">Object</span>.<span class="property">create</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">  <span class="title class_">Object</span>.<span class="property">create</span> = <span class="keyword">function</span> (<span class="params">proto_obj, propertiesObject</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> proto_obj !== <span class="string">&#x27;object&#x27;</span> &amp;&amp; <span class="keyword">typeof</span> proto_obj !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&#x27;object prototype may only be an object&#x27;</span> + proto_obj)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (proto_obj === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&#x27;this browser implementtaion of Object.create is a shim and not support null as first argument&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> propertiesObject != <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;This browser&#x27;s implementation of Object.create is a shim and doesn&#x27;t support a second argument.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">F</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line">    F.<span class="property"><span class="keyword">prototype</span></span> = proto_obj</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">F</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign"></a>Object.assign</h3><blockquote>
+<p><code>Object.assign()</code>方法用于将所有可枚举属性的值从一个或多个源对象赋值到目标对象。它将返回目标对象。<br>语法：Object.assign(target, …sources); &#x2F;&#x2F; target : 目标对象， sources: 源对象.<br>1.如果目标对象中有源对象相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。<br>2.<code>Object.assign</code>方法只会拷贝源对象本身的并且可枚举的属性到目标对象。 注意： <code>Object.assign</code> 不会跳过 <code>null</code> 或 <code>undefined</code><br>3.<code>Object.assign</code>方法只是浅拷贝，</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">const</span> source = &#123;<span class="attr">a</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">const</span> source2 = &#123;<span class="attr">d</span>: <span class="number">4</span>, <span class="attr">f</span>: <span class="number">6</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> returnTarget = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source); <span class="comment">// &#123;a: 2, b:2, c: 3&#125;</span></span><br><span class="line">target <span class="comment">// &#123;a: 2, b:2, c: 3&#125;</span></span><br><span class="line"><span class="keyword">const</span> returnTarget = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source, source2); <span class="comment">// &#123;a: 2, b:2, c: 3, d: 4, f: 6&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>拷贝symbol类型的属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> o1 = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">const</span> o2 = &#123;[<span class="title class_">Symbol</span>(<span class="string">&quot;foo&quot;</span>)]: <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, o1, o2); <span class="comment">// &#123;a: 1, Symbol(foo): 2&#125; and error in some version firefox</span></span><br></pre></td></tr></table></figure>
+<p><strong>继承属性和不可枚举属性不可拷贝</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">foo</span>: <span class="number">1</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">bar</span>: &#123;</span><br><span class="line">    <span class="attr">value</span>: <span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">baz</span>: &#123;</span><br><span class="line">    <span class="attr">value</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="attr">enumerable</span>: <span class="literal">true</span> <span class="comment">// 是个可枚举属性</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> copy = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, obj); <span class="comment">// &#123;baz: 3&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>原始类型会被包装成对象</strong><br>注意，只有字符串的包装对象才可能有自身可枚举属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> v1 = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="keyword">const</span> v2 = <span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> v3 = <span class="number">10</span></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, v1, <span class="literal">null</span>, v2, <span class="literal">undefined</span>, v3, v4); <span class="comment">// null 和 undefined 会被忽略   &#123;0: &quot;a&quot;, 1: &quot;b&quot;, 2: &quot;c&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>es5 或更早以前的polyfill</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="title class_">Object</span>.<span class="property">assign</span> !=<span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">  <span class="comment">// must be writable: true, enumerable: false, configurable: true</span></span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Object</span>, <span class="string">&quot;assign&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">value</span>: <span class="keyword">function</span> <span class="title function_">assign</span>(<span class="params">target, varArgs</span>) &#123; <span class="comment">// .length of function is 2</span></span><br><span class="line">      <span class="string">&quot;use strict&quot;</span></span><br><span class="line">      <span class="keyword">if</span> (target == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&#x27;cannot convert undefined or null to object&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> to = <span class="title class_">Object</span>(target);</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">1</span>; index &lt; <span class="variable language_">arguments</span>.<span class="property">length</span>; index++) &#123;</span><br><span class="line">        <span class="keyword">var</span> nextSource = <span class="variable language_">arguments</span>[index];</span><br><span class="line">        <span class="keyword">if</span> (nextSource != <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">let</span> nextKey <span class="keyword">in</span> nextSource) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(nextSource, nextKey)) &#123;</span><br><span class="line">              to[nextKey] = nextSource[nextKey];</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> to;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">writable</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">configurable</span>: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create">MDN</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="clb0n0l0v000essu94cwzcizt" data-title="33-js-object-create-assign" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-factories-classes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/10/33-js-factories-classes/" class="article-date">
+  <time class="dt-published" datetime="2019-06-10T13:45:57.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/10/33-js-factories-classes/">33-js-factories-classes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="constructor-functions"><a href="#constructor-functions" class="headerlink" title="constructor functions"></a>constructor functions</h3><blockquote>
+<p>constructor function name method is Pascal Notation</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Camel Notation: oneTwoThreeFour</span></span><br><span class="line"><span class="comment">// Pascal Notation: OneTwoThreeFour</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">CreateCircle</span>(<span class="params">a</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">a</span> = a</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Circle1</span> = <span class="keyword">new</span> <span class="title class_">CreateCircle</span>(<span class="number">1</span>); <span class="comment">// &#123;a: 1, show: function() &#123;console.log(&#x27;show)&#125;&#125;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Circle2</span> = <span class="keyword">new</span> <span class="title class_">CreateCircle</span>(<span class="number">2</span>); <span class="comment">// &#123;a: 2, show: function() &#123;console.log(&#x27;show)&#125;&#125;</span></span><br><span class="line"><span class="title class_">CreateCircle</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">newkey</span> = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="title class_">CreateCircle</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">getName</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span>, <span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Circle1</span>.<span class="property">newkey</span> <span class="comment">// hello world</span></span><br></pre></td></tr></table></figure>
+<p>whenever a new function created in javascript, javascript engine by default adds a <code>prototype</code> property to it, this property is an object and we call it <code>prototype object</code>. by default this prototype object has a construtor property which points back to our function, and other property <code>__proto__</code>which is an object<br><img src="http://static.zeroyh.cn/WechatIMG1007.png" alt="function prototype"><br><strong>every new constructor such as Circle1, Circle2 will has a <code>__proto__</code> assign to the CreateCircle prototype</strong></p>
+<h3 id="factor-functions"><a href="#factor-functions" class="headerlink" title="factor functions"></a>factor functions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">facotryCreateCircle</span>(<span class="params">a</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        a,</span><br><span class="line">        <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span>, a)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> one = <span class="title function_">facotryCreateCircle</span>(<span class="number">1</span>) <span class="comment">// &#123;a: 1, getName: function(console.log(&#x27;name&#x27;, 1))&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="classes"><a href="#classes" class="headerlink" title="classes"></a>classes</h3><h4 id="define"><a href="#define" class="headerlink" title="define"></a>define</h4><blockquote>
+<p>the classes is smilar to construtor functions. </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CreateCircle</span> &#123;</span><br><span class="line">    <span class="title function_">construtor</span>(<span class="params">a</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">a</span> = a</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span>, <span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Circle1</span> = <span class="keyword">new</span> <span class="title class_">CreateCircle</span>(<span class="number">1</span>); <span class="comment">// &#123;a: 1, show: function() &#123;console.log(&#x27;show)&#125;&#125;</span></span><br><span class="line"><span class="title class_">CreateCircle</span>(<span class="number">2</span>) <span class="comment">// TypeError, class constructor function cannot be invoked without &#x27;new&#x27;</span></span><br><span class="line"><span class="title class_">CreateCircle</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">newkey</span> = <span class="string">&quot;hello world&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="classes-need-attention"><a href="#classes-need-attention" class="headerlink" title="classes need attention"></a>classes need attention</h4><ul>
+<li>classes function methods are non-enumerable. in javascript each property of an object has <code>enumberable</code> flag, which define its availability for some operations to be performed on that property.</li>
+<li>if you don’t want to add <code>construtor</code> to class function, default will add a empty <code>constructor() &#123;&#125;</code></li>
+<li>classes function inside code always <code>use strict</code></li>
+<li>classes declarations are not <code>hosited</code> (变量不会提升).</li>
+<li>classes dont’t allow the property value assignments lick constructor functions or object literals.</li>
+</ul>
+<h4 id="classes-feature"><a href="#classes-feature" class="headerlink" title="classes feature"></a>classes feature</h4><h5 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h5><ul>
+<li>constructor is a speical function for classes what represents class itself. when you new a class instance. the constructor is automatically called.</li>
+<li>one classes cannot have more than one constructor</li>
+<li>a constructor can use <code>super</code> keyword to call the constructor of the class its extending from.</li>
+</ul>
+<h5 id="static-methods"><a href="#static-methods" class="headerlink" title="static methods"></a>static methods</h5><ul>
+<li>static methods are functions on class itself. and not on its prototype. unlike the other methods in the class. which are define on its <code>prototype</code></li>
+<li>remember that static method cannot be called from the class instance.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">make, model, color</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">make</span> = make;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">make</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">model</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">getColor</span>(<span class="params">v</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> v.<span class="property">color</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> car = <span class="keyword">new</span> <span class="title class_">Vehicle</span>(<span class="string">&quot;Honda&quot;</span>, <span class="string">&quot;Accord&quot;</span>, <span class="string">&quot;Purple&quot;</span>);</span><br><span class="line"><span class="title class_">Vehicle</span>.<span class="title function_">getColor</span>(car); <span class="comment">// &quot;purple&quot;</span></span><br><span class="line"><span class="comment">// !!!! cannot called car.getColor() !!!!!</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="getter-x2F-setter"><a href="#getter-x2F-setter" class="headerlink" title="getter&#x2F;setter"></a>getter&#x2F;setter</h5><blockquote>
+<p>to get or set property value</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">model</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">model</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_model</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">model</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">_model</span> = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>under the hood, the getter and setter defined on the class <code>prototype</code></li>
+</ul>
+<h5 id="Subclassing"><a href="#Subclassing" class="headerlink" title="Subclassing"></a>Subclassing</h5><blockquote>
+<p>subclassing is a way you can implement inheritance in javascript classes. keyword <code>extends</code> is used to create a child class of a class</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">make, model, color</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">make</span> = make;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">    &#125;</span><br><span class="line">    getName () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">make</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">model</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Vehicle</span> &#123;</span><br><span class="line">    getName () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">make</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot;in child class&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> car = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;tie&quot;</span>, <span class="string">&quot;huxing&quot;</span>, <span class="string">&quot;red&quot;</span>)</span><br><span class="line">car.<span class="title function_">getName</span>(); <span class="comment">// tie huxing in child class</span></span><br><span class="line"><span class="comment">//=============== or ================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Vehicle</span> &#123;</span><br><span class="line">    getName () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">super</span>.<span class="title function_">getName</span>() + <span class="string">&quot; called in child class&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> car = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;tie&quot;</span>, <span class="string">&quot;huxing&quot;</span>, <span class="string">&quot;red&quot;</span>)</span><br><span class="line">car.<span class="title function_">getName</span>(); <span class="comment">// tie huxing called in child class</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.javascriptjanuary.com/blog/es6-classes">es6 class</a><br><a target="_blank" rel="noopener" href="https://medium.com/tech-tajawal/javascript-classes-under-the-hood-6b26d2667677">tajawal</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="clb0n0l0t0009ssu9gn100q3y" data-title="33-js-factories-classes" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-settimeout-setinterval" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/09/33-js-settimeout-setinterval/" class="article-date">
+  <time class="dt-published" datetime="2019-06-09T14:17:00.000Z" itemprop="datePublished">2019-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/09/33-js-settimeout-setinterval/">33-js-setTimeout-setInterval</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h3><blockquote>
+<p>allows to run a function once after the interval time.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(func | code, [delay], [arg1], [arg2], ...)</span><br><span class="line"><span class="comment">// func | code 指的是 函数名称或者直接写函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">callBack</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// delay 是延迟多久执行</span></span><br><span class="line"><span class="comment">// arg1, arg2 是传递给回调函数的参数。</span></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(callBack | <span class="keyword">function</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(<span class="title function_">callBack</span>(), <span class="number">1000</span>) <span class="comment">// the callBack function called right now, not 1s after</span></span><br></pre></td></tr></table></figure>
+<h3 id="clearTimeout"><a href="#clearTimeout" class="headerlink" title="clearTimeout"></a>clearTimeout</h3><blockquote>
+<p>a call to setTimeout returns a timer identifier , timerId can help us cancel the execution, and we can clearTimout(timerId) to cancel the execution.<code>clearTimeout(timerId)</code></p>
+</blockquote>
+<h3 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval"></a>setInterval</h3><blockquote>
+<p>allows to run a function regularly with the interval between the runs</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setInterval</span>(func | code, [delay], [arg1], [arg2], ...)</span><br><span class="line"><span class="comment">// func | code 指的是 函数名称或者直接写函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">callBack</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// delay 是间隔多久执行一次</span></span><br><span class="line"><span class="comment">// arg1, arg2 是传递给回调函数的参数。</span></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setInterval</span>(callBack | <span class="keyword">function</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setInterval</span>(<span class="title function_">callBack</span>(), <span class="number">1000</span>) <span class="comment">// the callBack function called right now, not 1s after</span></span><br></pre></td></tr></table></figure>
+<h3 id="clearInterval"><a href="#clearInterval" class="headerlink" title="clearInterval"></a>clearInterval</h3><blockquote>
+<p>stop the further calls, use <code>clearInterval(timerId)</code></p>
+</blockquote>
+<h3 id="用setTimeout-实现每隔一段时间执行某段代码"><a href="#用setTimeout-实现每隔一段时间执行某段代码" class="headerlink" title="用setTimeout 实现每隔一段时间执行某段代码"></a>用setTimeout 实现每隔一段时间执行某段代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> <span class="title function_">tick</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;tick&#x27;</span>);</span><br><span class="line">  timerId = <span class="built_in">setTimeout</span>(tick, <span class="number">2000</span>); <span class="comment">// (*)</span></span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"><span class="comment">// just 2s 执行一次 tick 函数，开始循环。 这种形式相对cpu耗用比 setInterval 少</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clb0n0l0z000qssu95erud9no" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-IIFE-module-namespace" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/09/33-js-IIFE-module-namespace/" class="article-date">
+  <time class="dt-published" datetime="2019-06-09T11:20:12.000Z" itemprop="datePublished">2019-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/09/33-js-IIFE-module-namespace/">33-js-iife-module-namespace</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="anonymous-function-expressions-and-named-function-expressions"><a href="#anonymous-function-expressions-and-named-function-expressions" class="headerlink" title="anonymous function expressions and named function expressions"></a>anonymous function expressions and named function expressions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bar = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;you are good&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this bar variable assign function is a anonymous function</span></span><br><span class="line"><span class="keyword">var</span> bar  = <span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;you aslo good&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// the function bar is a named function exrepisons</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="iife-inmediately-invoking-function-expression"><a href="#iife-inmediately-invoking-function-expression" class="headerlink" title="iife(inmediately-invoking-function-expression)"></a>iife(inmediately-invoking-function-expression)</h3><p>natural function definition</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function declaration</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello zero&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()</span><br><span class="line"><span class="comment">// the line 2-5 is define a function named foo</span></span><br><span class="line"><span class="comment">// the line 6 is add () to called the foo function</span></span><br><span class="line"><span class="comment">// function expression</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello zero&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>();</span><br><span class="line"><span class="comment">// the line 9-11 is declare a variable var and assign a value to that&#x27;s of function type</span></span><br><span class="line"><span class="comment">// the line 12 is called the function</span></span><br></pre></td></tr></table></figure>
+<p>iife</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">!<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ok!&#x27;</span>);</span><br><span class="line">&#125;(); <span class="comment">// ok!</span></span><br><span class="line"><span class="keyword">void</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;void&quot;</span>);</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>as we know that a function statement has keyword <code>function</code></li>
+<li><code>!</code>in front of function , that enfores javascript to treat whatever that’s coming after <code>!</code> as an expressions</li>
+<li>and the last <code>()</code> is immediately called the function</li>
+<li><code>+</code>, <code>-</code>， <code>~</code>, <code>void</code> is the same to <code>!</code> in font of function</li>
+</ul>
+<p>classical iife style</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;classical 1&quot;</span>);</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;classical 2&quot;</span>);</span><br><span class="line">&#125;())</span><br><span class="line">a <span class="comment">// error</span></span><br><span class="line">b <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+<p>IIFE and private variables</p>
+<blockquote>
+<p>the iife is good to do that their ability to create a function scope, any variable is defined in the iife function are not visible to outside</p>
+</blockquote>
+<p>IIFE with return value</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> needVariable = (<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello world&quot;</span></span><br><span class="line">&#125;())</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(needVariable);<span class="comment">// hello world</span></span><br></pre></td></tr></table></figure>
+<p>IIFE with parameters</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> <span class="title function_">IIFE</span>(<span class="params">$, <span class="variable language_">window</span>, docuemnt, <span class="literal">undefined</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>($, <span class="variable language_">window</span>, docuemnt, <span class="literal">undefined</span>);</span><br><span class="line">&#125;)(jQuery, <span class="variable language_">window</span>, <span class="variable language_">document</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6">Chandra Gundamaraju</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clb0n0l0i0000ssu93888f6g8" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-expression-statement" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/09/33-js-expression-statement/" class="article-date">
+  <time class="dt-published" datetime="2019-06-09T08:38:24.000Z" itemprop="datePublished">2019-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/09/33-js-expression-statement/">33-js-expression-statement</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>javascript has two methods create functions, function expression and function declaration</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">funDeclaration</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;a function declaration&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> funExpression = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;a function expression&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>different with function declarations and function expressions</strong></p>
+<ul>
+<li>similar to the <code>var</code>, the function declaration are hosited at the top of other code. and the function expression not.</li>
+</ul>
+<h3 id="function-declarations"><a href="#function-declarations" class="headerlink" title="function declarations"></a>function declarations</h3><blockquote>
+<p>a function declaration defineds a named function variable without requiring variable assignment. function declarations occur as standalone constructs and connot be nested within non-function blocks.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="title function_">bar</span>()) <span class="comment">// 3 right!!!</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>() <span class="comment">// 3</span></span><br><span class="line">bar <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="function-expressions"><a href="#function-expressions" class="headerlink" title="function expressions"></a>function expressions</h3><blockquote>
+<p>a function expression defined a function as a part of a larger expression syntax.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="title function_">bar</span>()) ; <span class="comment">// typeerror </span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">function</span> <span class="title function_">IIFE</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;something&#x27;</span>);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<h3 id="Benefits-of-Function-Expressions"><a href="#Benefits-of-Function-Expressions" class="headerlink" title="Benefits of Function Expressions"></a>Benefits of Function Expressions</h3><ul>
+<li>as a clousures</li>
+<li>as arguments to other functions</li>
+<li>as immediately invoked function expressions (IIFE)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// creating closures</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">toHandle1</span>(<span class="params">index</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">tabClickEvent</span>(<span class="params">evt</span>) &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> toHandle2 = <span class="keyword">function</span> (<span class="params">index</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">tabClickEvent</span>(<span class="params">evt</span>) &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tabs = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.tab&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;tab.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    tabs[i].<span class="property">onclick</span> = toHandle1 <span class="comment">// good code</span></span><br><span class="line">    tabs[i].<span class="property">onclick</span> = toHandle2 <span class="comment">// bad code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//passing as a arguments</span></span><br><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;) </span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">forEach</span>(<span class="keyword">function</span> <span class="title function_">doSomething</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// do somthing</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// IIFE</span></span><br><span class="line"><span class="keyword">var</span> <span class="variable language_">module</span> = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> someMethod = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// also do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">someMethod</span>: someMethod</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p><strong>refrence doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.sitepoint.com/function-expressions-vs-declarations/">Paul Wilkins</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clb0n0l0s0006ssu9d9387vzi" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-scope" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/04/33-js-scope/" class="article-date">
+  <time class="dt-published" datetime="2019-06-04T09:32:01.000Z" itemprop="datePublished">2019-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/04/33-js-scope/">33-js-scope</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><h4 id="function-scope"><a href="#function-scope" class="headerlink" title="function scope"></a>function scope</h4><h5 id="function-basic-info"><a href="#function-basic-info" class="headerlink" title="function basic info"></a>function basic info</h5><ul>
+<li>function is a subprogram designed to perform a particular task.</li>
+<li>function is executed when they are called. this is known as invoking a function</li>
+<li>values can be passed in function and used within the function</li>
+<li>functions always return a value, in js if function no <code>return</code> code, in fact the function return <code>undefined</code> see the example 1</li>
+<li>function are objects</li>
+<li>function scope use variable is cannot use in out of the function</li>
+</ul>
+<p>example 1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">testNoReturn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span> + a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">testHasReturn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span> + a;</span><br><span class="line">  <span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">testNoReturn</span>()); <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">testHasReturn</span>()); <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+<h5 id="define-function-and-function-expression-and-scope"><a href="#define-function-and-function-expression-and-scope" class="headerlink" title="define function and function expression and scope"></a>define function and function expression and scope</h5><blockquote>
+<p>a function declaration defines a named function. to create a function declaration you use the <code>function</code> keyword followed by the name of the function.<br>a function expressions defines a named or anonymous function. and they cannot be used before they are defined.<br>use <code>var</code> or <code>let</code> or <code>const</code> declared a variable in the function , meaning it will exist within the scope of the function it’s declared inside of.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// you can in here called the name function . `name()`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">name</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// scope explain</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="comment">// you cannot in here called the name function, will throw error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// ReferenceError: b is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="keyword">function</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// ReferenceError: b is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="comment">// you only can in here called the name function</span></span><br></pre></td></tr></table></figure>
+<h4 id="block-scope-let-and-const"><a href="#block-scope-let-and-const" class="headerlink" title="block scope let and const"></a>block scope <code>let</code> and <code>const</code></h4><blockquote>
+<p>block scope is the {} scope. but <code>var</code> is different with <code>let</code> or <code>const</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// zero</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sex); <span class="comment">// ReferenceError: sex is not defined</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;zero&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> sex = <span class="string">&#x27;woman&#x27;</span>; <span class="comment">// const is same as let</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// zero</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sex); <span class="comment">// ReferenceError: sex is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when function scope gets confusing with global scope</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hobbies = <span class="string">&#x27;sleep&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">func</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">var</span> hobbies = <span class="string">&#x27;play&#x27;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">func</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// sleep</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when var in block scope</span></span><br><span class="line"><span class="keyword">var</span> hobbies = <span class="string">&#x27;sleep&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> hobbies = <span class="string">&#x27;play&#x27;</span>; </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line"><span class="comment">// because the hobbies play will cover the hobbies sleep</span></span><br><span class="line"><span class="comment">// but when you use let is different with var, the result same as the function scope. certainly explain that the block scope</span></span><br></pre></td></tr></table></figure>
+<h4 id="lexical-scope"><a href="#lexical-scope" class="headerlink" title="lexical scope"></a>lexical scope</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(value); <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">2</span></span><br><span class="line">  <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>();</span><br></pre></td></tr></table></figure>
+
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://codeburst.io/javascript-functions-understanding-the-basics-207dbf42ed99">brandon Morelli</a><br><a target="_blank" rel="noopener" href="https://www.deadcoderising.com/2017-04-11-es6-var-let-and-const-the-battle-between-function-scope-and-block-scope/">deadcoderising</a><br><a target="_blank" rel="noopener" href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md">you dont’t know javascript</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clb0n0l0y000ossu9es3ngtue" data-title="33-js-scope" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-implicit-coercion-equals" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/04/33-js-implicit-coercion-equals/" class="article-date">
+  <time class="dt-published" datetime="2019-06-04T04:25:48.000Z" itemprop="datePublished">2019-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/04/33-js-implicit-coercion-equals/">33-js-implicit-coercion-equals</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="implicit-coercion"><a href="#implicit-coercion" class="headerlink" title="implicit coercion"></a>implicit coercion</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// when you want to  these operators -, *, /, %</span></span><br><span class="line"><span class="comment">// 强制转换字符型为数字型</span></span><br><span class="line"><span class="number">3</span> + <span class="string">&quot;3&quot;</span> <span class="comment">// 6 </span></span><br><span class="line"><span class="number">2</span> * <span class="string">&quot;2&quot;</span> <span class="comment">// 4</span></span><br><span class="line"><span class="comment">// boolean 在计算中被强制转换为 true =&gt; 1, false =&gt; 0</span></span><br><span class="line"><span class="literal">true</span> + <span class="literal">true</span> <span class="comment">// 2</span></span><br><span class="line"><span class="number">10</span> - <span class="literal">true</span> <span class="comment">// 9</span></span><br><span class="line"><span class="comment">// object 被转为 object.valueOf, 如果没有valueOf则会取toString</span></span><br><span class="line"><span class="keyword">const</span> foo = &#123;</span><br><span class="line">  <span class="attr">valueOf</span>: <span class="function">() =&gt;</span> <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span> + foo <span class="comment">// 5</span></span><br><span class="line"><span class="keyword">const</span> bar = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="function">() =&gt;</span> <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span> + bar <span class="comment">// 3[object Object]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> other = &#123;</span><br><span class="line">  <span class="attr">toString</span>: <span class="function">() =&gt;</span> <span class="string">&#x27; promise is a string&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span> + other <span class="comment">// 3 promise is a string</span></span><br><span class="line"><span class="comment">// and when the toString and valueOf all in, the compute will choose which ?</span></span><br><span class="line"><span class="keyword">const</span> both = &#123;</span><br><span class="line">  <span class="attr">valueOf</span>: <span class="function">() =&gt;</span> <span class="number">2</span>,</span><br><span class="line">  <span class="attr">toString</span>: <span class="function">() =&gt;</span> <span class="string">&#x27;ok i am the both toString&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span> * both <span class="comment">// 6</span></span><br><span class="line"><span class="comment">// 数组参与计算同样会被 toString() [].toString = &quot;&quot; </span></span><br><span class="line"><span class="number">4</span> * [] <span class="comment">// 0</span></span><br><span class="line"><span class="number">4</span> * [<span class="number">2</span>] <span class="comment">// 8</span></span><br><span class="line"><span class="number">4</span> + [<span class="number">2</span>] <span class="comment">// 42</span></span><br><span class="line"><span class="number">4</span> + [<span class="number">1</span>,<span class="number">2</span>] <span class="comment">// 41,2</span></span><br><span class="line"><span class="number">4</span> * [<span class="number">1</span>, <span class="number">2</span>] <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 字符会被强制转为boolean false or true, null, undefined, 0, &quot;&quot;, NaN 会被强制转为false</span></span><br><span class="line"><span class="string">&#x27;string&#x27;</span> ? <span class="number">4</span> : <span class="number">1</span> <span class="comment">// 4</span></span><br><span class="line"><span class="literal">undefined</span> ? <span class="number">4</span> : <span class="number">1</span> <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p>非数值类型的在数值计算中的表现</p>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> * <span class="string">&quot;3&quot;</span> <span class="comment">// 3 * 3</span></span><br><span class="line"><span class="number">3</span> * <span class="title class_">Number</span>(<span class="string">&quot;3&quot;</span>) <span class="comment">// 3 * 3</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;1.&quot;</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;1.34&quot;</span>) <span class="comment">// 1.34</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;1,&quot;</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;1+1&quot;</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;one&quot;</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;name&quot;</span> + &#123;&#125; <span class="comment">// name[object Object]</span></span><br></pre></td></tr></table></figure>
+<h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">toString</span>() <span class="comment">// 1,2,3</span></span><br><span class="line"><span class="comment">// just as join()</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">join</span>() <span class="comment">// 1,2,3</span></span><br></pre></td></tr></table></figure>
+<h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Number</span>(<span class="literal">true</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="title class_">Number</span>(<span class="literal">false</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&quot;&quot;</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<h4 id="falsy-and-truthy"><a href="#falsy-and-truthy" class="headerlink" title="falsy and truthy"></a>falsy and truthy</h4><blockquote>
+<p>falsy: false, 0, null, undefined, “”, NaN, -0. and the other is truthy</p>
+</blockquote>
+<h4 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">NaN</span> === <span class="title class_">NaN</span> <span class="comment">// false</span></span><br><span class="line"><span class="keyword">const</span> notNumber = <span class="number">3</span> * <span class="string">&quot;a&quot;</span> <span class="comment">// NaN</span></span><br><span class="line">notNumber == notNumber <span class="comment">// false</span></span><br><span class="line">notNumber === notNumber</span><br></pre></td></tr></table></figure>
+<h3 id="x3D-x3D-vs-x3D-x3D-x3D"><a href="#x3D-x3D-vs-x3D-x3D-x3D" class="headerlink" title="&#x3D;&#x3D; vs &#x3D;&#x3D;&#x3D;"></a>&#x3D;&#x3D; vs &#x3D;&#x3D;&#x3D;</h3><blockquote>
+<p>&#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 区别是 &#x3D;&#x3D;&#x3D; 是禁止运算类型转换的，而&#x3D;&#x3D;是支持的！</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先看一组热闹</span></span><br><span class="line"><span class="number">5</span> === <span class="number">5</span> <span class="comment">// true</span></span><br><span class="line"><span class="string">&quot;hello world&quot;</span> === <span class="string">&quot;hello world&quot;</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">true</span> === <span class="literal">true</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> === <span class="literal">false</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 几个小特殊</span></span><br><span class="line">&#123;&#125; === &#123;&#125; <span class="comment">// false</span></span><br><span class="line">[] === [] <span class="comment">// false</span></span><br><span class="line"><span class="title class_">NaN</span> === <span class="title class_">NaN</span> <span class="comment">// false</span></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;) === (<span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;) <span class="comment">// false</span></span><br><span class="line"><span class="comment">// 再看一组热闹</span></span><br><span class="line"><span class="number">7</span> === <span class="string">&#x27;7&#x27;</span> <span class="comment">// false</span></span><br><span class="line"><span class="number">7</span> == <span class="string">&#x27;7&#x27;</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span> <span class="comment">// false (different type and different value)</span></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&#x27;0&#x27;</span> <span class="comment">// true </span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&#x27;&#x27;</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;&quot;</span> <span class="comment">// true</span></span><br><span class="line"><span class="string">&#x27;cat&#x27;</span> === <span class="string">&#x27;dog&#x27;</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h4 id="why-x3D-x3D-x3D-or-x3D-x3D-x3D-is-false"><a href="#why-x3D-x3D-x3D-or-x3D-x3D-x3D-is-false" class="headerlink" title="why {} &#x3D;&#x3D;&#x3D; {} or [] &#x3D;&#x3D;&#x3D; [] is false"></a>why {} &#x3D;&#x3D;&#x3D; {} or [] &#x3D;&#x3D;&#x3D; [] is false</h4><blockquote>
+<p>因为 {} 和  [] 是reference types(引用类型数据)， 引用 类型数据比较的是地址。而不是值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> b = &#123;&#125;</span><br><span class="line">a == b <span class="comment">// false</span></span><br><span class="line">a === b <span class="comment">// false</span></span><br><span class="line"><span class="keyword">var</span> c = a</span><br><span class="line">c === a <span class="comment">// true</span></span><br><span class="line">c == a <span class="comment">// true</span></span><br><span class="line">c === b <span class="comment">// false</span></span><br><span class="line">c == b <span class="comment">// false</span></span><br><span class="line"><span class="comment">// 证明了上面的结论， 作为引用类型数值，在== or === 比较的时候比较的是引用的地址而不是值</span></span><br></pre></td></tr></table></figure>
+<h4 id="null-x3D-x3D-x3D-vs-x3D-x3D-undefined"><a href="#null-x3D-x3D-x3D-vs-x3D-x3D-undefined" class="headerlink" title="null &#x3D;&#x3D;&#x3D; vs &#x3D;&#x3D; undefined"></a>null &#x3D;&#x3D;&#x3D; vs &#x3D;&#x3D; undefined</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h4 id="NaN-is-not-equal-any-value"><a href="#NaN-is-not-equal-any-value" class="headerlink" title="NaN is not equal any value"></a>NaN is not equal any value</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">NaN</span> == <span class="literal">null</span> <span class="comment">// false</span></span><br><span class="line"><span class="title class_">NaN</span> == <span class="literal">undefined</span> <span class="comment">// false</span></span><br><span class="line"><span class="title class_">NaN</span> == <span class="title class_">NaN</span> <span class="comment">// false</span></span><br><span class="line"><span class="comment">// we can use isNaN test the value is NaN </span></span><br></pre></td></tr></table></figure>
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a">brandon morelli</a><br><a target="_blank" rel="noopener" href="https://dev.to/promhize/what-you-need-to-know-about-javascripts-implicit-coercion-e23">promise tochi</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clb0n0l0w000gssu992pr423o" data-title="33-js-implicit-coercion-equals" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-value-types" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/29/33-js-value-types/" class="article-date">
+  <time class="dt-published" datetime="2019-05-29T01:45:45.000Z" itemprop="datePublished">2019-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/29/33-js-value-types/">33-js-value-types</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="the-primitve-values-and-the-reference-values"><a href="#the-primitve-values-and-the-reference-values" class="headerlink" title="the primitve values and the reference values"></a>the primitve values and the reference values</h3><ul>
+<li>Primitive types are stored by value, objects are stored by reference</li>
+</ul>
+<h4 id="primitive-values"><a href="#primitive-values" class="headerlink" title="primitive values"></a>primitive values</h4><blockquote>
+<p>the ECMAScript define the values has [boolean, null, undefined, number, string,  symbol(es6 add)]</p>
+</blockquote>
+<ul>
+<li>the primitive values stored on the stack</li>
+<li>primitive types are no methods attached to them and the primitive values are immutable, because the have no methods attached that can mutate it</li>
+<li>the booleans value is true or false</li>
+<li>the number values is double-precision 64-bit float. there are no integers in js</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// to explain the stored in the stack </span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;zero&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// zero</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> secondName = name;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secondName); <span class="comment">// zero</span></span><br><span class="line"></span><br><span class="line">name = <span class="string">&#x27;chris&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secondName); <span class="comment">// zero</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// chris</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  to explain the primitive types are immutable</span></span><br><span class="line"><span class="string">&quot;dog&quot;</span> === <span class="string">&quot;dog&quot;</span>; <span class="comment">// true</span></span><br><span class="line"><span class="number">14</span> === <span class="number">14</span>; <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;&#125; === &#123;&#125; <span class="comment">// false</span></span><br><span class="line">[] === [] <span class="comment">// false</span></span><br><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;) === (<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="reference-values"><a href="#reference-values" class="headerlink" title="reference values"></a>reference values</h4><blockquote>
+<p>[object], and the Array also is object.</p>
+</blockquote>
+<ul>
+<li>the reference value stored on the heap</li>
+<li>a function is a special type of object. with some special properties. such as constructor and call</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">age</span>: <span class="number">20</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;zero&#x27;</span>.</span><br><span class="line">  <span class="attr">hobbies</span>: [<span class="string">&#x27;sports&#x27;</span>, <span class="string">&#x27;cooking&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person); </span><br><span class="line"><span class="comment">// [object Object] &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   name: &#x27;zero&#x27;.</span></span><br><span class="line"><span class="comment">//   hobbies: [&#x27;sports&#x27;, &#x27;cooking&#x27;]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> secondPerson = person;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secondPerson); </span><br><span class="line"><span class="comment">// [object Object] &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   name: &#x27;zero&#x27;.</span></span><br><span class="line"><span class="comment">//   hobbies: [&#x27;sports&#x27;, &#x27;cooking&#x27;]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">person.<span class="property">name</span> = <span class="string">&#x27;chris&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);</span><br><span class="line"><span class="comment">// [object Object] &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   name: &#x27;chris&#x27;.</span></span><br><span class="line"><span class="comment">//   hobbies: [&#x27;sports&#x27;, &#x27;cooking&#x27;]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secondPerson);</span><br><span class="line"><span class="comment">// [object Object] &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   name: &#x27;chris&#x27;.</span></span><br><span class="line"><span class="comment">//   hobbies: [&#x27;sports&#x27;, &#x27;cooking&#x27;]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zeroyh.cn/599584-8e93616d7afcf811.png" alt="stack store and heap store"></p>
+<table>
+<thead>
+<tr>
+<th>栈内存</th>
+<th>堆内存</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储基本类型</td>
+<td>存储引用类型</td>
+</tr>
+<tr>
+<td>按值访问</td>
+<td>按引用访问</td>
+</tr>
+<tr>
+<td>存储的值大小固定</td>
+<td>存储的值大小不固定，可动态调整</td>
+</tr>
+<tr>
+<td>由系统自动分配空间</td>
+<td>由程序员代码分配</td>
+</tr>
+<tr>
+<td>主要用来执行程序</td>
+<td>主要用来存放对象</td>
+</tr>
+<tr>
+<td>空间小，运行效率高</td>
+<td>空间大，但运行效率略低</td>
+</tr>
+<tr>
+<td>先进后出，后进先出</td>
+<td>无存储顺序，按照引用直接取</td>
+</tr>
+</tbody></table>
+<p>** the stack is different with heap place in the memory , the stack value is very fast to get or set. and the heap is longer than stack **</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clb0n0l12000yssu99rbie2sx" data-title="33-js-value-types" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-thoughts-if-you-have-500w-money" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/23/thoughts-if-you-have-500w-money/" class="article-date">
+  <time class="dt-published" datetime="2019-05-23T03:31:58.000Z" itemprop="datePublished">2019-05-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/23/thoughts-if-you-have-500w-money/">if-i-have-500w-money</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>A sudden whim…… </p>
+</blockquote>
+<h3 id="how-to-spend-my-500w-rmb-…-oh-no…-the-truth-is-so-sad-because-that-i-haven’t-500w-all-is-imagine"><a href="#how-to-spend-my-500w-rmb-…-oh-no…-the-truth-is-so-sad-because-that-i-haven’t-500w-all-is-imagine" class="headerlink" title="how to spend my 500w rmb …(oh no….the truth is so sad because that i haven’t 500w. all is imagine)"></a>how to spend my 500w rmb …(oh no….the truth is so sad because that i haven’t 500w. all is imagine)</h3><h4 id="if-this-question-ask-me-when-i-was-5-years-old"><a href="#if-this-question-ask-me-when-i-was-5-years-old" class="headerlink" title="if this question ask me when i was 5 years old"></a>if this question ask me when i was 5 years old</h4><blockquote>
+<p>ok, i will ask you, 500w rmb is too much? or i want to buy the doll。 anyway, when i was 5 years old, if you ask me the question, mustbe you are something wrong. omg, i am a child ok? i don’t know 100 rmb is what….</p>
+</blockquote>
+<h4 id="if-this-question-ask-me-when-i-was-15-years-old"><a href="#if-this-question-ask-me-when-i-was-15-years-old" class="headerlink" title="if this question ask me when i was 15 years old"></a>if this question ask me when i was 15 years old</h4><blockquote>
+<p>ok, let me see, the time i am study in school, and need money. actually in my 15 yeras old i thought if me have 500w rmb, i will go back home, and never ever go to school, because in that time i think the only reason is in the future i can make money use my study knowledge. and really dislike study. i like watch tv and eat junk food. so i will take the money go home and buy a lot of food and buy l very big tv.</p>
+</blockquote>
+<h4 id="if-this-question-ask-me-when-i-was-20-years-old"><a href="#if-this-question-ask-me-when-i-was-20-years-old" class="headerlink" title="if this question ask me when i was 20 years old"></a>if this question ask me when i was 20 years old</h4><blockquote>
+<p>ok, the time i am in university study. also need mondy, because i want the beautiful closes and the latest iphone and everyday go out to eat and more. in my 20 years old, i am a never think about the future girl. i don’t know how to save the money or make the money growth. i just know how to spend it. en …maybe i will spend 100w rmb buy a house. becuase in the time my roomates sometimes talk about the future she will buy a big hourse and life with her love in the house.</p>
+</blockquote>
+<h4 id="now-i-am-25-years-old-if-you-ask-me-how-to-spend-the-500w-rmb"><a href="#now-i-am-25-years-old-if-you-ask-me-how-to-spend-the-500w-rmb" class="headerlink" title="now i am 25 years old, if you ask me how to spend the 500w rmb"></a>now i am 25 years old, if you ask me how to spend the 500w rmb</h4><ul>
+<li><p>1.i will compute the decuction after tax 20% * 500w &#x3D; 400w</p>
+</li>
+<li><p>2.i will compute my life six month will spend how much ? maybe 5k * 6 &#x3D; 3w . but because i am so happy to won the lottery, i should invite friend. so i will leave 10w rmb to spend. and then push the 10w rmb in 3% found. the found can extract anytime and no poundage.</p>
+</li>
+<li><p>3.now i have 390w, in 2019 years this years hourse prices is not too high in second-tier cities. so i will spend 80w to buy a house in my hometown, because my hometown is second-tier  and the hourse price is lower than a lot of other city. why i buy a hourse is because that the hourse is investement and life. </p>
+</li>
+<li><p>4.and buy house should tax some money, and spend in other way maybe 10w.  and 10w decorate it. so my house will spend 80w + 10w + 10w &#x3D; 100w (all in)</p>
+</li>
+<li><p>5.now i have 390w - 100w &#x3D; 290w. ok now i will spend 10w in my parent, buy some insurance(include medical and some important …) for them. and take them go xinjiang travel.</p>
+</li>
+<li><p>6.now i have 290w - 10w &#x3D; 280w. ok now i will divide the money to 50% 30% 20%, because i really don’t know the stock market， i will spend 50% to buy index found, 30% buy stock market(buy the mi, alibaba, tencent)， 20% financial products。</p>
+</li>
+<li><p>7.ok, and i can work and life with my heart. i believe that i can rich to the old. </p>
+</li>
+<li><p>8.the important !!! i haven’t 500w rmb. so what should i do now??? make money !!! do very very good in work and more thought about the world and the life. althought work is not the only way can make money, but is very important for me. work can realize self value. can make me happy. of cause that money can make me happy, but not the only thing can make me happy. in the same way, i should learn more, just a small target 100w rmb ? now i think of the wangjianlin …. (he said that everyone should set a small goal is make 100million . right now his small goal is my big big big goal)</p>
+</li>
+</ul>
+<p><strong>wish in my 30 years old i can answer this question once again, i can see my mind change and know is my little goal is come true?</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="clb0n0l20004gssu94x2qafxs" data-title="if-i-have-500w-money" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

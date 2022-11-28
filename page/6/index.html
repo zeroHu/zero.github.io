@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="zeroBlog">
+<meta property="og:url" content="http://example.com/page/6/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:locale">
+<meta property="article:author" content="zero">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-js-math" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/01/30/js-math/" class="article-date">
+  <time class="dt-published" datetime="2018-01-30T11:11:03.000Z" itemprop="datePublished">2018-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/01/30/js-math/">js-math</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="js-的浮点数精度问题"><a href="#js-的浮点数精度问题" class="headerlink" title="js 的浮点数精度问题"></a>js 的浮点数精度问题</h3><h4 id="为什么会产生"><a href="#为什么会产生" class="headerlink" title="为什么会产生"></a>为什么会产生</h4><blockquote>
+<p>js采用的是IEEE-745浮点数表示法（几乎所有的编程语言都采用)，这是一种二进制表示法，可以精准的表示分数，但是二进制表示十进制的分数，有的不能精确到位</p>
+</blockquote>
+<h4 id="0-2-0-1-的计算"><a href="#0-2-0-1-的计算" class="headerlink" title="0.2 + 0.1 的计算"></a>0.2 + 0.1 的计算</h4><blockquote>
+<p>计算机进行的 0.1 + 0.2 的角度是<br>  1）0.1 转换为二进制 0.0001 1001 1001 1001…（无限循环）<br>  2）0.2 转换为二进制 0.0011 0011 0011 0011…（无限循环）<br>  双精度浮点数部位最多支持52位，所以前后相加得 0.0100110011001100110011001100110011001100110011001100 因为位数限制进行了二进制数字截断， 然后把二进制转换10进制，就是0.30000000000000004</p>
+</blockquote>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/nefe/number-precision/">https://github.com/nefe/number-precision/</a><br><a target="_blank" rel="noopener" href="https://github.com/josdejong/mathjs/">https://github.com/josdejong/mathjs/</a></p>
+</blockquote>
+<h4 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000002613722">参考地址</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clb0n0l1o003dssu97o521r1z" data-title="js-math" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-css-grid" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/01/23/css-grid/" class="article-date">
+  <time class="dt-published" datetime="2018-01-23T10:09:52.000Z" itemprop="datePublished">2018-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/01/23/css-grid/">css-grid</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="css-grid"><a href="#css-grid" class="headerlink" title="css-grid"></a>css-grid</h3><blockquote>
+<p>grid 是一组相交的水平线和垂直线，特点：固定或弹性的轨道尺寸，定位项目，创建额外的轨道来保存项目，对齐控制，控制折叠内容。</p>
+</blockquote>
+<h4 id="简单创建"><a href="#简单创建" class="headerlink" title="简单创建"></a>简单创建</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">display</span>: grid;</span><br><span class="line">或者</span><br><span class="line"><span class="attribute">display</span>: inline-grid;</span><br></pre></td></tr></table></figure>
+<p>举例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;wapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>two<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>three<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>four<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>five<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wapper</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.zeroyh.cn/main/css/grid/#wrapper">http://www.zeroyh.cn/main/css/grid/#wrapper</a></p>
+<h4 id="网格轨道"><a href="#网格轨道" class="headerlink" title="网格轨道"></a>网格轨道</h4><blockquote>
+<p>我们通过grid-template-columns 和 grid-template-rows 属性来定义网格中的行和列，这些属性定义了网格的轨道，一个网格轨道就是网格中任意两条线之间的内容</p>
+</blockquote>
+<p>接下来我们添加grid-template-columns属性</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wapper</span> &#123;</span><br><span class="line">+   <span class="attribute">grid-template-columns</span>: <span class="number">200px</span> <span class="number">200px</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.zeroyh.cn/main/css/grid/#grid">http://www.zeroyh.cn/main/css/grid/#grid</a></p>
+<h4 id="fr单位"><a href="#fr单位" class="headerlink" title="fr单位"></a>fr单位</h4><blockquote>
+<p>轨道可以用任何单位进行定义，网格还引入了fr为我们创建灵活的轨道，fr单位表示：网格空间中可用空间的一等份。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wapper</span> &#123;</span><br><span class="line">+   gird-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">或者</span><br><span class="line">+   gird-template-<span class="attribute">columns</span>: <span class="number">2</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">或者</span><br><span class="line">+   gird-template-<span class="attribute">columns</span>: <span class="number">300px</span> <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.zeroyh.cn/main/css/grid/#fr">http://www.zeroyh.cn/main/css/grid/#fr</a></p>
+<h4 id="在轨道清单中使用repeat"><a href="#在轨道清单中使用repeat" class="headerlink" title="在轨道清单中使用repeat()"></a>在轨道清单中使用repeat()</h4><p>简介的说就是 如果 gird-template-columns 分成20 份  如果我们需要些 20个 1fr 1fr 1fr…就显得比较弱鸡了<br>所以出现了 repeat()<br>gird-template-columns: repeat(20, 1fr)<br>所以综合用法就是<br>gird-tempate-columns: 200px repeat(3, 1fr 3fr) 10px &#x2F;&#x2F;repeat(3, 1fr 3fr)是1fr 后面跟一个3fr 这样重复3次</p>
+<p><a target="_blank" rel="noopener" href="http://www.zeroyh.cn/main/css/grid/#autorows">http://www.zeroyh.cn/main/css/grid/#autorows</a></p>
+<h4 id="隐式和显式网格"><a href="#隐式和显式网格" class="headerlink" title="隐式和显式网格"></a>隐式和显式网格</h4><blockquote>
+<p>上面的这种 我们使用grid-template-columns 定义了自己的列轨道，让网格按照所需排列。</p>
+</blockquote>
+<p>grid-auto-rows: 100px</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wapper</span> &#123;</span><br><span class="line">+   <span class="attribute">grid-template-columns</span>: <span class="number">200px</span> <span class="built_in">repeat</span>(<span class="number">1</span>, <span class="number">1</span>fr <span class="number">3</span>fr) <span class="number">50px</span>;</span><br><span class="line">+   <span class="attribute">grid-auto-rows</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.zeroyh.cn/main/css/grid/#automix">http://www.zeroyh.cn/main/css/grid/#automix</a></p>
+<h4 id="轨道大小和-minmax"><a href="#轨道大小和-minmax" class="headerlink" title="轨道大小和 minmax()"></a>轨道大小和 minmax()</h4><blockquote>
+<p>想给网格设定一个最小尺寸，不会低于最小</p>
+</blockquote>
+<p>grid-auto-rows: minmax(100px, auto)</p>
+<h4 id="跨轨道放置网格项目"><a href="#跨轨道放置网格项目" class="headerlink" title="跨轨道放置网格项目"></a>跨轨道放置网格项目</h4><blockquote>
+<p>grid-column-start, grid-column-end, grid-row-start 和 grid-row-end 属性，把前两个元素放到了我们的三列网格中。从左至右，第一个元素从列线1开始，延伸至列线4，也就是我们这个例子中最右边的列线。并从行线1延伸到行线3，占据了两个行轨道。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.rowcolumn</span> &#123;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">1</span>fr);</span><br><span class="line">    <span class="attribute">grid-auto-rows</span>: <span class="number">100px</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box1</span> &#123;</span><br><span class="line">    <span class="attribute">grid-column-start</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">grid-column-end</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">grid-row-start</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">grid-row-end</span>: <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">    <span class="attribute">grid-column-start</span>: <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">grid-column-end</span>: <span class="number">6</span>;</span><br><span class="line">    <span class="attribute">grid-row-start</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">grid-row-end</span>: <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.zeroyh.cn/main/css/grid/#rowcolumn">http://www.zeroyh.cn/main/css/grid/#rowcolumn</a></p>
+<h4 id="网格间距"><a href="#网格间距" class="headerlink" title="网格间距"></a>网格间距</h4><blockquote>
+<p>网格横向间距  或 网格纵向间距  可使用 grid-column-gap 和 grid-row-gap 属性来创建</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.gap</span> &#123;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">1</span>fr);</span><br><span class="line">    <span class="attribute">grid-column</span>-<span class="attribute">gap</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">grid-row</span>-<span class="attribute">gap</span>: <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://www.zeroyh.cn/main/css/grid/#gap">http://www.zeroyh.cn/main/css/grid/#gap</a></p>
+<h4 id="允许嵌套网格"><a href="#允许嵌套网格" class="headerlink" title="允许嵌套网格"></a>允许嵌套网格</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clb0n0l16001hssu9b1n45rt3" data-title="css-grid" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-webpack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/01/22/webpack/" class="article-date">
+  <time class="dt-published" datetime="2018-01-22T03:42:07.000Z" itemprop="datePublished">2018-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/01/22/webpack/">webpack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="webpack-初步探索"><a href="#webpack-初步探索" class="headerlink" title="webpack 初步探索"></a>webpack 初步探索</h3><blockquote>
+<p>早就听闻webpack是一个难点，用起来也不容易，自己也多少接触到了一点，今天就来尝试写写看webpack。这次参照的是webpack中文版来写的，我知道英文版好 英文版准确 英文版是最新的。但是英语渣渣看起来很困难啊，除非没有中文。。。没得选的时候我会耐心的看英文版。本来就是描述不清的人。。。这下子更惨了。。。</p>
+</blockquote>
+<p><strong>准备工作(webpack v3.10.0)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd webpack-demo</span><br><span class="line">npm init -y</span><br><span class="line">npm install -D webpack</span><br><span class="line"># 建立目录结构</span><br><span class="line">webpack-demo</span><br><span class="line">  package.json</span><br><span class="line">  index.html</span><br><span class="line">  src</span><br><span class="line">    index.js</span><br></pre></td></tr></table></figure>
+<h4 id="基础的webpack用法-创建一个bundle-js"><a href="#基础的webpack用法-创建一个bundle-js" class="headerlink" title="基础的webpack用法 创建一个bundle.js"></a>基础的webpack用法 创建一个bundle.js</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>webpack getting start<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./dist/bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;lodash&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">component</span> () &#123;</span><br><span class="line">    <span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    <span class="comment">// Lodash, now imported by this script</span></span><br><span class="line">    element.<span class="property">innerHTML</span> = _.<span class="title function_">join</span>([<span class="string">&#x27;Hello&#x27;</span>, <span class="string">&#x27;webpack&#x27;</span>], <span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> element;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(<span class="title function_">component</span>());</span><br></pre></td></tr></table></figure>
+<p><strong>执行命令 <code>npx webpack src/index.js dist/bundle.js</code></strong></p>
+<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><blockquote>
+<p>es2015已经有import export 等语法，但是绝大部分浏览器都还无法支持，但是我们使用webpack 就能够非常便利的使用这些.但是注意webpack 不会更改代码中除 import 和 export 语句以外的部分。如果你在使用其它 ES2015 特性，请确保你在 webpack 的 loader 使用了babel的转义等</p>
+</blockquote>
+<h4 id="使用一个配置文件"><a href="#使用一个配置文件" class="headerlink" title="使用一个配置文件"></a>使用一个配置文件</h4><blockquote>
+<p>大多数的项目需要用到比较复杂的设置，这个时候简单的命令就不足以支持，所以需要一个配置文件webpack.config.js</p>
+</blockquote>
+<p>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>执行命令 <code>npx webpack --config webpack.config.js</code></strong></p>
+<h4 id="npm-脚本-npm-scripts"><a href="#npm-脚本-npm-scripts" class="headerlink" title="npm 脚本 [npm scripts]"></a>npm 脚本 [npm scripts]</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;webpack&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>执行命令 <code>npm run build</code></strong></p>
+<h3 id="webpack-管理资源"><a href="#webpack-管理资源" class="headerlink" title="webpack 管理资源"></a>webpack 管理资源</h3><blockquote>
+<p>在webpack 之前 前端开发人员会用gulp 或者 grunt 来做资源管理，将它们从<code>src</code>文件移动到<code>dist</code>文件 或者 <code>build</code>文件目录中。同样的方式也被用于javascript模块中。但是webpack 这样的工具，将<strong>动态打包（dynamically bundle）所有依赖项</strong> 这是一个创举，因为这样每个模块都可以明确表述自己的依赖模块，而且webpack将避免未使用的模块</p>
+</blockquote>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Asset Management<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="加载css"><a href="#加载css" class="headerlink" title="加载css"></a>加载css</h4><blockquote>
+<p>为了从javascript模块中<code>import</code>一个css文件，你需要在<code>module</code>配置中安装并添加<code>style-loader</code>和<code>css-loader</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev style-loader css-loader</span><br></pre></td></tr></table></figure>
+<p>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exporst</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        &lt;!-- 这段的意思是 webpack 根据正则表达式 来确定应该查找哪些文件 ，</span><br><span class="line">        并将其提供给指定的loader 在这种情况下，以.<span class="property">css</span> 结尾的全部文件，</span><br><span class="line">        都将被提供给<span class="string">`style-loader`</span> 和 <span class="string">`css-loader`</span> --&gt;</span><br><span class="line">        <span class="attr">rules</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                <span class="attr">use</span>: [</span><br><span class="line">                    <span class="string">&#x27;style-loader&#x27;</span>,</span><br><span class="line">                    <span class="string">&#x27;css-loader&#x27;</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 src 目录下 新增 style.css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hello</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样你可以依赖此样式文件中的 <code>import &#39;./style.css</code>.当该模块运行的时候含有css字符串的<code>&lt;style&gt;</code>标签都将被插到html中的<code>&lt;head&gt;</code>中<br>在src 下的 <code>index.js</code> 中导入css</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;lodash&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./style.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">component</span> () &#123;</span><br><span class="line">    <span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    <span class="comment">// Lodash, now imported by this script</span></span><br><span class="line">    element.<span class="property">innerHTML</span> = _.<span class="title function_">join</span>([<span class="string">&#x27;Hello&#x27;</span>, <span class="string">&#x27;webpack&#x27;</span>], <span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    element.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> element;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(<span class="title function_">component</span>());</span><br></pre></td></tr></table></figure>
+<h4 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h4><blockquote>
+<p>将设我们现在正在下载css ，但是我们的背景和图标的这些图片，要如何处理呢？使用file-loader 我们可以轻松的将这些内容混入css中</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D file-loader</span><br></pre></td></tr></table></figure>
+<p>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>:[&#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.(png|jpg|svg|gif)$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [</span><br><span class="line">            <span class="string">&#x27;file-loader&#x27;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 现在当你`import myImage from &#x27;./my-image.png&#x27;`,该图像将被处理并添加到output目录，</span></span><br><span class="line"><span class="comment">// 并且myImage变量将包含图像在处理后的最终url，当使用`css-loader`时，如上，你的css中使用 url(&#x27;./my-image.png&#x27;)</span></span><br><span class="line"><span class="comment">// 会使用类似的过程去处理，loader会识别出这是一个本地文件，并将`./my-image.png`路径替换输出为图像中的最终路劲。</span></span><br><span class="line"><span class="comment">// `html-loader`以相同的方式处理`&lt;img src=&quot;./my-image.png&quot;&gt;&lt;/img&gt;`</span></span><br></pre></td></tr></table></figure>
+<h4 id="加载字体"><a href="#加载字体" class="headerlink" title="加载字体"></a>加载字体</h4><p>同上 file-loader 就能看出来只要是文件 都可以用这种方法。file-loader 和 url-loader 可以接收并加载任何文件<br>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">test</span>: <span class="regexp">/\.(woff|woff2|eot|ttf|otf)$/</span>,</span><br><span class="line">    <span class="attr">use</span>: [</span><br><span class="line">        <span class="string">&#x27;file-loader&#x27;</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="加载数据"><a href="#加载数据" class="headerlink" title="加载数据"></a>加载数据</h4><p>如果需要导入数据的时候，类似nodejs 。json支持是内置的，意思是 import ‘.&#x2F;data.json’ 是默认可以的 但是导入别的数据需要webpack配置。比如 导入.xml .csv 可以使用xml-loader csv-loader 用法同 file-loader</p>
+<h4 id="全局资源"><a href="#全局资源" class="headerlink" title="全局资源"></a>全局资源</h4><blockquote>
+<p>上述内容中最出色的是 这种加载资源的方式可以直观的将模块和资源结合在一起。无需依赖全部资源的assets目录，而是将资源和代码结合在一起。</p>
+</blockquote>
+<h3 id="管理输出"><a href="#管理输出" class="headerlink" title="管理输出"></a>管理输出</h3><blockquote>
+<p>目前为止 我们在index.html 中引入了所有的资源，随着程序的增长，开始对文件名使用hash管理，输出多个bundle.js，手动对index.html文件进行管理就会开始变得困难，可以使用一些插件来让整个过程变得容易一些。</p>
+</blockquote>
+<h4 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D html-webpack-plugin</span><br></pre></td></tr></table></figure>
+<p>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;xxxx&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: <span class="string">&#x27;xxxx&#x27;</span>,</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">            <span class="attr">title</span>: <span class="string">&#x27;output mangement&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="清理dist文件夹"><a href="#清理dist文件夹" class="headerlink" title="清理dist文件夹"></a>清理dist文件夹</h4><blockquote>
+<p>建议在每次build 之前清理dist目录能够保证dist比较干净整洁</p>
+</blockquote>
+<p>用 clean-webpack-plugin<br>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">CleanWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: <span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">CleanWebpackPlugin</span>([<span class="string">&#x27;dist&#x27;</span>])</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Manifest"><a href="#Manifest" class="headerlink" title="Manifest"></a>Manifest</h4><blockquote>
+<p>一直令我奇怪的问题是 webpack 和插件貌似知道那些文件应该生成，答案是通过manifest，webpack能够对[你的模块映射到输出bundle的过程]保持追踪，如果你对通过其他方式来管理webpack 的输出更感兴趣，那么首先了解manifest开始</p>
+</blockquote>
+<p>是mainfest he runtime 来让webpack 可以利用缓存来更新或者利用缓存的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &#x27;[name].[chunkhash].js&#x27;,</span><br><span class="line">        path: path.resolve(__dirname, &#x27;dist&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><blockquote>
+<p><strong>既然标题都是开发环境那么千万别用于生产环境哈</strong></p>
+</blockquote>
+<h4 id="使用source-map"><a href="#使用source-map" class="headerlink" title="使用source map"></a>使用source map</h4><blockquote>
+<p>作用：是能够帮助开发者在开发环境中定位错误，因为很多js打包到bundle.js中 如果报错了很难寻找问题所在。source map就是将编译后的代码映射回源代码，如果一个错误来自于b.js 都会告诉你的</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">devtool</span>: <span class="string">&#x27;inline-source-map&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>添加这个工具后 能够将页面报错定位到某个文件的某一行</p>
+<h4 id="选择一个开发工具"><a href="#选择一个开发工具" class="headerlink" title="选择一个开发工具"></a>选择一个开发工具</h4><blockquote>
+<p>每一要编译代码的时候都需要<code>npm run build</code>是一件很麻烦的事情，webpack 有几个选项 可以帮助你在代码改变后自动编译代码</p>
+</blockquote>
+<p>1.webpack’s Watch Mode<br>2.webpack-dev-server<br>3.webpack-dev-middleware</p>
+<p>多数场景中 你需要使用过的是 webpack-dev-server<br>1.wath 是观察者模式<br>package.json</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scripts: &#123;</span><br><span class="line">    &quot;watch&quot;: &quot;webpack --watch&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行命令 <code>npm run watch</code><br>这个的缺点是 需要刷新浏览器<br>2.webpack-dev-server</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D webpack-dev-server</span><br></pre></td></tr></table></figure>
+<p>修改配置 告诉开发服务器，去哪里找文件<br>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">contentBase</span>: <span class="string">&#x27;./dist&#x27;</span>,</span><br><span class="line">        <span class="comment">// 选择是否需要</span></span><br><span class="line">        <span class="attr">compress</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">port</span>: <span class="number">9000</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上配置告知 webpack-dev-server，在 localhost:8080 下建立服务，将 dist 目录下的文件，作为可访问文件。<br>我们添加一个script脚本，就可以直接运行开发服务器<br>3.webpack-dev-middleware<br>webpack-dev-middleware 是一个中间件容器，它将通过webpack处理后的文件发布到一个服务器（server）,一般 webpack-dev-middleware 是配合express server来使用<br><strong>webpack.config.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;[name].[chunkhash].js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    +   <span class="attr">publicPath</span>: <span class="string">&#x27;/&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>添加 server.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> webpackDevMiddleware = <span class="built_in">require</span>(<span class="string">&#x27;webpack-dev-middleware&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.config.js&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> compiler = <span class="title function_">webpack</span>(config);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">webpackDevMiddleware</span>(compiler, &#123;</span><br><span class="line">    <span class="attr">publicPath</span>: config.<span class="property">output</span>.<span class="property">publicPath</span></span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;example app listening 3000&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>package.json</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scripts</span>: &#123;</span><br><span class="line">+   <span class="string">&quot;server&quot;</span>: <span class="string">&quot;node server.js&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="模块热替换（hot-module-replacement）或者HMR"><a href="#模块热替换（hot-module-replacement）或者HMR" class="headerlink" title="模块热替换（hot module replacement）或者HMR"></a>模块热替换（hot module replacement）或者HMR</h3><blockquote>
+<p>是webpack提供的最有用的功能之一，它允许运行时更新各种模块。而无需刷新</p>
+</blockquote>
+<h4 id="启用HMR"><a href="#启用HMR" class="headerlink" title="启用HMR"></a>启用HMR</h4><p>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: &#123;</span><br><span class="line">    +   <span class="attr">app</span>: <span class="string">&#x27;./src/index.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">contentBase</span>: <span class="string">&#x27;./dist&#x27;</span>,</span><br><span class="line">    +   <span class="attr">hot</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">    +   <span class="keyword">new</span> webpack.<span class="title class_">NamesModulesPlugin</span>(),</span><br><span class="line">    +   <span class="keyword">new</span> webpack.<span class="title class_">HotModuleReplacementPlugin</span>()</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree Shaking"></a>Tree Shaking</h3><h4 id="添加一个通用模块"><a href="#添加一个通用模块" class="headerlink" title="添加一个通用模块"></a>添加一个通用模块</h4><blockquote>
+<p>在我们的项目中新增一个通用模块文件 <code>src/math.js</code> 此文件导出两个函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">cube</span> (x) &#123;</span><br><span class="line">    <span class="keyword">return</span> x * x * x</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">square</span> (x) &#123;</span><br><span class="line">    <span class="keyword">return</span> x * x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在src&#x2F;index.js 中import cube from ‘.&#x2F;math.js’</p>
+<p><strong>注意，看bundle.js 代码。你会注意到 square 没有被导出，但是，它仍然被包含在 bundle 中。</strong></p>
+<h4 id="精简输出"><a href="#精简输出" class="headerlink" title="精简输出"></a>精简输出</h4><blockquote>
+<p>我们已经通过了<code>import</code>和<code>export</code>方法，标志了那些未引用的代码，但是我们需要从bundle中删除它们，我们将添加一个工具删除未引用的代码的工具，<code>UglifyJSPlugin</code></p>
+</blockquote>
+<p>npm install -D uplifyjs-webpack-plugin<br>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">UglifyJSPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;uglifyjs-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    output : &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;[name].[chunkhash].js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>:[</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">UglifyJSPlugin</span>()</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="生产环境构建"><a href="#生产环境构建" class="headerlink" title="生产环境构建"></a>生产环境构建</h3><h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><blockquote>
+<p>生产环境是需要更小的bundle.js 和更快的source map.建议生产环境和开发环境分开写 。<code>webpack-merge</code>的工具来合并。</p>
+</blockquote>
+<p>npm install -D webpack-merge</p>
+<p>project 结构更换</p>
+<ul>
+<li>webpack.config.js</li>
+</ul>
+<ul>
+<li>webpack.common.js</li>
+<li>webpack.dev.js</li>
+<li>webpack.prod.js</li>
+</ul>
+<p><strong>webpack.common.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">CleanWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: &#123;</span><br><span class="line">        <span class="attr">app</span>: <span class="string">&#x27;./src/index.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;[name].[chunkhash].js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">CleanWebpackPlugin</span>(<span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">            <span class="attr">title</span>: <span class="string">&#x27;production name&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>webpack.dev.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> merge = <span class="built_in">require</span>(<span class="string">&#x27;webpack-merge&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> common = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.common.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title function_">merge</span>(common, &#123;</span><br><span class="line">    <span class="attr">devtool</span>: <span class="string">&#x27;inline-source-map&#x27;</span>,</span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">contentBase</span>: <span class="string">&#x27;./dist&#x27;</span>,</span><br><span class="line">        <span class="attr">port</span>: <span class="string">&#x27;9000&#x27;</span>,</span><br><span class="line">        <span class="attr">hot</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><em>避免在生产中使用 inline-</em>** 和 eval-**<em>，因为它们可以增加 bundle 大小，并降低整体性能。</em><br><em>鼓励在生产环境使用 devtool: source-map</em><br><strong>webpack.prod.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> merge = <span class="built_in">require</span>(<span class="string">&#x27;webpack-merge&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> common = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.common.js&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">UglifyJSPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;uglifyjs-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title function_">merge</span>(common, &#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">UglifyJSPlugin</span>()</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="NPM-SCRIPTS"><a href="#NPM-SCRIPTS" class="headerlink" title="NPM SCRIPTS"></a>NPM SCRIPTS</h4><p>package.json</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scripts</span>: &#123;</span><br><span class="line">    <span class="string">&quot;start&quot;</span>: <span class="string">&quot;webpack-dev-server --open --config webpack.dev.js&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;webpack --config webpack.prod.js&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="指定环境"><a href="#指定环境" class="headerlink" title="指定环境"></a>指定环境</h4><p>process.env.NODE_ENV 环境变量<br>webpack.prod.js add</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title function_">merge</span>(common, &#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">    +   <span class="keyword">new</span> webpack.<span class="title class_">DefinePlugin</span>(&#123;</span><br><span class="line">            <span class="string">&#x27;process.env.NODE_ENV&#x27;</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="string">&#x27;production&#x27;</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样后就可以在js中使用<br>src&#x2F;index.js add</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+<span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span>) &#123;</span><br><span class="line">+    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;this is development&#x27;</span>)</span><br><span class="line">+&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="split-css"><a href="#split-css" class="headerlink" title="split css"></a>split css</h4><h3 id="代码分离"><a href="#代码分离" class="headerlink" title="代码分离"></a>代码分离</h3><h4 id="入口起点"><a href="#入口起点" class="headerlink" title="入口起点"></a>入口起点</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clb0n0l24004yssu976kbgioy" data-title="webpack" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-es6-module" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/01/01/es6-module/" class="article-date">
+  <time class="dt-published" datetime="2018-01-01T07:58:19.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/01/01/es6-module/">es6-module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
+<p>历史上，JavaScript一直没有模块（module）体系，无法将一个程序拆分为互相依赖的小文件，再用简单的方法拼装起来，其他语言都有这个功能。比如 ruby 有reqire Python有import css 都有@import，再es6定制之前 社区定制了一些模块加载方案，最主要有commonjs 和 amd 两种，前者用于服务器，后者用于浏览器，es6在语言标准层面上。实现了模块功能。<br>  es6模块的设计思想，是尽量的静态化，是编译时确认模块的依赖关系，以及输出和输入变量。commonjs 和 amd模块，都只能运行时确定这些东西，比如 commonjs 模块就是对象，输入时必须查找对象属性。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonjs 模块</span></span><br><span class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> stat = _fs.<span class="property">stat</span></span><br><span class="line"><span class="keyword">let</span> exists = _fs.<span class="property">exists</span></span><br><span class="line"><span class="keyword">let</span> readFile = _fs.<span class="property">readFile</span></span><br><span class="line"><span class="comment">// 上面的代码实质上是 整体加载fs 模块 （即加载fs的所有方法）,生成一个对象（_fs)，然后再从这个对象中读取3个方法，这种加载称为 ”运行时加载“ ， 是因为只有在运行的时候才能得到这个对象，导致完全没有办法在编译时做 ”静态优化“</span></span><br></pre></td></tr></table></figure>
+<p>ES6 模块不是对象，而是通过export 命令显示指定输出代码，再通过import 导入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line"><span class="comment">// 上面的代码的实质是从 fs 模块加载3个方法，其它方法都不加载。这种加载方法叫做 ”编译时加载“ 或者 静态加载。即ES6 可以在编译时就完成模块加载， 效率要比commonjs 模块加载的方式高，当然 这也导致了没法引用es6 模块本身，因为它不是对象</span></span><br></pre></td></tr></table></figure>
+<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><blockquote>
+<p>ES6 自动采用严格模式，不管你在头上有没有添加 ” use strict “</p>
+</blockquote>
+<p><strong>严格模式主要有以下限制</strong><br>    -：变量必须声明后再使用<br>    -：函数的参数 不能有同名属性 否则报错<br>    -：不能使用 <code>with</code> 语句<br>    -：不能对只读属性赋值，否则报错<br>    -：不能使用前缀0 表示八进制数，否则报错<br>    -：不能删除不可删除的属性，否则报错<br>    -：不能删除 <code>delete prop</code> ，或报错，只能删除 <code>delete global[prop]</code><br>    -：<code>eval</code> 不会在它的外层作用域引入变量<br>    -：<code>eval</code> 和 <code>arguments</code> 不能被重新赋值<br>    -：<code>arguments</code> 不会自动反应参数的变化<br>    -：不能使用 <code>arguments.callee</code><br>    -：不能使用 <code>arguments.caller</code><br>    -：禁止 <code>this</code> 指向全局对象<br>    -：不能使用 <code>fn.caller</code> 和 <code>fn.arguments</code> 获取函数调用的堆栈<br>    -：添加了保留字 如：<code>protected、static和interface</code></p>
+<h4 id="export命令"><a href="#export命令" class="headerlink" title="export命令"></a>export命令</h4><blockquote>
+<p>模块的功能主要由两个命令构成，<code>export</code> 和 <code>import</code>，<code>export</code>命令用于规定模块的对外接口，<code>import</code> 命令用于输入其它模块提供的功能</p>
+</blockquote>
+<p>一个模块就是一个独立的文件，该文件内部的所有变量，外部无法获取到，如果你希望外部能获取到这个模块的某个变量，就必须使用<code>export</code>导出变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> firstName = <span class="string">&#x27;hu&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> lastName = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> year = <span class="number">1990</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="comment">// 这种写法更推荐 因为可以在 export 中看到本模块全部导出的变量</span></span><br><span class="line"><span class="keyword">var</span> firstName = <span class="string">&#x27;hu&#x27;</span></span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">var</span> year = <span class="number">1990</span></span><br><span class="line"><span class="keyword">export</span> &#123; firstName, lastName, year &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// exprt 还可以用来直接导出函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">multiply</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x*y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><blockquote>
+<p>使用 <code>export</code> 命令定义了模块的对外接口，其它js文件 就可以通过<code>import</code> 命令记载这个模块</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; firstName, lastName, year &#125; <span class="keyword">from</span> <span class="string">&#x27;../xxx.js&#x27;</span></span><br><span class="line"><span class="comment">// 或者 模块的整体加载</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> getMyDetail <span class="keyword">from</span> <span class="string">&#x27;./circle&#x27;</span>;</span><br><span class="line">getMyDetail.<span class="property">firstName</span> <span class="comment">//这样调用</span></span><br></pre></td></tr></table></figure>
+<h4 id="export-default"><a href="#export-default" class="headerlink" title="export default"></a>export default</h4><blockquote>
+<p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// export-default.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo</span><br><span class="line"></span><br><span class="line"><span class="comment">// import-default.js</span></span><br><span class="line"><span class="keyword">import</span> customName <span class="keyword">from</span> <span class="string">&#x27;./export-deafult.js&#x27;</span></span><br><span class="line"><span class="title function_">customName</span>() <span class="comment">// &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clb0n0l1j002tssu90yqj1159" data-title="es6-module" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-es6-class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/01/01/es6-class/" class="article-date">
+  <time class="dt-published" datetime="2018-01-01T01:58:26.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/01/01/es6-class/">es6-class</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><blockquote>
+<p>javascript 中，生成实例对象的传统方法是通过构造函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Point</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;(&#x27;</span> + <span class="variable language_">this</span>.<span class="property">x</span> + <span class="string">&#x27;,&#x27;</span> + <span class="variable language_">this</span>.<span class="property">y</span> + <span class="string">&#x27;)&#x27;</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的这种写法是传统的写法 与c语言 java语言相差很大，很容易让新学者误解，es6提供了更接近与传统写法的形式，引入了class这个概念</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">x</span> = x</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">y</span> = y</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">toString</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;(&#x27;</span> + <span class="variable language_">this</span>.<span class="property">x</span> + <span class="string">&#x27;,&#x27;</span> + <span class="variable language_">this</span>.<span class="property">y</span> + <span class="string">&#x27;)&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 分解</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point2</span> &#123;</span><br><span class="line">    <span class="title function_">doStuff</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is dostuff&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">typeof</span>(<span class="title class_">Point2</span>) <span class="comment">// &quot;function&quot;</span></span><br><span class="line"><span class="title class_">Ponit2</span> === <span class="title class_">Point2</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> <span class="title class_">Point2</span>()</span><br><span class="line">p.<span class="title function_">doStuff</span>() <span class="comment">// it is dostuff</span></span><br><span class="line"><span class="comment">// 构造函数的prototype属性，在es6类上面继续存在，事实上类的所有方法都定义在prototype属性上面</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码定义了一个”类“，里面的constructor方法，就是构造方法。this代表实例对象，也就是ES5的Point方法对应ES6 的 Point 方法</p>
+<blockquote>
+<p>由于类的方法都添加在prototype上面，所有类的新方法可以添加在prototype对象上面，Object.assign方法可以很方便的一次向类添加多个方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>(<span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>, &#123;</span><br><span class="line">    <span class="title function_">toString</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">toValue</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 证明是不可枚举的</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(<span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">//[]</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyNames</span>(<span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">//[&quot;constructor&quot;,&quot;toString&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Es5Fn</span> = <span class="keyword">function</span> (<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Es5Fn</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(<span class="title class_">Es5Fn</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">// [&quot;toString&quot;]</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyName</span>(<span class="title class_">Es5Fn</span>.<span class="property"><span class="keyword">prototype</span></span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>**注意点是：类的内部所有定义的方法，都是不可枚举的（non-enumerable） **</p>
+</blockquote>
+<p>类的属性名可以采用表达式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> methodName = <span class="string">&#x27;getArea&#x27;</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">length</span>)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    [methodName]()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><blockquote>
+<p>类和模块的内部，默认就是严格模式，所以不需要使用”use strict“制定运行模式。只要你的代码写在类或者模块之中</p>
+</blockquote>
+<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><blockquote>
+<p>constructor 方法是类的默认方法，通过new 命令生成的对象实例，自动调用该方法，一个类必须有construcotr方法，如果没有显示定义。一个空的constrctor方法会自动被添加</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="函数class表达式"><a href="#函数class表达式" class="headerlink" title="函数class表达式"></a>函数class表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">MyClass</span> = <span class="keyword">class</span> <span class="title class_">Me</span> &#123;</span><br><span class="line">    <span class="title function_">getClassName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        retrun <span class="title class_">Me</span>.<span class="property">name</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 需要注意的这个类名 是MyClass 而不是Me,Me只在Class内部代码可用，指代当前类</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyClass</span> = <span class="keyword">class</span> &#123; <span class="comment">/* ... */</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Class的取值函数（getter）和存值函数（setter）"><a href="#Class的取值函数（getter）和存值函数（setter）" class="headerlink" title="Class的取值函数（getter）和存值函数（setter）"></a>Class的取值函数（getter）和存值函数（setter）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">prop</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;getter&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">prop</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setter is:&#x27;</span> + value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> inset = <span class="keyword">new</span> <span class="title class_">MyClass</span>()</span><br><span class="line">inset.<span class="property">prop</span> = <span class="number">123</span> <span class="comment">// setter is:123</span></span><br><span class="line">inset.<span class="property">prop</span> <span class="comment">// getter</span></span><br></pre></td></tr></table></figure>
+<h4 id="Class的Generator的方法"><a href="#Class的Generator的方法" class="headerlink" title="Class的Generator的方法"></a>Class的Generator的方法</h4><p>如果在某个方法之前加上星号(*) 就表示该方法是一个Generator函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">    constructor(...args) &#123;</span><br><span class="line">        this.args = args;</span><br><span class="line">    &#125;</span><br><span class="line">    * [Symbol.iterator]() &#123;</span><br><span class="line">        for (let arg of this.args) &#123;</span><br><span class="line">            yield arg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let x of new Foo(&#x27;hello&#x27;, &#x27;world&#x27;)) &#123;</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">// hello</span><br><span class="line">// world</span><br></pre></td></tr></table></figure>
+<h4 id="Class-的静态方法-static"><a href="#Class-的静态方法-static" class="headerlink" title="Class 的静态方法 static"></a>Class 的静态方法 static</h4><p>类相当于原型，所有在类中定义的方法都会被实例继承，如果在一个方法前加上static关键字，表示该方法不会被继承。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">classMethod</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用法师Foo.classMethod() 而不是在Foo的实例上调用</span></span><br><span class="line">注意：如果静态方法包含<span class="variable language_">this</span>关键字，这个<span class="variable language_">this</span>指的是类，而不是实例</span><br></pre></td></tr></table></figure>
+<h4 id="Class的静态属性和实例属性"><a href="#Class的静态属性和实例属性" class="headerlink" title="Class的静态属性和实例属性"></a>Class的静态属性和实例属性</h4><p>静态属性指的是Class本身的属性，Class.protoName 而不是定义在实例对象（this）上的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Foo</span>.<span class="property">prop</span> = <span class="number">1</span></span><br><span class="line"><span class="title class_">Foo</span>.<span class="property">prop</span> <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="class继承"><a href="#class继承" class="headerlink" title="class继承"></a>class继承</h3><blockquote>
+<p>class 可以通过extends关键字实现继承，这比es5通过修改原型链实现继承，要更加的清晰和方便</p>
+</blockquote>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ColorPoint</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">x, y, color</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(x, y) <span class="comment">//调用父类的constructor(x, y)</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">toString</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">color</span> + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">super</span>.<span class="title function_">toString</span>() <span class="comment">//调用父类的super</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">上面的代码定义了一个<span class="title class_">ColorPoint</span> 类，该类通过<span class="keyword">extends</span> 继承了<span class="title class_">Point</span>类的属性和方法</span><br><span class="line"><span class="title class_">ColorPoint</span> 新建constructor  是为 <span class="title class_">ColorPoint</span> 新建<span class="variable language_">this</span> 如果没有这个  这里面的<span class="variable language_">this</span> 就是父类的<span class="variable language_">this</span></span><br><span class="line"><span class="title class_">ColorPoint</span> 中出现了<span class="variable language_">super</span> 表示了父类的<span class="variable language_">this</span>的意思</span><br></pre></td></tr></table></figure>
+<p>同时需要注意的是 父类的静态方法也会被子类继承</p>
+<h4 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a>Object.getPrototypeOf()</h4><blockquote>
+<p>Object.getPrototypeOf方法可以用来从子类上获取父类</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(<span class="title class_">ColorPoint</span>) === <span class="title class_">Point</span> <span class="comment">//true</span></span><br><span class="line">因此这个方法可以用来判断某个类是否继承另外一个类</span><br></pre></td></tr></table></figure>
+<h4 id="super-关键字"><a href="#super-关键字" class="headerlink" title="super 关键字"></a>super 关键字</h4><blockquote>
+<p>super关键字既可以当做函数使用，也可以当做对象使用。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为函数</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> extens A &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为对象</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">  <span class="title function_">p</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_ inherited__">A</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">super</span>.<span class="title function_">p</span>()); <span class="comment">// 2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title function_">B</span>();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clb0n0l1c0029ssu96gbz9m41" data-title="es6-class" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-es6-set-map" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/12/31/es6-set-map/" class="article-date">
+  <time class="dt-published" datetime="2017-12-31T12:24:01.000Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/12/31/es6-set-map/">es6-set-map</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><blockquote>
+<p>es6 提供了新的数据结构Set,它类似于数组，但是成员是唯一的，没有重复的值。</p>
+</blockquote>
+<p>Set本身是一个构造函数，用来生成Set数据结构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">x</span> =&gt;</span> s.<span class="title function_">add</span>(x))</span><br><span class="line">s <span class="comment">// [2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<p>上面的结果表明Set结构不会添加重复的值。Set函数可以接受一个数组作为参数，用来初始化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>])</span><br><span class="line">[...set] <span class="comment">//[1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>])</span><br><span class="line">items.<span class="property">size</span> <span class="comment">//5</span></span><br><span class="line"><span class="comment">// 例3</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">divs</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [...<span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div&#x27;</span>)]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>(<span class="title function_">divs</span>())</span><br><span class="line">set.<span class="property">size</span> <span class="comment">//56</span></span><br><span class="line"><span class="comment">// 类似于</span></span><br><span class="line"><span class="title function_">divs</span>().<span class="title function_">forEach</span>(<span class="function"><span class="params">div</span> =&gt;</span> set.<span class="title function_">add</span>(div))</span><br><span class="line">set.<span class="property">size</span></span><br></pre></td></tr></table></figure>
+<p>去除数组重复成员</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(array)]</span><br><span class="line"><span class="comment">//向Set加入值得时候不会发生类型转换，所以 5 和 ‘5’是两个不同的值，Set内部判断两个值是否相同，使用的算法是“some-value equality&quot; 它类似的值精确等于 === 主要的区别是NaN 等于自身</span></span><br></pre></td></tr></table></figure>
+<h4 id="Set实例的属性和方法"><a href="#Set实例的属性和方法" class="headerlink" title="Set实例的属性和方法"></a>Set实例的属性和方法</h4><p>set的结构的实例有以下属性</p>
+<blockquote>
+<p>Set.prototype.constructor:构造函数，默认是Set的函数<br>  Set.prototyep.size 返回Set实例成员的个数</p>
+</blockquote>
+<p>Set实例的方法分为两大类：操作方法（操作数据）和遍历方法（用于遍历成员）</p>
+<blockquote>
+<p>add(value) 添加某个值，返回Set结构本身<br>  delete(value) 删除某个值，返回一个布尔值，表示删除成功<br>  has(value) 返回一个布尔值，表示该value是Set的成员<br>  clear() 清除所有成员，没有返回值</p>
+</blockquote>
+<h4 id="Array-from-可以将-Set数据类型转为数组"><a href="#Array-from-可以将-Set数据类型转为数组" class="headerlink" title="Array.from 可以将 Set数据类型转为数组"></a>Array.from 可以将 Set数据类型转为数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>])</span><br><span class="line"><span class="keyword">const</span> array = <span class="title class_">Array</span>.<span class="title function_">from</span>(items)</span><br></pre></td></tr></table></figure>
+<h4 id="遍历操作"><a href="#遍历操作" class="headerlink" title="遍历操作"></a>遍历操作</h4><p>Set 结构的实例有四个遍历方法，可以用于遍历成员</p>
+<blockquote>
+<p>keys() 返回键名的遍历器<br>  values() 返回键值得遍历器<br>  entries() 返回键值对的遍历器<br>  forEach() 使用回调函数遍历每个成员</p>
+</blockquote>
+<p>Set结构没有键名，只有键值（或者说键名和键值是同一个值）所以keys() 和 values()方法完全一样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> set.<span class="title function_">keys</span>()) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//&#x27;res&#x27; &#x27;green&#x27; &#x27;yellow&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> set.<span class="title function_">values</span>()) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//&#x27;res&#x27; &#x27;green&#x27; &#x27;yellow&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> set.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//[&#x27;res&#x27;,&#x27;res&#x27;]  [&#x27;green&#x27;,&#x27;green&#x27;]   [&#x27;yellow&#x27;,&#x27;yellow&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>Set结构默认是可遍历的 默认是values方法，也就是可以省略values方法直接用for 循环</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> set)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 同样的 Set结构也是有 forEach方法 对于每个成员进行操作，没有返回值</span></span><br><span class="line">set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>])</span><br><span class="line">set.<span class="title function_">forEach</span>(<span class="function">(<span class="params">value, key</span>) =&gt;</span> &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(key + <span class="string">&#x27;-&#x27;</span> + value)&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h4 id="含义和基本用法"><a href="#含义和基本用法" class="headerlink" title="含义和基本用法"></a>含义和基本用法</h4><blockquote>
+<p>javascript 对象，本质上是键值对的集合（hash结构），但是传统上只能用字符串这个它的使用带来了很大的限制</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> element = documetn.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>)</span><br><span class="line">data[element] = <span class="string">&#x27;metadata&#x27;</span></span><br><span class="line">data[<span class="string">&#x27;[object HTMLDivElement]&#x27;</span>] <span class="comment">//metadata</span></span><br><span class="line"><span class="comment">// 这段代码的原意是将一个DOM节点作为data的键，但是对象只接受字符串作为键名，所以element被自动转为字符串【object HTMLDivElement】</span></span><br></pre></td></tr></table></figure>
+<p>Es6提供了Map结构，它类似于对象，也是键值对的结合，但是键不止于字符串，各种类型的值（包括对象）都可以当做键。也就是说Object提供”字符串一值“的对应，Map结构提供了”值-值“的对应，是一种更加完善的Hash结构的实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line"><span class="keyword">const</span> o = &#123;<span class="attr">p</span>:<span class="string">&#x27;hello wold&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 方法</span></span><br><span class="line">m.<span class="title function_">set</span>(o,<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">m.<span class="title function_">get</span>(<span class="number">0</span>) <span class="comment">// &#x27;content&#x27;</span></span><br><span class="line">m.<span class="title function_">has</span>(o) <span class="comment">// true</span></span><br><span class="line">m.<span class="title function_">delete</span>(o) <span class="comment">// true</span></span><br><span class="line">m.<span class="title function_">has</span>(o) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>作为构造函数 Map也接受一个数组作为参数，该数组的成员是一个个表示键值对的数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>([</span><br><span class="line">    [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;zero&#x27;</span>],</span><br><span class="line">    [<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;author&#x27;</span>]</span><br><span class="line">])</span><br><span class="line">map.<span class="property">size</span> <span class="comment">// 2</span></span><br><span class="line">map.<span class="title function_">get</span>(name) <span class="comment">//zero</span></span><br><span class="line">map.<span class="title function_">has</span>(name) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clb0n0l1i002ossu93igod18m" data-title="es6-set-map" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-es6-async-await" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/12/20/es6-async-await/" class="article-date">
+  <time class="dt-published" datetime="2017-12-20T08:41:01.000Z" itemprop="datePublished">2017-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/12/20/es6-async-await/">es6-async-await</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><blockquote>
+<p>通俗的来讲 gennerator 的语法糖</p>
+</blockquote>
+<h4 id="初步了解"><a href="#初步了解" class="headerlink" title="初步了解"></a>初步了解</h4><p>先回忆一下 gennerator</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> readFile = <span class="keyword">function</span> (<span class="params">fileName</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params">reslove, rejecrt</span>) &#123;</span><br><span class="line">        fs.<span class="title function_">readFile</span>(fileName, <span class="keyword">function</span>(<span class="params">error, data</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="title function_">reject</span>(error);</span><br><span class="line">            <span class="title function_">resolve</span>(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> gen = <span class="keyword">function</span>* ()&#123;</span><br><span class="line">    <span class="keyword">const</span> f1 = <span class="keyword">yield</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/fstab&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> f2 = <span class="keyword">yield</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/shells&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f1.<span class="title function_">toString</span>())</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f2.<span class="title function_">toString</span>())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用的时候是</span></span><br><span class="line"></span><br><span class="line">gen.<span class="title function_">next</span>()</span><br><span class="line">gen.<span class="title function_">next</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>将上面的gennerator 函数转化为 async 函数就是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> asyncReadFile = aysnc <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> f1 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/fstab&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> f2 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/shells&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f1.<span class="title function_">toString</span>())</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f2.<span class="title function_">toString</span>())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用的时候</span></span><br><span class="line"><span class="title function_">asyncReadFile</span>()</span><br></pre></td></tr></table></figure>
+<p>区别点</p>
+<blockquote>
+<p>generator 函数执行必须靠执行器，所以有了co模块，而async 函数自带执行器，也就是async函数执行和普通函数一样<br>  更好的语义<br>  更适用的广泛性<br>  返回的是promise</p>
+</blockquote>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><blockquote>
+<p>async 返回一个promise对象，可以使用then方法添加回调函数。当函数执行的时候一旦遇到await就会先返回，等到异步操作完成。再接着执行函数体后面的语句。</p>
+</blockquote>
+<p>example</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// first example</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getStorePriceByName</span> (name) &#123;</span><br><span class="line">    <span class="keyword">const</span> symbol = <span class="keyword">await</span> <span class="title function_">getStockSymbol</span>(name)</span><br><span class="line">    <span class="keyword">const</span> stockPrice = <span class="keyword">await</span> <span class="title function_">getStockPrice</span>(symbol)</span><br><span class="line">    <span class="keyword">return</span> stockPrice</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getStorePriceByName</span>(<span class="string">&#x27;goog&#x27;</span>).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">result</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// second example</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">timeout</span> (ms) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Primise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(resolve,ms)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">asyncPrint</span> (value, ms) &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">timeout</span>(ms)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">asyncPrint</span>(<span class="string">&#x27;hello&#x27;</span>, <span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="async-函数的多种使用形式"><a href="#async-函数的多种使用形式" class="headerlink" title="async 函数的多种使用形式"></a>async 函数的多种使用形式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象的方法</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// class 的方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Storage</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">cachePromise</span> = cache.<span class="title function_">open</span>(<span class="string">&#x27;avatars&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">getAvatar</span>(<span class="params">name</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> cache = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">cachePromise</span></span><br><span class="line">        <span class="keyword">return</span> cache.<span class="title function_">match</span>(<span class="string">`/avatars/<span class="subst">$&#123;name&#125;</span>.jpg`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> storage = <span class="keyword">new</span> <span class="title class_">Storage</span>()</span><br><span class="line">storage.<span class="title function_">getAvatar</span>(<span class="string">&#x27;zero&#x27;</span>).<span class="title function_">then</span>(..)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">foo</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><blockquote>
+<p>返回promise对象，async函数内部return语句返回的值，会成为then方法回调函数的参数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(<span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v))<span class="comment">//&#x27;hello world&#x27;</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">上面代码中函数f内部return命令返回的值，会被then方法回调函数接收到</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>async 函数内部抛出错误，会导致返回的primise对象变为reject状态。抛出的错误对象会被catch方法函数接收到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;somethins is wrong&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(</span><br><span class="line">    <span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v),</span><br><span class="line">    <span class="function"><span class="params">e</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">)</span><br><span class="line"><span class="comment">//Error: 出错了</span></span><br></pre></td></tr></table></figure>
+<h3 id="await命令"><a href="#await命令" class="headerlink" title="await命令"></a>await命令</h3><blockquote>
+<p>正常情况下 await命令后面是一个Promise 对象。如果不是，会被立即转为一个resolve的promised对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> <span class="number">123</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(<span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v))<span class="comment">//123</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    上面代码中，await命令参数是数值123，它被转为promise对象。并立即执行resolve中</span></span><br><span class="line"><span class="comment">    await 命令的promise对象如果变为reject 状态。则reject的参数会被catch 方法的回调函数接收到</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f2</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(<span class="string">&#x27;it is wrong&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(</span><br><span class="line">    <span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v),</span><br><span class="line">    <span class="function"><span class="params">e</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">)</span><br><span class="line"><span class="comment">//it is wrong</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h4><blockquote>
+<p>1.await 命令后面的promise对象，运行的结果可能是rejected。所以最好把await命令放在try … catch中</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="title function_">somethingRunInPromise</span>()</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">somethingRunInPromise</span>()</span><br><span class="line">    .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2.多个await命令后面的异步操作，如果不存在继发关系，最好让它们同时触发</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> <span class="title function_">getFoo</span>()</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> <span class="title function_">getBar</span>()</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">上面的代码中，getFoo 和 getBar 是两个独立的异步操作(即互不依赖)，被写成继发的关系这样会比较耗时间，</span></span><br><span class="line"><span class="comment">因为只有 getFoo 函数完成后才会 开始 getBar</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// ====== 同时触发 ======</span></span><br><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">let</span> [foo,bar] = <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title function_">getFoo</span>(), <span class="title function_">getBar</span>()])</span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">let</span> foopromise = <span class="title function_">getFoo</span>()</span><br><span class="line"><span class="keyword">let</span> barpromise = <span class="title function_">getBar</span>()</span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> foopromise</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> barpromise</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>3.await 只能用于 async 函数中。并且forEach 函数中不适合用async 函数 ，如有需求，改为for循环</p>
+</blockquote>
+<h4 id="async函数的实现原理"><a href="#async函数的实现原理" class="headerlink" title="async函数的实现原理"></a>async函数的实现原理</h4><blockquote>
+<p>async 函数的实现原理，就是讲generator函数和自动执行器，包装在一个函数里面</p>
+</blockquote>
+<h4 id="实例-按照顺序完成异步操作"><a href="#实例-按照顺序完成异步操作" class="headerlink" title="实例(按照顺序完成异步操作)"></a>实例(按照顺序完成异步操作)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">logInOrder</span>(<span class="params">urls</span>) &#123;</span><br><span class="line">    <span class="comment">// 远程读取所有的url</span></span><br><span class="line">    <span class="keyword">const</span> textPromises = urls.<span class="title function_">map</span>(<span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">fetch</span>(url).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">text</span>())</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按次序输出</span></span><br><span class="line">    textPromises.<span class="title function_">reduce</span>(<span class="function">(<span class="params">chain, textPromise</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> chain.<span class="title function_">then</span>(<span class="function">() =&gt;</span> textPromise)</span><br><span class="line">                    .<span class="title function_">then</span>(<span class="function"><span class="params">text</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(text))</span><br><span class="line">    &#125;, <span class="title class_">Promise</span>.<span class="title function_">resolve</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 改为async</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">logInOrder2</span>(<span class="params">urls</span>) &#123;</span><br><span class="line">        <span class="comment">// 并发处理</span></span><br><span class="line">        <span class="keyword">const</span> textPromises = urls.<span class="title function_">map</span>(<span class="keyword">async</span> url =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url)</span><br><span class="line">            <span class="keyword">return</span> response.<span class="title function_">text</span>()</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 按次序输出</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> textPromise <span class="keyword">of</span> textPromises) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">await</span> textPromise)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="clb0n0l1b0025ssu9huamgi6s" data-title="es6-async-await" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-es6-generator" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/12/18/es6-generator/" class="article-date">
+  <time class="dt-published" datetime="2017-12-18T02:54:15.000Z" itemprop="datePublished">2017-12-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/12/18/es6-generator/">es6-generator</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Generator函数"><a href="#Generator函数" class="headerlink" title="Generator函数"></a>Generator函数</h3><blockquote>
+<p>generator 函数是es6提供的一种异步编程解决方案，语法行为与传统函数完全不同.generator 函数是一个状态机，封装了多个内部状态。执行generator函数会返回一个遍历器对象，也就是generator函数除了状态机，还是一个遍历器对象生成函数，返回的遍历器对象，可以一次遍历generator函数内部的每一个状态</p>
+</blockquote>
+<blockquote>
+<p>generator 函数与不同函数不同的特征。</p>
+</blockquote>
+<ul>
+<li>function关键字与函数名之前有一个星号</li>
+<li>函数体内部使用yield表达式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">helloWroldGenerator</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;ending&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> hw = <span class="title function_">helloWroldGenerator</span>();</span><br></pre></td></tr></table></figure>
+
+<p>generator 函数的调用方法与普通函数是一样的，也是在函数后面加上一对圆括号。不同的是，调用generator 函数后，该函数并不执行，返回的也不是函数运行结果。而是一个指向内部状态的指针对象。下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;hello&#x27;,done:false&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;world&#x27;,done:false&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;ending&#x27;,done:true&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="yield-表达式"><a href="#yield-表达式" class="headerlink" title="yield 表达式"></a>yield 表达式</h3><blockquote>
+<p>由于generator 函数返回的遍历器对象，只有调用next方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数，yield表达式就是暂停标志。<br>遍历器对象的next方法的运行逻辑如下。</p>
+</blockquote>
+<blockquote>
+<p>遍历器对象的next方法运行逻辑如下.<br> 1）遇到 yield 表达式，就展厅执行后面的操作，饼将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值<br> 2）下一次调用next方法时，再继续往下执行，知道遇到下一个yield表达式<br> 3）如果没有再遇到新的yield表达式，就一直运行到函数结束，知道遇到return语句位置，并将return语句后面的表达式的值，作为返回的对象的value属性值<br> 4)如果该函数没有 return语句，则分会的对象的value属性值为undefined</p>
+</blockquote>
+<p>** 另外需要注意，yield表达式只能用在 Generator 函数里面，用在其他地方都会报错。 **</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/12/18/es6-generator/" data-id="clb0n0l1d002fssu9czvc8epc" data-title="es6-generator" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-js-type-of-topic-judge" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/12/12/js-type-of-topic-judge/" class="article-date">
+  <time class="dt-published" datetime="2017-12-12T06:32:55.000Z" itemprop="datePublished">2017-12-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/12/12/js-type-of-topic-judge/">类型判断 (typeof,instanceof)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h3><blockquote>
+<p>原文地址:<a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/28">https://github.com/mqyqingfeng/Blog/issues/28</a></p>
+</blockquote>
+<p>在日常的工作中，只要有业务和逻辑需求必然会用到类型判断，判断是否是数字 数组 对象等然后做下一步是非常常见的事情，今日就让我们来一探如何来正确的判断类型，让你的代码运行起来不报错</p>
+<h4 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h4><p>相信这货大家都用到过，我之前也用到过，但是貌似总有一点心虚，不知道这样判断是否能保证所有的情况下都能正常运行。</p>
+<blockquote>
+<p>js 的类型 ： string number boolean object undefined null</p>
+</blockquote>
+<p>这几个分别对应用typeof来判断的时候得结果是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;zero&#x27;</span> <span class="comment">//&quot;string&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">21</span> <span class="comment">//&quot;number&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span> <span class="comment">//&quot;boolean&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125; <span class="comment">//&quot;object&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> []<span class="comment">//&quot;object&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="title class_">Function</span> <span class="comment">//&quot;function&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">//&quot;undefined&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">//&quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+<p>问题就非常容易总结出来就是，typeof 能判断string number undefined但是不能判断object null  和 object种类里面的细节</p>
+<h4 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString"></a>Object.prototype.toString</h4><p>如何来理解这个函数呢</p>
+<blockquote>
+<p>1.If the this value is undefined, return “[object Undefined]”.<br>  2.If the this value is null, return “[object Null]”.<br>  3.Let O be the result of calling ToObject passing the this value as the argument.<br>  4.Let class be the value of the [[Class]] internal property of O.<br>  5.Return the String value that is the result of concatenating the three Strings “[object “, class, and “]”.</p>
+</blockquote>
+<p>总结就是 调用Object.prototype.toString 返回的是”[object“ 和 class 和 ”]“组成的字符串，而class 是我们要判断的对象的内部属性</p>
+<p>还是按照上面的js 类型用 Object.prototype.toString来判断</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="string">&#x27;zero&#x27;</span>);<span class="comment">//&quot;[object String]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="number">21</span>);<span class="comment">//&quot;[object Number]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="literal">true</span>);<span class="comment">//&quot;[object Boolean]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>([]);<span class="comment">//&quot;[object Array]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(&#123;&#125;);<span class="comment">//&quot;[object Object]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;&#125;);<span class="comment">//&quot;[object Function]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="literal">undefined</span>);<span class="comment">//&quot;[object Undefined]&quot;</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="literal">null</span>);<span class="comment">//&quot;[object Null]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// object 类的拓展</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(date) <span class="comment">// [object Date]</span></span><br></pre></td></tr></table></figure>
+<p>既然这货能够判断这么仔细，应该封装一个函数 ，便于调用判断类型啊。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> class2type = &#123;&#125;;</span><br><span class="line"><span class="comment">// 生成class2type映射</span></span><br><span class="line"><span class="string">&quot;Boolean Number String Function Array Date RegExp Object Error&quot;</span>.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>).<span class="title function_">map</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">    class2type[<span class="string">&quot;[object &quot;</span> + item + <span class="string">&quot;]&quot;</span>] = item.<span class="title function_">toLowerCase</span>();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">type</span>(<span class="params">obj</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj === <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> obj + <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> obj ===<span class="string">&quot;object&quot;</span> || <span class="keyword">typeof</span> obj === <span class="string">&quot;function&quot;</span> ? class2type[<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(obj)] || <span class="string">&quot;object&quot;</span> : <span class="keyword">typeof</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 可以利用type来封装函数罗</span></span><br><span class="line"><span class="keyword">var</span> isFunction = <span class="keyword">function</span> (<span class="params">obj</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">type</span>(obj) === <span class="string">&#x27;function&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> isArray = <span class="keyword">function</span>(<span class="params">obj</span>)&#123;</span><br><span class="line">    <span class="comment">// 如果有isArray 更方便</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="title class_">Array</span>.<span class="property">isArray</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Array</span>.<span class="title function_">isArray</span>(obj)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">type</span>(obj) === <span class="string">&#x27;array&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof 运算符"></a>instanceof 运算符</h4><p>instanceof 示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> oStringObject = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oStringObject <span class="keyword">instanceof</span> <span class="title class_">String</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>instanceof 常规用法</p>
+<blockquote>
+<p>通常来讲，使用 instanceof 就是判断一个实例是否属于某种类型</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Foo</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> <span class="title class_">Foo</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo <span class="keyword">instanceof</span> <span class="title class_">Foo</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/12/12/js-type-of-topic-judge/" data-id="clb0n0l1t003qssu95dnj98xe" data-title="类型判断 (typeof,instanceof)" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-class-array-object" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/12/08/class-array-object/" class="article-date">
+  <time class="dt-published" datetime="2017-12-08T07:17:13.000Z" itemprop="datePublished">2017-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/12/08/class-array-object/">class-array-object（类数组对象）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="类数组对象"><a href="#类数组对象" class="headerlink" title="类数组对象"></a>类数组对象</h4><p>类数组对象定义</p>
+<blockquote>
+<p>拥有一个length属性，和若干索引属性的对象</p>
+</blockquote>
+<blockquote>
+<p>tips:要说到类数组对象，Arguments 对象就是一个类数组对象。在客户端 JavaScript 中，一些 DOM 方法(document.getElementsByTagName()等)也返回类数组对象。</p>
+</blockquote>
+<p>例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个数组</span></span><br><span class="line"><span class="keyword">var</span> array = [<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;age&#x27;</span>,<span class="string">&#x27;sex&#x27;</span>];</span><br><span class="line"><span class="comment">//这是一个类数组</span></span><br><span class="line"><span class="keyword">var</span> arraylike = &#123;</span><br><span class="line">    <span class="number">0</span>:<span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">    <span class="number">1</span>:<span class="string">&#x27;age&#x27;</span>,</span><br><span class="line">    <span class="number">2</span>:<span class="string">&#x27;sex&#x27;</span>,</span><br><span class="line">    <span class="attr">length</span>:<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>为啥叫类素组是吧？接下来我们从读写，获取长度，遍历等这三个方面来查看这两个对象</p>
+<p>读写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读：</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(array[<span class="number">0</span>]);<span class="comment">//name</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arraylike[<span class="number">0</span>]);<span class="comment">//name</span></span><br><span class="line"><span class="comment">//写:</span></span><br><span class="line">array[<span class="number">0</span>] = <span class="string">&#x27;new name&#x27;</span>;</span><br><span class="line">arraylike[<span class="number">0</span>] = <span class="string">&#x27;new name&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>获取长度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array.<span class="property">length</span>;<span class="comment">//3</span></span><br><span class="line">arraylike.<span class="property">length</span>;<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>遍历</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = array.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">   ……</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arrayLike.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">   ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。"><a href="#接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。" class="headerlink" title="接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。"></a>接下来改来点不太一样的了，不然这两货就没有必要拿出来了，也没有累数组干脆叫数组得了，分啥啊。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array.<span class="title function_">push</span>(<span class="string">&#x27;4&#x27;</span>);<span class="comment">//[&#x27;name&#x27;,&#x27;age&#x27;,&#x27;sex&#x27;,&#x27;4&#x27;]</span></span><br><span class="line">arrayLike.<span class="title function_">push</span>(<span class="string">&#x27;4&#x27;</span>);<span class="comment">// 报错 arrayLike.push is not a function</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="那类素组要如何才能当做数组放心的使用呢"><a href="#那类素组要如何才能当做数组放心的使用呢" class="headerlink" title="那类素组要如何才能当做数组放心的使用呢"></a>那类素组要如何才能当做数组放心的使用呢</h4><p>既然无法直接调用，那么我们就可以用Function.call 间接调用</p>
+<p>直接出几个 能将类数组转为数组的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayLike = &#123;<span class="number">0</span>: <span class="string">&#x27;name&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;age&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;sex&#x27;</span>, <span class="attr">length</span>: <span class="number">3</span> &#125;</span><br><span class="line"><span class="comment">// 1. slice</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(arrayLike); <span class="comment">// [&quot;name&quot;, &quot;age&quot;, &quot;sex&quot;] </span></span><br><span class="line"><span class="comment">// 2. splice</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">splice</span>.<span class="title function_">call</span>(arrayLike, <span class="number">0</span>); <span class="comment">// [&quot;name&quot;, &quot;age&quot;, &quot;sex&quot;] </span></span><br><span class="line"><span class="comment">// 3. ES6 Array.from</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(arrayLike); <span class="comment">// [&quot;name&quot;, &quot;age&quot;, &quot;sex&quot;] </span></span><br><span class="line"><span class="comment">// 4. apply</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">concat</span>.<span class="title function_">apply</span>([], arrayLike)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/12/08/class-array-object/" data-id="clb0n0l130012ssu98m323uou" data-title="class-array-object（类数组对象）" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

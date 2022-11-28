@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>compound-rate | zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="日常所见所想复利的力量 一直认为把钱存银行就是一个放移动保险柜的功能，怕丢！没想过涨钱。因为总的来说基本没感觉涨过钱，首先啊，我没啥钱，然后啊，那点利息算起来真的让我心酸。我觉得我算的过程的价值都比那点利息高。直到今日！！！幡然悔悟~ maybe 你看到了也会悔悟。接下来用数据打脸  既然作为一名程序员，先贴计算的代码  计算公式： Fn &#x3D; P x (1 + i)的n次方  12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="compound-rate">
+<meta property="og:url" content="http://example.com/2019/05/06/compound-rate/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:description" content="日常所见所想复利的力量 一直认为把钱存银行就是一个放移动保险柜的功能，怕丢！没想过涨钱。因为总的来说基本没感觉涨过钱，首先啊，我没啥钱，然后啊，那点利息算起来真的让我心酸。我觉得我算的过程的价值都比那点利息高。直到今日！！！幡然悔悟~ maybe 你看到了也会悔悟。接下来用数据打脸  既然作为一名程序员，先贴计算的代码  计算公式： Fn &#x3D; P x (1 + i)的n次方  12345">
+<meta property="og:locale">
+<meta property="og:image" content="http://static.zeroyh.cn/compound-WechatIMG730.png">
+<meta property="og:image" content="http://static.zeroyh.cn/compound-WechatIMG731.png">
+<meta property="og:image" content="http://static.zeroyh.cn/compound-WechatIMG732.png">
+<meta property="og:image" content="http://static.zeroyh.cn/compound-WechatIMG733.png">
+<meta property="article:published_time" content="2019-05-06T07:15:51.000Z">
+<meta property="article:modified_time" content="2022-11-28T09:10:05.106Z">
+<meta property="article:author" content="zero">
+<meta property="article:tag" content="Thoughts">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.zeroyh.cn/compound-WechatIMG730.png">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-compound-rate" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/06/compound-rate/" class="article-date">
+  <time class="dt-published" datetime="2019-05-06T07:15:51.000Z" itemprop="datePublished">2019-05-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      compound-rate
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="日常所见所想"><a href="#日常所见所想" class="headerlink" title="日常所见所想"></a>日常所见所想</h3><h4 id="复利的力量"><a href="#复利的力量" class="headerlink" title="复利的力量"></a>复利的力量</h4><blockquote>
+<p>一直认为把钱存银行就是一个放移动保险柜的功能，怕丢！没想过涨钱。因为总的来说基本没感觉涨过钱，首先啊，我没啥钱，然后啊，那点利息算起来真的让我心酸。我觉得我算的过程的价值都比那点利息高。直到今日！！！幡然悔悟~ maybe 你看到了也会悔悟。接下来用数据打脸</p>
+</blockquote>
+<p><strong>既然作为一名程序员，先贴计算的代码</strong></p>
+<blockquote>
+<p>计算公式： Fn &#x3D; P x (1 + i)的n次方</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> years = <span class="number">20</span>;        <span class="comment">// 复利年限 (也就是存款的年数)</span></span><br><span class="line"><span class="keyword">let</span> allMoney = <span class="number">4000000</span>;  <span class="comment">// 初始金额 (400w 现在是以一个北京4环左右的房子来说作为初始金额)</span></span><br><span class="line"><span class="keyword">let</span> firstMoney = <span class="number">4000000</span>;<span class="comment">// 初始金额</span></span><br><span class="line"><span class="keyword">let</span> rate = <span class="number">1.05</span>;         <span class="comment">// 利率 5% (这个利率是真的不高了，买理财产品就可以了。如果更高的利率那就更可怕的数据了。 )</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">compute</span>(<span class="params">rate</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;=years; i++) &#123;</span><br><span class="line">    allMoney = allMoney * rate;</span><br><span class="line">    <span class="comment">// console.log(&#x27;now year&#x27;, i, &#x27;now money&#x27;, allMoney);</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> allMoney;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;compute function result is&#x27;</span>, <span class="title function_">compute</span>(rate));</span><br><span class="line"></span><br><span class="line"><span class="comment">// or </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resursionCompute</span>(<span class="params">rates, years</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (years == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> rates;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		years --;</span><br><span class="line">		<span class="keyword">return</span> <span class="title function_">resursionCompute</span>(rate * rates, years)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;resursionCompute function result is&#x27;</span>, firstMoney * <span class="title function_">resursionCompute</span>(rate, years));</span><br><span class="line"></span><br><span class="line"><span class="comment">// now year-----&gt; 1 now money-----&gt; 4200000</span></span><br><span class="line"><span class="comment">// now year-----&gt; 2 now money-----&gt; 4410000</span></span><br><span class="line"><span class="comment">// now year-----&gt; 3 now money-----&gt; 4630500</span></span><br><span class="line"><span class="comment">// now year-----&gt; 4 now money-----&gt; 4862025</span></span><br><span class="line"><span class="comment">// now year-----&gt; 5 now money-----&gt; 5105126.25</span></span><br><span class="line"><span class="comment">// now year-----&gt; 6 now money-----&gt; 5360382.5625</span></span><br><span class="line"><span class="comment">// now year-----&gt; 7 now money-----&gt; 5628401.690625</span></span><br><span class="line"><span class="comment">// now year-----&gt; 8 now money-----&gt; 5909821.77515625</span></span><br><span class="line"><span class="comment">// now year-----&gt; 9 now money-----&gt; 6205312.863914063</span></span><br><span class="line"><span class="comment">// now year-----&gt; 10 now money-----&gt; 6515578.507109767</span></span><br><span class="line"><span class="comment">// now year-----&gt; 11 now money-----&gt; 6841357.432465255</span></span><br><span class="line"><span class="comment">// now year-----&gt; 12 now money-----&gt; 7183425.304088518</span></span><br><span class="line"><span class="comment">// now year-----&gt; 13 now money-----&gt; 7542596.569292944</span></span><br><span class="line"><span class="comment">// now year-----&gt; 14 now money-----&gt; 7919726.397757592</span></span><br><span class="line"><span class="comment">// now year-----&gt; 15 now money-----&gt; 8315712.717645472</span></span><br><span class="line"><span class="comment">// now year-----&gt; 16 now money-----&gt; 8731498.353527745</span></span><br><span class="line"><span class="comment">// now year-----&gt; 17 now money-----&gt; 9168073.271204133</span></span><br><span class="line"><span class="comment">// now year-----&gt; 18 now money-----&gt; 9626476.93476434</span></span><br><span class="line"><span class="comment">// now year-----&gt; 19 now money-----&gt; 10107800.781502558</span></span><br><span class="line"><span class="comment">// now year-----&gt; 20 now money-----&gt; 10613190.820577687</span></span><br><span class="line"><span class="comment">// 10613190.820577687</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>用上面函数运行的结果表格统计</p>
+<p>| 年数（年） | 金额（元） | 对比上一年的增长 （元）不精确约数 |<br>| ————- | ————- |<br>| 本金 | 4000000 (400w 假设的北京一套三环开外的房) | – |<br>| 1 | 4200000 (420w) | 20w |<br>| 2 | 4410000 (441w) | 21w |<br>| 3 | 4630500 (463w) | 22w |<br>| 4 | 4862025 (486w) | 23w |<br>| 5 | 5105126.25 (510w) | 24w |<br>| 6 | 5360382.56 (536w) | 25w |<br>| 7 | 5628401.69 (562w) | 26w |<br>| 8 | 5909821.78 (590w) | 28w |<br>| 9 | 6205312.86 (621w) | 30w |<br>| 10 | 6515578.51 (652w) | 31w |<br>| 11 | 6841357.43 (684w) | 32w |<br>| 12 | 7183425.30 (718w) | 34w |<br>| 13 | 7542596.57 (754w) | 36w |<br>| 14 | 7919726.40 (791w) | 37w |<br>| 15 | 8315712.72 (831w) | 40w |<br>| 16 | 8731498.36 (873w) | 42w |<br>| 17 | 9168073.28 (916w) | 43w |<br>| 18 | 9626476.93 (962w) | 46w |<br>| 19 | 10107800.78 (1010w) | 48w |<br>| 20 | 10613190.82 (1061w) | 51w |<br>| 10年增长统计 | 2515578.5 (252w) | – |<br>| 20年增长统计 | 6613190.82 (661w) | – |<br>| 20年对比10年增长统计 | 4097612 (409w) | – |</p>
+<p>ok !! 没有对比就没有伤害呗，现在我们再用折线图来表示下</p>
+<p>看一个 rate &#x3D; 5% ， 40年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG730.png"></p>
+<p>看一个 rate &#x3D; 7% ， 40年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG731.png"></p>
+<p>看一个 rate &#x3D; 10% ， 40年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG732.png"></p>
+<p>看一个 rate &#x3D; 10% ， 100年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG733.png"></p>
+<blockquote>
+<p>结论想必通过折线图的切率已经看出来了，复利真的无法小视。形成星星之火燎原之态~</p>
+</blockquote>
+<p><strong>接下来。我很好奇，按照 7% 不高也不低的利率 如果按照20年的占线，市场的租房获利能否跑赢复利呢？（此处不计算20年后房子是否已经升值或者贬值， 按照市场租房 5年一个周期，每5年 房租上升 50%， 且每年获得的租金都用来再次投入复利以获得最大报酬） now !!! 拭目以待</strong></p>
+<hr>
+<p><strong>first 先给出 复利 20年 7%后赚了多少钱</strong></p>
+<p>  把上面的代码years 改为 20， rate 改为 1.07 运行后的结果为 15478737.849944727 初始金额是 4000000。 获利 11478737.85。<br>  所以最终20走复利也就是 卖掉房子 400w 然后 用400w投资20年获利1148w ，房子本金还在 400w。 总资产1547w （嗯，中间没花1分钱，全部再投入~ 这样的老板才能发财呀！！！）</p>
+<hr>
+<p><strong>second 然后再来计算租房带来的利润</strong></p>
+<p>  租房，目前北京很多是租给中介，5年为一个周期（合同签5年一次）。然后20年的话，是4个周期。 假设中介是年付 也就是（这样的情况还能走复利多挣点），400w的房子如果地段好且靠地铁的话，能租到20000一个月(按照目前2019年的行情来说的话，谦虚点已然非常不错了~ ，骄傲点不太可能的价格！太高了~。豪华装修都租不出去的价格)<br>  第一个5年 租房一年的租金为 20000 x 12 &#x3D; 240000 （24w)<br>  第二个5年 租房一年的租金为 20000 x 1.5 x 12 &#x3D; 360000 （36w)<br>  第三个5年 租房一年的租金为 360000 x 1.5 x 12 &#x3D; 540000 （54w)<br>  第四个5年 租房一年的租金为 540000 x 1.5 x 12 &#x3D; 810000 （81w)</p>
+<p>  ok, 现在开始假设中介按照年打钱给作为房东老板的你。</p>
+<p>  第一个五年结束 根据 7% 每年新增 24w的计算方式  总共是  1380177 约数是 138w<br>  第二个五年结束  本金以第一个五年作为base ， 根据 7% 每年新增 36w的计算方式  总共是  4006035 约数是 400w<br>  第三个五年结束  本金以第二个五年作为base ， 根据 7% 每年新增 54w的计算方式  总共是  8724070 约数是 872w<br>  第四个五年结束  本金以第三个五年作为base ， 根据 7% 每年新增 81w的计算方式  总共是  16894058 约数是 1689w</p>
+<p>  所以最终的租房的20年获利是 1689w。这么一看貌似更多耶。噢噢噢~  租房20年获得的是  房子减去20年产权一套 + 1689w （中间没花一分钱。。。。这也算是苦了房东老板了）。</p>
+<hr>
+<blockquote>
+<p>最终终终终总结：经过对比我发现啊~ 貌似租房获得的收益更大，但是相对而言风险更大。因为就目前来说，房租5年增长50%还是挺不容易的（上述租房带来的收益都是假设数据）。 而且房子市值目前在巅峰值。20年后的房子产权还剩20年的房子还能值 ？？？不过也可能疯长~ 这里就是个无聊的对比。我想大家心里都会有自己的看法~ </p>
+</blockquote>
+<p>end………</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clb0n0l140019ssu9gwlx7rmu" data-title="compound-rate" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/07/es6-array-methods/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Why and when to use forEach, map, filter, reduce, and find in JavaScript
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/30/product-manager-operation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">product-manager-operation</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

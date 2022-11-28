@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>css-box-shadow | zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="box-shadow box-shadow 阴影是我们经常用的一个属性，但是却经常想不起来单边的阴影写法，记录下来，方便查阅（本方法 是查阅css secret 所获）  参数解释box-shadow: h-shadow v-shadow blur spread color inset;    h-shadow (必)： 水平移动距离 正值向右， 负值向左    v-shadow (必)： 垂直移">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css-box-shadow">
+<meta property="og:url" content="http://example.com/2017/08/02/css-box-shadow/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:description" content="box-shadow box-shadow 阴影是我们经常用的一个属性，但是却经常想不起来单边的阴影写法，记录下来，方便查阅（本方法 是查阅css secret 所获）  参数解释box-shadow: h-shadow v-shadow blur spread color inset;    h-shadow (必)： 水平移动距离 正值向右， 负值向左    v-shadow (必)： 垂直移">
+<meta property="og:locale">
+<meta property="og:image" content="http://static.zeroyh.cn/box-shadow.jpeg">
+<meta property="og:image" content="http://upload.zeroyh.cn/boxshadow-four.jpeg">
+<meta property="og:image" content="http://upload.zeroyh.cn/boxshadow-two.jpeg">
+<meta property="og:image" content="http://upload.zeroyh.cn/boxshadow-three.jpeg">
+<meta property="og:image" content="http://upload.zeroyh.cn/boxshadow-eight.jpeg">
+<meta property="og:image" content="http://upload.zeroyh.cn/boxshadow-six.jpeg">
+<meta property="article:published_time" content="2017-08-02T01:37:33.000Z">
+<meta property="article:modified_time" content="2022-11-28T09:10:05.106Z">
+<meta property="article:author" content="zero">
+<meta property="article:tag" content="Css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.zeroyh.cn/box-shadow.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-css-box-shadow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/08/02/css-box-shadow/" class="article-date">
+  <time class="dt-published" datetime="2017-08-02T01:37:33.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      css-box-shadow
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h3><blockquote>
+<p>box-shadow 阴影是我们经常用的一个属性，但是却经常想不起来单边的阴影写法，记录下来，方便查阅（本方法 是查阅css secret 所获）</p>
+</blockquote>
+<h4 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h4><p>box-shadow: h-shadow v-shadow blur spread color inset;</p>
+<blockquote>
+<p>  <strong>h-shadow (必)： 水平移动距离 正值向右， 负值向左<br>    v-shadow (必)： 垂直移动距离 正值向下， 负值向上<br>    blur (选)：     模糊距离<br>    spread (选)：   阴影尺寸 正直扩大， 负值减少<br>    color (选)：    阴影颜色<br>    inset (选):     将外部阴影改为内部阴影</strong></p>
+</blockquote>
+<h4 id="投影原理解释"><a href="#投影原理解释" class="headerlink" title="投影原理解释"></a>投影原理解释</h4><p><img src="http://static.zeroyh.cn/box-shadow.jpeg" alt="图片"></p>
+<p>步骤:</p>
+<ul>
+<li>(1) 以该元素相同的尺寸11和位置，画一个 rgba(0,0,0,.5) 的矩形。</li>
+<li>(2) 把它向右移 2px，向下移 3px。</li>
+<li>(3) 使用高斯模糊算法(或类似算法)将它进行 4px 的模糊处理。这在 本质上表示在阴影边缘发生阴影色和纯透明色之间的颜色过渡长度近似于模 糊半径的两倍(比如在这里是 8px)。</li>
+<li>(4) 接下来，模糊后的矩形与原始元素的交集部分会被切除掉，因此它 看起来像是在该元素的“后面”。这跟大多数开发者所理解的情况(元素叠在模糊后矩形的上层)可能稍有不同。不过，在某些场景下，意识到没有任何投影绘制在元素的下层十分重要。举例来说，如果给元素设置一层半透 明的背景，我们就看不到它下层有任何投影。这一点跟 text-shadow 不同， 因为文字下层的投影不会被裁切。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-shadow</span> &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">2px</span> <span class="number">3px</span> <span class="number">4px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="单边阴影"><a href="#单边阴影" class="headerlink" title="单边阴影"></a>单边阴影</h4><p><img src="http://upload.zeroyh.cn/boxshadow-four.jpeg" alt="图片"></p>
+<blockquote>
+<p>原理解析：最终的解决方案来自 box-shadow 鲜为人知的第四个长度参数。它排在 模糊半径参数之后，称作扩张半径。这个参数会根据你指定的值去扩大或 (当指定负值时)缩小投影的尺寸。举例来说，一个 -5px 的扩张半径会把投影的宽度和高度各减少 10px(即每边各 5px)。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*要素是 阴影值（6px) 和 扩张半径值(-6px) 是相反数*/</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">vertical-align</span>: top;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow1</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> -<span class="number">6px</span> <span class="number">12px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow2</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">6px</span> <span class="number">12px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow3</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: -<span class="number">6px</span> <span class="number">0</span> <span class="number">12px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow4</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">6px</span> <span class="number">0</span> <span class="number">12px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="邻边阴影"><a href="#邻边阴影" class="headerlink" title="邻边阴影"></a>邻边阴影</h4><p><img src="http://upload.zeroyh.cn/boxshadow-two.jpeg" alt="图片"></p>
+<blockquote>
+<p>原理解析:可以使用3个参数的方案，注意调节阴影值和偏移值得大小即可</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-shadow1</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">6px</span> -<span class="number">6px</span> <span class="number">12px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow2</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: -<span class="number">6px</span> <span class="number">6px</span> <span class="number">12px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="双侧阴影"><a href="#双侧阴影" class="headerlink" title="双侧阴影"></a>双侧阴影</h4><p><img src="http://upload.zeroyh.cn/boxshadow-three.jpeg" alt="图片"></p>
+<blockquote>
+<p>原理解析:当我们想把投影设置在元素的两条对边(比如左侧和右侧)时，事情就 变得棘手了。因为扩张半径在四个方向上的作用是均等的(也就是说，我们 无法指定投影在水平方向上放大，而在垂直方向上缩小)11，唯一的办法是用 两块投影(每边各一块)来达到目的。然后基本上就是把“单侧投影”中的 技巧运用两次:</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-shadow1</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">6px</span> <span class="number">0</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="number">#000</span>, -<span class="number">6px</span> <span class="number">0</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="number">#000</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow2</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">6px</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="number">#000</span>, <span class="number">0</span> -<span class="number">6px</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="number">#000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="三侧阴影"><a href="#三侧阴影" class="headerlink" title="三侧阴影"></a>三侧阴影</h4><p><img src="http://upload.zeroyh.cn/boxshadow-eight.jpeg" alt="图片"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-shadow1</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">7px</span> <span class="number">5px</span> -<span class="number">2px</span> blue, <span class="number">7px</span> <span class="number">0px</span> <span class="number">5px</span> -<span class="number">2px</span> red, -<span class="number">7px</span> <span class="number">0px</span> <span class="number">5px</span> -<span class="number">2px</span> green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow2</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> -<span class="number">6px</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>), -<span class="number">6px</span> <span class="number">0</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>), <span class="number">0</span> <span class="number">6px</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow3</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: -<span class="number">6px</span> <span class="number">0</span>  <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>), <span class="number">6px</span> <span class="number">0</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>), <span class="number">0</span> <span class="number">6px</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box-shadow4</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> -<span class="number">6px</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>), <span class="number">6px</span> <span class="number">0</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>), -<span class="number">6px</span> <span class="number">0</span> <span class="number">6px</span> -<span class="number">6px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">5</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.all</span> &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">12px</span> <span class="number">6px</span> <span class="number">6px</span> <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="四侧阴影"><a href="#四侧阴影" class="headerlink" title="四侧阴影"></a>四侧阴影</h4><p><img src="http://upload.zeroyh.cn/boxshadow-six.jpeg" alt="图片"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.all</span> &#123;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">12px</span> <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/08/02/css-box-shadow/" data-id="clb0n0l130015ssu9axyhbs6y" data-title="css-box-shadow" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/18/xml-httpRequest/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          XMLHttpRequest
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/01/css-layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">css-layout (css布局)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

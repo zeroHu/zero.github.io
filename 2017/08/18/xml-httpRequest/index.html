@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>XMLHttpRequest | zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ajax的真面目ajax一直在使用，使用起来相对简单，之前也看过其本质。但是久之就遗忘了。故记录下来 123456789101112131415&#x2F;&#x2F;jquery 的简便使用方法$.ajax(&amp;#123;    url: &amp;#x27;http:&#x2F;&#x2F;xxxx.xxx.xxx&amp;#x27;,&#x2F;&#x2F;请求的url    type: &amp;#x27;GET&amp;#x27;,&#x2F;&#x2F;请求类型    data:&amp;#123;&#x2F;&#x2F;请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XMLHttpRequest">
+<meta property="og:url" content="http://example.com/2017/08/18/xml-httpRequest/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:description" content="ajax的真面目ajax一直在使用，使用起来相对简单，之前也看过其本质。但是久之就遗忘了。故记录下来 123456789101112131415&#x2F;&#x2F;jquery 的简便使用方法$.ajax(&amp;#123;    url: &amp;#x27;http:&#x2F;&#x2F;xxxx.xxx.xxx&amp;#x27;,&#x2F;&#x2F;请求的url    type: &amp;#x27;GET&amp;#x27;,&#x2F;&#x2F;请求类型    data:&amp;#123;&#x2F;&#x2F;请">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-08-18T03:00:38.000Z">
+<meta property="article:modified_time" content="2022-11-28T09:10:05.127Z">
+<meta property="article:author" content="zero">
+<meta property="article:tag" content="XMLHttpRequest">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-xml-httpRequest" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/08/18/xml-httpRequest/" class="article-date">
+  <time class="dt-published" datetime="2017-08-18T03:00:38.000Z" itemprop="datePublished">2017-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      XMLHttpRequest
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="ajax的真面目"><a href="#ajax的真面目" class="headerlink" title="ajax的真面目"></a>ajax的真面目</h3><p><strong>ajax一直在使用，使用起来相对简单，之前也看过其本质。但是久之就遗忘了。故记录下来</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//jquery 的简便使用方法</span></span><br><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;http://xxxx.xxx.xxx&#x27;</span>,<span class="comment">//请求的url</span></span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;GET&#x27;</span>,<span class="comment">//请求类型</span></span><br><span class="line">    <span class="attr">data</span>:&#123;<span class="comment">//请求参数</span></span><br><span class="line">        <span class="attr">key1</span>:value1</span><br><span class="line">        <span class="attr">key2</span>:value2</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;<span class="comment">//成功回调</span></span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;<span class="comment">//失败回调</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="何为ajax"><a href="#何为ajax" class="headerlink" title="何为ajax"></a>何为ajax</h4><blockquote>
+<p>AJAX stands for Asynchronous JavaScript and XML. AJAX is a new technique for creating better, faster, and more interactive web applications with the help of XML, HTML, CSS, and Java Script。翻译过来就是AJAX代表异步JavaScript和XML。 AJAX是在XML，HTML，CSS和Java脚本的帮助下创建更好，更快，更具交互性的Web应用程序的新技术。总结就是我们使用XMLHttpRequest对象来发送一个Ajax请求</p>
+</blockquote>
+<h4 id="XMLHttpRequest1"><a href="#XMLHttpRequest1" class="headerlink" title="XMLHttpRequest1"></a>XMLHttpRequest1</h4><h5 id="包含"><a href="#包含" class="headerlink" title="包含:"></a>包含:</h5><ul>
+<li>xhr.readyState：XMLHttpRequest对象的状态，等于4表示数据已经接收完毕。</li>
+<li>xhr.status：服务器返回的状态码，等于200表示一切正常。</li>
+<li>xhr.responseText：服务器返回的文本数据</li>
+<li>xhr.responseXML：服务器返回的XML格式的数据</li>
+<li>xhr.statusText：服务器返回的状态文本。</li>
+</ul>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h5><ul>
+<li>只支持文本数据的传送，无法用来读取和上传二进制文件。</li>
+<li>传送和接收数据时，没有进度信息，只能提示有没有完成。</li>
+<li>受到”同域限制”（Same Origin Policy），只能向同一域名的服务器请求数据。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;http://xxx.xxx.xx&#x27;</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> ( xhr.<span class="property">readyState</span> == <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> == <span class="number">200</span> ) &#123;</span><br><span class="line">        <span class="comment">//请求成功</span></span><br><span class="line">        <span class="title function_">alert</span>( xhr.<span class="property">responseText</span> );</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">alert</span>( xhr.<span class="property">statusText</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="XMLHttpRequest2"><a href="#XMLHttpRequest2" class="headerlink" title="XMLHttpRequest2"></a>XMLHttpRequest2</h4><h5 id="增加"><a href="#增加" class="headerlink" title="增加:"></a>增加:</h5><ul>
+<li>可以设置HTTP请求的时限。</li>
+<li>可以使用FormData对象管理表单数据。</li>
+<li>可以上传文件。</li>
+<li>可以请求不同域名下的数据（跨域请求）。</li>
+<li>可以获取服务器端的二进制数据。</li>
+<li>可以获得数据传输的进度信息。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.增加timeout功能</span></span><br><span class="line">xhr.<span class="property">timeout</span> = <span class="number">3000</span>;</span><br><span class="line">xhr.<span class="property">ontimeout</span> = <span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;请求超时！&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.模拟表单</span></span><br><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line">formData.<span class="title function_">append</span>(<span class="string">&#x27;username&#x27;</span>, <span class="string">&#x27;张三&#x27;</span>);</span><br><span class="line">formData.<span class="title function_">append</span>(<span class="string">&#x27;id&#x27;</span>, <span class="number">123456</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>(formData);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.可以用来处理form表单</span></span><br><span class="line"><span class="keyword">var</span> form = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myform&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>(form);</span><br><span class="line">formData.<span class="title function_">append</span>(<span class="string">&#x27;secret&#x27;</span>, <span class="string">&#x27;123456&#x27;</span>); <span class="comment">// 添加一个表单项</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>, form.<span class="property">action</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>(formData);</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.上传文件</span></span><br><span class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;files.<span class="property">length</span>;i++)&#123;</span><br><span class="line">    formData.<span class="title function_">append</span>(<span class="string">&#x27;files[]&#x27;</span>, files[i]);</span><br><span class="line">&#125;</span><br><span class="line">xhr.<span class="title function_">send</span>(formData);</span><br><span class="line"></span><br><span class="line"><span class="comment">//5.跨域资源共享</span></span><br><span class="line"><span class="comment">//使用&quot;跨域资源共享&quot;的前提，是浏览器必须支持这个功能，而且服务器端必须同意这种&quot;跨域&quot;。如果能够满足上面的条件，则代码的写法与不跨域的请求完全一样。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//6.进度信息</span></span><br><span class="line"><span class="comment">//它分成上传和下载两种情况。下载的progress事件属于XMLHttpRequest对象，上传的progress事件属于XMLHttpRequest.upload对象。</span></span><br><span class="line">xhr.<span class="property">onprogress</span> = updateProgress;</span><br><span class="line">xhr.<span class="property">upload</span>.<span class="property">onprogress</span> = updateProgress;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">updateProgress</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="property">lengthComputable</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> percentComplete = event.<span class="property">loaded</span> / event.<span class="property">total</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ajax封装"><a href="#ajax封装" class="headerlink" title="ajax封装"></a>ajax封装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sendAjax</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//构造表单数据</span></span><br><span class="line">  <span class="keyword">var</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line">  formData.<span class="title function_">append</span>(<span class="string">&#x27;username&#x27;</span>, <span class="string">&#x27;johndoe&#x27;</span>);</span><br><span class="line">  formData.<span class="title function_">append</span>(<span class="string">&#x27;id&#x27;</span>, <span class="number">123456</span>);</span><br><span class="line">  <span class="comment">//创建xhr对象</span></span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">  <span class="comment">//设置xhr请求的超时时间</span></span><br><span class="line">  xhr.<span class="property">timeout</span> = <span class="number">3000</span>;</span><br><span class="line">  <span class="comment">//设置响应返回的数据格式</span></span><br><span class="line">  xhr.<span class="property">responseType</span> = <span class="string">&quot;text&quot;</span>;</span><br><span class="line">  <span class="comment">//创建一个 post 请求，采用异步</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;/server&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">  <span class="comment">//注册相关事件回调处理函数</span></span><br><span class="line">  xhr.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">status</span> == <span class="number">200</span>||<span class="variable language_">this</span>.<span class="property">status</span> == <span class="number">304</span>)&#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">responseText</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.<span class="property">ontimeout</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123; ... &#125;;</span><br><span class="line">  xhr.<span class="property">onerror</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123; ... &#125;;</span><br><span class="line">  xhr.<span class="property">upload</span>.<span class="property">onprogress</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123; ... &#125;;</span><br><span class="line">  <span class="comment">//发送数据</span></span><br><span class="line">  xhr.<span class="title function_">send</span>(formData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ajax-设置-request-header"><a href="#ajax-设置-request-header" class="headerlink" title="ajax 设置 request header"></a>ajax 设置 request header</h4><h5 id="注意点"><a href="#注意点" class="headerlink" title="注意点:"></a>注意点:</h5><ul>
+<li>方法的第一个参数 header 大小写不敏感，即可以写成content-type，也可以写成Content-Type，甚至写成content-Type;</li>
+<li>Content-Type的默认值与具体发送的数据类型有关，【可以发送什么类型的数据】<a target="_blank" rel="noopener" href="http://blog.zeroyh.cn/2018/02/08/ajax-http-body/">content-type详解</a>一节；</li>
+<li>setRequestHeader必须在open()方法之后，send()方法之前调用，否则会抛错；</li>
+<li>setRequestHeader可以调用多次，最终的值不会采用覆盖override的方式，而是采用追加append的方式。下面是一个示例代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"><span class="keyword">var</span> url = <span class="string">&#x27;http://xxx.xxx.xxx&#x27;</span>;</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>,url,<span class="literal">true</span>);</span><br><span class="line">xhr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;application/xml&#x27;</span>);</span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/08/18/xml-httpRequest/" data-id="clb0n0l260055ssu91vrjam0p" data-title="XMLHttpRequest" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/18/xml-httpRequest-ajax-detail/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          ajax 请求参数详情，cache 理解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/02/css-box-shadow/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">css-box-shadow</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>zeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="zeroBlog">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="zeroBlog">
+<meta property="og:locale">
+<meta property="article:author" content="zero">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">zero&#39;s life and study record</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-33-js-call-stack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/14/33-js-call-stack/" class="article-date">
+  <time class="dt-published" datetime="2019-05-14T09:03:27.000Z" itemprop="datePublished">2019-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/14/33-js-call-stack/">33-js-call-stack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="call-stack"><a href="#call-stack" class="headerlink" title="call stack"></a>call stack</h3><p><strong>what is call stack</strong><br>a call stack is a data structure that uses the last in, first out(IIFO) principle to temporarily store and manage function invocatin (call).</p>
+<blockquote>
+<p>call stack is tell us how is the function call, and just like a interpreter for mechanism. the order of function and what time is the function call , and what time is the function out.</p>
+</blockquote>
+<h4 id="why-js-is-a-single-threaded-single-concurrent-language"><a href="#why-js-is-a-single-threaded-single-concurrent-language" class="headerlink" title="why js is a single threaded single concurrent language"></a>why js is a single threaded single concurrent language</h4><blockquote>
+<p>as we know that javascript is a single threaded single concurrent language. but what’s mean??? that means at a time js only can deal one task or a a piece of code. it has a single call stack which along with other parts like heap, queue constitutes the javascript concurrency modal.</p>
+</blockquote>
+<p><img src="http://static.zeroyh.cn/1_ZSFHnq9iMHIApVLcgwczPQ.png"></p>
+<h4 id="just-to-know-how-is-js-code-run"><a href="#just-to-know-how-is-js-code-run" class="headerlink" title="just to know how is js code run"></a>just to know how is js code run</h4><ul>
+<li>when a script calls a function, the interpreter adds it to the call stack.</li>
+<li>any function called by that function added to the call stack further up. and run anywhere their calls are reached.</li>
+<li>when the current function is finished. the interpreter takes it off the stack.</li>
+<li>if the stack takes more space than it had assigned, it results in a error “stack overflow”.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo is start&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">bar</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;bar is start&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">foo</span>());</span><br><span class="line"><span class="comment">// what&#x27;s  the js running ? let me show you the call stack.</span></span><br><span class="line"><span class="comment">// 1. first when we run console.log(foo()); now the call stack will push the console.log(foo());</span></span><br><span class="line"><span class="comment">// 2. when foo() called, now call stack will push the foo()</span></span><br><span class="line"><span class="comment">// 3. then the foo called then return bar(), now call stack will push the bar()</span></span><br><span class="line"><span class="comment">// 4. now called bar, and run the `console.log(&#x27;bar is start`) then the bar is pop off the call stack.</span></span><br><span class="line"><span class="comment">// 5. then the foo is pop off the call back</span></span><br><span class="line"><span class="comment">// 6. then the `console.log(foo())` is pop off the call stack</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zeroyh.cn/1_E3zTWtEOiDWw7d0n7Vp-mA.gif" alt="the foo and bar run gif"><br><img src="http://static.zeroyh.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-22%20%E4%B8%8B%E5%8D%8810.03.00.png" alt="the error show the call stack"></p>
+<p><strong>refrence doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Call_stack">MDN</a><br><a target="_blank" rel="noopener" href="https://medium.com/@gaurav.pandvia/understanding-javascript-function-executions-tasks-event-loop-call-stack-more-part-1-5683dea1f5ec">Gaurav Pandvia</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&list=PL4SfyCkRAwT7LQmbaxcVWRTaQITtCCAwZ">Vedio Philip Roberts</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="clb0n0l0n0002ssu98m2hfgyi" data-title="33-js-call-stack" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-apply-call-bind" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/09/33-js-apply-call-bind/" class="article-date">
+  <time class="dt-published" datetime="2019-05-09T08:44:04.000Z" itemprop="datePublished">2019-05-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/09/33-js-apply-call-bind/">33-js-apply-call-bind</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="how-to-use-apply-call-bind"><a href="#how-to-use-apply-call-bind" class="headerlink" title="how to use apply, call, bind"></a>how to use apply, call, bind</h3><blockquote>
+<p>when I want to write this blog, I feel so sad, because I know how to use, but I cannot not explain why so? and involving this and prototype …</p>
+</blockquote>
+<h4 id="how-to-use-call-or-Function-prototype-call"><a href="#how-to-use-call-or-Function-prototype-call" class="headerlink" title="how to use call or Function.prototype.call"></a>how to use <code>call</code> or <code>Function.prototype.call</code></h4><blockquote>
+<p>fun.call(thisArg, arg1, arg2, arg3…) &#x2F;&#x2F; thisArg is the fun function execute this point, if not sent thisArg or null || undefined then the this will be point global.this</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">findVal</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if you want the findVal function show 1, how should you do ? </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(findVal.<span class="title function_">call</span>(obj, <span class="number">1</span>, <span class="number">2</span>)) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="how-to-use-apply-or-Function-prototype-apply"><a href="#how-to-use-apply-or-Function-prototype-apply" class="headerlink" title="how to use apply or Function.prototype.apply"></a>how to use <code>apply</code> or <code>Function.prototype.apply</code></h4><blockquote>
+<p>function.apply(thisArg, [argArray]), and the apply is similar call, just change the arg1, arg2, … to argArray</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">findVal</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if you want the findVal function show 1, how should you do ? </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(findVal.<span class="title function_">apply</span>(obj, [<span class="number">1</span>,<span class="number">2</span>])) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="how-to-use-bind-or-Function-prototype-bind"><a href="#how-to-use-bind-or-Function-prototype-bind" class="headerlink" title="how to use bind or Function.prototype.bind"></a>how to use <code>bind</code> or <code>Function.prototype.bind</code></h4><blockquote>
+<p>function.bind(thisArg, arg1, arg2, arg3)<br>  <code>bind</code> create a new function return that, when called, has its <code>this</code> keyward set to the provided value</p>
+</blockquote>
+<p><strong>simple example</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">findVal</span>: <span class="keyword">function</span>(<span class="params">m, n</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + m</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// now we can think about if we execute obj.findVal() what you expect the end ? is 1?</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="title function_">findVal</span>()) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> showVal = obj.<span class="property">findVal</span>;</span><br><span class="line"><span class="comment">// now you can once again think about the answer , is also 1?</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">showVal</span>()); <span class="comment">// undefined </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// how should we make the showVal function is correct ? </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// now !!! we can use bind. bind can make the showVal functions this point obj</span></span><br><span class="line"><span class="keyword">var</span> showValBind = obj.<span class="property">findVal</span>.<span class="title function_">bind</span>(obj, <span class="number">20</span>, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">showValBind</span>()); <span class="comment">// 51</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// bind functions can execute twice now we can use bind do more</span></span><br><span class="line"> <span class="keyword">var</span> showValBind2 = obj.<span class="property">findVal</span>.<span class="title function_">bind</span>(obj, <span class="number">20</span>);</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">showValBind2</span>(<span class="number">30</span>)); <span class="comment">// 51 </span></span><br><span class="line"><span class="comment">//  now you know bind can separate the arguments just like function(arg1)(arg2)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="how-to-similate-a-function-bind"><a href="#how-to-similate-a-function-bind" class="headerlink" title="how to similate a function bind"></a>how to similate a function bind</h3><h4 id="similate-bind"><a href="#similate-bind" class="headerlink" title="similate bind"></a>similate bind</h4><blockquote>
+<p>from how to use bind we know bind features is can back a function and recive arguments.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// we can use apply to similate bind solve the `this` point</span></span><br><span class="line"><span class="comment">// now if we chat use simBind realize the top `showValBind2` return value. what should we write for the simBind ?</span></span><br><span class="line"><span class="comment">// first time</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">simBind</span> = <span class="keyword">function</span>(<span class="params">context</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">apply</span>(context)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// now test </span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">32</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="title function_">simBind</span>(obj)()); <span class="comment">// yes !!! we can get a 32</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// second time to solve the first time function cannot introduct arguments</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">simBind</span> = <span class="keyword">function</span>(<span class="params">context</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">let</span> arg1 = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> argArray = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">apply</span>(<span class="variable language_">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">apply</span>(context, arg1.<span class="title function_">concat</span>(argArray))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">n1, n2</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + n1 + n2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="title function_">simBind</span>(obj, <span class="number">11</span>)(<span class="number">12</span>)); <span class="comment">// yes !!! we can get a 55</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="title function_">simBind</span>(obj, <span class="number">11</span>, <span class="number">12</span>)()); <span class="comment">// yes !!! we can get a 55</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// now we should deal the new function `this` point </span></span><br><span class="line"><span class="comment">// in the bind function when we new is `this` is not ponit the thisArg.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span> (name, age) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">habit</span> = <span class="string">&#x27;sleep&#x27;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">value</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(name)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">friend</span> = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// =====bind resulte====</span></span><br><span class="line"><span class="keyword">var</span> bindFoo = bar.<span class="title function_">bind</span>(foo, <span class="string">&#x27;myname&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title function_">bindFoo</span>(<span class="number">12</span>);</span><br><span class="line"><span class="comment">// now `this` is point obj so  console.log(this.value) is undefined</span></span><br><span class="line"><span class="comment">// myname</span></span><br><span class="line"><span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">habit</span>) <span class="comment">// sleep</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">friend</span>) <span class="comment">// zero</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// =====simBind resulte====</span></span><br><span class="line"><span class="keyword">var</span> simbindFoo = bar.<span class="title function_">simBind</span>(foo, <span class="string">&#x27;myname&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="title function_">simbindFoo</span>(<span class="number">12</span>); <span class="comment">// this is also point simbindFoo</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// myname</span></span><br><span class="line"><span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">habit</span>) <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">friend</span>) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// and now the bind is different with my simBind is new Function `this` point is not a same object</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// thrid time</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">simBind</span> = <span class="keyword">function</span>(<span class="params">context</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">let</span> arg1 = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> fonp = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> found =  <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> argArray = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">apply</span>(<span class="variable language_">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">apply</span>(<span class="variable language_">this</span> <span class="keyword">instanceof</span> fonp ? <span class="variable language_">this</span> : context, arg1.<span class="title function_">concat</span>(argArray))</span><br><span class="line">  &#125;</span><br><span class="line">  fonp.<span class="property"><span class="keyword">prototype</span></span> = <span class="variable language_">this</span>.<span class="property"><span class="keyword">prototype</span></span>;</span><br><span class="line">  found.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title function_">fonp</span>();</span><br><span class="line">  <span class="keyword">return</span> found;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// end the simBind.....</span></span><br></pre></td></tr></table></figure>
+
+<p>** refrence doc **</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call">MDN call</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">MDN apply</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">MDN bind</a><br><a target="_blank" rel="noopener" href="https://medium.com/@ivansifrim/the-differences-between-call-apply-bind-276724bb825b">lvan sifrim</a><br><a target="_blank" rel="noopener" href="https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp">niladri sekhar dutta</a><br><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/11">mqyqingfeng</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="clb0n0l0q0004ssu9gvbw9wds" data-title="33-js-apply-call-bind" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-33-js-recursion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/08/33-js-recursion/" class="article-date">
+  <time class="dt-published" datetime="2019-05-08T03:18:50.000Z" itemprop="datePublished">2019-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/08/33-js-recursion/">33-js-recursion</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="recursion-递归"><a href="#recursion-递归" class="headerlink" title="recursion(递归)"></a>recursion(递归)</h3><blockquote>
+<p>explain ： recursion is simply when a function calls itself</p>
+</blockquote>
+<h4 id="factorial-example"><a href="#factorial-example" class="headerlink" title="factorial example"></a>factorial example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// this function use recursion</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span> (n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> n * <span class="title function_">factorial</span>(n-<span class="number">1</span>); <span class="comment">// the most important line</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">4</span>) <span class="comment">// 4*3*2*1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// and the compute is</span></span><br><span class="line"><span class="comment">// factorial(4)</span></span><br><span class="line"><span class="comment">//   4 * factorial(3)</span></span><br><span class="line"><span class="comment">//     3 * factorial(2)</span></span><br><span class="line"><span class="comment">//       2 * factorial(1)</span></span><br><span class="line"><span class="comment">//         1</span></span><br><span class="line"><span class="comment">//       resuming previous execution 2 * 1 = 2</span></span><br><span class="line"><span class="comment">//     resuming.. 3 * 2 = 6</span></span><br><span class="line"><span class="comment">//   resuming.. 4 * 6 = 24</span></span><br><span class="line"><span class="comment">// factorial(4) = 24</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="the-three-key-features-of-recursion"><a href="#the-three-key-features-of-recursion" class="headerlink" title="the three key features of recursion"></a>the three key features of recursion</h4><blockquote>
+<p><code>if (something bad happened) &#123; STOP &#125;</code> this is the safe condition. otherwise will error happen<br>   such as the factorial <code>if (n&lt; 0) &#123; return &#125;</code> just stop the unbelieveble loop </p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>if (this happens) &#123; yay! you should done &#125;l</code> this is the done the loop.<br>  such as the factorial <code>if (n===1) &#123; return &#125;</code> just stop the loop</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>return n * factorial(n-1)</code> is the recursion!!!</p>
+</blockquote>
+<h3 id="tail-calls-尾调用"><a href="#tail-calls-尾调用" class="headerlink" title="tail calls(尾调用)"></a>tail calls(尾调用)</h3><blockquote>
+<p>the tail calls is <code>function f(x) &#123; return g(x) &#125;</code> not <code>function f(x) &#123; return g(x) + 1 &#125;</code>. means return a function and don’t need compute again</p>
+</blockquote>
+<h4 id="factorial-example-1"><a href="#factorial-example-1" class="headerlink" title="factorial example"></a>factorial example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n, res</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">factorial</span>(n-<span class="number">1</span>, res * n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">4</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// and the compute is</span></span><br><span class="line"><span class="comment">// factorial(4, 1)</span></span><br><span class="line"><span class="comment">//   innter anonymous function (iaf) get called with (n=4, res=1)</span></span><br><span class="line"><span class="comment">//   iaf(3, 3*4)</span></span><br><span class="line"><span class="comment">//     iaf(2, 2*12)</span></span><br><span class="line"><span class="comment">//       iaf(1, 24)</span></span><br><span class="line"><span class="comment">//         24</span></span><br><span class="line"><span class="comment">//       24</span></span><br><span class="line"><span class="comment">//     24</span></span><br><span class="line"><span class="comment">// factorial(4, 1) = 24</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>summarize : the tail call is better than recursion, in v8 can spend less time</p>
+</blockquote>
+<p><img src="http://static.zeroyh.cn/33-WechatIMG734.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="clb0n0l11000ussu925ak3wkv" data-title="33-js-recursion" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-es6-array-methods" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/07/es6-array-methods/" class="article-date">
+  <time class="dt-published" datetime="2019-05-07T07:03:45.000Z" itemprop="datePublished">2019-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/07/es6-array-methods/">Why and when to use forEach, map, filter, reduce, and find in JavaScript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Maybe-change-use-for-in-anywhere-is-better"><a href="#Maybe-change-use-for-in-anywhere-is-better" class="headerlink" title="Maybe change use for in anywhere is better"></a>Maybe change use for in anywhere is better</h3><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><blockquote>
+<p>As well known that forEach is a way to work with items in array, anytime when i what loop a array, then first time i will think about forEach… i am so sad !!!</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for loop</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// forEach loop</span></span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item, index, array</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;item--&gt;&#x27;</span>, item, <span class="string">&#x27;index--&gt;&#x27;</span>, index, <span class="string">&#x27;array--&gt;&#x27;</span>, array);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// compare the for and forEach</span></span><br><span class="line"><span class="comment">// for loop define a variable i, and set add ++ , ant the forEach loop you can do nothing</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><blockquote>
+<p>As well known that forEach is generic tool in array loop, and when should we use map.<br>  how does map work ?<br>  map basically it takes 2 arguments(callback, thisArg), a callback and a optional context(will be considered as this in the callback) . and the callback runs for each value in the array and returns each new value in the<br>  resulting array</p>
+</blockquote>
+<p>  the callback function takes 3 arguments (currentValue, indexNumber, array)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">value</span>: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">value</span>: <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="comment">// if you want [&#x27;a&#x27;, &#x27;b&#x27;], you can use map now!!!</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">map</span>(<span class="function"><span class="params">item</span> =&gt;</span> item.<span class="property">value</span>) <span class="comment">// so easy</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// of cause you can use forEach or for or for..in and so on. but i think the map is you best choice</span></span><br><span class="line"><span class="comment">// example forEach</span></span><br><span class="line"><span class="keyword">var</span> newArr = []</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  newArr.<span class="title function_">push</span>(item.<span class="property">value</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><blockquote>
+<p>ok, reduce just like map, also takes 2 arguments(callback, initialValue), and the callback is for each element of array, the initialValue is the first use callback first arguments value, if no initialValue will be the array first value. totally reduce is an easy way to generate a single value or object from an array.<br>  the callback function takes 4 arguments [Accumulator (acc) (累计器), Current Value (cur) (当前值), Current Index (idx) (当前索引), Source Array (src) (源数组)]</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if we want to know total number of array some key add or the biggest one or the smallest. what time you should use reduce</span></span><br><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jane&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jake&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment">// totalNumber example</span></span><br><span class="line"><span class="keyword">var</span> totalYears = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">accumulator, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> accumulator+item.<span class="property">year</span></span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// biggest example</span></span><br><span class="line"><span class="keyword">var</span> biggest = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (acc.<span class="property">year</span> || <span class="number">0</span>) &gt; item.<span class="property">year</span> ? acc : item</span><br><span class="line">&#125;, &#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// smallest example</span></span><br><span class="line"><span class="keyword">var</span> smallest = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> acc.<span class="property">year</span> &gt; item.<span class="property">year</span> ? item : acc</span><br><span class="line">&#125;, arr[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><blockquote>
+<p>this methods is easy, filter just filter a value in array, such as you want the array name &#x3D;&#x3D;&#x3D; luce , what time you should use filter</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if you want to name === jake </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jane&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;luce&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="keyword">var</span> luceArray = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> item.<span class="property">name</span> === <span class="string">&#x27;luce&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>tips:<em>渣渣英文，渣渣翻译，自己能看懂就不错了…望有待提高中</em></p>
+<p><strong>参考文档</strong><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN</a><br><a target="_blank" rel="noopener" href="https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d">poka-techblog</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="clb0n0l1c002bssu9conz6c96" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-compound-rate" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/06/compound-rate/" class="article-date">
+  <time class="dt-published" datetime="2019-05-06T07:15:51.000Z" itemprop="datePublished">2019-05-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/06/compound-rate/">compound-rate</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="日常所见所想"><a href="#日常所见所想" class="headerlink" title="日常所见所想"></a>日常所见所想</h3><h4 id="复利的力量"><a href="#复利的力量" class="headerlink" title="复利的力量"></a>复利的力量</h4><blockquote>
+<p>一直认为把钱存银行就是一个放移动保险柜的功能，怕丢！没想过涨钱。因为总的来说基本没感觉涨过钱，首先啊，我没啥钱，然后啊，那点利息算起来真的让我心酸。我觉得我算的过程的价值都比那点利息高。直到今日！！！幡然悔悟~ maybe 你看到了也会悔悟。接下来用数据打脸</p>
+</blockquote>
+<p><strong>既然作为一名程序员，先贴计算的代码</strong></p>
+<blockquote>
+<p>计算公式： Fn &#x3D; P x (1 + i)的n次方</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> years = <span class="number">20</span>;        <span class="comment">// 复利年限 (也就是存款的年数)</span></span><br><span class="line"><span class="keyword">let</span> allMoney = <span class="number">4000000</span>;  <span class="comment">// 初始金额 (400w 现在是以一个北京4环左右的房子来说作为初始金额)</span></span><br><span class="line"><span class="keyword">let</span> firstMoney = <span class="number">4000000</span>;<span class="comment">// 初始金额</span></span><br><span class="line"><span class="keyword">let</span> rate = <span class="number">1.05</span>;         <span class="comment">// 利率 5% (这个利率是真的不高了，买理财产品就可以了。如果更高的利率那就更可怕的数据了。 )</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">compute</span>(<span class="params">rate</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;=years; i++) &#123;</span><br><span class="line">    allMoney = allMoney * rate;</span><br><span class="line">    <span class="comment">// console.log(&#x27;now year&#x27;, i, &#x27;now money&#x27;, allMoney);</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> allMoney;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;compute function result is&#x27;</span>, <span class="title function_">compute</span>(rate));</span><br><span class="line"></span><br><span class="line"><span class="comment">// or </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resursionCompute</span>(<span class="params">rates, years</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (years == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> rates;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		years --;</span><br><span class="line">		<span class="keyword">return</span> <span class="title function_">resursionCompute</span>(rate * rates, years)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;resursionCompute function result is&#x27;</span>, firstMoney * <span class="title function_">resursionCompute</span>(rate, years));</span><br><span class="line"></span><br><span class="line"><span class="comment">// now year-----&gt; 1 now money-----&gt; 4200000</span></span><br><span class="line"><span class="comment">// now year-----&gt; 2 now money-----&gt; 4410000</span></span><br><span class="line"><span class="comment">// now year-----&gt; 3 now money-----&gt; 4630500</span></span><br><span class="line"><span class="comment">// now year-----&gt; 4 now money-----&gt; 4862025</span></span><br><span class="line"><span class="comment">// now year-----&gt; 5 now money-----&gt; 5105126.25</span></span><br><span class="line"><span class="comment">// now year-----&gt; 6 now money-----&gt; 5360382.5625</span></span><br><span class="line"><span class="comment">// now year-----&gt; 7 now money-----&gt; 5628401.690625</span></span><br><span class="line"><span class="comment">// now year-----&gt; 8 now money-----&gt; 5909821.77515625</span></span><br><span class="line"><span class="comment">// now year-----&gt; 9 now money-----&gt; 6205312.863914063</span></span><br><span class="line"><span class="comment">// now year-----&gt; 10 now money-----&gt; 6515578.507109767</span></span><br><span class="line"><span class="comment">// now year-----&gt; 11 now money-----&gt; 6841357.432465255</span></span><br><span class="line"><span class="comment">// now year-----&gt; 12 now money-----&gt; 7183425.304088518</span></span><br><span class="line"><span class="comment">// now year-----&gt; 13 now money-----&gt; 7542596.569292944</span></span><br><span class="line"><span class="comment">// now year-----&gt; 14 now money-----&gt; 7919726.397757592</span></span><br><span class="line"><span class="comment">// now year-----&gt; 15 now money-----&gt; 8315712.717645472</span></span><br><span class="line"><span class="comment">// now year-----&gt; 16 now money-----&gt; 8731498.353527745</span></span><br><span class="line"><span class="comment">// now year-----&gt; 17 now money-----&gt; 9168073.271204133</span></span><br><span class="line"><span class="comment">// now year-----&gt; 18 now money-----&gt; 9626476.93476434</span></span><br><span class="line"><span class="comment">// now year-----&gt; 19 now money-----&gt; 10107800.781502558</span></span><br><span class="line"><span class="comment">// now year-----&gt; 20 now money-----&gt; 10613190.820577687</span></span><br><span class="line"><span class="comment">// 10613190.820577687</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>用上面函数运行的结果表格统计</p>
+<p>| 年数（年） | 金额（元） | 对比上一年的增长 （元）不精确约数 |<br>| ————- | ————- |<br>| 本金 | 4000000 (400w 假设的北京一套三环开外的房) | – |<br>| 1 | 4200000 (420w) | 20w |<br>| 2 | 4410000 (441w) | 21w |<br>| 3 | 4630500 (463w) | 22w |<br>| 4 | 4862025 (486w) | 23w |<br>| 5 | 5105126.25 (510w) | 24w |<br>| 6 | 5360382.56 (536w) | 25w |<br>| 7 | 5628401.69 (562w) | 26w |<br>| 8 | 5909821.78 (590w) | 28w |<br>| 9 | 6205312.86 (621w) | 30w |<br>| 10 | 6515578.51 (652w) | 31w |<br>| 11 | 6841357.43 (684w) | 32w |<br>| 12 | 7183425.30 (718w) | 34w |<br>| 13 | 7542596.57 (754w) | 36w |<br>| 14 | 7919726.40 (791w) | 37w |<br>| 15 | 8315712.72 (831w) | 40w |<br>| 16 | 8731498.36 (873w) | 42w |<br>| 17 | 9168073.28 (916w) | 43w |<br>| 18 | 9626476.93 (962w) | 46w |<br>| 19 | 10107800.78 (1010w) | 48w |<br>| 20 | 10613190.82 (1061w) | 51w |<br>| 10年增长统计 | 2515578.5 (252w) | – |<br>| 20年增长统计 | 6613190.82 (661w) | – |<br>| 20年对比10年增长统计 | 4097612 (409w) | – |</p>
+<p>ok !! 没有对比就没有伤害呗，现在我们再用折线图来表示下</p>
+<p>看一个 rate &#x3D; 5% ， 40年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG730.png"></p>
+<p>看一个 rate &#x3D; 7% ， 40年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG731.png"></p>
+<p>看一个 rate &#x3D; 10% ， 40年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG732.png"></p>
+<p>看一个 rate &#x3D; 10% ， 100年周期的折线图<br><img src="http://static.zeroyh.cn/compound-WechatIMG733.png"></p>
+<blockquote>
+<p>结论想必通过折线图的切率已经看出来了，复利真的无法小视。形成星星之火燎原之态~</p>
+</blockquote>
+<p><strong>接下来。我很好奇，按照 7% 不高也不低的利率 如果按照20年的占线，市场的租房获利能否跑赢复利呢？（此处不计算20年后房子是否已经升值或者贬值， 按照市场租房 5年一个周期，每5年 房租上升 50%， 且每年获得的租金都用来再次投入复利以获得最大报酬） now !!! 拭目以待</strong></p>
+<hr>
+<p><strong>first 先给出 复利 20年 7%后赚了多少钱</strong></p>
+<p>  把上面的代码years 改为 20， rate 改为 1.07 运行后的结果为 15478737.849944727 初始金额是 4000000。 获利 11478737.85。<br>  所以最终20走复利也就是 卖掉房子 400w 然后 用400w投资20年获利1148w ，房子本金还在 400w。 总资产1547w （嗯，中间没花1分钱，全部再投入~ 这样的老板才能发财呀！！！）</p>
+<hr>
+<p><strong>second 然后再来计算租房带来的利润</strong></p>
+<p>  租房，目前北京很多是租给中介，5年为一个周期（合同签5年一次）。然后20年的话，是4个周期。 假设中介是年付 也就是（这样的情况还能走复利多挣点），400w的房子如果地段好且靠地铁的话，能租到20000一个月(按照目前2019年的行情来说的话，谦虚点已然非常不错了~ ，骄傲点不太可能的价格！太高了~。豪华装修都租不出去的价格)<br>  第一个5年 租房一年的租金为 20000 x 12 &#x3D; 240000 （24w)<br>  第二个5年 租房一年的租金为 20000 x 1.5 x 12 &#x3D; 360000 （36w)<br>  第三个5年 租房一年的租金为 360000 x 1.5 x 12 &#x3D; 540000 （54w)<br>  第四个5年 租房一年的租金为 540000 x 1.5 x 12 &#x3D; 810000 （81w)</p>
+<p>  ok, 现在开始假设中介按照年打钱给作为房东老板的你。</p>
+<p>  第一个五年结束 根据 7% 每年新增 24w的计算方式  总共是  1380177 约数是 138w<br>  第二个五年结束  本金以第一个五年作为base ， 根据 7% 每年新增 36w的计算方式  总共是  4006035 约数是 400w<br>  第三个五年结束  本金以第二个五年作为base ， 根据 7% 每年新增 54w的计算方式  总共是  8724070 约数是 872w<br>  第四个五年结束  本金以第三个五年作为base ， 根据 7% 每年新增 81w的计算方式  总共是  16894058 约数是 1689w</p>
+<p>  所以最终的租房的20年获利是 1689w。这么一看貌似更多耶。噢噢噢~  租房20年获得的是  房子减去20年产权一套 + 1689w （中间没花一分钱。。。。这也算是苦了房东老板了）。</p>
+<hr>
+<blockquote>
+<p>最终终终终总结：经过对比我发现啊~ 貌似租房获得的收益更大，但是相对而言风险更大。因为就目前来说，房租5年增长50%还是挺不容易的（上述租房带来的收益都是假设数据）。 而且房子市值目前在巅峰值。20年后的房子产权还剩20年的房子还能值 ？？？不过也可能疯长~ 这里就是个无聊的对比。我想大家心里都会有自己的看法~ </p>
+</blockquote>
+<p>end………</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clb0n0l140019ssu9gwlx7rmu" data-title="compound-rate" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-product-manager-operation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/04/30/product-manager-operation/" class="article-date">
+  <time class="dt-published" datetime="2019-04-30T08:00:31.000Z" itemprop="datePublished">2019-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/04/30/product-manager-operation/">product-manager-operation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="实操4月产品经理"><a href="#实操4月产品经理" class="headerlink" title="实操4月产品经理"></a>实操4月产品经理</h3><h4 id="案例，报名表"><a href="#案例，报名表" class="headerlink" title="案例，报名表"></a>案例，报名表</h4><p><img src="http://static.zeroyh.cn/product-1.1.png" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-1.2.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-1.3.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-1.4.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-2.1.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-2.2.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-2.3.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-2.4.jpg" alt="excel analysis"></p>
+<h4 id="案例，授课"><a href="#案例，授课" class="headerlink" title="案例，授课"></a>案例，授课</h4><p><img src="http://static.zeroyh.cn/product-3.1.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-3.2.jpg" alt="excel analysis"></p>
+<h4 id="案例，小程序同学录"><a href="#案例，小程序同学录" class="headerlink" title="案例，小程序同学录"></a>案例，小程序同学录</h4><p><img src="http://static.zeroyh.cn/product-4.1.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-4.2.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-4.3.jpg" alt="excel analysis"><br><img src="http://static.zeroyh.cn/product-4.4.jpg" alt="excel analysis"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="clb0n0l1y0046ssu9191hgu0m" data-title="product-manager-operation" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Product/" rel="tag">Product</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-thoughts-read-book" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/04/28/thoughts-read-book/" class="article-date">
+  <time class="dt-published" datetime="2019-04-28T12:25:04.000Z" itemprop="datePublished">2019-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/04/28/thoughts-read-book/">高效习惯</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="读书重要笔记"><a href="#读书重要笔记" class="headerlink" title="读书重要笔记"></a>读书重要笔记</h4><h5>《高效习惯》</h5>
+    1. 追求清晰度
+    2. 维持活力
+    3. 提升必要性
+    4. 扩充生产力
+    5. 累积影响力
+<h5>提升高效习惯的小练习</h5>
+    1. 定义真正有意义的事情，每周检视一次
+    2. 练习主动去发掘自己何时紧张，何时情绪受到上一个事件的影响。每次转换前要问自己要带入什么情绪
+    3. 找出支持你做目前工作，生活最重要的支柱是什么？（通常可能是家人或者是改变生活的渴望）
+    4. 分析自己做的事情哪些是真正的高品质产出，把每天（每周）时间的60%花在上面，把40%才是做其他事情的时间
+    5. PUSH一个信任你的人去成长，或者成为他们的榜样
+    6. 扭转对困难恐惧的定义，把他们视作对你有利的事，而不是拖累你的事
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="clb0n0l21004nssu99s82dxwf" data-title="高效习惯" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-js-base" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/04/20/js-base/" class="article-date">
+  <time class="dt-published" datetime="2019-04-20T10:51:37.000Z" itemprop="datePublished">2019-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/04/20/js-base/">js-base</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="javascript-基本概念"><a href="#javascript-基本概念" class="headerlink" title="javascript 基本概念"></a>javascript 基本概念</h3><h4 id="编译型语言-VS-解释型语言"><a href="#编译型语言-VS-解释型语言" class="headerlink" title="编译型语言 VS 解释型语言"></a>编译型语言 VS 解释型语言</h4><blockquote>
+<p>编译型语言是代码在<b>运行前</b>编译器将人类可以理解的语言（编程语言）转换成机器可以理解的语言。编译型语言编写的应用在编译后能直接运行</p>
+</blockquote>
+<blockquote>
+<p>解释型语言也是人类可以理解的语言（编程语言），也需要转换成机器可以理解的语言才能执行，但是是在<b>运行时</b>转换的。所以执行前需要解释器安装在环境中</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/04/20/js-base/" data-id="clb0n0l1k002yssu918r55plb" data-title="js-base" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tools-frp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/03/05/tools-frp/" class="article-date">
+  <time class="dt-published" datetime="2019-03-05T08:19:58.000Z" itemprop="datePublished">2019-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/03/05/tools-frp/">frp-tools</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="内网穿透工具之FRP"><a href="#内网穿透工具之FRP" class="headerlink" title="内网穿透工具之FRP"></a>内网穿透工具之FRP</h4><blockquote>
+<p>不能免俗的必要谈谈内网穿透的必要性，跟微信打交道就知道了，一言不合就需要跟他交互啊！如果你只是在本地开发，也没个域名。也没个公网ip啥的，人家根本不认识你，咋整。咋写下去！这个时候就需要内网穿透了。把本地的代码用一个公网域名能访问。这样和微信才能正常沟通啊。不会鸡同鸭讲~ 废话少说。 直接开始吧！</p>
+</blockquote>
+<p><img src="http://static.zeroyh.cn/WechatIMG628.png" alt="服务器图"></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/blob/master/README_zh.md">frp文档</a><br><a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases">frp下载地址</a></p>
+<h5 id="具体步骤-我就不在frp地址-复制出来了啊。"><a href="#具体步骤-我就不在frp地址-复制出来了啊。" class="headerlink" title="具体步骤 我就不在frp地址 复制出来了啊。"></a>具体步骤 我就不在frp地址 复制出来了啊。</h5><h5 id="说几个注意点吧"><a href="#说几个注意点吧" class="headerlink" title="说几个注意点吧"></a>说几个注意点吧</h5><ol>
+<li>我的linux 云服务器是阿里云服务器，我估计腾讯云服务器或者别的应该都有这个问题，我们的端口号需要到安全组去配置</li>
+<li>如果云服务器是nginx配置的话 我这里贴一下nginx配置</li>
+<li>进程守护的话最简单的推荐nohup command &amp; 这种方式。别的也折腾不是</li>
+</ol>
+<h5 id="贴一下所有的配置"><a href="#贴一下所有的配置" class="headerlink" title="贴一下所有的配置"></a>贴一下所有的配置</h5><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># linux 云服务器的 nginx配置 frp.zeroyh.cn nginx config</span></span><br><span class="line"><span class="attribute">map</span> <span class="variable">$http_x_forwarded_for</span> <span class="variable">$clientRealip</span> &#123;</span><br><span class="line">   &quot;&quot; $remote_addr;</span><br><span class="line">   ~^(?P&lt;firstAddr&gt;[0-9\.]+),?.*$  $firstAddr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">       <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">       <span class="attribute">server_name</span> <span class="regexp">frp.*</span>;</span><br><span class="line">       <span class="section">location</span> / &#123;</span><br><span class="line">           <span class="attribute">proxy_pass</span> http://127.0.0.1:8009;  <span class="comment"># frps.ini 里的 vhost_http_port = 8009</span></span><br><span class="line">           <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">           <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$clientRealip</span>;  <span class="comment"># $remote_addr;</span></span><br><span class="line">           <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># linux 云服务器的 frps 配置</span><br><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">vhost_http_port = 8009</span><br><span class="line"></span><br><span class="line">[web]</span><br><span class="line">type = http</span><br><span class="line">auth_token = xxxx</span><br><span class="line">custom_domains = frp.zeroyh.cn</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#mac 公司内网服务器配置</span><br><span class="line">[common]</span><br><span class="line">server_addr = 47.104.201.127 (这里是你的服务器的公网ip地址)</span><br><span class="line">server_port = 7000</span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 6000</span><br><span class="line"></span><br><span class="line">[web]</span><br><span class="line">type = http</span><br><span class="line">local_port = 9001</span><br><span class="line">custom_domains = frp.zeroyh.cn</span><br><span class="line">auth_token = xxx</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/03/05/tools-frp/" data-id="clb0n0l20004issu912hb1m8t" data-title="frp-tools" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-js-message-carousel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/01/18/js-message-carousel/" class="article-date">
+  <time class="dt-published" datetime="2019-01-18T10:03:33.000Z" itemprop="datePublished">2019-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/01/18/js-message-carousel/">js-message-carousel</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="消息轮播"><a href="#消息轮播" class="headerlink" title="消息轮播"></a>消息轮播</h3><blockquote>
+<p>以前没咋想过这个功能，思维被局限于图片轮播的形式了。今儿突发了一种觉得挺棒棒的。记录下来~</p>
+</blockquote>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;notice&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第1条公告第1条公告第1条公告第1条公告第1条公告第1条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第2条公告第2条公告第2条公告第2条公告第2条公告第2条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第3条公告第3条公告第3条公告第3条公告第3条公告第3条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第4条公告第4条公告第4条公告第4条公告第4条公告第4条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>,<span class="selector-tag">ul</span>,<span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.notice</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#b3effe</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.notice</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;../jquery.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 调用 公告滚动函数</span></span><br><span class="line">  <span class="built_in">setInterval</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> obj = $(<span class="string">&#x27;.notice ul&#x27;</span>); <span class="comment">// obj : 动画的节点，本例中是ul</span></span><br><span class="line">    <span class="keyword">var</span> top = <span class="string">&#x27;-35px&#x27;</span>; <span class="comment">// top : 动画的高度，本例中是-35px; 注意向上滚动是负数</span></span><br><span class="line">    <span class="keyword">var</span> time = <span class="number">500</span>; <span class="comment">// time : 动画的速度，即完成动画所用时间，本例中是500毫秒，即marginTop从0到-35px耗时500毫秒</span></span><br><span class="line">    $(obj).<span class="title function_">animate</span>(&#123;</span><br><span class="line">      <span class="attr">marginTop</span>: top</span><br><span class="line">    &#125;, time, <span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="comment">// function : 回调函数，每次动画完成，marginTop归零，并把此时第一条信息添加到列表最后</span></span><br><span class="line">      $(<span class="variable language_">this</span>).<span class="title function_">css</span>(&#123;</span><br><span class="line">        <span class="attr">marginTop</span>: <span class="string">&quot;0&quot;</span></span><br><span class="line">      &#125;).<span class="title function_">find</span>(<span class="string">&quot;:first&quot;</span>).<span class="title function_">appendTo</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="clb0n0l1o003fssu9ckzz7fie" data-title="js-message-carousel" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 11.43px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/08/js-variable/">js-variable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/tools-npm/">npm-tools</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 zero<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
