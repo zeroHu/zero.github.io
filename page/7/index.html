@@ -75,6 +75,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-es6-generator" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/12/18/es6-generator/" class="article-date">
+  <time class="dt-published" datetime="2017-12-18T02:54:15.000Z" itemprop="datePublished">2017-12-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/12/18/es6-generator/">es6-generator</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Generator函数"><a href="#Generator函数" class="headerlink" title="Generator函数"></a>Generator函数</h3><blockquote>
+<p>generator 函数是es6提供的一种异步编程解决方案，语法行为与传统函数完全不同.generator 函数是一个状态机，封装了多个内部状态。执行generator函数会返回一个遍历器对象，也就是generator函数除了状态机，还是一个遍历器对象生成函数，返回的遍历器对象，可以一次遍历generator函数内部的每一个状态</p>
+</blockquote>
+<blockquote>
+<p>generator 函数与不同函数不同的特征。</p>
+</blockquote>
+<ul>
+<li>function关键字与函数名之前有一个星号</li>
+<li>函数体内部使用yield表达式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">helloWroldGenerator</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;ending&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> hw = <span class="title function_">helloWroldGenerator</span>();</span><br></pre></td></tr></table></figure>
+
+<p>generator 函数的调用方法与普通函数是一样的，也是在函数后面加上一对圆括号。不同的是，调用generator 函数后，该函数并不执行，返回的也不是函数运行结果。而是一个指向内部状态的指针对象。下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;hello&#x27;,done:false&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;world&#x27;,done:false&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;ending&#x27;,done:true&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="yield-表达式"><a href="#yield-表达式" class="headerlink" title="yield 表达式"></a>yield 表达式</h3><blockquote>
+<p>由于generator 函数返回的遍历器对象，只有调用next方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数，yield表达式就是暂停标志。<br>遍历器对象的next方法的运行逻辑如下。</p>
+</blockquote>
+<blockquote>
+<p>遍历器对象的next方法运行逻辑如下.<br> 1）遇到 yield 表达式，就展厅执行后面的操作，饼将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值<br> 2）下一次调用next方法时，再继续往下执行，知道遇到下一个yield表达式<br> 3）如果没有再遇到新的yield表达式，就一直运行到函数结束，知道遇到return语句位置，并将return语句后面的表达式的值，作为返回的对象的value属性值<br> 4)如果该函数没有 return语句，则分会的对象的value属性值为undefined</p>
+</blockquote>
+<p>** 另外需要注意，yield表达式只能用在 Generator 函数里面，用在其他地方都会报错。 **</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/12/18/es6-generator/" data-id="clee1gunt002j1wdkfv0e9ye7" data-title="es6-generator" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-js-type-of-topic-judge" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2017/12/12/js-type-of-topic-judge/" class="article-date">
@@ -138,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/12/js-type-of-topic-judge/" data-id="cledzxw2r003u44dk6lgr8rnv" data-title="类型判断 (typeof,instanceof)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/12/js-type-of-topic-judge/" data-id="clee1guoa00421wdk6c3v3ew7" data-title="类型判断 (typeof,instanceof)" class="article-share-link">Share</a>
       
       
       
@@ -202,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/08/class-array-object/" data-id="cledzxw26001344dkdwsrdu4k" data-title="class-array-object（类数组对象）" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/08/class-array-object/" data-id="clee1gunh00151wdk2pjm9egp" data-title="class-array-object（类数组对象）" class="article-share-link">Share</a>
       
       
       
@@ -258,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/02/wechat-token/" data-id="cledzxw2z005344dkcwaf6qxf" data-title="wechat-token" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/02/wechat-token/" data-id="clee1guom00591wdk3eobfk5t" data-title="wechat-token" class="article-share-link">Share</a>
       
       
       
@@ -308,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/02/nginx-https/" data-id="cledzxw2s004044dkd4uqa3ep" data-title="https-nginx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/02/nginx-https/" data-id="clee1guod004b1wdk6b68dixk" data-title="https-nginx" class="article-share-link">Share</a>
       
       
       
@@ -351,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/11/29/download-img/" data-id="cledzxw2e002244dkdzc93xzo" data-title="download-img (下载canvas画出的base64格式图片)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/11/29/download-img/" data-id="clee1gunp00221wdk21wc7gk7" data-title="download-img (下载canvas画出的base64格式图片)" class="article-share-link">Share</a>
       
       
       
@@ -425,7 +486,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/11/24/nginx-vue/" data-id="cledzxw2s004344dk8pl6gr05" data-title="vue-nginx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/11/24/nginx-vue/" data-id="clee1guoc00461wdk79bdb5ii" data-title="vue-nginx" class="article-share-link">Share</a>
       
       
       
@@ -466,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/11/13/common-use/" data-id="cledzxw26001744dkb2e48gmg" data-title="common-use" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/11/13/common-use/" data-id="clee1gunh00171wdkgji35wxl" data-title="common-use" class="article-share-link">Share</a>
       
       
       
@@ -567,7 +628,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/10/19/33-js-object-prototype-chain/" data-id="cledzxw20000i44dkc5dy836u" data-title="33-js-object-prototype-chain" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/10/19/33-js-object-prototype-chain/" data-id="clee1gunb000k1wdkfw7g3184" data-title="33-js-object-prototype-chain" class="article-share-link">Share</a>
       
       
       
@@ -652,52 +713,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/10/10/js-code/" data-id="cledzxw2l003444dkd10ogelq" data-title="JavaScript algorithm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/10/10/js-code/" data-id="clee1guo4003c1wdk4wkw7afh" data-title="JavaScript algorithm" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-nginx-express" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/09/28/nginx-express/" class="article-date">
-  <time class="dt-published" datetime="2017-09-28T09:11:10.000Z" itemprop="datePublished">2017-09-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/09/28/nginx-express/">nginx-express</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="nginx-如何能够代理到express这样的localhost-3000这样的页面"><a href="#nginx-如何能够代理到express这样的localhost-3000这样的页面" class="headerlink" title="nginx 如何能够代理到express这样的localhost:3000这样的页面"></a>nginx 如何能够代理到express这样的localhost:3000这样的页面</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> express-ip &#123;</span><br><span class="line">    <span class="comment"># Nodejs app upstream</span></span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:3000</span>;</span><br><span class="line">    <span class="attribute">keepalive</span> <span class="number">64</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># Server on port 80</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> hakase-node.co;</span><br><span class="line">    <span class="attribute">root</span> /home/yume/express-ip;</span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="comment"># Proxy_pass configuration</span></span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$http_host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-NginX-Proxy <span class="literal">true</span>;</span><br><span class="line">        <span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Connection <span class="string">&quot;upgrade&quot;</span>;</span><br><span class="line">        <span class="attribute">proxy_max_temp_file_size</span> <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://express-ip/;</span><br><span class="line">        <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">proxy_read_timeout</span> <span class="number">240s</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/28/nginx-express/" data-id="cledzxw2r003y44dk9h280stx" data-title="nginx-express" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
 
     </footer>
   </div>
@@ -725,7 +745,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -735,7 +755,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
@@ -757,6 +777,10 @@
       <ul>
         
           <li>
+            <a href="/2023/02/21/encryption/">encryption</a>
+          </li>
+        
+          <li>
             <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
           </li>
         
@@ -770,10 +794,6 @@
         
           <li>
             <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
           </li>
         
       </ul>

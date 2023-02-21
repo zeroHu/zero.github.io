@@ -75,6 +75,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-regexp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/14/regexp/" class="article-date">
+  <time class="dt-published" datetime="2018-03-14T03:02:20.000Z" itemprop="datePublished">2018-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/14/regexp/">regular expressions(正则表达式)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一些经常用的正则表达式"><a href="#一些经常用的正则表达式" class="headerlink" title="一些经常用的正则表达式"></a>一些经常用的正则表达式</h3><h4 id="时间校验正则表达式"><a href="#时间校验正则表达式" class="headerlink" title="时间校验正则表达式"></a>时间校验正则表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">YYYYMMDDReg</span> = <span class="regexp">/[\d]&#123;4&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">YYYYMMDDHHmmReg</span> = <span class="regexp">/[\d]&#123;4&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;\s[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">YYYYMMDDHHmmssReg</span> = <span class="regexp">/[\d]&#123;4&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;[\/-]&#123;1&#125;[\d]&#123;1,2&#125;\s[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">HHmmssReg</span> = <span class="regexp">/[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">HHmmReg</span> = <span class="regexp">/[\d]&#123;1,2&#125;[:][\d]&#123;1,2&#125;/g</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="手机的正则表达式"><a href="#手机的正则表达式" class="headerlink" title="手机的正则表达式"></a>手机的正则表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> phoneReg = <span class="regexp">/^1[3|4|5|7|8|][0-9]&#123;9&#125;$/</span></span><br></pre></td></tr></table></figure>
+<h4 id="邮箱的正则表达式"><a href="#邮箱的正则表达式" class="headerlink" title="邮箱的正则表达式"></a>邮箱的正则表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> emailReg = <span class="regexp">/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]&#123;2,4&#125;)+$/</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/14/regexp/" data-id="clee1guog004o1wdk7vpwb321" data-title="regular expressions(正则表达式)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-http-websocket-http2-https" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2018/03/09/http-websocket-http2-https/" class="article-date">
@@ -130,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="cledzxw2l003144dkcoh1277q" data-title="websocket-http2-https" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="clee1guo3003a1wdk3cfvb52o" data-title="websocket-http2-https" class="article-share-link">Share</a>
       
       
       
@@ -200,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="cledzxw31005d44dk0va341wu" data-title="ajax-http-body" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="clee1guon005g1wdk35itflp5" data-title="ajax-http-body" class="article-share-link">Share</a>
       
       
       
@@ -252,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/30/js-math/" data-id="cledzxw2p003l44dk7zg455i5" data-title="js-math" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clee1guo8003s1wdk6f0h453o" data-title="js-math" class="article-share-link">Share</a>
       
       
       
@@ -333,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="cledzxw2a001m44dkd8oq8gos" data-title="css-grid" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clee1gunk001n1wdkdxfwgcxw" data-title="css-grid" class="article-share-link">Share</a>
       
       
       
@@ -504,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/22/webpack/" data-id="cledzxw2z005644dk21jc6l09" data-title="webpack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clee1guol00541wdk5u4u5fo0" data-title="webpack" class="article-share-link">Share</a>
       
       
       
@@ -569,7 +612,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="cledzxw2h002h44dk072nh06e" data-title="es6-module" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clee1gunu002m1wdkduk59ns7" data-title="es6-module" class="article-share-link">Share</a>
       
       
       
@@ -656,7 +699,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="cledzxw2f002a44dk42v272e9" data-title="es6-class" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clee1guns002e1wdkdb9bh3z3" data-title="es6-class" class="article-share-link">Share</a>
       
       
       
@@ -729,7 +772,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="cledzxw2h002k44dkck6m4bb2" data-title="es6-set-map" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clee1gunz002x1wdk5fv9dp6s" data-title="es6-set-map" class="article-share-link">Share</a>
       
       
       
@@ -813,68 +856,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="cledzxw2f002744dkekbodox9" data-title="es6-async-await" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-es6-generator" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/12/18/es6-generator/" class="article-date">
-  <time class="dt-published" datetime="2017-12-18T02:54:15.000Z" itemprop="datePublished">2017-12-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/12/18/es6-generator/">es6-generator</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Generator函数"><a href="#Generator函数" class="headerlink" title="Generator函数"></a>Generator函数</h3><blockquote>
-<p>generator 函数是es6提供的一种异步编程解决方案，语法行为与传统函数完全不同.generator 函数是一个状态机，封装了多个内部状态。执行generator函数会返回一个遍历器对象，也就是generator函数除了状态机，还是一个遍历器对象生成函数，返回的遍历器对象，可以一次遍历generator函数内部的每一个状态</p>
-</blockquote>
-<blockquote>
-<p>generator 函数与不同函数不同的特征。</p>
-</blockquote>
-<ul>
-<li>function关键字与函数名之前有一个星号</li>
-<li>函数体内部使用yield表达式</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">helloWroldGenerator</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;ending&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> hw = <span class="title function_">helloWroldGenerator</span>();</span><br></pre></td></tr></table></figure>
-
-<p>generator 函数的调用方法与普通函数是一样的，也是在函数后面加上一对圆括号。不同的是，调用generator 函数后，该函数并不执行，返回的也不是函数运行结果。而是一个指向内部状态的指针对象。下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;hello&#x27;,done:false&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;world&#x27;,done:false&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">//&#123;value:&#x27;ending&#x27;,done:true&#125;</span></span><br><span class="line">hw.<span class="title function_">next</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="yield-表达式"><a href="#yield-表达式" class="headerlink" title="yield 表达式"></a>yield 表达式</h3><blockquote>
-<p>由于generator 函数返回的遍历器对象，只有调用next方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数，yield表达式就是暂停标志。<br>遍历器对象的next方法的运行逻辑如下。</p>
-</blockquote>
-<blockquote>
-<p>遍历器对象的next方法运行逻辑如下.<br> 1）遇到 yield 表达式，就展厅执行后面的操作，饼将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值<br> 2）下一次调用next方法时，再继续往下执行，知道遇到下一个yield表达式<br> 3）如果没有再遇到新的yield表达式，就一直运行到函数结束，知道遇到return语句位置，并将return语句后面的表达式的值，作为返回的对象的value属性值<br> 4)如果该函数没有 return语句，则分会的对象的value属性值为undefined</p>
-</blockquote>
-<p>** 另外需要注意，yield表达式只能用在 Generator 函数里面，用在其他地方都会报错。 **</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/18/es6-generator/" data-id="cledzxw2g002f44dk21sbbceu" data-title="es6-generator" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="clee1gunr00291wdkcebf4ep6" data-title="es6-async-await" class="article-share-link">Share</a>
       
       
       
@@ -906,7 +888,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -916,7 +898,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
@@ -938,6 +920,10 @@
       <ul>
         
           <li>
+            <a href="/2023/02/21/encryption/">encryption</a>
+          </li>
+        
+          <li>
             <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
           </li>
         
@@ -951,10 +937,6 @@
         
           <li>
             <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/06/js-design-mode/">js-design-mode</a>
           </li>
         
       </ul>
