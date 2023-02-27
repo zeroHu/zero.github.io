@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,93 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-css-introduct" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/10/21/css-introduct/" class="article-date">
+  <time class="dt-published" datetime="2019-10-21T01:12:32.000Z" itemprop="datePublished">2019-10-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/10/21/css-introduct/">css-introduct</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS-漫谈"><a href="#CSS-漫谈" class="headerlink" title="CSS 漫谈"></a>CSS 漫谈</h3><h4 id="css-是什么？"><a href="#css-是什么？" class="headerlink" title="css 是什么？"></a>css 是什么？</h4><blockquote>
+<p>层叠样式表（Cascading Style Sheets)<br>它定义如何显示 HTML 元素。<br>甚至是成为前后端同学最大的分水岭。不得不说还是非常的不起眼而重要呀</p>
+</blockquote>
+<h4 id="css-发展史"><a href="#css-发展史" class="headerlink" title="css 发展史"></a>css 发展史</h4><ul>
+<li>1.1994 年哈肯.维姆莱提出了 css 的最初建议。伯特波斯当时正在设计一个叫做“Argo”的浏览器，他们决定一起合作设计 CSS</li>
+<li>2.W3C 开始接管 CSS<br>1997 年初。W3C 内组织了专门管 CSS 的工作组，其负责人是克里斯李雷</li>
+<li>3.css2.1<br>1988 年 5 月 W3C 发表了 CSS2<br>CSS2.1 修改了 CSS2 中的一些错误，删除了其中不被支持的内容和增加了一些已有的浏览器的扩展内容</li>
+<li>4.CSS3<br>从 2011 年开始 CSS 被分为多个模块单独升级。统称为 CSS3</li>
+</ul>
+<h4 id="css-预处理"><a href="#css-预处理" class="headerlink" title="css 预处理"></a>css 预处理</h4><blockquote>
+<p>LESS、 SASS(SCSS)、 STYLUS</p>
+</blockquote>
+<p>为什么都拥抱预处理器?</p>
+<blockquote>
+<p>语法不够强大，比如无法嵌套书写导致模块化开发中需要书写很多重复的选择器；<br>没有变量和合理的样式复用机制，使得逻辑上相关的属性值必须以字面量的形式重复输出，导致难以维护。</p>
+</blockquote>
+<blockquote>
+<p>主要就讲讲 sass(scss)，其余大致功能相同<br>sass 是缩进式写法， scss 是花括号写法。 scss 是后面才支持的。 不过两者之间是可以用命令改变的</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sass-convert style.sass style.scss</span><br><span class="line">sass-convert style.scss style.sass</span><br></pre></td></tr></table></figure>
+
+<p>sass 主要从 variables, nested rules, mixins, functions 稍稍引入</p>
+<h3>码界杠精名言：talk is cheap, show me the code !!!</h3>
+
+<h5 id="variables"><a href="#variables" class="headerlink" title="variables"></a>variables</h5><blockquote>
+<p>变量管理使修改代码主题或者整体样式的时候容易，且避免重复代码，增加可维护性</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* _variable.scss */</span></span><br><span class="line"><span class="variable">$black</span>: <span class="number">#000</span> !default;</span><br><span class="line"><span class="variable">$themeColor</span>: blue;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 基础玩法 **/</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;_variable&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@use</span> <span class="string">&#x27;./_variable&#x27;</span> with (</span><br><span class="line">  <span class="variable">$black</span>: <span class="number">#222</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$themeColor</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.black-div</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$black</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.square</span> &#123;</span><br><span class="line">    <span class="variable">$size</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$size</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">$size</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="variable">$size</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 高级玩法 **/</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$dark-theme</span>: true !default;</span><br><span class="line"><span class="variable">$primary-color</span>: <span class="number">#f8bbd0</span> !default;</span><br><span class="line"><span class="variable">$accent-color</span>: <span class="number">#6a1b9a</span> !default;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@if</span> <span class="variable">$dark-theme</span> &#123;</span><br><span class="line">    <span class="variable">$primary-color</span>: <span class="built_in">darken</span>(<span class="variable">$primary-color</span>, <span class="number">60%</span>);</span><br><span class="line">    <span class="variable">$accent-color</span>: <span class="built_in">lighten</span>(<span class="variable">$accent-color</span>, <span class="number">60%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.button</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$primary-color</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="variable">$accent-color</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="nested-rules"><a href="#nested-rules" class="headerlink" title="nested rules"></a>nested rules</h5><blockquote>
+<p>嵌套使代码可读性强，更加容易编写 css</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 基础玩法  */</span></span><br><span class="line"><span class="selector-class">.div</span> &#123;</span><br><span class="line">    <span class="selector-tag">a</span> &#123;</span><br><span class="line">        &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">            <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &amp;-<span class="selector-tag">span</span> &#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">font</span> &#123;</span><br><span class="line">        family: fantasy;</span><br><span class="line">        size: <span class="number">30em</span>;</span><br><span class="line">        weight: bold;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="mixins"><a href="#mixins" class="headerlink" title="mixins"></a>mixins</h5><blockquote>
+<p>定义避免重复使用的代码</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 基础玩法 **/</span></span><br><span class="line"><span class="keyword">@mixin</span> reset-list &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@mixin</span> horizontal-list &#123;</span><br><span class="line">    <span class="keyword">@include</span> reset-list;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">li</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">margin</span>: &#123;</span><br><span class="line">            <span class="attribute">left</span>: -<span class="number">2px</span>;</span><br><span class="line">            <span class="attribute">right</span>: <span class="number">2em</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="keyword">@include</span> horizontal-list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 高级玩法 **/</span></span><br><span class="line"><span class="keyword">@mixin</span> rtl(<span class="variable">$property</span>, <span class="variable">$ltr-value</span>, <span class="variable">$rtl-value</span>) &#123;</span><br><span class="line">    #&#123;<span class="variable">$property</span>&#125;: <span class="variable">$ltr-value</span>;</span><br><span class="line"></span><br><span class="line">    <span class="selector-attr">[dir=<span class="string">&#x27;rtl&#x27;</span>]</span> &amp; &#123;</span><br><span class="line">        #&#123;<span class="variable">$property</span>&#125;: <span class="variable">$rtl-value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">    <span class="keyword">@include</span> rtl(float, left, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@mixin</span> replace-text(<span class="variable">$image</span>, <span class="variable">$x</span>: <span class="number">50%</span>, <span class="variable">$y</span>: <span class="number">50%</span>) &#123;</span><br><span class="line">    <span class="attribute">text-indent</span>: -<span class="number">99999em</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">background</span>: &#123;</span><br><span class="line">        image: <span class="variable">$image</span>;</span><br><span class="line">        repeat: no-repeat;</span><br><span class="line">        <span class="attribute">position</span>: <span class="variable">$x</span> <span class="variable">$y</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.mail-icon</span> &#123;</span><br><span class="line">    <span class="keyword">@include</span> replace-text(url(<span class="string">&#x27;/images/mail.svg&#x27;</span>), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@mixin</span> square(<span class="variable">$size</span>, <span class="variable">$radius</span>: <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$size</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">$size</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@if</span> <span class="variable">$radius</span> != <span class="number">0</span> &#123;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.avatar</span> &#123;</span><br><span class="line">    <span class="keyword">@include</span> square(<span class="number">100px</span>, <span class="variable">$radius</span>: <span class="number">4px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="functions"><a href="#functions" class="headerlink" title="functions"></a>functions</h5><blockquote>
+<p>处理比较复杂的函数<br>支持的语法， @if, @else, @while, @for, @each …</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@function</span> pow(<span class="variable">$base</span>, <span class="variable">$exponent</span>) &#123;</span><br><span class="line">    <span class="variable">$result</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">@for</span> $_ from <span class="number">1</span> through <span class="variable">$exponent</span> &#123;</span><br><span class="line">        <span class="variable">$result</span>: <span class="variable">$result</span> * <span class="variable">$base</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">@return</span> <span class="variable">$result</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="built_in">pow</span>(<span class="number">4</span>, <span class="number">3</span>) * <span class="number">1px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@function</span> sum(<span class="variable">$numbers</span>...) &#123;</span><br><span class="line">    <span class="variable">$sum</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">@each</span> <span class="variable">$number</span> in <span class="variable">$numbers</span> &#123;</span><br><span class="line">        <span class="variable">$sum</span>: <span class="variable">$sum</span> + <span class="variable">$number</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">@return</span> <span class="variable">$sum</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.micro</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">sum</span>(<span class="number">50px</span>, <span class="number">30px</span>, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="css-大神作品"><a href="#css-大神作品" class="headerlink" title="css 大神作品"></a>css 大神作品</h4><p><a target="_blank" rel="noopener" href="https://diana-adrianne.com/purecss-francine/">https://diana-adrianne.com/purecss-francine/</a><br><a target="_blank" rel="noopener" href="http://suohb.com/work/flower2.htm">http://suohb.com/work/flower2.htm</a><br><a target="_blank" rel="noopener" href="https://diana-adrianne.com/purecss-pink/">https://diana-adrianne.com/purecss-pink/</a><br><a target="_blank" rel="noopener" href="https://a.singlediv.com/">https://a.singlediv.com/</a><br><a target="_blank" rel="noopener" href="https://www.html5tricks.com/demo/css3-sector-menu/index.html">https://www.html5tricks.com/demo/css3-sector-menu/index.html</a></p>
+<h4 id="thank"><a href="#thank" class="headerlink" title="thank"></a>thank</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/10/21/css-introduct/" data-id="clemjaef4001m6cdk5ajd43o3" data-title="css-introduct" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-css-icons" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -143,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/09/11/css-icons/" data-id="clef0tiok001l28dkesj08gsk" data-title="css-icons" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/09/11/css-icons/" data-id="clemjaef5001q6cdk15lr8yeg" data-title="css-icons" class="article-share-link">Teilen</a>
       
       
       
@@ -201,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/09/06/css-flowchart/" data-id="clef0tioi001f28dkbcqtb7bm" data-title="css-flowchart" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/09/06/css-flowchart/" data-id="clemjaef3001k6cdkdc4scw25" data-title="css-flowchart" class="article-share-link">Teilen</a>
       
       
       
@@ -266,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/12/33-js-data-structures/" data-id="clef0tio6000528dk8gro0pc6" data-title="33-js-data-structures" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/12/33-js-data-structures/" data-id="clemjaeeq00066cdk0fb5d2a7" data-title="33-js-data-structures" class="article-share-link">Teilen</a>
       
       
       
@@ -321,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="clef0tiod000o28dkhdg8g86e" data-title="33-js-pure-function" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="clemjaeev000m6cdkhr2ndspl" data-title="33-js-pure-function" class="article-share-link">Teilen</a>
       
       
       
@@ -387,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="clef0tioa000e28dk2tmb6u2r" data-title="33-js-object-create-assign" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="clemjaeeu000g6cdk45sr8rws" data-title="33-js-object-create-assign" class="article-share-link">Teilen</a>
       
       
       
@@ -472,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="clef0tioa000g28dkb6n0c16g" data-title="33-js-factories-classes" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="clemjaeet000e6cdk2in43brf" data-title="33-js-factories-classes" class="article-share-link">Teilen</a>
       
       
       
@@ -531,7 +618,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clef0tiod000q28dk9eijffw3" data-title="33-js-setTimeout-setInterval" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clemjaeex000s6cdk08dtesfo" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
       
       
       
@@ -599,7 +686,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clef0tio0000128dkg13b9ufl" data-title="33-js-iife-module-namespace" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clemjaeei00016cdk20hl9evs" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
       
       
       
@@ -667,71 +754,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clef0tio7000628dk6nhydnkd" data-title="33-js-expression-statement" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-33-js-scope" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/06/04/33-js-scope/" class="article-date">
-  <time class="dt-published" datetime="2019-06-04T09:32:01.000Z" itemprop="datePublished">2019-06-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/06/04/33-js-scope/">33-js-scope</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><h4 id="function-scope"><a href="#function-scope" class="headerlink" title="function scope"></a>function scope</h4><h5 id="function-basic-info"><a href="#function-basic-info" class="headerlink" title="function basic info"></a>function basic info</h5><ul>
-<li>function is a subprogram designed to perform a particular task.</li>
-<li>function is executed when they are called. this is known as invoking a function</li>
-<li>values can be passed in function and used within the function</li>
-<li>functions always return a value, in js if function no <code>return</code> code, in fact the function return <code>undefined</code> see the example 1</li>
-<li>function are objects</li>
-<li>function scope use variable is cannot use in out of the function</li>
-</ul>
-<p>example 1</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">testNoReturn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span> + a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">testHasReturn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span> + a;</span><br><span class="line">  <span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">testNoReturn</span>()); <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">testHasReturn</span>()); <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
-<h5 id="define-function-and-function-expression-and-scope"><a href="#define-function-and-function-expression-and-scope" class="headerlink" title="define function and function expression and scope"></a>define function and function expression and scope</h5><blockquote>
-<p>a function declaration defines a named function. to create a function declaration you use the <code>function</code> keyword followed by the name of the function.<br>a function expressions defines a named or anonymous function. and they cannot be used before they are defined.<br>use <code>var</code> or <code>let</code> or <code>const</code> declared a variable in the function , meaning it will exist within the scope of the function it’s declared inside of.</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// you can in here called the name function . `name()`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">name</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// scope explain</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="comment">// you cannot in here called the name function, will throw error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// ReferenceError: b is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="keyword">function</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// ReferenceError: b is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="comment">// you only can in here called the name function</span></span><br></pre></td></tr></table></figure>
-<h4 id="block-scope-let-and-const"><a href="#block-scope-let-and-const" class="headerlink" title="block scope let and const"></a>block scope <code>let</code> and <code>const</code></h4><blockquote>
-<p>block scope is the {} scope. but <code>var</code> is different with <code>let</code> or <code>const</code></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// zero</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sex); <span class="comment">// ReferenceError: sex is not defined</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;zero&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> sex = <span class="string">&#x27;woman&#x27;</span>; <span class="comment">// const is same as let</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// zero</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sex); <span class="comment">// ReferenceError: sex is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when function scope gets confusing with global scope</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hobbies = <span class="string">&#x27;sleep&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">func</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">var</span> hobbies = <span class="string">&#x27;play&#x27;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">func</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// sleep</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when var in block scope</span></span><br><span class="line"><span class="keyword">var</span> hobbies = <span class="string">&#x27;sleep&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> hobbies = <span class="string">&#x27;play&#x27;</span>; </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line"><span class="comment">// because the hobbies play will cover the hobbies sleep</span></span><br><span class="line"><span class="comment">// but when you use let is different with var, the result same as the function scope. certainly explain that the block scope</span></span><br></pre></td></tr></table></figure>
-<h4 id="lexical-scope"><a href="#lexical-scope" class="headerlink" title="lexical scope"></a>lexical scope</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(value); <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">2</span></span><br><span class="line">  <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>();</span><br></pre></td></tr></table></figure>
-
-<p><strong>reference doc</strong></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://codeburst.io/javascript-functions-understanding-the-basics-207dbf42ed99">brandon Morelli</a><br><a target="_blank" rel="noopener" href="https://www.deadcoderising.com/2017-04-11-es6-var-let-and-const-the-battle-between-function-scope-and-block-scope/">deadcoderising</a><br><a target="_blank" rel="noopener" href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md">you dont’t know javascript</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clef0tioe000u28dk96dwhdv7" data-title="33-js-scope" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clemjaeer00096cdkb22o3nwa" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
       
       
       
@@ -749,7 +772,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -763,7 +786,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -773,14 +796,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
@@ -790,9 +813,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
+          </li>
         
           <li>
             <a href="/2023/02/21/encryption/">encryption</a>
@@ -808,10 +835,6 @@
         
           <li>
             <a href="/2022/04/08/js-variable/">js-variable</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
           </li>
         
       </ul>

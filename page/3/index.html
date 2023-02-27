@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,70 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-33-js-scope" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/04/33-js-scope/" class="article-date">
+  <time class="dt-published" datetime="2019-06-04T09:32:01.000Z" itemprop="datePublished">2019-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/04/33-js-scope/">33-js-scope</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><h4 id="function-scope"><a href="#function-scope" class="headerlink" title="function scope"></a>function scope</h4><h5 id="function-basic-info"><a href="#function-basic-info" class="headerlink" title="function basic info"></a>function basic info</h5><ul>
+<li>function is a subprogram designed to perform a particular task.</li>
+<li>function is executed when they are called. this is known as invoking a function</li>
+<li>values can be passed in function and used within the function</li>
+<li>functions always return a value, in js if function no <code>return</code> code, in fact the function return <code>undefined</code> see the example 1</li>
+<li>function are objects</li>
+<li>function scope use variable is cannot use in out of the function</li>
+</ul>
+<p>example 1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">testNoReturn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span> + a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">testHasReturn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span> + a;</span><br><span class="line">  <span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">testNoReturn</span>()); <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">testHasReturn</span>()); <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+<h5 id="define-function-and-function-expression-and-scope"><a href="#define-function-and-function-expression-and-scope" class="headerlink" title="define function and function expression and scope"></a>define function and function expression and scope</h5><blockquote>
+<p>a function declaration defines a named function. to create a function declaration you use the <code>function</code> keyword followed by the name of the function.<br>a function expressions defines a named or anonymous function. and they cannot be used before they are defined.<br>use <code>var</code> or <code>let</code> or <code>const</code> declared a variable in the function , meaning it will exist within the scope of the function it’s declared inside of.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// you can in here called the name function . `name()`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">name</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// scope explain</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="comment">// you cannot in here called the name function, will throw error</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// ReferenceError: b is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="keyword">function</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// ReferenceError: b is not defined because a is not defined in out of the name function scope</span></span><br><span class="line"><span class="comment">// you only can in here called the name function</span></span><br></pre></td></tr></table></figure>
+<h4 id="block-scope-let-and-const"><a href="#block-scope-let-and-const" class="headerlink" title="block scope let and const"></a>block scope <code>let</code> and <code>const</code></h4><blockquote>
+<p>block scope is the {} scope. but <code>var</code> is different with <code>let</code> or <code>const</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// zero</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sex); <span class="comment">// ReferenceError: sex is not defined</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;zero&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> sex = <span class="string">&#x27;woman&#x27;</span>; <span class="comment">// const is same as let</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// zero</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sex); <span class="comment">// ReferenceError: sex is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when function scope gets confusing with global scope</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hobbies = <span class="string">&#x27;sleep&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">func</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">var</span> hobbies = <span class="string">&#x27;play&#x27;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">func</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// sleep</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// when var in block scope</span></span><br><span class="line"><span class="keyword">var</span> hobbies = <span class="string">&#x27;sleep&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> hobbies = <span class="string">&#x27;play&#x27;</span>; </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hobbies); <span class="comment">// play</span></span><br><span class="line"><span class="comment">// because the hobbies play will cover the hobbies sleep</span></span><br><span class="line"><span class="comment">// but when you use let is different with var, the result same as the function scope. certainly explain that the block scope</span></span><br></pre></td></tr></table></figure>
+<h4 id="lexical-scope"><a href="#lexical-scope" class="headerlink" title="lexical scope"></a>lexical scope</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(value); <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">2</span></span><br><span class="line">  <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>();</span><br></pre></td></tr></table></figure>
+
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://codeburst.io/javascript-functions-understanding-the-basics-207dbf42ed99">brandon Morelli</a><br><a target="_blank" rel="noopener" href="https://www.deadcoderising.com/2017-04-11-es6-var-let-and-const-the-battle-between-function-scope-and-block-scope/">deadcoderising</a><br><a target="_blank" rel="noopener" href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md">you dont’t know javascript</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clemjaeew000q6cdkh18o0fs8" data-title="33-js-scope" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-33-js-implicit-coercion-equals" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -125,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clef0tio9000b28dke04f7zx0" data-title="33-js-implicit-coercion-equals" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clemjaees000b6cdkchrg5i6d" data-title="33-js-implicit-coercion-equals" class="article-share-link">Teilen</a>
       
       
       
@@ -229,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clef0tioe000s28dk3lwt4597" data-title="33-js-value-types" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clemjaeey000w6cdk92fifzsb" data-title="33-js-value-types" class="article-share-link">Teilen</a>
       
       
       
@@ -300,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="clef0tip4004i28dk1iuyc3sn" data-title="if-i-have-500w-money" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="clemjaefq004m6cdkge0w9bv8" data-title="if-i-have-500w-money" class="article-share-link">Teilen</a>
       
       
       
@@ -360,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="clef0tio3000228dkg1cbdv7c" data-title="33-js-call-stack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="clemjaeem00026cdkcmos5zdk" data-title="33-js-call-stack" class="article-share-link">Teilen</a>
       
       
       
@@ -428,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="clef0tio5000428dk5wbt6sy7" data-title="33-js-apply-call-bind" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="clemjaeeo00046cdk3q1m7gic" data-title="33-js-apply-call-bind" class="article-share-link">Teilen</a>
       
       
       
@@ -493,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="clef0tioc000m28dkankkdp93" data-title="33-js-recursion" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="clemjaeew000o6cdkcjo8gpq2" data-title="33-js-recursion" class="article-share-link">Teilen</a>
       
       
       
@@ -557,7 +621,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="clef0tiop002a28dkgpp23t9j" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="clemjaef9002b6cdkay3nb1jg" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Teilen</a>
       
       
       
@@ -630,7 +694,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clef0tioh001928dkb81t0egh" data-title="compound-rate" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clemjaef2001g6cdk29pw4lx7" data-title="compound-rate" class="article-share-link">Teilen</a>
       
       
       
@@ -673,7 +737,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="clef0tip3004d28dkcx4sg78w" data-title="product-manager-operation" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="clemjaefo004f6cdk8cdubljm" data-title="product-manager-operation" class="article-share-link">Teilen</a>
       
       
       
@@ -687,65 +751,11 @@
 
 
   
-    <article id="post-thoughts-read-book" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/04/28/thoughts-read-book/" class="article-date">
-  <time class="dt-published" datetime="2019-04-28T12:25:04.000Z" itemprop="datePublished">2019-04-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/04/28/thoughts-read-book/">高效习惯</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="读书重要笔记"><a href="#读书重要笔记" class="headerlink" title="读书重要笔记"></a>读书重要笔记</h4><h5>《高效习惯》</h5>
-    1. 追求清晰度
-    2. 维持活力
-    3. 提升必要性
-    4. 扩充生产力
-    5. 累积影响力
-<h5>提升高效习惯的小练习</h5>
-    1. 定义真正有意义的事情，每周检视一次
-    2. 练习主动去发掘自己何时紧张，何时情绪受到上一个事件的影响。每次转换前要问自己要带入什么情绪
-    3. 找出支持你做目前工作，生活最重要的支柱是什么？（通常可能是家人或者是改变生活的渴望）
-    4. 分析自己做的事情哪些是真正的高品质产出，把每天（每周）时间的60%花在上面，把40%才是做其他事情的时间
-    5. PUSH一个信任你的人去成长，或者成为他们的榜样
-    6. 扭转对困难恐惧的定义，把他们视作对你有利的事，而不是拖累你的事
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="clef0tip5004p28dk9e19aku9" data-title="高效习惯" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -759,7 +769,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -769,14 +779,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
@@ -786,9 +796,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
+          </li>
         
           <li>
             <a href="/2023/02/21/encryption/">encryption</a>
@@ -804,10 +818,6 @@
         
           <li>
             <a href="/2022/04/08/js-variable/">js-variable</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
           </li>
         
       </ul>

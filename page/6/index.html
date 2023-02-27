@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,66 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-css-weights" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/21/css-weights/" class="article-date">
+  <time class="dt-published" datetime="2018-03-21T08:28:54.000Z" itemprop="datePublished">2018-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/21/css-weights/">css-weights</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="CSS-权重"><a href="#CSS-权重" class="headerlink" title="CSS 权重"></a>CSS 权重</h3><blockquote>
+<p>权重决定了css规则怎样被浏览器解析到生效，即你的css规则是如何被显示的</p>
+</blockquote>
+<h4 id="权重之比"><a href="#权重之比" class="headerlink" title="权重之比"></a>权重之比</h4><p><strong>!important &gt; 内联 &gt; ID &gt; 类 &#x3D; 伪类 &#x3D; 属性 &gt; 标签(元素) &#x3D; 伪元素 &gt; 通配符</strong></p>
+<p><strong>名词解释</strong></p>
+<p>名词 | 举例解释 | 权重值<br>——–|—————-<br>内联 | html文档中的定义的sytle, style&#x3D;”color:red” | 1000<br>ID | 元素的一种标识，#div | 100<br>类&#x2F;伪类&#x2F;属性 | .class &#x2F; :hover 或者 :focus &#x2F; p[class~&#x3D;”important”] | 10<br>元素&#x2F;伪元素 | div,p,a &#x2F; ::after,::before,::first-letter,::first-line,::selecton | 1</p>
+<h4 id="权重数量叠加"><a href="#权重数量叠加" class="headerlink" title="权重数量叠加"></a>权重数量叠加</h4><ul>
+<li><code>行内样式</code> + 1000</li>
+<li>ID + 100</li>
+<li>类 | 伪类 | 属性 +10</li>
+<li>元素 | 伪元素 +1</li>
+</ul>
+<h4 id="权重计算"><a href="#权重计算" class="headerlink" title="权重计算"></a>权重计算</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> <span class="selector-id">#content</span> <span class="selector-class">.data</span> <span class="selector-tag">img</span><span class="selector-pseudo">:hover</span></span><br></pre></td></tr></table></figure>
+<p><strong>body +1, #content +100, .data +10, img +1, :hover +10  最后是0122</strong></p>
+<h4 id="几条规则"><a href="#几条规则" class="headerlink" title="几条规则"></a>几条规则</h4><ul>
+<li>同样权重的，以最后一个为样式</li>
+<li>不同权重的，权重高生效</li>
+<li>**慎重用 !important **这样会破坏权重规则</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.w3cplus.com/css/css-specificity-things-you-should-know.html">本文参考链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/21/css-weights/" data-id="clemjaef6001w6cdk1ba13pkj" data-title="css-weights" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-regexp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -104,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/14/regexp/" data-id="clef0tip5004n28dkggop49eq" data-title="regular expressions(正则表达式)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/14/regexp/" data-id="clemjaefr004r6cdkees73vaa" data-title="regular expressions(正则表达式)" class="article-share-link">Teilen</a>
       
       
       
@@ -173,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="clef0tiot002w28dkg1kb7wum" data-title="websocket-http2-https" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="clemjaeff00326cdk1lol80z4" data-title="websocket-http2-https" class="article-share-link">Teilen</a>
       
       
       
@@ -243,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="clef0tip9005b28dke45ehar9" data-title="ajax-http-body" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="clemjaefw005g6cdk53xu8c09" data-title="ajax-http-body" class="article-share-link">Teilen</a>
       
       
       
@@ -295,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clef0tiox003k28dk54uhagej" data-title="js-math" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clemjaefj003q6cdk1mfrapkp" data-title="js-math" class="article-share-link">Teilen</a>
       
       
       
@@ -376,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clef0tioj001h28dkbs101mca" data-title="css-grid" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clemjaef4001o6cdk77zb7qqp" data-title="css-grid" class="article-share-link">Teilen</a>
       
       
       
@@ -547,7 +607,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clef0tip7004x28dk1547gtxt" data-title="webpack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clemjaeft00516cdk6ufkcrby" data-title="webpack" class="article-share-link">Teilen</a>
       
       
       
@@ -612,7 +672,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clef0tior002l28dkgbongmgc" data-title="es6-module" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clemjaefc002n6cdkbc1n7c75" data-title="es6-module" class="article-share-link">Teilen</a>
       
       
       
@@ -699,7 +759,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clef0tiop002f28dkaem2byse" data-title="es6-class" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clemjaefa002g6cdk31daayww" data-title="es6-class" class="article-share-link">Teilen</a>
       
       
       
@@ -772,91 +832,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clef0tios002r28dkf5eq6a6t" data-title="es6-set-map" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-es6-async-await" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/12/20/es6-async-await/" class="article-date">
-  <time class="dt-published" datetime="2017-12-20T08:41:01.000Z" itemprop="datePublished">2017-12-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/12/20/es6-async-await/">es6-async-await</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><blockquote>
-<p>通俗的来讲 gennerator 的语法糖</p>
-</blockquote>
-<h4 id="初步了解"><a href="#初步了解" class="headerlink" title="初步了解"></a>初步了解</h4><p>先回忆一下 gennerator</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> readFile = <span class="keyword">function</span> (<span class="params">fileName</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params">reslove, rejecrt</span>) &#123;</span><br><span class="line">        fs.<span class="title function_">readFile</span>(fileName, <span class="keyword">function</span>(<span class="params">error, data</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (error) <span class="keyword">return</span> <span class="title function_">reject</span>(error);</span><br><span class="line">            <span class="title function_">resolve</span>(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> gen = <span class="keyword">function</span>* ()&#123;</span><br><span class="line">    <span class="keyword">const</span> f1 = <span class="keyword">yield</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/fstab&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> f2 = <span class="keyword">yield</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/shells&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f1.<span class="title function_">toString</span>())</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f2.<span class="title function_">toString</span>())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用的时候是</span></span><br><span class="line"></span><br><span class="line">gen.<span class="title function_">next</span>()</span><br><span class="line">gen.<span class="title function_">next</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>将上面的gennerator 函数转化为 async 函数就是</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> asyncReadFile = aysnc <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> f1 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/fstab&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> f2 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/etc/shells&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f1.<span class="title function_">toString</span>())</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(f2.<span class="title function_">toString</span>())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用的时候</span></span><br><span class="line"><span class="title function_">asyncReadFile</span>()</span><br></pre></td></tr></table></figure>
-<p>区别点</p>
-<blockquote>
-<p>generator 函数执行必须靠执行器，所以有了co模块，而async 函数自带执行器，也就是async函数执行和普通函数一样<br>  更好的语义<br>  更适用的广泛性<br>  返回的是promise</p>
-</blockquote>
-<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><blockquote>
-<p>async 返回一个promise对象，可以使用then方法添加回调函数。当函数执行的时候一旦遇到await就会先返回，等到异步操作完成。再接着执行函数体后面的语句。</p>
-</blockquote>
-<p>example</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// first example</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getStorePriceByName</span> (name) &#123;</span><br><span class="line">    <span class="keyword">const</span> symbol = <span class="keyword">await</span> <span class="title function_">getStockSymbol</span>(name)</span><br><span class="line">    <span class="keyword">const</span> stockPrice = <span class="keyword">await</span> <span class="title function_">getStockPrice</span>(symbol)</span><br><span class="line">    <span class="keyword">return</span> stockPrice</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getStorePriceByName</span>(<span class="string">&#x27;goog&#x27;</span>).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">result</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// second example</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">timeout</span> (ms) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Primise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(resolve,ms)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">asyncPrint</span> (value, ms) &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">timeout</span>(ms)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">asyncPrint</span>(<span class="string">&#x27;hello&#x27;</span>, <span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="async-函数的多种使用形式"><a href="#async-函数的多种使用形式" class="headerlink" title="async 函数的多种使用形式"></a>async 函数的多种使用形式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象的方法</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// class 的方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Storage</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">cachePromise</span> = cache.<span class="title function_">open</span>(<span class="string">&#x27;avatars&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">getAvatar</span>(<span class="params">name</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> cache = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">cachePromise</span></span><br><span class="line">        <span class="keyword">return</span> cache.<span class="title function_">match</span>(<span class="string">`/avatars/<span class="subst">$&#123;name&#125;</span>.jpg`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> storage = <span class="keyword">new</span> <span class="title class_">Storage</span>()</span><br><span class="line">storage.<span class="title function_">getAvatar</span>(<span class="string">&#x27;zero&#x27;</span>).<span class="title function_">then</span>(..)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">foo</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><blockquote>
-<p>返回promise对象，async函数内部return语句返回的值，会成为then方法回调函数的参数</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(<span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v))<span class="comment">//&#x27;hello world&#x27;</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">上面代码中函数f内部return命令返回的值，会被then方法回调函数接收到</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<p>async 函数内部抛出错误，会导致返回的primise对象变为reject状态。抛出的错误对象会被catch方法函数接收到</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;somethins is wrong&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(</span><br><span class="line">    <span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v),</span><br><span class="line">    <span class="function"><span class="params">e</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">)</span><br><span class="line"><span class="comment">//Error: 出错了</span></span><br></pre></td></tr></table></figure>
-<h3 id="await命令"><a href="#await命令" class="headerlink" title="await命令"></a>await命令</h3><blockquote>
-<p>正常情况下 await命令后面是一个Promise 对象。如果不是，会被立即转为一个resolve的promised对象</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> <span class="number">123</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(<span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v))<span class="comment">//123</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    上面代码中，await命令参数是数值123，它被转为promise对象。并立即执行resolve中</span></span><br><span class="line"><span class="comment">    await 命令的promise对象如果变为reject 状态。则reject的参数会被catch 方法的回调函数接收到</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">f2</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(<span class="string">&#x27;it is wrong&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>().<span class="title function_">then</span>(</span><br><span class="line">    <span class="function"><span class="params">v</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v),</span><br><span class="line">    <span class="function"><span class="params">e</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">)</span><br><span class="line"><span class="comment">//it is wrong</span></span><br></pre></td></tr></table></figure>
-<h4 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h4><blockquote>
-<p>1.await 命令后面的promise对象，运行的结果可能是rejected。所以最好把await命令放在try … catch中</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="title function_">somethingRunInPromise</span>()</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">somethingRunInPromise</span>()</span><br><span class="line">    .<span class="title function_">catch</span>(<span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2.多个await命令后面的异步操作，如果不存在继发关系，最好让它们同时触发</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> <span class="title function_">getFoo</span>()</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> <span class="title function_">getBar</span>()</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">上面的代码中，getFoo 和 getBar 是两个独立的异步操作(即互不依赖)，被写成继发的关系这样会比较耗时间，</span></span><br><span class="line"><span class="comment">因为只有 getFoo 函数完成后才会 开始 getBar</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// ====== 同时触发 ======</span></span><br><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">let</span> [foo,bar] = <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title function_">getFoo</span>(), <span class="title function_">getBar</span>()])</span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">let</span> foopromise = <span class="title function_">getFoo</span>()</span><br><span class="line"><span class="keyword">let</span> barpromise = <span class="title function_">getBar</span>()</span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> foopromise</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> barpromise</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>3.await 只能用于 async 函数中。并且forEach 函数中不适合用async 函数 ，如有需求，改为for循环</p>
-</blockquote>
-<h4 id="async函数的实现原理"><a href="#async函数的实现原理" class="headerlink" title="async函数的实现原理"></a>async函数的实现原理</h4><blockquote>
-<p>async 函数的实现原理，就是讲generator函数和自动执行器，包装在一个函数里面</p>
-</blockquote>
-<h4 id="实例-按照顺序完成异步操作"><a href="#实例-按照顺序完成异步操作" class="headerlink" title="实例(按照顺序完成异步操作)"></a>实例(按照顺序完成异步操作)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">logInOrder</span>(<span class="params">urls</span>) &#123;</span><br><span class="line">    <span class="comment">// 远程读取所有的url</span></span><br><span class="line">    <span class="keyword">const</span> textPromises = urls.<span class="title function_">map</span>(<span class="function"><span class="params">url</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">fetch</span>(url).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">text</span>())</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按次序输出</span></span><br><span class="line">    textPromises.<span class="title function_">reduce</span>(<span class="function">(<span class="params">chain, textPromise</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> chain.<span class="title function_">then</span>(<span class="function">() =&gt;</span> textPromise)</span><br><span class="line">                    .<span class="title function_">then</span>(<span class="function"><span class="params">text</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(text))</span><br><span class="line">    &#125;, <span class="title class_">Promise</span>.<span class="title function_">resolve</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 改为async</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">logInOrder2</span>(<span class="params">urls</span>) &#123;</span><br><span class="line">        <span class="comment">// 并发处理</span></span><br><span class="line">        <span class="keyword">const</span> textPromises = urls.<span class="title function_">map</span>(<span class="keyword">async</span> url =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url)</span><br><span class="line">            <span class="keyword">return</span> response.<span class="title function_">text</span>()</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 按次序输出</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> textPromise <span class="keyword">of</span> textPromises) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">await</span> textPromise)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="clef0tiop002c28dk4foo0vkz" data-title="es6-async-await" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clemjaefb002i6cdka61sbduj" data-title="es6-set-map" class="article-share-link">Teilen</a>
       
       
       
@@ -874,7 +850,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -888,7 +864,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -898,14 +874,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
@@ -915,9 +891,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
+          </li>
         
           <li>
             <a href="/2023/02/21/encryption/">encryption</a>
@@ -933,10 +913,6 @@
         
           <li>
             <a href="/2022/04/08/js-variable/">js-variable</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/17/vue3-proxy/">vue3-proxy</a>
           </li>
         
       </ul>
