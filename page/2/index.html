@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,118 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-tools-npm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/18/tools-npm/" class="article-date">
+  <time class="dt-published" datetime="2020-03-18T04:31:45.000Z" itemprop="datePublished">2020-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/03/18/tools-npm/">npm-tools</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="npm-好用的命令行呢"><a href="#npm-好用的命令行呢" class="headerlink" title="npm 好用的命令行呢"></a>npm 好用的命令行呢</h3><h4 id="查看-npm-全局安装了哪里工具"><a href="#查看-npm-全局安装了哪里工具" class="headerlink" title="查看 npm 全局安装了哪里工具"></a>查看 npm 全局安装了哪里工具</h4><p><code>npm list -g --depth 0</code></p>
+<blockquote>
+<p>explain the command line</p>
+</blockquote>
+<ul>
+<li><p><code>npm</code> the node package manager command line tool</p>
+</li>
+<li><p><code>list -g</code> display a tree of every package fount in the user’s folders (if without -g option, will show the current package’s dependencies )</p>
+</li>
+<li><p><code>--depth 0 | --depth=0</code> avoid including every packpage’s dependencies in the tree view</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/18/tools-npm/" data-id="cles4z7ss0056rsdk0fcn7j9x" data-title="npm-tools" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node-commonjs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/17/node-commonjs/" class="article-date">
+  <time class="dt-published" datetime="2020-03-17T13:57:17.000Z" itemprop="datePublished">2020-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/03/17/node-commonjs/">node-commonjs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="nodejs-模块规范"><a href="#nodejs-模块规范" class="headerlink" title="nodejs 模块规范"></a>nodejs 模块规范</h3><h4 id="script"><a href="#script" class="headerlink" title="script"></a>script</h4><ul>
+<li>脚本变多，手动管理加载顺序</li>
+<li>不动脚本之间的逻辑调用，需要管理全局变量。不易管理</li>
+<li>没有 html 怎么办，没法加载 script</li>
+</ul>
+<h4 id="commonjs-模块规范-起源"><a href="#commonjs-模块规范-起源" class="headerlink" title="commonjs 模块规范 起源"></a>commonjs 模块规范 起源</h4><ul>
+<li>javscript 社区发起，nodejs 上应用并推广</li>
+<li>影响到浏览器端 JavaScript</li>
+</ul>
+<h4 id="commonjs-介绍"><a href="#commonjs-介绍" class="headerlink" title="commonjs 介绍"></a>commonjs 介绍</h4><ul>
+<li>定义：每个文件就是一个模块，有自己的作用域。在一个文件里面定义变量，函数，类，都是私有的。对其他文件是不可见的。</li>
+<li>特点：1）所有代码都运行在模块作用域，不会污染全局作用域。2）模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。3）模块加载的顺序，按照其在代码中出现的顺序。</li>
+</ul>
+<p>a.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> addX = <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> value + x;</span><br><span class="line">&#125;;</span><br><span class="line">moudule.<span class="property">exports</span> = &#123;</span><br><span class="line">    x,</span><br><span class="line">    addX,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>b.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要加载a.js</span></span><br><span class="line"><span class="keyword">var</span> ajs = <span class="built_in">require</span>(<span class="string">&quot;a.js&quot;</span>);</span><br><span class="line">a.<span class="title function_">addX</span>(<span class="number">10</span>); <span class="comment">//15</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，变量 x 和函数 addX，是当前文件特有的私有，其他文件不可见</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/17/node-commonjs/" data-id="cles4z7sm004drsdkg30l0sfc" data-title="node-commonjs" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/" rel="tag">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-css-introduct" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -148,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/10/21/css-introduct/" data-id="clemjaef4001m6cdk5ajd43o3" data-title="css-introduct" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/10/21/css-introduct/" data-id="cles4z7ry001mrsdk51734ema" data-title="css-introduct" class="article-share-link">Share</a>
       
       
       
@@ -230,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/09/11/css-icons/" data-id="clemjaef5001q6cdk15lr8yeg" data-title="css-icons" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/09/11/css-icons/" data-id="cles4z7ry001orsdkewn3bzsn" data-title="css-icons" class="article-share-link">Share</a>
       
       
       
@@ -288,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/09/06/css-flowchart/" data-id="clemjaef3001k6cdkdc4scw25" data-title="css-flowchart" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/09/06/css-flowchart/" data-id="cles4z7rx001krsdk9njm248x" data-title="css-flowchart" class="article-share-link">Share</a>
       
       
       
@@ -353,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/12/33-js-data-structures/" data-id="clemjaeeq00066cdk0fb5d2a7" data-title="33-js-data-structures" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/12/33-js-data-structures/" data-id="cles4z7rj0005rsdkdcib45gr" data-title="33-js-data-structures" class="article-share-link">Share</a>
       
       
       
@@ -408,7 +520,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="clemjaeev000m6cdkhr2ndspl" data-title="33-js-pure-function" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="cles4z7rq000mrsdk21v217rp" data-title="33-js-pure-function" class="article-share-link">Share</a>
       
       
       
@@ -474,7 +586,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="clemjaeeu000g6cdk45sr8rws" data-title="33-js-object-create-assign" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="cles4z7ro000grsdk1t71g3pa" data-title="33-js-object-create-assign" class="article-share-link">Share</a>
       
       
       
@@ -559,7 +671,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="clemjaeet000e6cdk2in43brf" data-title="33-js-factories-classes" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="cles4z7rn000brsdk0uc13pq9" data-title="33-js-factories-classes" class="article-share-link">Share</a>
       
       
       
@@ -618,143 +730,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clemjaeex000s6cdk08dtesfo" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-33-js-IIFE-module-namespace" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/06/09/33-js-IIFE-module-namespace/" class="article-date">
-  <time class="dt-published" datetime="2019-06-09T11:20:12.000Z" itemprop="datePublished">2019-06-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/06/09/33-js-IIFE-module-namespace/">33-js-iife-module-namespace</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="anonymous-function-expressions-and-named-function-expressions"><a href="#anonymous-function-expressions-and-named-function-expressions" class="headerlink" title="anonymous function expressions and named function expressions"></a>anonymous function expressions and named function expressions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bar = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;you are good&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// this bar variable assign function is a anonymous function</span></span><br><span class="line"><span class="keyword">var</span> bar  = <span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;you aslo good&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// the function bar is a named function exrepisons</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="iife-inmediately-invoking-function-expression"><a href="#iife-inmediately-invoking-function-expression" class="headerlink" title="iife(inmediately-invoking-function-expression)"></a>iife(inmediately-invoking-function-expression)</h3><p>natural function definition</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function declaration</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello zero&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()</span><br><span class="line"><span class="comment">// the line 2-5 is define a function named foo</span></span><br><span class="line"><span class="comment">// the line 6 is add () to called the foo function</span></span><br><span class="line"><span class="comment">// function expression</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello zero&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>();</span><br><span class="line"><span class="comment">// the line 9-11 is declare a variable var and assign a value to that&#x27;s of function type</span></span><br><span class="line"><span class="comment">// the line 12 is called the function</span></span><br></pre></td></tr></table></figure>
-<p>iife</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">!<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ok!&#x27;</span>);</span><br><span class="line">&#125;(); <span class="comment">// ok!</span></span><br><span class="line"><span class="keyword">void</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;void&quot;</span>);</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>as we know that a function statement has keyword <code>function</code></li>
-<li><code>!</code>in front of function , that enfores javascript to treat whatever that’s coming after <code>!</code> as an expressions</li>
-<li>and the last <code>()</code> is immediately called the function</li>
-<li><code>+</code>, <code>-</code>， <code>~</code>, <code>void</code> is the same to <code>!</code> in font of function</li>
-</ul>
-<p>classical iife style</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;classical 1&quot;</span>);</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;classical 2&quot;</span>);</span><br><span class="line">&#125;())</span><br><span class="line">a <span class="comment">// error</span></span><br><span class="line">b <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
-<p>IIFE and private variables</p>
-<blockquote>
-<p>the iife is good to do that their ability to create a function scope, any variable is defined in the iife function are not visible to outside</p>
-</blockquote>
-<p>IIFE with return value</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> needVariable = (<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello world&quot;</span></span><br><span class="line">&#125;())</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(needVariable);<span class="comment">// hello world</span></span><br></pre></td></tr></table></figure>
-<p>IIFE with parameters</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> <span class="title function_">IIFE</span>(<span class="params">$, <span class="variable language_">window</span>, docuemnt, <span class="literal">undefined</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>($, <span class="variable language_">window</span>, docuemnt, <span class="literal">undefined</span>);</span><br><span class="line">&#125;)(jQuery, <span class="variable language_">window</span>, <span class="variable language_">document</span>)</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>reference doc</strong></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6">Chandra Gundamaraju</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clemjaeei00016cdk20hl9evs" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-33-js-expression-statement" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/06/09/33-js-expression-statement/" class="article-date">
-  <time class="dt-published" datetime="2019-06-09T08:38:24.000Z" itemprop="datePublished">2019-06-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/06/09/33-js-expression-statement/">33-js-expression-statement</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>javascript has two methods create functions, function expression and function declaration</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">funDeclaration</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;a function declaration&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> funExpression = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;a function expression&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>different with function declarations and function expressions</strong></p>
-<ul>
-<li>similar to the <code>var</code>, the function declaration are hosited at the top of other code. and the function expression not.</li>
-</ul>
-<h3 id="function-declarations"><a href="#function-declarations" class="headerlink" title="function declarations"></a>function declarations</h3><blockquote>
-<p>a function declaration defineds a named function variable without requiring variable assignment. function declarations occur as standalone constructs and connot be nested within non-function blocks.</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="title function_">bar</span>()) <span class="comment">// 3 right!!!</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>() <span class="comment">// 3</span></span><br><span class="line">bar <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="function-expressions"><a href="#function-expressions" class="headerlink" title="function expressions"></a>function expressions</h3><blockquote>
-<p>a function expression defined a function as a part of a larger expression syntax.</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="title function_">bar</span>()) ; <span class="comment">// typeerror </span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">function</span> <span class="title function_">IIFE</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;something&#x27;</span>);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-<h3 id="Benefits-of-Function-Expressions"><a href="#Benefits-of-Function-Expressions" class="headerlink" title="Benefits of Function Expressions"></a>Benefits of Function Expressions</h3><ul>
-<li>as a clousures</li>
-<li>as arguments to other functions</li>
-<li>as immediately invoked function expressions (IIFE)</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// creating closures</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">toHandle1</span>(<span class="params">index</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">tabClickEvent</span>(<span class="params">evt</span>) &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> toHandle2 = <span class="keyword">function</span> (<span class="params">index</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">tabClickEvent</span>(<span class="params">evt</span>) &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tabs = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.tab&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;tab.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    tabs[i].<span class="property">onclick</span> = toHandle1 <span class="comment">// good code</span></span><br><span class="line">    tabs[i].<span class="property">onclick</span> = toHandle2 <span class="comment">// bad code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//passing as a arguments</span></span><br><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;) </span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">forEach</span>(<span class="keyword">function</span> <span class="title function_">doSomething</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// do somthing</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// IIFE</span></span><br><span class="line"><span class="keyword">var</span> <span class="variable language_">module</span> = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> someMethod = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// also do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">someMethod</span>: someMethod</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-
-<p><strong>refrence doc</strong></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.sitepoint.com/function-expressions-vs-declarations/">Paul Wilkins</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clemjaeer00096cdkb22o3nwa" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="cles4z7rr000srsdkfs9ibuku" data-title="33-js-setTimeout-setInterval" class="article-share-link">Share</a>
       
       
       
@@ -772,7 +748,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -796,16 +772,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -813,9 +789,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/03/03/stream/">stream</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/03/fs/">fs</a>
+          </li>
         
           <li>
             <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
@@ -827,14 +811,6 @@
         
           <li>
             <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/28/frp/">frp</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/08/js-variable/">js-variable</a>
           </li>
         
       </ul>

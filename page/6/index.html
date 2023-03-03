@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,237 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-canvas-html2canvas" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/27/canvas-html2canvas/" class="article-date">
+  <time class="dt-published" datetime="2018-03-27T03:25:19.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/27/canvas-html2canvas/">html2canvas</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="html2canvas"><a href="#html2canvas" class="headerlink" title="html2canvas"></a>html2canvas</h3><blockquote>
+<p>小记： 神器 html2canvas记，是有这么个需求，需要生成一个新闻卡片，然后如果直接用canvas画的情况呢，比较复杂，文本内容需要分段而且还需要控制字数，直接用html，css来写呢就会非常的便捷了，众里寻他千百度。蓦然回首，那人却在，<a target="_blank" rel="noopener" href="http://html2canvas.hertzen.com/getting-started/">html2canvas</a>。使用版本记录：html2canvas 1.0.0-alpha.10</p>
+</blockquote>
+<h4 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line"><span class="comment">// 这段就是将你要绘制额的html ID 绘制成 canvas</span></span><br><span class="line"><span class="title function_">html2canvas</span>(<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#share-box-img&quot;</span>), &#123; <span class="attr">canvas</span>: canvas &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">canvas</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> base64Image = canvas.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/png&#x27;</span>);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(canvas);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 这个是绘制整个页面 x,y 是坐标 可以用jq 的position().x positon().y获取， width height 是canvas的宽高</span></span><br><span class="line"><span class="title function_">html2canvas</span>(<span class="variable language_">document</span>.<span class="property">body</span>, &#123; <span class="attr">x</span>: x, <span class="attr">y</span>: y, <span class="attr">width</span>: width, <span class="attr">height</span>: height &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">canvas</span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(canvas);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>目前还不支持部分css3 属性，我自己测试中不兼容的属性有 box-shadow, css 超出行用…表示</li>
+<li>如果绘制的img中图片的地址是 非本域名的 需要添加 <code>useCORS: true</code>才能绘制出来</li>
+<li>scale 是可以设置缩放比例的</li>
+</ul>
+<h4 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://html2canvas.hertzen.com/configuration">参数配置地址</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>async</td>
+<td>true</td>
+<td>是否异步解析和渲染元素</td>
+</tr>
+<tr>
+<td>allowTaint</td>
+<td>false</td>
+<td>是否允许跨域的图像渲染到canvas上</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>#ffffff</td>
+<td>canvas的背景色，如果是<code>none</code>就是dom上的，如果设置为<code>null</code>就是<code>transparent</code>透明</td>
+</tr>
+<tr>
+<td>canvas</td>
+<td>null</td>
+<td>如果传入canvas就用已经存在的在那基础上再绘制</td>
+</tr>
+<tr>
+<td>foreignObjectRendering</td>
+<td>false</td>
+<td>如果浏览器支持，是否使用ForeignObject呈现</td>
+</tr>
+<tr>
+<td>imageTimeout</td>
+<td>15000</td>
+<td>设置image的超时时间，设置<code>0</code>禁止超时</td>
+</tr>
+<tr>
+<td>ignoreElements</td>
+<td>(element) &#x3D;&gt; false</td>
+<td>Predicate function which removes the matching elements from the render（翻译无能）</td>
+</tr>
+<tr>
+<td>logging</td>
+<td>true</td>
+<td>启用日志记录以进行调试</td>
+</tr>
+<tr>
+<td>onclone</td>
+<td>null</td>
+<td>Callback function which is called when the Document has been cloned for rendering, can be used to modify the contents that will be rendered without affecting the original source document（翻译无能）</td>
+</tr>
+<tr>
+<td>proxy</td>
+<td>null</td>
+<td><code>proxy</code>被用来加载跨域的图像，如果设置为空，跨域的图像将不被加载</td>
+</tr>
+<tr>
+<td>removeContainer</td>
+<td>true</td>
+<td>是否清除html2canvas暂时创建的dom结构</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>window.devicePixelRatio</td>
+<td>渲染的时候的缩放倍数，默认是<code>window.devicePixelRatio</code></td>
+</tr>
+<tr>
+<td>useCORS</td>
+<td>false</td>
+<td>是否尝试从服务器跨域加载图片</td>
+</tr>
+<tr>
+<td>width</td>
+<td>element width</td>
+<td>canvas 宽</td>
+</tr>
+<tr>
+<td>height</td>
+<td>element height</td>
+<td>canvas 高</td>
+</tr>
+<tr>
+<td>x</td>
+<td>element x-offset</td>
+<td>x坐标</td>
+</tr>
+<tr>
+<td>y</td>
+<td>element y-offset</td>
+<td>y坐标</td>
+</tr>
+<tr>
+<td>scrollX</td>
+<td>element scrollX</td>
+<td>用于element使用了<code>position:fixed</code></td>
+</tr>
+<tr>
+<td>scrollY</td>
+<td>element scrollY</td>
+<td>用于element使用了<code>position:fixed</code></td>
+</tr>
+<tr>
+<td>windowWidth</td>
+<td>Window.innerWidth</td>
+<td>用于使用 media query 改变大小的时候</td>
+</tr>
+<tr>
+<td>windowHeight</td>
+<td>Window.innerHeight</td>
+<td>用于使用media query 改变大小的时候</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/27/canvas-html2canvas/" data-id="cles4z7ru0012rsdk7nk9210i" data-title="html2canvas" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other-how-browser-works" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/27/other-how-browser-works/" class="article-date">
+  <time class="dt-published" datetime="2018-03-27T03:16:46.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/27/other-how-browser-works/">how-browser-works</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="图解browser-work"><a href="#图解browser-work" class="headerlink" title="图解browser work"></a>图解browser work</h3><h4 id="当你向浏览器地址栏输入http-www-google-com会发生什么呢"><a href="#当你向浏览器地址栏输入http-www-google-com会发生什么呢" class="headerlink" title="当你向浏览器地址栏输入http://www.google.com会发生什么呢"></a>当你向浏览器地址栏输入<a target="_blank" rel="noopener" href="http://www.google.com会发生什么呢/">http://www.google.com会发生什么呢</a></h4><ul>
+<li>Resolve DNS</li>
+<li>Request Page</li>
+<li>Tokenize the response</li>
+<li>Parse HTML</li>
+<li>Build Dom tree</li>
+<li>Build Render tree</li>
+<li>Layout the Render tree</li>
+<li>Painting</li>
+</ul>
+<h4 id="Dns-LookUp"><a href="#Dns-LookUp" class="headerlink" title="Dns LookUp"></a>Dns LookUp</h4><blockquote>
+<p>输入的域名 -&gt; 本地DNS服务器 -&gt; 根DNS服务器 -&gt; 本地域名服务器将ip发送到客户端主机</p>
+</blockquote>
+<p><img src="http://upload.zeroyh.cn/dns-look.jpg" alt="原理图"></p>
+<h4 id="Request-a-Page"><a href="#Request-a-Page" class="headerlink" title="Request a Page"></a>Request a Page</h4><blockquote>
+<p>请求回来的二进制数据 -&gt; 解析为字符 -&gt; 解析成dom</p>
+</blockquote>
+<p><img src="http://upload.zeroyh.cn/request-page.jpg" alt="原理图"></p>
+<h4 id="PARSE-RENDER-LAYOUT-amp-PAINT"><a href="#PARSE-RENDER-LAYOUT-amp-PAINT" class="headerlink" title="PARSE, RENDER, LAYOUT &amp; PAINT"></a>PARSE, RENDER, LAYOUT &amp; PAINT</h4><blockquote>
+<p>解析html为dom 树结构(parsing html to construct the dom tree) -&gt; 渲染树结构(render tree construction) -&gt; 将结构布局到位置上(layout of the render tree) -&gt; 绘制GUI整个结构(painting the render tree)</p>
+</blockquote>
+<p>render tree: DOM TREE + CSS &#x3D;&#x3D; RENDER TREE<br><img src="http://upload.zeroyh.cn/render.jpg" alt="layout 图解"></p>
+<h4 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://arvindr21.github.io/howBrowserWorks/#/">http://arvindr21.github.io/howBrowserWorks/#/</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/27/other-how-browser-works/" data-id="cles4z7sn004grsdk15wu6npa" data-title="how-browser-works" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/other/" rel="tag">other</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-css-weights" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -121,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/21/css-weights/" data-id="clemjaef6001w6cdk1ba13pkj" data-title="css-weights" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/03/21/css-weights/" data-id="cles4z7s1001zrsdk3c6i76dn" data-title="css-weights" class="article-share-link">Share</a>
       
       
       
@@ -164,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/14/regexp/" data-id="clemjaefr004r6cdkees73vaa" data-title="regular expressions(正则表达式)" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/03/14/regexp/" data-id="cles4z7sp004qrsdk4zty7gdp" data-title="regular expressions(正则表达式)" class="article-share-link">Share</a>
       
       
       
@@ -233,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="clemjaeff00326cdk1lol80z4" data-title="websocket-http2-https" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="cles4z7sd0038rsdk7ly1gkff" data-title="websocket-http2-https" class="article-share-link">Share</a>
       
       
       
@@ -303,7 +534,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="clemjaefw005g6cdk53xu8c09" data-title="ajax-http-body" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="cles4z7sv005nrsdkf0iy75wy" data-title="ajax-http-body" class="article-share-link">Share</a>
       
       
       
@@ -355,7 +586,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clemjaefj003q6cdk1mfrapkp" data-title="js-math" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/30/js-math/" data-id="cles4z7si003srsdk3rf18wnx" data-title="js-math" class="article-share-link">Share</a>
       
       
       
@@ -436,7 +667,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clemjaef4001o6cdk77zb7qqp" data-title="css-grid" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="cles4z7rz001qrsdk1rojb0et" data-title="css-grid" class="article-share-link">Share</a>
       
       
       
@@ -607,7 +838,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clemjaeft00516cdk6ufkcrby" data-title="webpack" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/22/webpack/" data-id="cles4z7st005brsdkgy8kdl8z" data-title="webpack" class="article-share-link">Share</a>
       
       
       
@@ -672,167 +903,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clemjaefc002n6cdkbc1n7c75" data-title="es6-module" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-es6-class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/01/01/es6-class/" class="article-date">
-  <time class="dt-published" datetime="2018-01-01T01:58:26.000Z" itemprop="datePublished">2018-01-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/01/01/es6-class/">es6-class</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><blockquote>
-<p>javascript 中，生成实例对象的传统方法是通过构造函数</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Point</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;(&#x27;</span> + <span class="variable language_">this</span>.<span class="property">x</span> + <span class="string">&#x27;,&#x27;</span> + <span class="variable language_">this</span>.<span class="property">y</span> + <span class="string">&#x27;)&#x27;</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的这种写法是传统的写法 与c语言 java语言相差很大，很容易让新学者误解，es6提供了更接近与传统写法的形式，引入了class这个概念</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">x</span> = x</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">y</span> = y</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">toString</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;(&#x27;</span> + <span class="variable language_">this</span>.<span class="property">x</span> + <span class="string">&#x27;,&#x27;</span> + <span class="variable language_">this</span>.<span class="property">y</span> + <span class="string">&#x27;)&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 分解</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point2</span> &#123;</span><br><span class="line">    <span class="title function_">doStuff</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;it is dostuff&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">typeof</span>(<span class="title class_">Point2</span>) <span class="comment">// &quot;function&quot;</span></span><br><span class="line"><span class="title class_">Ponit2</span> === <span class="title class_">Point2</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> <span class="title class_">Point2</span>()</span><br><span class="line">p.<span class="title function_">doStuff</span>() <span class="comment">// it is dostuff</span></span><br><span class="line"><span class="comment">// 构造函数的prototype属性，在es6类上面继续存在，事实上类的所有方法都定义在prototype属性上面</span></span><br></pre></td></tr></table></figure>
-<p>上面的代码定义了一个”类“，里面的constructor方法，就是构造方法。this代表实例对象，也就是ES5的Point方法对应ES6 的 Point 方法</p>
-<blockquote>
-<p>由于类的方法都添加在prototype上面，所有类的新方法可以添加在prototype对象上面，Object.assign方法可以很方便的一次向类添加多个方法</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>(<span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>, &#123;</span><br><span class="line">    <span class="title function_">toString</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">toValue</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 证明是不可枚举的</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(<span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">//[]</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyNames</span>(<span class="title class_">Point</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">//[&quot;constructor&quot;,&quot;toString&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Es5Fn</span> = <span class="keyword">function</span> (<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Es5Fn</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(<span class="title class_">Es5Fn</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">// [&quot;toString&quot;]</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyName</span>(<span class="title class_">Es5Fn</span>.<span class="property"><span class="keyword">prototype</span></span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>**注意点是：类的内部所有定义的方法，都是不可枚举的（non-enumerable） **</p>
-</blockquote>
-<p>类的属性名可以采用表达式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> methodName = <span class="string">&#x27;getArea&#x27;</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">length</span>)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    [methodName]()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><blockquote>
-<p>类和模块的内部，默认就是严格模式，所以不需要使用”use strict“制定运行模式。只要你的代码写在类或者模块之中</p>
-</blockquote>
-<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><blockquote>
-<p>constructor 方法是类的默认方法，通过new 命令生成的对象实例，自动调用该方法，一个类必须有construcotr方法，如果没有显示定义。一个空的constrctor方法会自动被添加</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="函数class表达式"><a href="#函数class表达式" class="headerlink" title="函数class表达式"></a>函数class表达式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">MyClass</span> = <span class="keyword">class</span> <span class="title class_">Me</span> &#123;</span><br><span class="line">    <span class="title function_">getClassName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        retrun <span class="title class_">Me</span>.<span class="property">name</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 需要注意的这个类名 是MyClass 而不是Me,Me只在Class内部代码可用，指代当前类</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyClass</span> = <span class="keyword">class</span> &#123; <span class="comment">/* ... */</span> &#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Class的取值函数（getter）和存值函数（setter）"><a href="#Class的取值函数（getter）和存值函数（setter）" class="headerlink" title="Class的取值函数（getter）和存值函数（setter）"></a>Class的取值函数（getter）和存值函数（setter）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">prop</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;getter&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">prop</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setter is:&#x27;</span> + value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> inset = <span class="keyword">new</span> <span class="title class_">MyClass</span>()</span><br><span class="line">inset.<span class="property">prop</span> = <span class="number">123</span> <span class="comment">// setter is:123</span></span><br><span class="line">inset.<span class="property">prop</span> <span class="comment">// getter</span></span><br></pre></td></tr></table></figure>
-<h4 id="Class的Generator的方法"><a href="#Class的Generator的方法" class="headerlink" title="Class的Generator的方法"></a>Class的Generator的方法</h4><p>如果在某个方法之前加上星号(*) 就表示该方法是一个Generator函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">    constructor(...args) &#123;</span><br><span class="line">        this.args = args;</span><br><span class="line">    &#125;</span><br><span class="line">    * [Symbol.iterator]() &#123;</span><br><span class="line">        for (let arg of this.args) &#123;</span><br><span class="line">            yield arg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let x of new Foo(&#x27;hello&#x27;, &#x27;world&#x27;)) &#123;</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">// hello</span><br><span class="line">// world</span><br></pre></td></tr></table></figure>
-<h4 id="Class-的静态方法-static"><a href="#Class-的静态方法-static" class="headerlink" title="Class 的静态方法 static"></a>Class 的静态方法 static</h4><p>类相当于原型，所有在类中定义的方法都会被实例继承，如果在一个方法前加上static关键字，表示该方法不会被继承。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">classMethod</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用法师Foo.classMethod() 而不是在Foo的实例上调用</span></span><br><span class="line">注意：如果静态方法包含<span class="variable language_">this</span>关键字，这个<span class="variable language_">this</span>指的是类，而不是实例</span><br></pre></td></tr></table></figure>
-<h4 id="Class的静态属性和实例属性"><a href="#Class的静态属性和实例属性" class="headerlink" title="Class的静态属性和实例属性"></a>Class的静态属性和实例属性</h4><p>静态属性指的是Class本身的属性，Class.protoName 而不是定义在实例对象（this）上的属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Foo</span>.<span class="property">prop</span> = <span class="number">1</span></span><br><span class="line"><span class="title class_">Foo</span>.<span class="property">prop</span> <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-<h3 id="class继承"><a href="#class继承" class="headerlink" title="class继承"></a>class继承</h3><blockquote>
-<p>class 可以通过extends关键字实现继承，这比es5通过修改原型链实现继承，要更加的清晰和方便</p>
-</blockquote>
-<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ColorPoint</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Point</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">x, y, color</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(x, y) <span class="comment">//调用父类的constructor(x, y)</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">toString</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">color</span> + <span class="string">&#x27; &#x27;</span> + <span class="variable language_">super</span>.<span class="title function_">toString</span>() <span class="comment">//调用父类的super</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">上面的代码定义了一个<span class="title class_">ColorPoint</span> 类，该类通过<span class="keyword">extends</span> 继承了<span class="title class_">Point</span>类的属性和方法</span><br><span class="line"><span class="title class_">ColorPoint</span> 新建constructor  是为 <span class="title class_">ColorPoint</span> 新建<span class="variable language_">this</span> 如果没有这个  这里面的<span class="variable language_">this</span> 就是父类的<span class="variable language_">this</span></span><br><span class="line"><span class="title class_">ColorPoint</span> 中出现了<span class="variable language_">super</span> 表示了父类的<span class="variable language_">this</span>的意思</span><br></pre></td></tr></table></figure>
-<p>同时需要注意的是 父类的静态方法也会被子类继承</p>
-<h4 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a>Object.getPrototypeOf()</h4><blockquote>
-<p>Object.getPrototypeOf方法可以用来从子类上获取父类</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(<span class="title class_">ColorPoint</span>) === <span class="title class_">Point</span> <span class="comment">//true</span></span><br><span class="line">因此这个方法可以用来判断某个类是否继承另外一个类</span><br></pre></td></tr></table></figure>
-<h4 id="super-关键字"><a href="#super-关键字" class="headerlink" title="super 关键字"></a>super 关键字</h4><blockquote>
-<p>super关键字既可以当做函数使用，也可以当做对象使用。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为函数</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> extens A &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为对象</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">  <span class="title function_">p</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_ inherited__">A</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">super</span>.<span class="title function_">p</span>()); <span class="comment">// 2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title function_">B</span>();</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clemjaefa002g6cdk31daayww" data-title="es6-class" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-es6-set-map" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/12/31/es6-set-map/" class="article-date">
-  <time class="dt-published" datetime="2017-12-31T12:24:01.000Z" itemprop="datePublished">2017-12-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/12/31/es6-set-map/">es6-set-map</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><blockquote>
-<p>es6 提供了新的数据结构Set,它类似于数组，但是成员是唯一的，没有重复的值。</p>
-</blockquote>
-<p>Set本身是一个构造函数，用来生成Set数据结构</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">x</span> =&gt;</span> s.<span class="title function_">add</span>(x))</span><br><span class="line">s <span class="comment">// [2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
-<p>上面的结果表明Set结构不会添加重复的值。Set函数可以接受一个数组作为参数，用来初始化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>])</span><br><span class="line">[...set] <span class="comment">//[1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>])</span><br><span class="line">items.<span class="property">size</span> <span class="comment">//5</span></span><br><span class="line"><span class="comment">// 例3</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">divs</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [...<span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div&#x27;</span>)]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>(<span class="title function_">divs</span>())</span><br><span class="line">set.<span class="property">size</span> <span class="comment">//56</span></span><br><span class="line"><span class="comment">// 类似于</span></span><br><span class="line"><span class="title function_">divs</span>().<span class="title function_">forEach</span>(<span class="function"><span class="params">div</span> =&gt;</span> set.<span class="title function_">add</span>(div))</span><br><span class="line">set.<span class="property">size</span></span><br></pre></td></tr></table></figure>
-<p>去除数组重复成员</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(array)]</span><br><span class="line"><span class="comment">//向Set加入值得时候不会发生类型转换，所以 5 和 ‘5’是两个不同的值，Set内部判断两个值是否相同，使用的算法是“some-value equality&quot; 它类似的值精确等于 === 主要的区别是NaN 等于自身</span></span><br></pre></td></tr></table></figure>
-<h4 id="Set实例的属性和方法"><a href="#Set实例的属性和方法" class="headerlink" title="Set实例的属性和方法"></a>Set实例的属性和方法</h4><p>set的结构的实例有以下属性</p>
-<blockquote>
-<p>Set.prototype.constructor:构造函数，默认是Set的函数<br>  Set.prototyep.size 返回Set实例成员的个数</p>
-</blockquote>
-<p>Set实例的方法分为两大类：操作方法（操作数据）和遍历方法（用于遍历成员）</p>
-<blockquote>
-<p>add(value) 添加某个值，返回Set结构本身<br>  delete(value) 删除某个值，返回一个布尔值，表示删除成功<br>  has(value) 返回一个布尔值，表示该value是Set的成员<br>  clear() 清除所有成员，没有返回值</p>
-</blockquote>
-<h4 id="Array-from-可以将-Set数据类型转为数组"><a href="#Array-from-可以将-Set数据类型转为数组" class="headerlink" title="Array.from 可以将 Set数据类型转为数组"></a>Array.from 可以将 Set数据类型转为数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>])</span><br><span class="line"><span class="keyword">const</span> array = <span class="title class_">Array</span>.<span class="title function_">from</span>(items)</span><br></pre></td></tr></table></figure>
-<h4 id="遍历操作"><a href="#遍历操作" class="headerlink" title="遍历操作"></a>遍历操作</h4><p>Set 结构的实例有四个遍历方法，可以用于遍历成员</p>
-<blockquote>
-<p>keys() 返回键名的遍历器<br>  values() 返回键值得遍历器<br>  entries() 返回键值对的遍历器<br>  forEach() 使用回调函数遍历每个成员</p>
-</blockquote>
-<p>Set结构没有键名，只有键值（或者说键名和键值是同一个值）所以keys() 和 values()方法完全一样</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> set.<span class="title function_">keys</span>()) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//&#x27;res&#x27; &#x27;green&#x27; &#x27;yellow&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> set.<span class="title function_">values</span>()) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//&#x27;res&#x27; &#x27;green&#x27; &#x27;yellow&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> set.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//[&#x27;res&#x27;,&#x27;res&#x27;]  [&#x27;green&#x27;,&#x27;green&#x27;]   [&#x27;yellow&#x27;,&#x27;yellow&#x27;]</span></span><br></pre></td></tr></table></figure>
-<p>Set结构默认是可遍历的 默认是values方法，也就是可以省略values方法直接用for 循环</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> set)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 同样的 Set结构也是有 forEach方法 对于每个成员进行操作，没有返回值</span></span><br><span class="line">set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>])</span><br><span class="line">set.<span class="title function_">forEach</span>(<span class="function">(<span class="params">value, key</span>) =&gt;</span> &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(key + <span class="string">&#x27;-&#x27;</span> + value)&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h4 id="含义和基本用法"><a href="#含义和基本用法" class="headerlink" title="含义和基本用法"></a>含义和基本用法</h4><blockquote>
-<p>javascript 对象，本质上是键值对的集合（hash结构），但是传统上只能用字符串这个它的使用带来了很大的限制</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> element = documetn.<span class="title function_">getElementById</span>(<span class="string">&#x27;myDiv&#x27;</span>)</span><br><span class="line">data[element] = <span class="string">&#x27;metadata&#x27;</span></span><br><span class="line">data[<span class="string">&#x27;[object HTMLDivElement]&#x27;</span>] <span class="comment">//metadata</span></span><br><span class="line"><span class="comment">// 这段代码的原意是将一个DOM节点作为data的键，但是对象只接受字符串作为键名，所以element被自动转为字符串【object HTMLDivElement】</span></span><br></pre></td></tr></table></figure>
-<p>Es6提供了Map结构，它类似于对象，也是键值对的结合，但是键不止于字符串，各种类型的值（包括对象）都可以当做键。也就是说Object提供”字符串一值“的对应，Map结构提供了”值-值“的对应，是一种更加完善的Hash结构的实现。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line"><span class="keyword">const</span> o = &#123;<span class="attr">p</span>:<span class="string">&#x27;hello wold&#x27;</span>&#125;</span><br><span class="line"><span class="comment">// 方法</span></span><br><span class="line">m.<span class="title function_">set</span>(o,<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">m.<span class="title function_">get</span>(<span class="number">0</span>) <span class="comment">// &#x27;content&#x27;</span></span><br><span class="line">m.<span class="title function_">has</span>(o) <span class="comment">// true</span></span><br><span class="line">m.<span class="title function_">delete</span>(o) <span class="comment">// true</span></span><br><span class="line">m.<span class="title function_">has</span>(o) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<p>作为构造函数 Map也接受一个数组作为参数，该数组的成员是一个个表示键值对的数组</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>([</span><br><span class="line">    [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;zero&#x27;</span>],</span><br><span class="line">    [<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;author&#x27;</span>]</span><br><span class="line">])</span><br><span class="line">map.<span class="property">size</span> <span class="comment">// 2</span></span><br><span class="line">map.<span class="title function_">get</span>(name) <span class="comment">//zero</span></span><br><span class="line">map.<span class="title function_">has</span>(name) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clemjaefb002i6cdka61sbduj" data-title="es6-set-map" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="cles4z7sa002ursdk4hfsbwuw" data-title="es6-module" class="article-share-link">Share</a>
       
       
       
@@ -850,7 +921,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -874,16 +945,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -891,9 +962,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/03/03/stream/">stream</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/03/fs/">fs</a>
+          </li>
         
           <li>
             <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
@@ -905,14 +984,6 @@
         
           <li>
             <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/28/frp/">frp</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/08/js-variable/">js-variable</a>
           </li>
         
       </ul>

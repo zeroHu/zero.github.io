@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,123 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-stream" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/03/stream/" class="article-date">
+  <time class="dt-published" datetime="2023-03-03T03:42:10.000Z" itemprop="datePublished">2023-03-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/03/stream/">stream</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h3><ol>
+<li>可以对大文件进行操作</li>
+</ol>
+<p>Stream 有四种流类型:<br>. Readable - 可读性<br>. Writable - 可写性<br>. Duplex - 可读可写性<br>. Transform - 操作被写入数据，然后读出结果</p>
+<p>所有的 Stream 对象都是 EventEmitter 的实例。常用的事件有：<br>. data - 当有数据可读时触发<br>. end - 没有更多的数据可读时触发<br>. error - 在接收和写入过程中发生错误时触发<br>. finish - 所有数据已被写入到底层系统时触发</p>
+<h4 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; createReadStream, createWriteStream &#125; = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="从流中读取数据"><a href="#从流中读取数据" class="headerlink" title="从流中读取数据"></a>从流中读取数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> readStream = <span class="title function_">createReadStream</span>(<span class="string">&#x27;input.txt&#x27;</span>)</span><br><span class="line">readStream.<span class="title function_">setEncoding</span>(<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> data = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// 处理流事件</span></span><br><span class="line">readerStream.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span> (<span class="params">chunk</span>) &#123;</span><br><span class="line">  data += chunk</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">readerStream.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data) <span class="comment">// 这里就是输出了文件内容</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">readerStream.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">stack</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;程序执行完毕&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="写入流文件"><a href="#写入流文件" class="headerlink" title="写入流文件"></a>写入流文件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = <span class="string">&#x27;我是写入文件的内容&#x27;</span></span><br><span class="line"><span class="comment">// 创建一个可以写入的流，写入到文件 output.txt 中</span></span><br><span class="line"><span class="keyword">var</span> writerStream = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;output.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 utf8 编码写入数据</span></span><br><span class="line">writerStream.<span class="title function_">write</span>(data, <span class="string">&#x27;UTF8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 标记文件末尾</span></span><br><span class="line">writerStream.<span class="title function_">end</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理流事件 --&gt; finish、error</span></span><br><span class="line">writerStream.<span class="title function_">on</span>(<span class="string">&#x27;finish&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;写入完成。&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">writerStream.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">stack</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;程序执行完毕&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="管道流"><a href="#管道流" class="headerlink" title="管道流"></a>管道流</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个可读流</span></span><br><span class="line"><span class="keyword">var</span> readerStream = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;input.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个可写流</span></span><br><span class="line"><span class="keyword">var</span> writerStream = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;output.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 管道读写操作</span></span><br><span class="line"><span class="comment">// 读取 input.txt 文件内容，并将内容写入到 output.txt 文件中</span></span><br><span class="line">readerStream.<span class="title function_">pipe</span>(writerStream)</span><br></pre></td></tr></table></figure>
+
+<h4 id="链式流-压缩-解压"><a href="#链式流-压缩-解压" class="headerlink" title="链式流(压缩+解压)"></a>链式流(压缩+解压)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> zlib = <span class="built_in">require</span>(<span class="string">&#x27;zlib&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩 input.txt 文件为 input.txt.gz</span></span><br><span class="line">fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;input.txt&#x27;</span>)</span><br><span class="line">  .<span class="title function_">pipe</span>(zlib.<span class="title function_">createGzip</span>())</span><br><span class="line">  .<span class="title function_">pipe</span>(fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;input.txt.gz&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解压 input.txt.gz 文件为 input.txt</span></span><br><span class="line">fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;input.txt.gz&#x27;</span>)</span><br><span class="line">  .<span class="title function_">pipe</span>(zlib.<span class="title function_">createGunzip</span>())</span><br><span class="line">  .<span class="title function_">pipe</span>(fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;input.txt&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/03/stream/" data-id="cles4z7sq004ursdk2lnx8koa" data-title="stream" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/" rel="tag">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/03/fs/" class="article-date">
+  <time class="dt-published" datetime="2023-03-03T02:35:25.000Z" itemprop="datePublished">2023-03-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/03/fs/">fs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="fs-模块"><a href="#fs-模块" class="headerlink" title="fs 模块"></a>fs 模块</h3><p>nodejs 的内置模块，主要用于文件操作。下面介绍几种常见用法。</p>
+<ol>
+<li>权限介绍<br><img src="/2023/03/03/fs/fs-01.jpeg"></li>
+</ol>
+<h4 id="普通用法"><a href="#普通用法" class="headerlink" title="普通用法"></a>普通用法</h4><h5 id="引用方法"><a href="#引用方法" class="headerlink" title="引用方法"></a>引用方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fs <span class="keyword">from</span> <span class="string">&#x27;node:fs&#x27;</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步</span></span><br><span class="line">fs.<span class="title function_">readFile</span>(filePath, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>, data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 同步</span></span><br><span class="line"><span class="keyword">const</span> fileResult = fs.<span class="title function_">readFileSync</span>(filePath, <span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>, fileResult)</span><br></pre></td></tr></table></figure>
+
+<h5 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * options是可选参数, 配置项为</span></span><br><span class="line"><span class="comment"> * &#123;</span></span><br><span class="line"><span class="comment"> *   encoding: &#123;String || null&#125; default = &#x27;utf8&#x27;,</span></span><br><span class="line"><span class="comment"> *   mode: &#123;Number&#125; default = 438,</span></span><br><span class="line"><span class="comment"> *   flag: &#123;String&#125; default = &#x27;w&#x27;, flag值，默认为w,会清空文件，然后再写。flag值，r代表读取文件，w代表写文件，a代表追加。</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步</span></span><br><span class="line">fs.<span class="title function_">writeFile</span>(fileName, data, [, options], callback)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同步</span></span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(fileName, data [, options])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="写文件-追加内容"><a href="#写文件-追加内容" class="headerlink" title="写文件(追加内容)"></a>写文件(追加内容)</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步</span></span><br><span class="line">fs.<span class="title function_">appendFile</span>(fileName, data, [, options], callback)</span><br><span class="line"><span class="comment">// 同步</span></span><br><span class="line">fs.<span class="title function_">appendFileSync</span>(fileName, data, [, options])</span><br></pre></td></tr></table></figure>
+
+<h5 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步</span></span><br><span class="line">fs.<span class="title function_">copyFile</span>(fileNameA, fileNameB, callback)</span><br><span class="line"><span class="comment">// 同步</span></span><br><span class="line">fs.<span class="title function_">copyFileSync</span>(fileNameA, fileNameB)</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步</span></span><br><span class="line">fs.<span class="title function_">unlink</span>(filePath, callback)</span><br><span class="line"><span class="comment">// 同步</span></span><br><span class="line">fs.<span class="title function_">unlinkSync</span>(filePath, callback)</span><br></pre></td></tr></table></figure>
+
+<h5 id="文件打开"><a href="#文件打开" class="headerlink" title="文件打开"></a>文件打开</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 大文件操作与上面的有所不同，可以用 fs.open打开，fs.read / fs.write 读写， 最后fs.close 关闭</span></span><br><span class="line">fs.<span class="title function_">open</span>(path, flags, [,mode], callback)</span><br><span class="line">fs.<span class="title function_">close</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 示例用法</span></span><br><span class="line"><span class="comment">// copy 方法 一般不用这个，可以借助stream</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">copy</span>(<span class="params">src, dest, size = <span class="number">16</span> * <span class="number">1024</span>, callback</span>) &#123;</span><br><span class="line">  <span class="comment">// 打开源文件</span></span><br><span class="line">  fs.<span class="title function_">open</span>(src, <span class="string">&#x27;r&#x27;</span>, <span class="function">(<span class="params">err, readFd</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 打开目标文件</span></span><br><span class="line">    fs.<span class="title function_">open</span>(dest, <span class="string">&#x27;w&#x27;</span>, <span class="function">(<span class="params">err, writeFd</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> buf = <span class="title class_">Buffer</span>.<span class="title function_">alloc</span>(size);</span><br><span class="line">      <span class="keyword">let</span> readed = <span class="number">0</span>; <span class="comment">// 下次读取文件的位置</span></span><br><span class="line">      <span class="keyword">let</span> writed = <span class="number">0</span>; <span class="comment">// 下次写入文件的位置</span></span><br><span class="line"></span><br><span class="line">      (<span class="keyword">function</span> <span class="title function_">next</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 读取</span></span><br><span class="line">        fs.<span class="title function_">read</span>(readFd, buf, <span class="number">0</span>, size, readed, <span class="function">(<span class="params">err, bytesRead</span>) =&gt;</span> &#123;</span><br><span class="line">          readed += bytesRead;</span><br><span class="line"></span><br><span class="line">          <span class="comment">// 如果都不到内容关闭文件</span></span><br><span class="line">          <span class="keyword">if</span> (!bytesRead) fs.<span class="title function_">close</span>(readFd, <span class="function"><span class="params">err</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;关闭源文件&#x27;</span>));</span><br><span class="line"></span><br><span class="line">          <span class="comment">// 写入</span></span><br><span class="line">          fs.<span class="title function_">write</span>(writeFd, buf, <span class="number">0</span>, bytesRead, writed, <span class="function">(<span class="params">err, bytesWritten</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 如果没有内容了同步缓存，并关闭文件后执行回调</span></span><br><span class="line">            <span class="keyword">if</span> (!bytesWritten) &#123;</span><br><span class="line">              <span class="comment">// fs.fsync 是请求将打开文件描述符的所有数据刷新到存储设备。 具体实现是操作系统和设备特定的。</span></span><br><span class="line">              fs.<span class="title function_">fsync</span>(writeFd, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">                fs.<span class="title function_">close</span>(writeFd, <span class="function"><span class="params">err</span> =&gt;</span> <span class="keyword">return</span> !err &amp;&amp; <span class="title function_">callback</span>());</span><br><span class="line">              &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            writed += bytesWritten;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 继续读取、写入</span></span><br><span class="line">            <span class="title function_">next</span>();</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;)();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise-用法"><a href="#Promise-用法" class="headerlink" title="Promise 用法"></a>Promise 用法</h4><h5 id="引入方法"><a href="#引入方法" class="headerlink" title="引入方法"></a>引入方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fs <span class="keyword">from</span> <span class="string">&#x27;node:fs/promises&#x27;</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs/promises&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用示例-readFile"><a href="#使用示例-readFile" class="headerlink" title="使用示例 readFile"></a>使用示例 readFile</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; readFile &#125; <span class="keyword">from</span> <span class="string">&#x27;node:fs/promises&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;/tmp/hello&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>, data)</span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;error&#x27;</span>, err.<span class="property">message</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所有其他语法promise语法类似……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/03/fs/" data-id="cles4z7sc0031rsdk42d7ajpe" data-title="fs" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/" rel="tag">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-merge-multiple-csv-or-xlsx" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -117,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/27/merge-multiple-csv-or-xlsx/" data-id="clemjaefl003y6cdkhqq3fzoo" data-title="merge-multiple-csv-or-xlsx" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2023/02/27/merge-multiple-csv-or-xlsx/" data-id="cles4z7sl0044rsdkhh53huaj" data-title="merge-multiple-csv-or-xlsx" class="article-share-link">Share</a>
       
       
       
@@ -161,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/encryption/" data-id="clemjaef800266cdkae2obxop" data-title="encryption" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2023/02/21/encryption/" data-id="cles4z7s20026rsdkhiekhurl" data-title="encryption" class="article-share-link">Share</a>
       
       
       
@@ -208,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/xlsx-create-and-download/" data-id="clemjaefv005d6cdk8zpngimo" data-title="xlsx-create-and-download" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2023/02/21/xlsx-create-and-download/" data-id="cles4z7su005irsdk6tx8axdh" data-title="xlsx-create-and-download" class="article-share-link">Share</a>
       
       
       
@@ -257,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/28/frp/" data-id="clemjaefd002s6cdkfcddc209" data-title="frp" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2022/11/28/frp/" data-id="cles4z7sb002zrsdkf4i21d76" data-title="frp" class="article-share-link">Share</a>
       
       
       
@@ -329,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/08/js-variable/" data-id="clemjaefk003w6cdk6vtt05jw" data-title="js-variable" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2022/04/08/js-variable/" data-id="cles4z7sk0042rsdkbvzrgvrb" data-title="js-variable" class="article-share-link">Share</a>
       
       
       
@@ -430,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/17/vue3-proxy/" data-id="clemjaefu00586cdk0fx81mjl" data-title="vue3-proxy" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/09/17/vue3-proxy/" data-id="cles4z7ss0058rsdkbxpqfcem" data-title="vue3-proxy" class="article-share-link">Share</a>
       
       
       
@@ -469,7 +586,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/06/js-design-mode/" data-id="clemjaefi003h6cdk8pf3eufb" data-title="js-design-mode" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/07/06/js-design-mode/" data-id="cles4z7sg003irsdk81bedh2v" data-title="js-design-mode" class="article-share-link">Share</a>
       
       
       
@@ -535,7 +652,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/05/13/js-debounce-throttle/" data-id="clemjaefh003e6cdk7glrbo79" data-title="js-debounce-throttle" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2020/05/13/js-debounce-throttle/" data-id="cles4z7sf003grsdk1pms26yl" data-title="js-debounce-throttle" class="article-share-link">Share</a>
       
       
       
@@ -549,123 +666,11 @@
 
 
   
-    <article id="post-tools-npm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/03/18/tools-npm/" class="article-date">
-  <time class="dt-published" datetime="2020-03-18T04:31:45.000Z" itemprop="datePublished">2020-03-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/03/18/tools-npm/">npm-tools</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="npm-好用的命令行呢"><a href="#npm-好用的命令行呢" class="headerlink" title="npm 好用的命令行呢"></a>npm 好用的命令行呢</h3><h4 id="查看-npm-全局安装了哪里工具"><a href="#查看-npm-全局安装了哪里工具" class="headerlink" title="查看 npm 全局安装了哪里工具"></a>查看 npm 全局安装了哪里工具</h4><p><code>npm list -g --depth 0</code></p>
-<blockquote>
-<p>explain the command line</p>
-</blockquote>
-<ul>
-<li><p><code>npm</code> the node package manager command line tool</p>
-</li>
-<li><p><code>list -g</code> display a tree of every package fount in the user’s folders (if without -g option, will show the current package’s dependencies )</p>
-</li>
-<li><p><code>--depth 0 | --depth=0</code> avoid including every packpage’s dependencies in the tree view</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/03/18/tools-npm/" data-id="clemjaefu00566cdk4rf0fkl3" data-title="npm-tools" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-node-commonjs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/03/17/node-commonjs/" class="article-date">
-  <time class="dt-published" datetime="2020-03-17T13:57:17.000Z" itemprop="datePublished">2020-03-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/03/17/node-commonjs/">node-commonjs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="nodejs-模块规范"><a href="#nodejs-模块规范" class="headerlink" title="nodejs 模块规范"></a>nodejs 模块规范</h3><h4 id="script"><a href="#script" class="headerlink" title="script"></a>script</h4><ul>
-<li>脚本变多，手动管理加载顺序</li>
-<li>不动脚本之间的逻辑调用，需要管理全局变量。不易管理</li>
-<li>没有 html 怎么办，没法加载 script</li>
-</ul>
-<h4 id="commonjs-模块规范-起源"><a href="#commonjs-模块规范-起源" class="headerlink" title="commonjs 模块规范 起源"></a>commonjs 模块规范 起源</h4><ul>
-<li>javscript 社区发起，nodejs 上应用并推广</li>
-<li>影响到浏览器端 JavaScript</li>
-</ul>
-<h4 id="commonjs-介绍"><a href="#commonjs-介绍" class="headerlink" title="commonjs 介绍"></a>commonjs 介绍</h4><ul>
-<li>定义：每个文件就是一个模块，有自己的作用域。在一个文件里面定义变量，函数，类，都是私有的。对其他文件是不可见的。</li>
-<li>特点：1）所有代码都运行在模块作用域，不会污染全局作用域。2）模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。3）模块加载的顺序，按照其在代码中出现的顺序。</li>
-</ul>
-<p>a.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> addX = <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> value + x;</span><br><span class="line">&#125;;</span><br><span class="line">moudule.<span class="property">exports</span> = &#123;</span><br><span class="line">    x,</span><br><span class="line">    addX,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>b.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要加载a.js</span></span><br><span class="line"><span class="keyword">var</span> ajs = <span class="built_in">require</span>(<span class="string">&quot;a.js&quot;</span>);</span><br><span class="line">a.<span class="title function_">addX</span>(<span class="number">10</span>); <span class="comment">//15</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，变量 x 和函数 addX，是当前文件特有的私有，其他文件不可见</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/03/17/node-commonjs/" data-id="clemjaefm00436cdk7brv5l07" data-title="node-commonjs" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/" rel="tag">node</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -689,16 +694,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -706,9 +711,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/03/03/stream/">stream</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/03/fs/">fs</a>
+          </li>
         
           <li>
             <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
@@ -720,14 +733,6 @@
         
           <li>
             <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/28/frp/">frp</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/08/js-variable/">js-variable</a>
           </li>
         
       </ul>
