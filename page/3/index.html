@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,65 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-33-js-settimeout-setinterval" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/09/33-js-settimeout-setinterval/" class="article-date">
+  <time class="dt-published" datetime="2019-06-09T14:17:00.000Z" itemprop="datePublished">2019-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/09/33-js-settimeout-setinterval/">33-js-setTimeout-setInterval</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h3><blockquote>
+<p>allows to run a function once after the interval time.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(func | code, [delay], [arg1], [arg2], ...)</span><br><span class="line"><span class="comment">// func | code 指的是 函数名称或者直接写函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">callBack</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// delay 是延迟多久执行</span></span><br><span class="line"><span class="comment">// arg1, arg2 是传递给回调函数的参数。</span></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(callBack | <span class="keyword">function</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(<span class="title function_">callBack</span>(), <span class="number">1000</span>) <span class="comment">// the callBack function called right now, not 1s after</span></span><br></pre></td></tr></table></figure>
+<h3 id="clearTimeout"><a href="#clearTimeout" class="headerlink" title="clearTimeout"></a>clearTimeout</h3><blockquote>
+<p>a call to setTimeout returns a timer identifier , timerId can help us cancel the execution, and we can clearTimout(timerId) to cancel the execution.<code>clearTimeout(timerId)</code></p>
+</blockquote>
+<h3 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval"></a>setInterval</h3><blockquote>
+<p>allows to run a function regularly with the interval between the runs</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setInterval</span>(func | code, [delay], [arg1], [arg2], ...)</span><br><span class="line"><span class="comment">// func | code 指的是 函数名称或者直接写函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">callBack</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// delay 是间隔多久执行一次</span></span><br><span class="line"><span class="comment">// arg1, arg2 是传递给回调函数的参数。</span></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setInterval</span>(callBack | <span class="keyword">function</span>(<span class="params">arg1, arg2</span>) &#123;</span><br><span class="line">    <span class="comment">// do</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setInterval</span>(<span class="title function_">callBack</span>(), <span class="number">1000</span>) <span class="comment">// the callBack function called right now, not 1s after</span></span><br></pre></td></tr></table></figure>
+<h3 id="clearInterval"><a href="#clearInterval" class="headerlink" title="clearInterval"></a>clearInterval</h3><blockquote>
+<p>stop the further calls, use <code>clearInterval(timerId)</code></p>
+</blockquote>
+<h3 id="用setTimeout-实现每隔一段时间执行某段代码"><a href="#用setTimeout-实现每隔一段时间执行某段代码" class="headerlink" title="用setTimeout 实现每隔一段时间执行某段代码"></a>用setTimeout 实现每隔一段时间执行某段代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timerId = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> <span class="title function_">tick</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;tick&#x27;</span>);</span><br><span class="line">  timerId = <span class="built_in">setTimeout</span>(tick, <span class="number">2000</span>); <span class="comment">// (*)</span></span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"><span class="comment">// just 2s 执行一次 tick 函数，开始循环。 这种形式相对cpu耗用比 setInterval 少</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clrk2xd4c000q2odk87p6a817" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-33-js-IIFE-module-namespace" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -129,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="cles4z7rd0001rsdkdae5eepd" data-title="33-js-iife-module-namespace" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clrk2xd3z00012odk8x5c6u7l" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
       
       
       
@@ -197,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="cles4z7rm0009rsdk03o3f03r" data-title="33-js-expression-statement" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clrk2xd4700092odk89x3dcp2" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
       
       
       
@@ -261,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="cles4z7rr000qrsdk0ehahoa5" data-title="33-js-scope" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clrk2xd4d000s2odk42cdfzro" data-title="33-js-scope" class="article-share-link">Teilen</a>
       
       
       
@@ -325,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="cles4z7rn000ersdk2tmr6qw6" data-title="33-js-implicit-coercion-equals" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clrk2xd49000e2odke96ygz61" data-title="33-js-implicit-coercion-equals" class="article-share-link">Teilen</a>
       
       
       
@@ -429,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="cles4z7rs000wrsdk34u99sdm" data-title="33-js-value-types" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clrk2xd4d000u2odk232g37od" data-title="33-js-value-types" class="article-share-link">Teilen</a>
       
       
       
@@ -500,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="cles4z7sq004wrsdk4apd9e2j" data-title="if-i-have-500w-money" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="clrk2xd59004z2odk3eb2314e" data-title="if-i-have-500w-money" class="article-share-link">Teilen</a>
       
       
       
@@ -560,7 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="cles4z7rk0006rsdkfuqr6ztb" data-title="33-js-call-stack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="clrk2xd4400042odkabkh7z6d" data-title="33-js-call-stack" class="article-share-link">Teilen</a>
       
       
       
@@ -628,7 +687,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="cles4z7rf0002rsdkhvr81iof" data-title="33-js-apply-call-bind" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="clrk2xd4200022odkearo6ryp" data-title="33-js-apply-call-bind" class="article-share-link">Teilen</a>
       
       
       
@@ -693,7 +752,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="cles4z7rq000orsdk5yag9z4t" data-title="33-js-recursion" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="clrk2xd4b000m2odk3m6bbpxr" data-title="33-js-recursion" class="article-share-link">Teilen</a>
       
       
       
@@ -707,75 +766,11 @@
 
 
   
-    <article id="post-es6-array-methods" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/05/07/es6-array-methods/" class="article-date">
-  <time class="dt-published" datetime="2019-05-07T07:03:45.000Z" itemprop="datePublished">2019-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/05/07/es6-array-methods/">Why and when to use forEach, map, filter, reduce, and find in JavaScript</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Maybe-change-use-for-in-anywhere-is-better"><a href="#Maybe-change-use-for-in-anywhere-is-better" class="headerlink" title="Maybe change use for in anywhere is better"></a>Maybe change use for in anywhere is better</h3><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><blockquote>
-<p>As well known that forEach is a way to work with items in array, anytime when i what loop a array, then first time i will think about forEach… i am so sad !!!</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for loop</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// forEach loop</span></span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item, index, array</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;item--&gt;&#x27;</span>, item, <span class="string">&#x27;index--&gt;&#x27;</span>, index, <span class="string">&#x27;array--&gt;&#x27;</span>, array);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// compare the for and forEach</span></span><br><span class="line"><span class="comment">// for loop define a variable i, and set add ++ , ant the forEach loop you can do nothing</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><blockquote>
-<p>As well known that forEach is generic tool in array loop, and when should we use map.<br>  how does map work ?<br>  map basically it takes 2 arguments(callback, thisArg), a callback and a optional context(will be considered as this in the callback) . and the callback runs for each value in the array and returns each new value in the<br>  resulting array</p>
-</blockquote>
-<p>  the callback function takes 3 arguments (currentValue, indexNumber, array)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">value</span>: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">value</span>: <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="comment">// if you want [&#x27;a&#x27;, &#x27;b&#x27;], you can use map now!!!</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">map</span>(<span class="function"><span class="params">item</span> =&gt;</span> item.<span class="property">value</span>) <span class="comment">// so easy</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// of cause you can use forEach or for or for..in and so on. but i think the map is you best choice</span></span><br><span class="line"><span class="comment">// example forEach</span></span><br><span class="line"><span class="keyword">var</span> newArr = []</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  newArr.<span class="title function_">push</span>(item.<span class="property">value</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><blockquote>
-<p>ok, reduce just like map, also takes 2 arguments(callback, initialValue), and the callback is for each element of array, the initialValue is the first use callback first arguments value, if no initialValue will be the array first value. totally reduce is an easy way to generate a single value or object from an array.<br>  the callback function takes 4 arguments [Accumulator (acc) (累计器), Current Value (cur) (当前值), Current Index (idx) (当前索引), Source Array (src) (源数组)]</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if we want to know total number of array some key add or the biggest one or the smallest. what time you should use reduce</span></span><br><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jane&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jake&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment">// totalNumber example</span></span><br><span class="line"><span class="keyword">var</span> totalYears = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">accumulator, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> accumulator+item.<span class="property">year</span></span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// biggest example</span></span><br><span class="line"><span class="keyword">var</span> biggest = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (acc.<span class="property">year</span> || <span class="number">0</span>) &gt; item.<span class="property">year</span> ? acc : item</span><br><span class="line">&#125;, &#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// smallest example</span></span><br><span class="line"><span class="keyword">var</span> smallest = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> acc.<span class="property">year</span> &gt; item.<span class="property">year</span> ? item : acc</span><br><span class="line">&#125;, arr[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><blockquote>
-<p>this methods is easy, filter just filter a value in array, such as you want the array name &#x3D;&#x3D;&#x3D; luce , what time you should use filter</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if you want to name === jake </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jane&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;luce&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="keyword">var</span> luceArray = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> item.<span class="property">name</span> === <span class="string">&#x27;luce&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>tips:<em>渣渣英文，渣渣翻译，自己能看懂就不错了…望有待提高中</em></p>
-<p><strong>参考文档</strong><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN</a><br><a target="_blank" rel="noopener" href="https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d">poka-techblog</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="cles4z7s3002brsdkat1y08zx" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -789,7 +784,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -799,16 +794,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -816,9 +811,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
+          </li>
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
@@ -836,10 +835,6 @@
             <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
-          <li>
-            <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -853,7 +848,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2023 zero<br>
+      &copy; 2024 zero<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

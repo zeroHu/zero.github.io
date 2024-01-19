@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,60 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-network-set-fixed-ip" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/19/network-set-fixed-ip/" class="article-date">
+  <time class="dt-published" datetime="2024-01-19T02:35:55.000Z" itemprop="datePublished">2024-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一文说得透透的，如何将开发环境的局域网ip固定，再也不用每天来了ipconfig了"><a href="#一文说得透透的，如何将开发环境的局域网ip固定，再也不用每天来了ipconfig了" class="headerlink" title="一文说得透透的，如何将开发环境的局域网ip固定，再也不用每天来了ipconfig了"></a>一文说得透透的，如何将开发环境的局域网ip固定，再也不用每天来了ipconfig了</h3><h3 id="步骤一：静态IP地址设置"><a href="#步骤一：静态IP地址设置" class="headerlink" title="步骤一：静态IP地址设置"></a>步骤一：静态IP地址设置</h3><h4 id="Windows-实操"><a href="#Windows-实操" class="headerlink" title="Windows (实操)"></a>Windows (实操)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Windows 操作系统：</span><br><span class="line"></span><br><span class="line">进入“控制面板” &gt; “网络和共享中心” &gt; “更改适配器设置”。</span><br><span class="line">找到你的网络连接，右键点击选择“属性”。</span><br><span class="line">选择“Internet 协议版本 4 (TCP/IPv4)”并点击“属性”。</span><br><span class="line">选择“使用下面的 IP 地址”，然后填写IP地址、子网掩码、网关和DNS服务器等信息。</span><br></pre></td></tr></table></figure>
+
+<h5 id="敲黑板了，这里的使用下面的IP地址以及手动DNS应该如何配置呢？"><a href="#敲黑板了，这里的使用下面的IP地址以及手动DNS应该如何配置呢？" class="headerlink" title="敲黑板了，这里的使用下面的IP地址以及手动DNS应该如何配置呢？"></a>敲黑板了，这里的使用下面的IP地址以及手动DNS应该如何配置呢？</h5><ol>
+<li>ipv4 地址填写啥？ 你可以先使用arp -a 查看哪些地址已经被使用，挑一个没被占用的ip</li>
+<li>子网掩码填啥 和 网关 ？  可以使用ipconfig 里面找到对应的网卡，里面有子网掩码<br>示例图如下<br><img src="/2024/01/19/network-set-fixed-ip/network-01.png"></li>
+</ol>
+<h4 id="macOS-操作系统"><a href="#macOS-操作系统" class="headerlink" title="macOS 操作系统"></a>macOS 操作系统</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">进入“系统偏好设置” &gt; “网络”。</span><br><span class="line">选择你的连接，点击“高级”。</span><br><span class="line">在“TCP/IP”标签中选择“手动”，然后填写IP地址、子网掩码、路由器等信息。</span><br></pre></td></tr></table></figure>
+
+<h4 id="Linux-操作系统："><a href="#Linux-操作系统：" class="headerlink" title="Linux 操作系统："></a>Linux 操作系统：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在终端中使用文本编辑器编辑网络配置文件，例如 /etc/network/interfaces 或 /etc/sysconfig/network-scripts/ifcfg-&lt;interface&gt;。</span><br><span class="line">添加或编辑相关行，指定IP地址、子网掩码、网关等信息。</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="步骤二：配置静态ARP条目"><a href="#步骤二：配置静态ARP条目" class="headerlink" title="步骤二：配置静态ARP条目"></a>步骤二：配置静态ARP条目</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp -s &lt;IP地址&gt; &lt;MAC地址&gt; </span><br></pre></td></tr></table></figure>
+
+<p>注意，这里的arp -s 操作需要在管理员权限进行操作。eg: windows 需要将cmd用管理员权限打开。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/01/19/network-set-fixed-ip/" data-id="clrk2xd5200452odk584f9zo7" data-title="network-set-fixed-ip" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-stream" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -115,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/03/stream/" data-id="cles4z7sq004ursdk2lnx8koa" data-title="stream" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/03/stream/" data-id="clrk2xd58004w2odkg8zyfyjw" data-title="stream" class="article-share-link">Teilen</a>
       
       
       
@@ -178,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/03/fs/" data-id="cles4z7sc0031rsdk42d7ajpe" data-title="fs" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/03/fs/" data-id="clrk2xd4t002u2odkdlmh72at" data-title="fs" class="article-share-link">Teilen</a>
       
       
       
@@ -234,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/27/merge-multiple-csv-or-xlsx/" data-id="cles4z7sl0044rsdkhh53huaj" data-title="merge-multiple-csv-or-xlsx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/27/merge-multiple-csv-or-xlsx/" data-id="clrk2xd5100432odkc7hf24g4" data-title="merge-multiple-csv-or-xlsx" class="article-share-link">Teilen</a>
       
       
       
@@ -278,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/encryption/" data-id="cles4z7s20026rsdkhiekhurl" data-title="encryption" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/21/encryption/" data-id="clrk2xd4o00252odkfr7s9qg2" data-title="encryption" class="article-share-link">Teilen</a>
       
       
       
@@ -325,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/xlsx-create-and-download/" data-id="cles4z7su005irsdk6tx8axdh" data-title="xlsx-create-and-download" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/21/xlsx-create-and-download/" data-id="clrk2xd5c005l2odk5kiic5jh" data-title="xlsx-create-and-download" class="article-share-link">Teilen</a>
       
       
       
@@ -374,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/28/frp/" data-id="cles4z7sb002zrsdkf4i21d76" data-title="frp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/28/frp/" data-id="clrk2xd4s002n2odke0ez16h1" data-title="frp" class="article-share-link">Teilen</a>
       
       
       
@@ -446,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/08/js-variable/" data-id="cles4z7sk0042rsdkbvzrgvrb" data-title="js-variable" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/08/js-variable/" data-id="clrk2xd5100412odk617h79i3" data-title="js-variable" class="article-share-link">Teilen</a>
       
       
       
@@ -547,7 +601,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/17/vue3-proxy/" data-id="cles4z7ss0058rsdkbxpqfcem" data-title="vue3-proxy" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/09/17/vue3-proxy/" data-id="clrk2xd5b005b2odkd0wm8lvn" data-title="vue3-proxy" class="article-share-link">Teilen</a>
       
       
       
@@ -586,73 +640,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/06/js-design-mode/" data-id="cles4z7sg003irsdk81bedh2v" data-title="js-design-mode" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-js-debounce-throttle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/13/js-debounce-throttle/" class="article-date">
-  <time class="dt-published" datetime="2020-05-13T09:47:28.000Z" itemprop="datePublished">2020-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/13/js-debounce-throttle/">js-debounce-throttle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="js-节流-throttle-与防抖（debounce"><a href="#js-节流-throttle-与防抖（debounce" class="headerlink" title="js 节流(throttle)与防抖（debounce)"></a>js 节流(throttle)与防抖（debounce)</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>防抖（debounce）: 一个事件不停的触发，防抖会再指定时间内没有再次触发后才执行一次。（应用场景：input 框联想：可以在用户停止输入 300ms 后再执行联想搜索）</li>
-<li>节流（throttle）: 一个事件不停的触发，节流会每指定时间执行一次。（应用场景：图片懒加载：鼠标下滑，可以执行 300ms 执行一次，不用不停的执行。 拖拽窗口：拖动过程中没个 30ms 移动一次）</li>
-</ul>
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
-<li>当事件持续被触发，如果触发时间间隔短于规定的等待时间（n 秒），那么函数防抖的情况下，函数将一直推迟执行，造成不会被执行的效果；函数节流的情况下，函数将每个 n 秒执行一次</li>
-</ul>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><blockquote>
-<p>防抖（debounce）</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 常用版</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; func, 回调函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; wait, 防抖时间</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">func, wait</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> functin () &#123;</span><br><span class="line">        <span class="keyword">const</span> context = <span class="variable language_">this</span></span><br><span class="line">        <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> func.<span class="title function_">apply</span>(context, args), wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 复杂版 有立即执行的函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; func, 回调函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; wait, 防抖时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; immediate, 是否立即执行一次</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">func, wait, immediate</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> timeout;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">executedFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> context = <span class="variable language_">this</span>;</span><br><span class="line">        <span class="keyword">var</span> args = <span class="variable language_">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> later = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            timeout = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (!immediate) func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">var</span> callNow = immediate &amp;&amp; !timeout;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">clearTimeout</span>(timeout);</span><br><span class="line">        timeout = <span class="built_in">setTimeout</span>(later, wait);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (callNow) func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>节流（throttle)</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; func 回调函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; limit 每limit时间内只执行一次</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">func, limit</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> inThrottle;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> context = <span class="variable language_">this</span>;</span><br><span class="line">        <span class="keyword">const</span> args = <span class="variable language_">arguments</span>;</span><br><span class="line">        <span class="keyword">if</span> (!inThrottle) &#123;</span><br><span class="line">            func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">            inThrottle = <span class="literal">true</span>;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> (inThrottle = <span class="literal">false</span>), limit);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="lodash-源码"><a href="#lodash-源码" class="headerlink" title="lodash 源码"></a>lodash 源码</h4><blockquote>
-<p>防抖(debounce)</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isObject</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> type = <span class="keyword">typeof</span> value;</span><br><span class="line">    <span class="keyword">return</span> value != <span class="literal">null</span> &amp;&amp; (type === <span class="string">&quot;object&quot;</span> || type === <span class="string">&quot;function&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">func, wait, options</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> lastArgs, lastThis, maxWait, result, timerId, lastCallTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> lastInvokeTime = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> leading = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> maxing = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> trailing = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  Bypass `requestAnimationFrame` by explicitly setting `wait=0`.</span></span><br><span class="line">    <span class="comment">//  root 参考https://github.com/lodash/lodash/blob/master/.internal/root.js</span></span><br><span class="line">    <span class="keyword">const</span> useRAF =</span><br><span class="line">        !wait &amp;&amp; wait !== <span class="number">0</span> &amp;&amp; <span class="keyword">typeof</span> root.<span class="property">requestAnimationFrame</span> === <span class="string">&quot;function&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> func !== <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&quot;Expected a function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    wait = +wait || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">isObject</span>(options)) &#123;</span><br><span class="line">        leading = !!options.<span class="property">leading</span>;</span><br><span class="line">        maxing = <span class="string">&quot;maxWait&quot;</span> <span class="keyword">in</span> options;</span><br><span class="line">        maxWait = maxing ? <span class="title class_">Math</span>.<span class="title function_">max</span>(+options.<span class="property">maxWait</span> || <span class="number">0</span>, wait) : maxWait;</span><br><span class="line">        trailing = <span class="string">&quot;trailing&quot;</span> <span class="keyword">in</span> options ? !!options.<span class="property">trailing</span> : trailing;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">invokeFunc</span>(<span class="params">time</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> args = lastArgs;</span><br><span class="line">        <span class="keyword">const</span> thisArg = lastThis;</span><br><span class="line"></span><br><span class="line">        lastArgs = lastThis = <span class="literal">undefined</span>;</span><br><span class="line">        lastInvokeTime = time;</span><br><span class="line">        result = func.<span class="title function_">apply</span>(thisArg, args);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">startTimer</span>(<span class="params">pendingFunc, wait</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (useRAF) &#123;</span><br><span class="line">            root.<span class="title function_">cancelAnimationFrame</span>(timerId);</span><br><span class="line">            <span class="keyword">return</span> root.<span class="title function_">requestAnimationFrame</span>(pendingFunc);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">setTimeout</span>(pendingFunc, wait);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">cancelTimer</span>(<span class="params">id</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (useRAF) &#123;</span><br><span class="line">            <span class="keyword">return</span> root.<span class="title function_">cancelAnimationFrame</span>(id);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">leadingEdge</span>(<span class="params">time</span>) &#123;</span><br><span class="line">        <span class="comment">// Reset any `maxWait` timer.</span></span><br><span class="line">        lastInvokeTime = time;</span><br><span class="line">        <span class="comment">// Start the timer for the trailing edge.</span></span><br><span class="line">        timerId = <span class="title function_">startTimer</span>(timerExpired, wait);</span><br><span class="line">        <span class="comment">// Invoke the leading edge.</span></span><br><span class="line">        <span class="keyword">return</span> leading ? <span class="title function_">invokeFunc</span>(time) : result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">remainingWait</span>(<span class="params">time</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> timeSinceLastCall = time - lastCallTime;</span><br><span class="line">        <span class="keyword">const</span> timeSinceLastInvoke = time - lastInvokeTime;</span><br><span class="line">        <span class="keyword">const</span> timeWaiting = wait - timeSinceLastCall;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxing</span><br><span class="line">            ? <span class="title class_">Math</span>.<span class="title function_">min</span>(timeWaiting, maxWait - timeSinceLastInvoke)</span><br><span class="line">            : timeWaiting;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">shouldInvoke</span>(<span class="params">time</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> timeSinceLastCall = time - lastCallTime;</span><br><span class="line">        <span class="keyword">const</span> timeSinceLastInvoke = time - lastInvokeTime;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Either this is the first call, activity has stopped and we&#x27;re at the</span></span><br><span class="line">        <span class="comment">// trailing edge, the system time has gone backwards and we&#x27;re treating</span></span><br><span class="line">        <span class="comment">// it as the trailing edge, or we&#x27;ve hit the `maxWait` limit.</span></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            lastCallTime === <span class="literal">undefined</span> ||</span><br><span class="line">            timeSinceLastCall &gt;= wait ||</span><br><span class="line">            timeSinceLastCall &lt; <span class="number">0</span> ||</span><br><span class="line">            (maxing &amp;&amp; timeSinceLastInvoke &gt;= maxWait)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">timerExpired</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> time = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_">shouldInvoke</span>(time)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="title function_">trailingEdge</span>(time);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Restart the timer.</span></span><br><span class="line">        timerId = <span class="title function_">startTimer</span>(timerExpired, <span class="title function_">remainingWait</span>(time));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">trailingEdge</span>(<span class="params">time</span>) &#123;</span><br><span class="line">        timerId = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Only invoke if we have `lastArgs` which means `func` has been</span></span><br><span class="line">        <span class="comment">// debounced at least once.</span></span><br><span class="line">        <span class="keyword">if</span> (trailing &amp;&amp; lastArgs) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="title function_">invokeFunc</span>(time);</span><br><span class="line">        &#125;</span><br><span class="line">        lastArgs = lastThis = <span class="literal">undefined</span>;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">cancel</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (timerId !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="title function_">cancelTimer</span>(timerId);</span><br><span class="line">        &#125;</span><br><span class="line">        lastInvokeTime = <span class="number">0</span>;</span><br><span class="line">        lastArgs = lastCallTime = lastThis = timerId = <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">flush</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> timerId === <span class="literal">undefined</span> ? result : <span class="title function_">trailingEdge</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">pending</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> timerId !== <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">debounced</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> time = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line">        <span class="keyword">const</span> isInvoking = <span class="title function_">shouldInvoke</span>(time);</span><br><span class="line"></span><br><span class="line">        lastArgs = args;</span><br><span class="line">        lastThis = <span class="variable language_">this</span>;</span><br><span class="line">        lastCallTime = time;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isInvoking) &#123;</span><br><span class="line">            <span class="keyword">if</span> (timerId === <span class="literal">undefined</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="title function_">leadingEdge</span>(lastCallTime);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (maxing) &#123;</span><br><span class="line">                <span class="comment">// Handle invocations in a tight loop.</span></span><br><span class="line">                timerId = <span class="title function_">startTimer</span>(timerExpired, wait);</span><br><span class="line">                <span class="keyword">return</span> <span class="title function_">invokeFunc</span>(lastCallTime);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (timerId === <span class="literal">undefined</span>) &#123;</span><br><span class="line">            timerId = <span class="title function_">startTimer</span>(timerExpired, wait);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    debounced.<span class="property">cancel</span> = cancel;</span><br><span class="line">    debounced.<span class="property">flush</span> = flush;</span><br><span class="line">    debounced.<span class="property">pending</span> = pending;</span><br><span class="line">    <span class="keyword">return</span> debounced;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>节流(throttle)</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">func, wait, options</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> leading = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">let</span> trailing = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> func !== <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&quot;Expected a function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">isObject</span>(options)) &#123;</span><br><span class="line">        leading = <span class="string">&quot;leading&quot;</span> <span class="keyword">in</span> options ? !!options.<span class="property">leading</span> : leading;</span><br><span class="line">        trailing = <span class="string">&quot;trailing&quot;</span> <span class="keyword">in</span> options ? !!options.<span class="property">trailing</span> : trailing;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 上方的debounce函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">debounce</span>(func, wait, &#123;</span><br><span class="line">        leading,</span><br><span class="line">        trailing,</span><br><span class="line">        <span class="attr">maxWait</span>: wait,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> throttle;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/05/13/js-debounce-throttle/" data-id="cles4z7sf003grsdk1pms26yl" data-title="js-debounce-throttle" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/06/js-design-mode/" data-id="clrk2xd4x003g2odkfl5o0p0n" data-title="js-design-mode" class="article-share-link">Teilen</a>
       
       
       
@@ -670,7 +658,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -684,7 +672,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -694,16 +682,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -711,9 +699,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
+          </li>
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
@@ -731,10 +723,6 @@
             <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
-          <li>
-            <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -748,7 +736,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2023 zero<br>
+      &copy; 2024 zero<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,83 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-33-js-this" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/28/33-js-this/" class="article-date">
+  <time class="dt-published" datetime="2018-03-28T07:34:57.000Z" itemprop="datePublished">2018-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/28/33-js-this/">this</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><h4 id="ES5-this"><a href="#ES5-this" class="headerlink" title="ES5 this"></a>ES5 this</h4><blockquote>
+<p><font color="red"><strong>function被作为method调用时，this指向调用对象。</strong></font></p>
+</blockquote>
+<h5 id="默认绑定，也就是直接调用前面不带任何对象-eg-test-function"><a href="#默认绑定，也就是直接调用前面不带任何对象-eg-test-function" class="headerlink" title="默认绑定，也就是直接调用前面不带任何对象 eg: test(), (function() {})()"></a><font color="#0099ff">默认绑定</font>，也就是直接调用前面不带任何对象 eg: test(), (function() {})()</h5><blockquote>
+<p>其实这种可以看为是 <code>Global.test()</code> <code>Global.(function() &#123;&#125;)()</code> 所以调用对象可以看为Global 如果再浏览器就是window</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">alert</span>(x); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="作为对象的方法被调用"><a href="#作为对象的方法被调用" class="headerlink" title="作为对象的方法被调用"></a>作为<font color="#0099ff">对象的方法</font>被调用</h5><blockquote>
+<p>函数作为对象里面的某个方法，被调用的时候，这时的this指向上级对象。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span> () &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">&#125;</span><br><span class="line">o.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h5 id="作为构造函数被调用"><a href="#作为构造函数被调用" class="headerlink" title="作为构造函数被调用"></a>作为<font color="#0099ff">构造函数</font>被调用</h5><blockquote>
+<p>所谓构造函数其实就是，通过这个函数生成一个新的对象，this指向这个对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> test1 = <span class="keyword">new</span> <span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">alert</span>(test1.<span class="property">x</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="title function_">alert</span>(x); <span class="comment">// 1 证明this 不是window  如果是window 就是2</span></span><br></pre></td></tr></table></figure>
+<h5 id="call-调用-或者-apply-调用"><a href="#call-调用-或者-apply-调用" class="headerlink" title="call()调用 或者 apply()调用"></a><font color="#0099ff">call()调用 或者 apply()调用</font></h5><blockquote>
+<p><code>apply</code>和<code>call</code>是函数对象的一个方法，它的作用是改变函数的调用对象，它的第一个参数就表示改变后调用这个函数的对象。所以 <code>this</code>指的是第一个对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span> () &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">x</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.<span class="property">x</span> = <span class="number">3</span>;</span><br><span class="line">o.<span class="property">fn</span>.<span class="title function_">apply</span>(); <span class="comment">// 1</span></span><br><span class="line">o.<span class="property">fn</span>.<span class="title function_">call</span>(obj); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="当调用点适合上面4中规则的时候，优先级处理"><a href="#当调用点适合上面4中规则的时候，优先级处理" class="headerlink" title="当调用点适合上面4中规则的时候，优先级处理"></a>当调用点适合上面4中规则的时候，<font color="#0099ff">优先级处理</font></h5><ul>
+<li>第一优先级: <strong>new 构造函数</strong></li>
+<li>第二优先级: <strong>call apply</strong></li>
+<li>第三优先级: <strong>对象的方法</strong></li>
+<li>第四优先级: <strong>默认绑定</strong></li>
+</ul>
+<h4 id="ES6-this"><a href="#ES6-this" class="headerlink" title="ES6 this"></a>ES6 this</h4><blockquote>
+<p><font color="red"><strong>箭头函数es6 内部的this指向，是由上下文决定</strong></font></p>
+</blockquote>
+<h5 id="栗子证明"><a href="#栗子证明" class="headerlink" title="栗子证明"></a>栗子证明</h5><p>这个是 es5 的this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;i am window&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="string">&#x27;i am o&#x27;</span></span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// &#x27;i am window&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>es5 的setTimeout 函数里面的this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    <span class="attr">fn</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(o.<span class="property">fn</span>, <span class="number">1000</span>); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 为什么会出现这种情况呢? setTimeout(function()&#123;&#125;, time)</span></span><br><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="keyword">var</span> sfn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(sfn, <span class="number">1000</span>);<span class="comment">// 所以成了默认绑定，是window</span></span><br><span class="line"><span class="comment">// 如何才能让输出 ‘1’呢</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    o.<span class="title function_">fn</span>()</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="built_in">setTimeout</span>(o.<span class="property">fn</span>.<span class="title function_">bind</span>(o))</span><br></pre></td></tr></table></figure>
+<p>这个是es6的this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;i am window&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="title function_">foo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="string">&#x27;i am o&#x27;</span></span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// &#x27;i am o&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/03/28/33-js-this/" data-id="clrk2xd4e000w2odk8s1q8ihw" data-title="this" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-canvas-html2canvas" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -227,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/27/canvas-html2canvas/" data-id="cles4z7ru0012rsdk7nk9210i" data-title="html2canvas" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/27/canvas-html2canvas/" data-id="clrk2xd4f00102odkefzy5659" data-title="html2canvas" class="article-share-link">Teilen</a>
       
       
       
@@ -292,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/27/other-how-browser-works/" data-id="cles4z7sn004grsdk15wu6npa" data-title="how-browser-works" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/27/other-how-browser-works/" data-id="clrk2xd55004h2odk9zey6c83" data-title="how-browser-works" class="article-share-link">Teilen</a>
       
       
       
@@ -352,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/21/css-weights/" data-id="cles4z7s1001zrsdk3c6i76dn" data-title="css-weights" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/21/css-weights/" data-id="clrk2xd4o00232odk6uba1jk3" data-title="css-weights" class="article-share-link">Teilen</a>
       
       
       
@@ -395,7 +472,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/14/regexp/" data-id="cles4z7sp004qrsdk4zty7gdp" data-title="regular expressions(正则表达式)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/14/regexp/" data-id="clrk2xd58004u2odkec4lgw6g" data-title="regular expressions(正则表达式)" class="article-share-link">Teilen</a>
       
       
       
@@ -464,7 +541,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="cles4z7sd0038rsdk7ly1gkff" data-title="websocket-http2-https" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/09/http-websocket-http2-https/" data-id="clrk2xd4v00342odkel3jd7h8" data-title="websocket-http2-https" class="article-share-link">Teilen</a>
       
       
       
@@ -534,7 +611,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="cles4z7sv005nrsdkf0iy75wy" data-title="ajax-http-body" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/02/08/xml-httpRequest-ajax-http-body/" data-id="clrk2xd5d005q2odkg4lt6bnr" data-title="ajax-http-body" class="article-share-link">Teilen</a>
       
       
       
@@ -586,7 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/30/js-math/" data-id="cles4z7si003srsdk3rf18wnx" data-title="js-math" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/30/js-math/" data-id="clrk2xd4z003q2odk5bo72j03" data-title="js-math" class="article-share-link">Teilen</a>
       
       
       
@@ -667,7 +744,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="cles4z7rz001qrsdk1rojb0et" data-title="css-grid" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/23/css-grid/" data-id="clrk2xd4j001j2odkhefw7kdl" data-title="css-grid" class="article-share-link">Teilen</a>
       
       
       
@@ -838,7 +915,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/22/webpack/" data-id="cles4z7st005brsdkgy8kdl8z" data-title="webpack" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/22/webpack/" data-id="clrk2xd5b005d2odk1ndsaqpq" data-title="webpack" class="article-share-link">Teilen</a>
       
       
       
@@ -852,76 +929,11 @@
 
 
   
-    <article id="post-es6-module" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/01/01/es6-module/" class="article-date">
-  <time class="dt-published" datetime="2018-01-01T07:58:19.000Z" itemprop="datePublished">2018-01-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/01/01/es6-module/">es6-module</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
-<p>历史上，JavaScript一直没有模块（module）体系，无法将一个程序拆分为互相依赖的小文件，再用简单的方法拼装起来，其他语言都有这个功能。比如 ruby 有reqire Python有import css 都有@import，再es6定制之前 社区定制了一些模块加载方案，最主要有commonjs 和 amd 两种，前者用于服务器，后者用于浏览器，es6在语言标准层面上。实现了模块功能。<br>  es6模块的设计思想，是尽量的静态化，是编译时确认模块的依赖关系，以及输出和输入变量。commonjs 和 amd模块，都只能运行时确定这些东西，比如 commonjs 模块就是对象，输入时必须查找对象属性。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonjs 模块</span></span><br><span class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> stat = _fs.<span class="property">stat</span></span><br><span class="line"><span class="keyword">let</span> exists = _fs.<span class="property">exists</span></span><br><span class="line"><span class="keyword">let</span> readFile = _fs.<span class="property">readFile</span></span><br><span class="line"><span class="comment">// 上面的代码实质上是 整体加载fs 模块 （即加载fs的所有方法）,生成一个对象（_fs)，然后再从这个对象中读取3个方法，这种加载称为 ”运行时加载“ ， 是因为只有在运行的时候才能得到这个对象，导致完全没有办法在编译时做 ”静态优化“</span></span><br></pre></td></tr></table></figure>
-<p>ES6 模块不是对象，而是通过export 命令显示指定输出代码，再通过import 导入</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line"><span class="comment">// 上面的代码的实质是从 fs 模块加载3个方法，其它方法都不加载。这种加载方法叫做 ”编译时加载“ 或者 静态加载。即ES6 可以在编译时就完成模块加载， 效率要比commonjs 模块加载的方式高，当然 这也导致了没法引用es6 模块本身，因为它不是对象</span></span><br></pre></td></tr></table></figure>
-<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><blockquote>
-<p>ES6 自动采用严格模式，不管你在头上有没有添加 ” use strict “</p>
-</blockquote>
-<p><strong>严格模式主要有以下限制</strong><br>    -：变量必须声明后再使用<br>    -：函数的参数 不能有同名属性 否则报错<br>    -：不能使用 <code>with</code> 语句<br>    -：不能对只读属性赋值，否则报错<br>    -：不能使用前缀0 表示八进制数，否则报错<br>    -：不能删除不可删除的属性，否则报错<br>    -：不能删除 <code>delete prop</code> ，或报错，只能删除 <code>delete global[prop]</code><br>    -：<code>eval</code> 不会在它的外层作用域引入变量<br>    -：<code>eval</code> 和 <code>arguments</code> 不能被重新赋值<br>    -：<code>arguments</code> 不会自动反应参数的变化<br>    -：不能使用 <code>arguments.callee</code><br>    -：不能使用 <code>arguments.caller</code><br>    -：禁止 <code>this</code> 指向全局对象<br>    -：不能使用 <code>fn.caller</code> 和 <code>fn.arguments</code> 获取函数调用的堆栈<br>    -：添加了保留字 如：<code>protected、static和interface</code></p>
-<h4 id="export命令"><a href="#export命令" class="headerlink" title="export命令"></a>export命令</h4><blockquote>
-<p>模块的功能主要由两个命令构成，<code>export</code> 和 <code>import</code>，<code>export</code>命令用于规定模块的对外接口，<code>import</code> 命令用于输入其它模块提供的功能</p>
-</blockquote>
-<p>一个模块就是一个独立的文件，该文件内部的所有变量，外部无法获取到，如果你希望外部能获取到这个模块的某个变量，就必须使用<code>export</code>导出变量</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> firstName = <span class="string">&#x27;hu&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> lastName = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> year = <span class="number">1990</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="comment">// 这种写法更推荐 因为可以在 export 中看到本模块全部导出的变量</span></span><br><span class="line"><span class="keyword">var</span> firstName = <span class="string">&#x27;hu&#x27;</span></span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">var</span> year = <span class="number">1990</span></span><br><span class="line"><span class="keyword">export</span> &#123; firstName, lastName, year &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// exprt 还可以用来直接导出函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">multiply</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x*y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><blockquote>
-<p>使用 <code>export</code> 命令定义了模块的对外接口，其它js文件 就可以通过<code>import</code> 命令记载这个模块</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; firstName, lastName, year &#125; <span class="keyword">from</span> <span class="string">&#x27;../xxx.js&#x27;</span></span><br><span class="line"><span class="comment">// 或者 模块的整体加载</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> getMyDetail <span class="keyword">from</span> <span class="string">&#x27;./circle&#x27;</span>;</span><br><span class="line">getMyDetail.<span class="property">firstName</span> <span class="comment">//这样调用</span></span><br></pre></td></tr></table></figure>
-<h4 id="export-default"><a href="#export-default" class="headerlink" title="export default"></a>export default</h4><blockquote>
-<p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// export-default.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo</span><br><span class="line"></span><br><span class="line"><span class="comment">// import-default.js</span></span><br><span class="line"><span class="keyword">import</span> customName <span class="keyword">from</span> <span class="string">&#x27;./export-deafult.js&#x27;</span></span><br><span class="line"><span class="title function_">customName</span>() <span class="comment">// &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="cles4z7sa002ursdk4hfsbwuw" data-title="es6-module" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -935,7 +947,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -945,16 +957,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -962,9 +974,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
+          </li>
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
@@ -982,10 +998,6 @@
             <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
-          <li>
-            <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -999,7 +1011,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2023 zero<br>
+      &copy; 2024 zero<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

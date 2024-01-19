@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,70 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-es6-array-methods" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/07/es6-array-methods/" class="article-date">
+  <time class="dt-published" datetime="2019-05-07T07:03:45.000Z" itemprop="datePublished">2019-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/07/es6-array-methods/">Why and when to use forEach, map, filter, reduce, and find in JavaScript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Maybe-change-use-for-in-anywhere-is-better"><a href="#Maybe-change-use-for-in-anywhere-is-better" class="headerlink" title="Maybe change use for in anywhere is better"></a>Maybe change use for in anywhere is better</h3><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><blockquote>
+<p>As well known that forEach is a way to work with items in array, anytime when i what loop a array, then first time i will think about forEach… i am so sad !!!</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for loop</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// forEach loop</span></span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item, index, array</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;item--&gt;&#x27;</span>, item, <span class="string">&#x27;index--&gt;&#x27;</span>, index, <span class="string">&#x27;array--&gt;&#x27;</span>, array);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// compare the for and forEach</span></span><br><span class="line"><span class="comment">// for loop define a variable i, and set add ++ , ant the forEach loop you can do nothing</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><blockquote>
+<p>As well known that forEach is generic tool in array loop, and when should we use map.<br>  how does map work ?<br>  map basically it takes 2 arguments(callback, thisArg), a callback and a optional context(will be considered as this in the callback) . and the callback runs for each value in the array and returns each new value in the<br>  resulting array</p>
+</blockquote>
+<p>  the callback function takes 3 arguments (currentValue, indexNumber, array)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">value</span>: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">value</span>: <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="comment">// if you want [&#x27;a&#x27;, &#x27;b&#x27;], you can use map now!!!</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">map</span>(<span class="function"><span class="params">item</span> =&gt;</span> item.<span class="property">value</span>) <span class="comment">// so easy</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// of cause you can use forEach or for or for..in and so on. but i think the map is you best choice</span></span><br><span class="line"><span class="comment">// example forEach</span></span><br><span class="line"><span class="keyword">var</span> newArr = []</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  newArr.<span class="title function_">push</span>(item.<span class="property">value</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><blockquote>
+<p>ok, reduce just like map, also takes 2 arguments(callback, initialValue), and the callback is for each element of array, the initialValue is the first use callback first arguments value, if no initialValue will be the array first value. totally reduce is an easy way to generate a single value or object from an array.<br>  the callback function takes 4 arguments [Accumulator (acc) (累计器), Current Value (cur) (当前值), Current Index (idx) (当前索引), Source Array (src) (源数组)]</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if we want to know total number of array some key add or the biggest one or the smallest. what time you should use reduce</span></span><br><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jane&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jake&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment">// totalNumber example</span></span><br><span class="line"><span class="keyword">var</span> totalYears = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">accumulator, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> accumulator+item.<span class="property">year</span></span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// biggest example</span></span><br><span class="line"><span class="keyword">var</span> biggest = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (acc.<span class="property">year</span> || <span class="number">0</span>) &gt; item.<span class="property">year</span> ? acc : item</span><br><span class="line">&#125;, &#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// smallest example</span></span><br><span class="line"><span class="keyword">var</span> smallest = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> acc.<span class="property">year</span> &gt; item.<span class="property">year</span> ? item : acc</span><br><span class="line">&#125;, arr[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><blockquote>
+<p>this methods is easy, filter just filter a value in array, such as you want the array name &#x3D;&#x3D;&#x3D; luce , what time you should use filter</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if you want to name === jake </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;jane&#x27;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="attr">year</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;luce&#x27;</span></span><br><span class="line">&#125;]</span><br><span class="line"><span class="keyword">var</span> luceArray = arr.<span class="title function_">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> item.<span class="property">name</span> === <span class="string">&#x27;luce&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>tips:<em>渣渣英文，渣渣翻译，自己能看懂就不错了…望有待提高中</em></p>
+<p><strong>参考文档</strong><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array">MDN</a><br><a target="_blank" rel="noopener" href="https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d">poka-techblog</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="clrk2xd4p00282odkew0e2oj5" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-compound-rate" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -134,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="cles4z7rw001drsdkfgbjdhdq" data-title="compound-rate" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clrk2xd4h00192odk2vsl6bmv" data-title="compound-rate" class="article-share-link">Teilen</a>
       
       
       
@@ -177,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="cles4z7so004nrsdk0y7z1g33" data-title="product-manager-operation" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="clrk2xd55004k2odkh37x9shy" data-title="product-manager-operation" class="article-share-link">Teilen</a>
       
       
       
@@ -231,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="cles4z7sr0051rsdk40ky88dv" data-title="高效习惯" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="clrk2xd5900512odkhxaxd21v" data-title="高效习惯" class="article-share-link">Teilen</a>
       
       
       
@@ -277,7 +341,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/20/js-base/" data-id="cles4z7se0039rsdk7hw9hu38" data-title="js-base" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/04/20/js-base/" data-id="clrk2xd4v00372odkcd1w5do6" data-title="js-base" class="article-share-link">Teilen</a>
       
       
       
@@ -340,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/03/05/tools-frp/" data-id="cles4z7sr0054rsdk0x3s66f2" data-title="frp-tools" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/03/05/tools-frp/" data-id="clrk2xd5a00562odk3gol4z5g" data-title="frp-tools" class="article-share-link">Teilen</a>
       
       
       
@@ -390,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="cles4z7si003ursdk9f4jc8xh" data-title="js-message-carousel" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="clrk2xd4z003t2odk4j3yhnyu" data-title="js-message-carousel" class="article-share-link">Teilen</a>
       
       
       
@@ -432,7 +496,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="cles4z7sn004irsdk1cwbaw78" data-title="self introduction" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="clrk2xd56004m2odk3armg9yc" data-title="self introduction" class="article-share-link">Teilen</a>
       
       
       
@@ -479,7 +543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/11/css-progress/" data-id="cles4z7s0001wrsdk1m8zhs58" data-title="css-progress" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/01/11/css-progress/" data-id="clrk2xd4m001t2odk57900gon" data-title="css-progress" class="article-share-link">Teilen</a>
       
       
       
@@ -524,7 +588,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/12/14/thoughts-ppt-sell/" data-id="cles4z7sq004zrsdkbx8pgvw5" data-title="ppt sell" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/12/14/thoughts-ppt-sell/" data-id="clrk2xd5900542odkdj450exk" data-title="ppt sell" class="article-share-link">Teilen</a>
       
       
       
@@ -538,59 +602,11 @@
 
 
   
-    <article id="post-js-image-wh-average-color" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/09/03/js-image-wh-average-color/" class="article-date">
-  <time class="dt-published" datetime="2018-09-03T07:36:19.000Z" itemprop="datePublished">2018-09-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/09/03/js-image-wh-average-color/">获取图片的原始高度宽度和获取图片的平均色值</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="获取图片的原始宽高度"><a href="#获取图片的原始宽高度" class="headerlink" title="获取图片的原始宽高度"></a>获取图片的原始宽高度</h4><blockquote>
-<p>html结构</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;image_id&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;color-end&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:200px;height:200px;border:1px solid #000;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getImgWidthHeight</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>();</span><br><span class="line">  img.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-----&#x27;</span>, img.<span class="property">width</span>, img.<span class="property">height</span>, img.<span class="property">naturalWidth</span>, img.<span class="property">naturalHeight</span>);</span><br><span class="line">    <span class="comment">// if need color</span></span><br><span class="line">    <span class="comment">// var canvas = document.createElement(&#x27;canvas&#x27;);</span></span><br><span class="line">    <span class="comment">// getImageColor(canvas, img); </span></span><br><span class="line">  &#125;, <span class="literal">false</span>);</span><br><span class="line">  img.<span class="property">src</span> = <span class="string">&#x27;https://static-image.xfz.cn/1535618935_589.jpg&#x27;</span> + <span class="string">&#x27;?&#x27;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>();</span><br><span class="line">  img.<span class="title function_">setAttribute</span>(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="获取图片的平均色值"><a href="#获取图片的平均色值" class="headerlink" title="获取图片的平均色值"></a>获取图片的平均色值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getImageColor</span>(<span class="params">canvas, img</span>) &#123;</span><br><span class="line">      canvas.<span class="property">width</span> = img.<span class="property">width</span>;</span><br><span class="line">      canvas.<span class="property">height</span> = img.<span class="property">height</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> context = canvas.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"></span><br><span class="line">      context.<span class="title function_">drawImage</span>(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 获取像素数据</span></span><br><span class="line">      <span class="keyword">var</span> data = context.<span class="title function_">getImageData</span>(<span class="number">0</span>, <span class="number">0</span>, img.<span class="property">width</span>, img.<span class="property">height</span>).<span class="property">data</span>;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">var</span> r = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">var</span> g = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">var</span> b = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 取所有像素的平均值</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> row = <span class="number">0</span>; row &lt; img.<span class="property">height</span>; row++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> col = <span class="number">0</span>; col &lt; img.<span class="property">width</span>; col++) &#123;</span><br><span class="line">          r += data[((img.<span class="property">width</span> * row) + col) * <span class="number">4</span>];</span><br><span class="line">          g += data[((img.<span class="property">width</span> * row) + col) * <span class="number">4</span> + <span class="number">1</span>];</span><br><span class="line">          b += data[((img.<span class="property">width</span> * row) + col) * <span class="number">4</span> + <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 求取平均值</span></span><br><span class="line">      r /= (img.<span class="property">width</span> * img.<span class="property">height</span>);</span><br><span class="line">      g /= (img.<span class="property">width</span> * img.<span class="property">height</span>);</span><br><span class="line">      b /= (img.<span class="property">width</span> * img.<span class="property">height</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 将最终的值取整</span></span><br><span class="line">      r = <span class="title class_">Math</span>.<span class="title function_">round</span>(r);</span><br><span class="line">      g = <span class="title class_">Math</span>.<span class="title function_">round</span>(g);</span><br><span class="line">      b = <span class="title class_">Math</span>.<span class="title function_">round</span>(b); </span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> str = <span class="string">&quot;rgb(&quot;</span> + r + <span class="string">&quot;,&quot;</span> + g + <span class="string">&quot;,&quot;</span> + b + <span class="string">&quot;)&quot;</span>;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;======str&#x27;</span>, str)</span><br><span class="line">      <span class="comment">// $(&#x27;.color-end&#x27;).css(&#x27;background&#x27;, str);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/09/03/js-image-wh-average-color/" data-id="cles4z7sh003prsdk7wcsds4s" data-title="获取图片的原始高度宽度和获取图片的平均色值" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -604,7 +620,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -614,16 +630,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -631,9 +647,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
+          </li>
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
@@ -651,10 +671,6 @@
             <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
-          <li>
-            <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -668,7 +684,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2023 zero<br>
+      &copy; 2024 zero<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

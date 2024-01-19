@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,54 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-js-image-wh-average-color" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/09/03/js-image-wh-average-color/" class="article-date">
+  <time class="dt-published" datetime="2018-09-03T07:36:19.000Z" itemprop="datePublished">2018-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/09/03/js-image-wh-average-color/">获取图片的原始高度宽度和获取图片的平均色值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="获取图片的原始宽高度"><a href="#获取图片的原始宽高度" class="headerlink" title="获取图片的原始宽高度"></a>获取图片的原始宽高度</h4><blockquote>
+<p>html结构</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;image_id&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;color-end&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:200px;height:200px;border:1px solid #000;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getImgWidthHeight</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>();</span><br><span class="line">  img.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-----&#x27;</span>, img.<span class="property">width</span>, img.<span class="property">height</span>, img.<span class="property">naturalWidth</span>, img.<span class="property">naturalHeight</span>);</span><br><span class="line">    <span class="comment">// if need color</span></span><br><span class="line">    <span class="comment">// var canvas = document.createElement(&#x27;canvas&#x27;);</span></span><br><span class="line">    <span class="comment">// getImageColor(canvas, img); </span></span><br><span class="line">  &#125;, <span class="literal">false</span>);</span><br><span class="line">  img.<span class="property">src</span> = <span class="string">&#x27;https://static-image.xfz.cn/1535618935_589.jpg&#x27;</span> + <span class="string">&#x27;?&#x27;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>();</span><br><span class="line">  img.<span class="title function_">setAttribute</span>(<span class="string">&#x27;crossOrigin&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取图片的平均色值"><a href="#获取图片的平均色值" class="headerlink" title="获取图片的平均色值"></a>获取图片的平均色值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getImageColor</span>(<span class="params">canvas, img</span>) &#123;</span><br><span class="line">      canvas.<span class="property">width</span> = img.<span class="property">width</span>;</span><br><span class="line">      canvas.<span class="property">height</span> = img.<span class="property">height</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> context = canvas.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"></span><br><span class="line">      context.<span class="title function_">drawImage</span>(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 获取像素数据</span></span><br><span class="line">      <span class="keyword">var</span> data = context.<span class="title function_">getImageData</span>(<span class="number">0</span>, <span class="number">0</span>, img.<span class="property">width</span>, img.<span class="property">height</span>).<span class="property">data</span>;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">var</span> r = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">var</span> g = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">var</span> b = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 取所有像素的平均值</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> row = <span class="number">0</span>; row &lt; img.<span class="property">height</span>; row++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> col = <span class="number">0</span>; col &lt; img.<span class="property">width</span>; col++) &#123;</span><br><span class="line">          r += data[((img.<span class="property">width</span> * row) + col) * <span class="number">4</span>];</span><br><span class="line">          g += data[((img.<span class="property">width</span> * row) + col) * <span class="number">4</span> + <span class="number">1</span>];</span><br><span class="line">          b += data[((img.<span class="property">width</span> * row) + col) * <span class="number">4</span> + <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 求取平均值</span></span><br><span class="line">      r /= (img.<span class="property">width</span> * img.<span class="property">height</span>);</span><br><span class="line">      g /= (img.<span class="property">width</span> * img.<span class="property">height</span>);</span><br><span class="line">      b /= (img.<span class="property">width</span> * img.<span class="property">height</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 将最终的值取整</span></span><br><span class="line">      r = <span class="title class_">Math</span>.<span class="title function_">round</span>(r);</span><br><span class="line">      g = <span class="title class_">Math</span>.<span class="title function_">round</span>(g);</span><br><span class="line">      b = <span class="title class_">Math</span>.<span class="title function_">round</span>(b); </span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> str = <span class="string">&quot;rgb(&quot;</span> + r + <span class="string">&quot;,&quot;</span> + g + <span class="string">&quot;,&quot;</span> + b + <span class="string">&quot;)&quot;</span>;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;======str&#x27;</span>, str)</span><br><span class="line">      <span class="comment">// $(&#x27;.color-end&#x27;).css(&#x27;background&#x27;, str);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/09/03/js-image-wh-average-color/" data-id="clrk2xd4y003l2odk7goi0x2c" data-title="获取图片的原始高度宽度和获取图片的平均色值" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-product-manager" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -114,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/07/09/product-manager/" data-id="cles4z7so004lrsdkfuiac1if" data-title="product-manager" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/07/09/product-manager/" data-id="clrk2xd57004p2odk1jk32ruc" data-title="product-manager" class="article-share-link">Teilen</a>
       
       
       
@@ -253,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/06/14/css-shapes/" data-id="cles4z7s10021rsdkbomr0eu7" data-title="css-shapes" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/06/14/css-shapes/" data-id="clrk2xd4n00202odkc6jwexbe" data-title="css-shapes" class="article-share-link">Teilen</a>
       
       
       
@@ -302,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/05/09/git/" data-id="cles4z7sc0033rsdk9tkq0445" data-title="git 疑难杂症" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/05/09/git/" data-id="clrk2xd4u002x2odk38uaabgs" data-title="git 疑难杂症" class="article-share-link">Teilen</a>
       
       
       
@@ -357,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/13/33-js-variable/" data-id="cles4z7rt000yrsdkgshu3ab4" data-title="33-js-value-variable" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/04/13/33-js-variable/" data-id="clrk2xd4e000y2odk5x8s52ey" data-title="33-js-value-variable" class="article-share-link">Teilen</a>
       
       
       
@@ -434,7 +482,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/11/js-module/" data-id="cles4z7sj003wrsdkfnbs2lgy" data-title="js-module" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/04/11/js-module/" data-id="clrk2xd50003x2odkcw11ggu3" data-title="js-module" class="article-share-link">Teilen</a>
       
       
       
@@ -504,7 +552,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/10/es6-export-import/" data-id="cles4z7s5002jrsdkewrh1fln" data-title="es6-export-import" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/04/10/es6-export-import/" data-id="clrk2xd4q002f2odk6ec70wux" data-title="es6-export-import" class="article-share-link">Teilen</a>
       
       
       
@@ -598,7 +646,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/03/css-other/" data-id="cles4z7s0001ursdkgiayasqf" data-title="css-other" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/04/03/css-other/" data-id="clrk2xd4k001l2odk11p7gc10" data-title="css-other" class="article-share-link">Teilen</a>
       
       
       
@@ -673,7 +721,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/29/33-js-closures-anonymous-function/" data-id="cles4z7ri0004rsdkhhhwfhiz" data-title="33-js-closures-anonymous-function" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/29/33-js-closures-anonymous-function/" data-id="clrk2xd4500052odkd7nofp4j" data-title="33-js-closures-anonymous-function" class="article-share-link">Teilen</a>
       
       
       
@@ -739,84 +787,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/29/33-js-prototype-proto/" data-id="cles4z7rp000krsdkdrq21rag" data-title="33-js-prototype and __proto__" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-33-js-this" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/03/28/33-js-this/" class="article-date">
-  <time class="dt-published" datetime="2018-03-28T07:34:57.000Z" itemprop="datePublished">2018-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/03/28/33-js-this/">this</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><h4 id="ES5-this"><a href="#ES5-this" class="headerlink" title="ES5 this"></a>ES5 this</h4><blockquote>
-<p><font color="red"><strong>function被作为method调用时，this指向调用对象。</strong></font></p>
-</blockquote>
-<h5 id="默认绑定，也就是直接调用前面不带任何对象-eg-test-function"><a href="#默认绑定，也就是直接调用前面不带任何对象-eg-test-function" class="headerlink" title="默认绑定，也就是直接调用前面不带任何对象 eg: test(), (function() {})()"></a><font color="#0099ff">默认绑定</font>，也就是直接调用前面不带任何对象 eg: test(), (function() {})()</h5><blockquote>
-<p>其实这种可以看为是 <code>Global.test()</code> <code>Global.(function() &#123;&#125;)()</code> 所以调用对象可以看为Global 如果再浏览器就是window</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">alert</span>(x); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="作为对象的方法被调用"><a href="#作为对象的方法被调用" class="headerlink" title="作为对象的方法被调用"></a>作为<font color="#0099ff">对象的方法</font>被调用</h5><blockquote>
-<p>函数作为对象里面的某个方法，被调用的时候，这时的this指向上级对象。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span> () &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">&#125;</span><br><span class="line">o.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-<h5 id="作为构造函数被调用"><a href="#作为构造函数被调用" class="headerlink" title="作为构造函数被调用"></a>作为<font color="#0099ff">构造函数</font>被调用</h5><blockquote>
-<p>所谓构造函数其实就是，通过这个函数生成一个新的对象，this指向这个对象</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> test1 = <span class="keyword">new</span> <span class="title function_">test</span>();</span><br><span class="line"><span class="title function_">alert</span>(test1.<span class="property">x</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="title function_">alert</span>(x); <span class="comment">// 1 证明this 不是window  如果是window 就是2</span></span><br></pre></td></tr></table></figure>
-<h5 id="call-调用-或者-apply-调用"><a href="#call-调用-或者-apply-调用" class="headerlink" title="call()调用 或者 apply()调用"></a><font color="#0099ff">call()调用 或者 apply()调用</font></h5><blockquote>
-<p><code>apply</code>和<code>call</code>是函数对象的一个方法，它的作用是改变函数的调用对象，它的第一个参数就表示改变后调用这个函数的对象。所以 <code>this</code>指的是第一个对象</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span> () &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">x</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="number">2</span>;</span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.<span class="property">x</span> = <span class="number">3</span>;</span><br><span class="line">o.<span class="property">fn</span>.<span class="title function_">apply</span>(); <span class="comment">// 1</span></span><br><span class="line">o.<span class="property">fn</span>.<span class="title function_">call</span>(obj); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="当调用点适合上面4中规则的时候，优先级处理"><a href="#当调用点适合上面4中规则的时候，优先级处理" class="headerlink" title="当调用点适合上面4中规则的时候，优先级处理"></a>当调用点适合上面4中规则的时候，<font color="#0099ff">优先级处理</font></h5><ul>
-<li>第一优先级: <strong>new 构造函数</strong></li>
-<li>第二优先级: <strong>call apply</strong></li>
-<li>第三优先级: <strong>对象的方法</strong></li>
-<li>第四优先级: <strong>默认绑定</strong></li>
-</ul>
-<h4 id="ES6-this"><a href="#ES6-this" class="headerlink" title="ES6 this"></a>ES6 this</h4><blockquote>
-<p><font color="red"><strong>箭头函数es6 内部的this指向，是由上下文决定</strong></font></p>
-</blockquote>
-<h5 id="栗子证明"><a href="#栗子证明" class="headerlink" title="栗子证明"></a>栗子证明</h5><p>这个是 es5 的this</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;i am window&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="string">&#x27;i am o&#x27;</span></span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// &#x27;i am window&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>es5 的setTimeout 函数里面的this</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    <span class="attr">fn</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(o.<span class="property">fn</span>, <span class="number">1000</span>); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 为什么会出现这种情况呢? setTimeout(function()&#123;&#125;, time)</span></span><br><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="keyword">var</span> sfn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(sfn, <span class="number">1000</span>);<span class="comment">// 所以成了默认绑定，是window</span></span><br><span class="line"><span class="comment">// 如何才能让输出 ‘1’呢</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    o.<span class="title function_">fn</span>()</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="built_in">setTimeout</span>(o.<span class="property">fn</span>.<span class="title function_">bind</span>(o))</span><br></pre></td></tr></table></figure>
-<p>这个是es6的this</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;i am window&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="title function_">foo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">foo</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.<span class="property">x</span> = <span class="string">&#x27;i am o&#x27;</span></span><br><span class="line">o.<span class="property">fn</span> = test;</span><br><span class="line">o.<span class="title function_">fn</span>(); <span class="comment">// &#x27;i am o&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/03/28/33-js-this/" data-id="cles4z7rs000ursdkbs1ehofx" data-title="this" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/03/29/33-js-prototype-proto/" data-id="clrk2xd4c000o2odkhoi6hqu6" data-title="33-js-prototype and __proto__" class="article-share-link">Teilen</a>
       
       
       
@@ -834,7 +805,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -848,7 +819,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -858,16 +829,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -875,9 +846,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
+          </li>
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
@@ -895,10 +870,6 @@
             <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
-          <li>
-            <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -912,7 +883,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2023 zero<br>
+      &copy; 2024 zero<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

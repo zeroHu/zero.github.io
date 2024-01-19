@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,71 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-es6-module" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/01/01/es6-module/" class="article-date">
+  <time class="dt-published" datetime="2018-01-01T07:58:19.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/01/01/es6-module/">es6-module</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
+<p>历史上，JavaScript一直没有模块（module）体系，无法将一个程序拆分为互相依赖的小文件，再用简单的方法拼装起来，其他语言都有这个功能。比如 ruby 有reqire Python有import css 都有@import，再es6定制之前 社区定制了一些模块加载方案，最主要有commonjs 和 amd 两种，前者用于服务器，后者用于浏览器，es6在语言标准层面上。实现了模块功能。<br>  es6模块的设计思想，是尽量的静态化，是编译时确认模块的依赖关系，以及输出和输入变量。commonjs 和 amd模块，都只能运行时确定这些东西，比如 commonjs 模块就是对象，输入时必须查找对象属性。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonjs 模块</span></span><br><span class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> stat = _fs.<span class="property">stat</span></span><br><span class="line"><span class="keyword">let</span> exists = _fs.<span class="property">exists</span></span><br><span class="line"><span class="keyword">let</span> readFile = _fs.<span class="property">readFile</span></span><br><span class="line"><span class="comment">// 上面的代码实质上是 整体加载fs 模块 （即加载fs的所有方法）,生成一个对象（_fs)，然后再从这个对象中读取3个方法，这种加载称为 ”运行时加载“ ， 是因为只有在运行的时候才能得到这个对象，导致完全没有办法在编译时做 ”静态优化“</span></span><br></pre></td></tr></table></figure>
+<p>ES6 模块不是对象，而是通过export 命令显示指定输出代码，再通过import 导入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line"><span class="comment">// 上面的代码的实质是从 fs 模块加载3个方法，其它方法都不加载。这种加载方法叫做 ”编译时加载“ 或者 静态加载。即ES6 可以在编译时就完成模块加载， 效率要比commonjs 模块加载的方式高，当然 这也导致了没法引用es6 模块本身，因为它不是对象</span></span><br></pre></td></tr></table></figure>
+<h4 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h4><blockquote>
+<p>ES6 自动采用严格模式，不管你在头上有没有添加 ” use strict “</p>
+</blockquote>
+<p><strong>严格模式主要有以下限制</strong><br>    -：变量必须声明后再使用<br>    -：函数的参数 不能有同名属性 否则报错<br>    -：不能使用 <code>with</code> 语句<br>    -：不能对只读属性赋值，否则报错<br>    -：不能使用前缀0 表示八进制数，否则报错<br>    -：不能删除不可删除的属性，否则报错<br>    -：不能删除 <code>delete prop</code> ，或报错，只能删除 <code>delete global[prop]</code><br>    -：<code>eval</code> 不会在它的外层作用域引入变量<br>    -：<code>eval</code> 和 <code>arguments</code> 不能被重新赋值<br>    -：<code>arguments</code> 不会自动反应参数的变化<br>    -：不能使用 <code>arguments.callee</code><br>    -：不能使用 <code>arguments.caller</code><br>    -：禁止 <code>this</code> 指向全局对象<br>    -：不能使用 <code>fn.caller</code> 和 <code>fn.arguments</code> 获取函数调用的堆栈<br>    -：添加了保留字 如：<code>protected、static和interface</code></p>
+<h4 id="export命令"><a href="#export命令" class="headerlink" title="export命令"></a>export命令</h4><blockquote>
+<p>模块的功能主要由两个命令构成，<code>export</code> 和 <code>import</code>，<code>export</code>命令用于规定模块的对外接口，<code>import</code> 命令用于输入其它模块提供的功能</p>
+</blockquote>
+<p>一个模块就是一个独立的文件，该文件内部的所有变量，外部无法获取到，如果你希望外部能获取到这个模块的某个变量，就必须使用<code>export</code>导出变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> firstName = <span class="string">&#x27;hu&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> lastName = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> year = <span class="number">1990</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="comment">// 这种写法更推荐 因为可以在 export 中看到本模块全部导出的变量</span></span><br><span class="line"><span class="keyword">var</span> firstName = <span class="string">&#x27;hu&#x27;</span></span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">var</span> year = <span class="number">1990</span></span><br><span class="line"><span class="keyword">export</span> &#123; firstName, lastName, year &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// exprt 还可以用来直接导出函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">multiply</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x*y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><blockquote>
+<p>使用 <code>export</code> 命令定义了模块的对外接口，其它js文件 就可以通过<code>import</code> 命令记载这个模块</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; firstName, lastName, year &#125; <span class="keyword">from</span> <span class="string">&#x27;../xxx.js&#x27;</span></span><br><span class="line"><span class="comment">// 或者 模块的整体加载</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> getMyDetail <span class="keyword">from</span> <span class="string">&#x27;./circle&#x27;</span>;</span><br><span class="line">getMyDetail.<span class="property">firstName</span> <span class="comment">//这样调用</span></span><br></pre></td></tr></table></figure>
+<h4 id="export-default"><a href="#export-default" class="headerlink" title="export default"></a>export default</h4><blockquote>
+<p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// export-default.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo</span><br><span class="line"></span><br><span class="line"><span class="comment">// import-default.js</span></span><br><span class="line"><span class="keyword">import</span> customName <span class="keyword">from</span> <span class="string">&#x27;./export-deafult.js&#x27;</span></span><br><span class="line"><span class="title function_">customName</span>() <span class="comment">// &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2018/01/01/es6-module/" data-id="clrk2xd4r002k2odkhdzv3xxw" data-title="es6-module" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-es6-class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -148,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="cles4z7s4002grsdk09c5hqv5" data-title="es6-class" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2018/01/01/es6-class/" data-id="clrk2xd4p002a2odk1kqr9ryz" data-title="es6-class" class="article-share-link">Teilen</a>
       
       
       
@@ -221,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="cles4z7sa002vrsdkbcvt9yg4" data-title="es6-set-map" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/31/es6-set-map/" data-id="clrk2xd4s002p2odk022lh0sr" data-title="es6-set-map" class="article-share-link">Teilen</a>
       
       
       
@@ -305,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="cles4z7s30029rsdk25bn3fqa" data-title="es6-async-await" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/20/es6-async-await/" data-id="clrk2xd4q002d2odk6jcfa076" data-title="es6-async-await" class="article-share-link">Teilen</a>
       
       
       
@@ -366,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/18/es6-generator/" data-id="cles4z7s4002ersdkfgo8bgpi" data-title="es6-generator" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/18/es6-generator/" data-id="clrk2xd4r002i2odk6wwccg6l" data-title="es6-generator" class="article-share-link">Teilen</a>
       
       
       
@@ -443,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/12/js-type-of-topic-judge/" data-id="cles4z7sk0040rsdkd3vp719u" data-title="类型判断 (typeof,instanceof)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/12/js-type-of-topic-judge/" data-id="clrk2xd51003z2odkgnrof5jo" data-title="类型判断 (typeof,instanceof)" class="article-share-link">Teilen</a>
       
       
       
@@ -507,7 +572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/08/class-array-object/" data-id="cles4z7ru0015rsdk6eizfe8s" data-title="class-array-object（类数组对象）" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/08/class-array-object/" data-id="clrk2xd4g00152odkfibn34n2" data-title="class-array-object（类数组对象）" class="article-share-link">Teilen</a>
       
       
       
@@ -563,7 +628,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/02/wechat-token/" data-id="cles4z7su005grsdkco9t7urt" data-title="wechat-token" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/02/wechat-token/" data-id="clrk2xd5c005i2odk43hw6g0n" data-title="wechat-token" class="article-share-link">Teilen</a>
       
       
       
@@ -613,7 +678,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/12/02/nginx-https/" data-id="cles4z7sl0046rsdkevduedd3" data-title="https-nginx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/12/02/nginx-https/" data-id="clrk2xd53004a2odkbli5dfsn" data-title="https-nginx" class="article-share-link">Teilen</a>
       
       
       
@@ -656,7 +721,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/11/29/download-img/" data-id="cles4z7s20024rsdkccvhgr0u" data-title="download-img (下载canvas画出的base64格式图片)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/11/29/download-img/" data-id="clrk2xd4n001y2odk77fc6344" data-title="download-img (下载canvas画出的base64格式图片)" class="article-share-link">Teilen</a>
       
       
       
@@ -670,85 +735,11 @@
 
 
   
-    <article id="post-nginx-vue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/11/24/nginx-vue/" class="article-date">
-  <time class="dt-published" datetime="2017-11-24T03:17:09.000Z" itemprop="datePublished">2017-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/11/24/nginx-vue/">vue-nginx</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="vue-之nginx配置"><a href="#vue-之nginx配置" class="headerlink" title="vue 之nginx配置"></a>vue 之nginx配置</h4><blockquote>
-<p>vue的项目如果是配置在域名根目录下(<a target="_blank" rel="noopener" href="http://xxx.xx.com),那就是非常简单/">http://xxx.xx.com)，那就是非常简单</a> 没啥好说的直接上nginx代码</p>
-</blockquote>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> http://xxx.xx.com;</span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span> /xxx/xxxx/vue/dist/;<span class="comment">#项目的目录</span></span><br><span class="line">            <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html =<span class="number">404</span>;<span class="comment">#histroy模式需要</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>vue的项目如果是要配置在域名的某个目录下(<a target="_blank" rel="noopener" href="http://xxx.xx.com/vue),%E6%8E%A5%E4%B8%8B%E6%9D%A5%E8%B0%88%E8%AE%BA%E4%B8%80%E4%B8%8B%E8%BF%99%E5%9D%97">http://xxx.xx.com/vue),接下来谈论一下这块</a></p>
-</blockquote>
-<pre><code>重要的4个参数，先说一下
-1. config 文件下的index处的 assetsPublicPath   指的是:正式发布环境下编译输出的上线路径的根路径
-2. vuerouter mode   指的是使用的模式
-3. vuerouter base   指的是应用的基路径
-4. nginx 里面的root 换为 alias 具体为啥 下面指出
-
-如果是hash模式
-    1）指定assetsPublicPath 的路径为 /vue （vue 为域名后面的目录名称 即是http://xxx.xx.com/[vue]） 或者是 ./ 这样指的就是当前目录 而并非根目录
-
-如果是history模式
-    hash 1)
-    2): vuerouter mode : histroy
-    3): vuerouter base : 指定为/vue 也就是域名后面的根目录名称
-</code></pre>
-<p>nginx配置</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /vue &#123;</span><br><span class="line">    <span class="attribute">alias</span> /Users/hujianxia/zeroDemo/vue-demo-longtime/dist/;</span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html =<span class="number">404</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="nginx-root-和-alias-的区别"><a href="#nginx-root-和-alias-的区别" class="headerlink" title="nginx root 和 alias 的区别"></a>nginx root 和 alias 的区别</h4><pre><code>root 和 alias 都可以用在location中，都是用来表示指定请求的资源的真是路径，
-
-但是root 可以使用在 server ，http ，和location 当中，
-
-而alias 只能使用在location中 并且alias 指定的路径一定要以/结尾 不然会找不到资源,而 root 则对 ”/” 可有可无。
-</code></pre>
-<p>比如</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#root</span></span><br><span class="line">    <span class="section">location</span> /i/ &#123;</span><br><span class="line">        <span class="attribute">root</span> /home/data;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#请求 http://foofish.net/i/top.gif 这个地址时，那么在服务器里面对应的真正的资源是 /home/data/i/top.gif文件，注意真实的路径是root指定的值加上location指定的值。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#alias</span></span><br><span class="line">    <span class="section">location</span> /i/ &#123;</span><br><span class="line">        <span class="attribute">alias</span> /home/data/;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#请求 http://foofish.net/i/top.gif 这个地址时，那么在服务器里面对应的真正的资源是 /home/data/top.gif文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>tips:nginx root和alias 参考文章:<a target="_blank" rel="noopener" href="https://foofish.net/nginx-root-different-with-alias.htmls">https://foofish.net/nginx-root-different-with-alias.htmls</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/11/24/nginx-vue/" data-id="cles4z7sl0049rsdk75te8psl" data-title="vue-nginx" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -762,7 +753,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -772,16 +763,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -789,9 +780,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
+          </li>
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
@@ -809,10 +804,6 @@
             <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
-          <li>
-            <a href="/2023/02/21/xlsx-create-and-download/">xlsx-create-and-download</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -826,7 +817,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2023 zero<br>
+      &copy; 2024 zero<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
