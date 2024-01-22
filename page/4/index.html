@@ -75,6 +75,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-33-js-recursion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/08/33-js-recursion/" class="article-date">
+  <time class="dt-published" datetime="2019-05-08T03:18:50.000Z" itemprop="datePublished">2019-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/08/33-js-recursion/">33-js-recursion</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="recursion-递归"><a href="#recursion-递归" class="headerlink" title="recursion(递归)"></a>recursion(递归)</h3><blockquote>
+<p>explain ： recursion is simply when a function calls itself</p>
+</blockquote>
+<h4 id="factorial-example"><a href="#factorial-example" class="headerlink" title="factorial example"></a>factorial example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// this function use recursion</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span> (n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> n * <span class="title function_">factorial</span>(n-<span class="number">1</span>); <span class="comment">// the most important line</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">4</span>) <span class="comment">// 4*3*2*1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// and the compute is</span></span><br><span class="line"><span class="comment">// factorial(4)</span></span><br><span class="line"><span class="comment">//   4 * factorial(3)</span></span><br><span class="line"><span class="comment">//     3 * factorial(2)</span></span><br><span class="line"><span class="comment">//       2 * factorial(1)</span></span><br><span class="line"><span class="comment">//         1</span></span><br><span class="line"><span class="comment">//       resuming previous execution 2 * 1 = 2</span></span><br><span class="line"><span class="comment">//     resuming.. 3 * 2 = 6</span></span><br><span class="line"><span class="comment">//   resuming.. 4 * 6 = 24</span></span><br><span class="line"><span class="comment">// factorial(4) = 24</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="the-three-key-features-of-recursion"><a href="#the-three-key-features-of-recursion" class="headerlink" title="the three key features of recursion"></a>the three key features of recursion</h4><blockquote>
+<p><code>if (something bad happened) &#123; STOP &#125;</code> this is the safe condition. otherwise will error happen<br>   such as the factorial <code>if (n&lt; 0) &#123; return &#125;</code> just stop the unbelieveble loop </p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>if (this happens) &#123; yay! you should done &#125;l</code> this is the done the loop.<br>  such as the factorial <code>if (n===1) &#123; return &#125;</code> just stop the loop</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>return n * factorial(n-1)</code> is the recursion!!!</p>
+</blockquote>
+<h3 id="tail-calls-尾调用"><a href="#tail-calls-尾调用" class="headerlink" title="tail calls(尾调用)"></a>tail calls(尾调用)</h3><blockquote>
+<p>the tail calls is <code>function f(x) &#123; return g(x) &#125;</code> not <code>function f(x) &#123; return g(x) + 1 &#125;</code>. means return a function and don’t need compute again</p>
+</blockquote>
+<h4 id="factorial-example-1"><a href="#factorial-example-1" class="headerlink" title="factorial example"></a>factorial example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n, res</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">factorial</span>(n-<span class="number">1</span>, res * n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">4</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// and the compute is</span></span><br><span class="line"><span class="comment">// factorial(4, 1)</span></span><br><span class="line"><span class="comment">//   innter anonymous function (iaf) get called with (n=4, res=1)</span></span><br><span class="line"><span class="comment">//   iaf(3, 3*4)</span></span><br><span class="line"><span class="comment">//     iaf(2, 2*12)</span></span><br><span class="line"><span class="comment">//       iaf(1, 24)</span></span><br><span class="line"><span class="comment">//         24</span></span><br><span class="line"><span class="comment">//       24</span></span><br><span class="line"><span class="comment">//     24</span></span><br><span class="line"><span class="comment">// factorial(4, 1) = 24</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>summarize : the tail call is better than recursion, in v8 can spend less time</p>
+</blockquote>
+<p><img src="http://static.zeroyh.cn/33-WechatIMG734.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="clronyeq7000q8gdk6y509q3z" data-title="33-js-recursion" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-es6-array-methods" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2019/05/07/es6-array-methods/" class="article-date">
@@ -125,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="clrk2yret0027g8dka2gw6jyg" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="clronyeqk00258gdk7mre1c9y" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Teilen</a>
       
       
       
@@ -198,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clrk2yrem001cg8dk52f4babx" data-title="compound-rate" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clronyeqc001c8gdkcbcjaecj" data-title="compound-rate" class="article-share-link">Teilen</a>
       
       
       
@@ -241,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="clrk2yrfb004ng8dkc27g498c" data-title="product-manager-operation" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="clronyer3004m8gdk21u5cr5i" data-title="product-manager-operation" class="article-share-link">Teilen</a>
       
       
       
@@ -295,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="clrk2yrfe0054g8dkabi0fs3p" data-title="高效习惯" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="clronyer700558gdkeol86ddj" data-title="高效习惯" class="article-share-link">Teilen</a>
       
       
       
@@ -341,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/20/js-base/" data-id="clrk2yrf00037g8dkhqaxf7oe" data-title="js-base" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/04/20/js-base/" data-id="clronyeqr00368gdk8s726j0t" data-title="js-base" class="article-share-link">Teilen</a>
       
       
       
@@ -404,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/03/05/tools-frp/" data-id="clrk2yrfe0056g8dk1iozd5ao" data-title="frp-tools" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/03/05/tools-frp/" data-id="clronyer800588gdkf6zi5i14" data-title="frp-tools" class="article-share-link">Teilen</a>
       
       
       
@@ -454,7 +519,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="clrk2yrf4003tg8dk4zrlf9bn" data-title="js-message-carousel" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="clronyeqv003n8gdk6eqd48e8" data-title="js-message-carousel" class="article-share-link">Teilen</a>
       
       
       
@@ -496,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="clrk2yrf9004ig8dk43h1hwpp" data-title="self introduction" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="clronyer2004j8gdk8a8tfd1r" data-title="self introduction" class="article-share-link">Teilen</a>
       
       
       
@@ -543,56 +608,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/11/css-progress/" data-id="clrk2yrer001xg8dkh18v757r" data-title="css-progress" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/01/11/css-progress/" data-id="clronyeqi001v8gdk6p441xch" data-title="css-progress" class="article-share-link">Teilen</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-thoughts-ppt-sell" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/12/14/thoughts-ppt-sell/" class="article-date">
-  <time class="dt-published" datetime="2018-12-14T06:51:27.000Z" itemprop="datePublished">2018-12-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/12/14/thoughts-ppt-sell/">ppt sell</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="日常所见所学"><a href="#日常所见所学" class="headerlink" title="日常所见所学"></a>日常所见所学</h3><h4 id="非常有趣的ppt推销法-（最有效的五部推销法）"><a href="#非常有趣的ppt推销法-（最有效的五部推销法）" class="headerlink" title="非常有趣的ppt推销法 （最有效的五部推销法）"></a>非常有趣的ppt推销法 （最有效的五部推销法）</h4><p>原文来自阮老师的博客：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/11/most-effective-sales-promotion.html">http://www.ruanyifeng.com/blog/2018/11/most-effective-sales-promotion.html</a></p>
-<blockquote>
-<p>第一步：提出一个当今世界的变化趋势<br>  第二步：提出会有赢家和输家<br>  第三步：描绘美好的未来<br>  第四步：介绍克服困难、到达未来所需要的那个关键步骤<br>  第五步: 提出证据，你能让这一切变成现实</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">当时看完这个推销法，我想了一下。貌似确实有点意思。</span><br><span class="line">没有直接一上来就告诉我你的产品有多好，而且我怎么知道你的产品在同类中的竞争和以后的趋势。就像你告诉我卖一个盆子一样。如果你一来就告诉我，我的常规思维</span><br><span class="line">所想的那些内容。比如：我的盆子是什么材质，哪个公司生产的，容量等。其实是在介绍这个盆子的优势。但是我看不到你这个盆子和其他盆子的区别，无法分辨这两个</span><br><span class="line">盆子哪个更适合我。</span><br><span class="line"></span><br><span class="line">换一个 五部推销法的 思路呢？</span><br><span class="line">第一步：上来先告诉我世界上最好的国家在用什么盆子，我们国家最厉害的那群人在用什么盆子，好盆子的特征是什么？什么盆子最差，差盆子的特征是什么？</span><br><span class="line">第二步：讲一下接下来所有的地方的好盆子都会有何种用处，发挥哪些长处。能做到坏盆子做不到的哪些事情</span><br><span class="line">第三步：讲讲我的盆子成为好盆子的经历的种种，从原料到设计到经历的检修等等</span><br><span class="line">第四步：最好加上实际行动证明，我这个盆子就是上述所有优秀条件的集合。这就是一个能让你变成人生赢家的盆子</span><br><span class="line"></span><br><span class="line">当然哈，说不定我妈看到人家说的我盆子的材质还没讲完就买一个回家了。。。五部推销对她来说并不管用哈。这只是用了一个生活工具作为一个推销例子。不够鲜明。很多厉害的东西因为没有涉及无法举例。</span><br><span class="line">哈哈哈，自我思考的一个过程。我不是一个善于说话的人。就更不是一个善于推销的人。今日碰巧看到了五部推销法。所思考的一点点记录下来。</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/12/14/thoughts-ppt-sell/" data-id="clrk2yrfd0052g8dkdmpm9f24" data-title="ppt sell" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li></ul>
 
     </footer>
   </div>
@@ -620,7 +640,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -630,7 +650,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
@@ -652,6 +672,10 @@
       <ul>
         
           <li>
+            <a href="/2024/01/22/shell-cron-check-process/">shell-cron-check-process</a>
+          </li>
+        
+          <li>
             <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
           </li>
         
@@ -665,10 +689,6 @@
         
           <li>
             <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
       </ul>

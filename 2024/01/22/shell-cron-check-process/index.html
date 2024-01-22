@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: introduce | zeroBlog</title>
+  <title>shell-cron-check-process | zeroBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zeroBlog">
-<meta property="og:url" content="http://example.com/tags/introduce/index.html">
+  <meta name="description" content="Shell + cron 来解决服务挂掉自启动前言: 有时候你必须要去检测某个进程是否还存在，当不存在的时候启动服务，来保障服务的正常运行。当然这个必须慎用，最主要的还是要保障服务的稳定性，但是这个也有应用场景。 Shell简单介绍一下，就是用户与计算机进行交互的，常见的命令行 比如：cd、mkdir 等 下面是一个简单的检测java进程是否存在，存在则不作为，不存在则去启动的脚本。 123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell-cron-check-process">
+<meta property="og:url" content="http://example.com/2024/01/22/shell-cron-check-process/index.html">
 <meta property="og:site_name" content="zeroBlog">
+<meta property="og:description" content="Shell + cron 来解决服务挂掉自启动前言: 有时候你必须要去检测某个进程是否还存在，当不存在的时候启动服务，来保障服务的正常运行。当然这个必须慎用，最主要的还是要保障服务的稳定性，但是这个也有应用场景。 Shell简单介绍一下，就是用户与计算机进行交互的，常见的命令行 比如：cd、mkdir 等 下面是一个简单的检测java进程是否存在，存在则不作为，不存在则去启动的脚本。 123456">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-01-22T07:19:05.000Z">
+<meta property="article:modified_time" content="2024-01-22T08:25:46.711Z">
 <meta property="article:author" content="zero">
+<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="zeroBlog" type="application/atom+xml">
@@ -73,39 +78,62 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/15/other-self-introduction/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-01-15T03:20:09.000Z" itemprop="datePublished">Jan 15</time>
+        <section id="main"><article id="post-shell-cron-check-process" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/22/shell-cron-check-process/" class="article-date">
+  <time class="dt-published" datetime="2024-01-22T07:19:05.000Z" itemprop="datePublished">2024-01-22</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/15/other-self-introduction/">self introduction</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      shell-cron-check-process
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Shell-cron-来解决服务挂掉自启动"><a href="#Shell-cron-来解决服务挂掉自启动" class="headerlink" title="Shell + cron 来解决服务挂掉自启动"></a>Shell + cron 来解决服务挂掉自启动</h3><p><code>前言</code>: 有时候你必须要去检测某个进程是否还存在，当不存在的时候启动服务，来保障服务的正常运行。当然这个必须慎用，最主要的还是要保障服务的稳定性，但是这个也有应用场景。</p>
+<h4 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h4><p>简单介绍一下，就是用户与计算机进行交互的，常见的命令行 比如：cd、mkdir 等</p>
+<p>下面是一个简单的检测java进程是否存在，存在则不作为，不存在则去启动的脚本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 设置 Java 安装路径，如果未设置，则使用默认路径</span><br><span class="line">if [ ! -n &quot;$JAVA_HOME&quot; ]; then</span><br><span class="line">    JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 设置 Java 进程名称</span><br><span class="line">java_a_process_name=&quot;$JAVA_HOME/bin/java -jar /home/tomcat/apps_test/a-SNAPSHOT.jar&quot; #这里是进程名称 可以通过 ps -ef | grep 来查看</span><br><span class="line">java_b_process_name=&quot;$JAVA_HOME/bin/java -jar /home/tomcat/apps_test/b-SNAPSHOT.jar&quot; </span><br><span class="line">java_c_process_name=&quot;$JAVA_HOME/bin/java -jar /home/tomcat/apps_test/c-SNAPSHOT.jar&quot; </span><br><span class="line">java_d_process_name=&quot;$JAVA_HOME/bin/java -jar /home/tomcat/apps_test/d-SNAPSHOT.jar&quot; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 检查Java进程是否存在</span><br><span class="line">if ! pgrep -f &quot;$java_a_process_name&quot; &gt; /dev/null; then</span><br><span class="line">    # 如果Java进程不存在，启动它</span><br><span class="line">    echo &quot;&gt;&gt;&gt;&gt;&gt; Not found service SMS Java process, start it ....&quot;</span><br><span class="line">    </span><br><span class="line">    # 在这里添加启动Java进程的命令，例如：</span><br><span class="line">    /home/tomcat/apps_test/start.sh a-SNAPSHOT.jar</span><br><span class="line">    </span><br><span class="line">    # 请根据你的实际情况修改上面的启动命令</span><br><span class="line">    echo &quot;&gt;&gt;&gt;&gt;&gt; Java process service SMS start end&quot;</span><br><span class="line">else</span><br><span class="line">    # 如果Java进程已经在运行，输出提示信息</span><br><span class="line">    echo &quot;&gt;&gt;&gt;&gt;&gt; Java process service SMS is running&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Cron"><a href="#Cron" class="headerlink" title="Cron"></a>Cron</h4><p>简单介绍一下，cron是用于定期执行任务的时间管理工具，大部分linux服务器都默认已经安装了</p>
+<p>用法简介：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前用户的crontab</span><br><span class="line"></span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line">#编辑当前用户的 Crontab (也就是新增啊、修改定时任务使用的)</span><br><span class="line"></span><br><span class="line">crontab -e</span><br><span class="line"></span><br><span class="line">#Cron 表达式格式</span><br><span class="line"></span><br><span class="line">* * * * * command-to-be-executed    </span><br><span class="line"></span><br><span class="line">这里不得不提到 5个 *是如何使用的</span><br><span class="line">5个* 分别代表：分（0-59）、小时（0-23）、日期 (1 - 31)、月份 (1 - 12)、星期几 (0 - 6，其中 0 是星期天)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">举几个例子：</span><br><span class="line">0 3 * * * /path/to/your/script.sh     （每天早上3点执行script.sh 脚本）</span><br><span class="line">0 4 * * 1 /path/to/your/script.sh      (每周一早上4点执行)</span><br><span class="line">*/30 * * * * /path/to/your/script.sh   (每隔30分钟执行)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/01/22/shell-cron-check-process/" data-id="clronyer5004w8gdk304p151m" data-title="shell-cron-check-process" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/19/network-set-fixed-ip/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">network-set-fixed-ip</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

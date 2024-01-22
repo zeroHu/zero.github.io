@@ -75,6 +75,91 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-33-js-factories-classes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/10/33-js-factories-classes/" class="article-date">
+  <time class="dt-published" datetime="2019-06-10T13:45:57.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/10/33-js-factories-classes/">33-js-factories-classes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="constructor-functions"><a href="#constructor-functions" class="headerlink" title="constructor functions"></a>constructor functions</h3><blockquote>
+<p>constructor function name method is Pascal Notation</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Camel Notation: oneTwoThreeFour</span></span><br><span class="line"><span class="comment">// Pascal Notation: OneTwoThreeFour</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">CreateCircle</span>(<span class="params">a</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">a</span> = a</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Circle1</span> = <span class="keyword">new</span> <span class="title class_">CreateCircle</span>(<span class="number">1</span>); <span class="comment">// &#123;a: 1, show: function() &#123;console.log(&#x27;show)&#125;&#125;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Circle2</span> = <span class="keyword">new</span> <span class="title class_">CreateCircle</span>(<span class="number">2</span>); <span class="comment">// &#123;a: 2, show: function() &#123;console.log(&#x27;show)&#125;&#125;</span></span><br><span class="line"><span class="title class_">CreateCircle</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">newkey</span> = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="title class_">CreateCircle</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">getName</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span>, <span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Circle1</span>.<span class="property">newkey</span> <span class="comment">// hello world</span></span><br></pre></td></tr></table></figure>
+<p>whenever a new function created in javascript, javascript engine by default adds a <code>prototype</code> property to it, this property is an object and we call it <code>prototype object</code>. by default this prototype object has a construtor property which points back to our function, and other property <code>__proto__</code>which is an object<br><img src="http://static.zeroyh.cn/WechatIMG1007.png" alt="function prototype"><br><strong>every new constructor such as Circle1, Circle2 will has a <code>__proto__</code> assign to the CreateCircle prototype</strong></p>
+<h3 id="factor-functions"><a href="#factor-functions" class="headerlink" title="factor functions"></a>factor functions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">facotryCreateCircle</span>(<span class="params">a</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        a,</span><br><span class="line">        <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span>, a)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> one = <span class="title function_">facotryCreateCircle</span>(<span class="number">1</span>) <span class="comment">// &#123;a: 1, getName: function(console.log(&#x27;name&#x27;, 1))&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="classes"><a href="#classes" class="headerlink" title="classes"></a>classes</h3><h4 id="define"><a href="#define" class="headerlink" title="define"></a>define</h4><blockquote>
+<p>the classes is smilar to construtor functions. </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CreateCircle</span> &#123;</span><br><span class="line">    <span class="title function_">construtor</span>(<span class="params">a</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">a</span> = a</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span>, <span class="variable language_">this</span>.<span class="property">a</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Circle1</span> = <span class="keyword">new</span> <span class="title class_">CreateCircle</span>(<span class="number">1</span>); <span class="comment">// &#123;a: 1, show: function() &#123;console.log(&#x27;show)&#125;&#125;</span></span><br><span class="line"><span class="title class_">CreateCircle</span>(<span class="number">2</span>) <span class="comment">// TypeError, class constructor function cannot be invoked without &#x27;new&#x27;</span></span><br><span class="line"><span class="title class_">CreateCircle</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">newkey</span> = <span class="string">&quot;hello world&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="classes-need-attention"><a href="#classes-need-attention" class="headerlink" title="classes need attention"></a>classes need attention</h4><ul>
+<li>classes function methods are non-enumerable. in javascript each property of an object has <code>enumberable</code> flag, which define its availability for some operations to be performed on that property.</li>
+<li>if you don’t want to add <code>construtor</code> to class function, default will add a empty <code>constructor() &#123;&#125;</code></li>
+<li>classes function inside code always <code>use strict</code></li>
+<li>classes declarations are not <code>hosited</code> (变量不会提升).</li>
+<li>classes dont’t allow the property value assignments lick constructor functions or object literals.</li>
+</ul>
+<h4 id="classes-feature"><a href="#classes-feature" class="headerlink" title="classes feature"></a>classes feature</h4><h5 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h5><ul>
+<li>constructor is a speical function for classes what represents class itself. when you new a class instance. the constructor is automatically called.</li>
+<li>one classes cannot have more than one constructor</li>
+<li>a constructor can use <code>super</code> keyword to call the constructor of the class its extending from.</li>
+</ul>
+<h5 id="static-methods"><a href="#static-methods" class="headerlink" title="static methods"></a>static methods</h5><ul>
+<li>static methods are functions on class itself. and not on its prototype. unlike the other methods in the class. which are define on its <code>prototype</code></li>
+<li>remember that static method cannot be called from the class instance.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">make, model, color</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">make</span> = make;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">make</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">model</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">getColor</span>(<span class="params">v</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> v.<span class="property">color</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> car = <span class="keyword">new</span> <span class="title class_">Vehicle</span>(<span class="string">&quot;Honda&quot;</span>, <span class="string">&quot;Accord&quot;</span>, <span class="string">&quot;Purple&quot;</span>);</span><br><span class="line"><span class="title class_">Vehicle</span>.<span class="title function_">getColor</span>(car); <span class="comment">// &quot;purple&quot;</span></span><br><span class="line"><span class="comment">// !!!! cannot called car.getColor() !!!!!</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="getter-x2F-setter"><a href="#getter-x2F-setter" class="headerlink" title="getter&#x2F;setter"></a>getter&#x2F;setter</h5><blockquote>
+<p>to get or set property value</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">model</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">model</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_model</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">model</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">_model</span> = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>under the hood, the getter and setter defined on the class <code>prototype</code></li>
+</ul>
+<h5 id="Subclassing"><a href="#Subclassing" class="headerlink" title="Subclassing"></a>Subclassing</h5><blockquote>
+<p>subclassing is a way you can implement inheritance in javascript classes. keyword <code>extends</code> is used to create a child class of a class</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">make, model, color</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">make</span> = make;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">    &#125;</span><br><span class="line">    getName () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">make</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">model</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Vehicle</span> &#123;</span><br><span class="line">    getName () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">make</span> + <span class="string">&quot; &quot;</span> + <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot;in child class&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> car = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;tie&quot;</span>, <span class="string">&quot;huxing&quot;</span>, <span class="string">&quot;red&quot;</span>)</span><br><span class="line">car.<span class="title function_">getName</span>(); <span class="comment">// tie huxing in child class</span></span><br><span class="line"><span class="comment">//=============== or ================</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Vehicle</span> &#123;</span><br><span class="line">    getName () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">super</span>.<span class="title function_">getName</span>() + <span class="string">&quot; called in child class&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> car = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;tie&quot;</span>, <span class="string">&quot;huxing&quot;</span>, <span class="string">&quot;red&quot;</span>)</span><br><span class="line">car.<span class="title function_">getName</span>(); <span class="comment">// tie huxing called in child class</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>reference doc</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.javascriptjanuary.com/blog/es6-classes">es6 class</a><br><a target="_blank" rel="noopener" href="https://medium.com/tech-tajawal/javascript-classes-under-the-hood-6b26d2667677">tajawal</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="clronyeq200098gdk7ys7gqr3" data-title="33-js-factories-classes" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-33-js-settimeout-setinterval" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2019/06/09/33-js-settimeout-setinterval/" class="article-date">
@@ -120,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clrk2yreh000qg8dk2a8ufvhb" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="clronyeq8000s8gdk2rhu37wf" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
       
       
       
@@ -188,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clrk2yre40001g8dkdirh662f" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="clronyepu00018gdk174vdndw" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
       
       
       
@@ -256,7 +341,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clrk2yrec0009g8dk1hah5ecf" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="clronyeq3000b8gdk1b992ghr" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
       
       
       
@@ -320,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clrk2yrei000sg8dkgin45ojy" data-title="33-js-scope" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="clronyeq6000m8gdkcecefe8d" data-title="33-js-scope" class="article-share-link">Teilen</a>
       
       
       
@@ -384,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clrk2yree000eg8dk4057f1pe" data-title="33-js-implicit-coercion-equals" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="clronyeq4000e8gdk2eu9b3mr" data-title="33-js-implicit-coercion-equals" class="article-share-link">Teilen</a>
       
       
       
@@ -488,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clrk2yrek0010g8dk6egh8c21" data-title="33-js-value-types" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="clronyeq9000w8gdk7k4z9rug" data-title="33-js-value-types" class="article-share-link">Teilen</a>
       
       
       
@@ -559,7 +644,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="clrk2yrfc004xg8dkalsg11nx" data-title="if-i-have-500w-money" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="clronyer5004y8gdk1pyv8u7o" data-title="if-i-have-500w-money" class="article-share-link">Teilen</a>
       
       
       
@@ -619,7 +704,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="clrk2yre70002g8dk39q23lo7" data-title="33-js-call-stack" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="clronyepz00048gdk74py7pd0" data-title="33-js-call-stack" class="article-share-link">Teilen</a>
       
       
       
@@ -687,72 +772,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="clrk2yre90004g8dk56vmay2h" data-title="33-js-apply-call-bind" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-33-js-recursion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/05/08/33-js-recursion/" class="article-date">
-  <time class="dt-published" datetime="2019-05-08T03:18:50.000Z" itemprop="datePublished">2019-05-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/05/08/33-js-recursion/">33-js-recursion</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="recursion-递归"><a href="#recursion-递归" class="headerlink" title="recursion(递归)"></a>recursion(递归)</h3><blockquote>
-<p>explain ： recursion is simply when a function calls itself</p>
-</blockquote>
-<h4 id="factorial-example"><a href="#factorial-example" class="headerlink" title="factorial example"></a>factorial example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// this function use recursion</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span> (n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> n * <span class="title function_">factorial</span>(n-<span class="number">1</span>); <span class="comment">// the most important line</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">4</span>) <span class="comment">// 4*3*2*1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// and the compute is</span></span><br><span class="line"><span class="comment">// factorial(4)</span></span><br><span class="line"><span class="comment">//   4 * factorial(3)</span></span><br><span class="line"><span class="comment">//     3 * factorial(2)</span></span><br><span class="line"><span class="comment">//       2 * factorial(1)</span></span><br><span class="line"><span class="comment">//         1</span></span><br><span class="line"><span class="comment">//       resuming previous execution 2 * 1 = 2</span></span><br><span class="line"><span class="comment">//     resuming.. 3 * 2 = 6</span></span><br><span class="line"><span class="comment">//   resuming.. 4 * 6 = 24</span></span><br><span class="line"><span class="comment">// factorial(4) = 24</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="the-three-key-features-of-recursion"><a href="#the-three-key-features-of-recursion" class="headerlink" title="the three key features of recursion"></a>the three key features of recursion</h4><blockquote>
-<p><code>if (something bad happened) &#123; STOP &#125;</code> this is the safe condition. otherwise will error happen<br>   such as the factorial <code>if (n&lt; 0) &#123; return &#125;</code> just stop the unbelieveble loop </p>
-</blockquote>
-<hr>
-<blockquote>
-<p><code>if (this happens) &#123; yay! you should done &#125;l</code> this is the done the loop.<br>  such as the factorial <code>if (n===1) &#123; return &#125;</code> just stop the loop</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><code>return n * factorial(n-1)</code> is the recursion!!!</p>
-</blockquote>
-<h3 id="tail-calls-尾调用"><a href="#tail-calls-尾调用" class="headerlink" title="tail calls(尾调用)"></a>tail calls(尾调用)</h3><blockquote>
-<p>the tail calls is <code>function f(x) &#123; return g(x) &#125;</code> not <code>function f(x) &#123; return g(x) + 1 &#125;</code>. means return a function and don’t need compute again</p>
-</blockquote>
-<h4 id="factorial-example-1"><a href="#factorial-example-1" class="headerlink" title="factorial example"></a>factorial example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n, res</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">factorial</span>(n-<span class="number">1</span>, res * n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">4</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// and the compute is</span></span><br><span class="line"><span class="comment">// factorial(4, 1)</span></span><br><span class="line"><span class="comment">//   innter anonymous function (iaf) get called with (n=4, res=1)</span></span><br><span class="line"><span class="comment">//   iaf(3, 3*4)</span></span><br><span class="line"><span class="comment">//     iaf(2, 2*12)</span></span><br><span class="line"><span class="comment">//       iaf(1, 24)</span></span><br><span class="line"><span class="comment">//         24</span></span><br><span class="line"><span class="comment">//       24</span></span><br><span class="line"><span class="comment">//     24</span></span><br><span class="line"><span class="comment">// factorial(4, 1) = 24</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>summarize : the tail call is better than recursion, in v8 can spend less time</p>
-</blockquote>
-<p><img src="http://static.zeroyh.cn/33-WechatIMG734.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="clrk2yreh000og8dk6hgj1nxa" data-title="33-js-recursion" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="clronyepx00028gdkdbn0ht4e" data-title="33-js-apply-call-bind" class="article-share-link">Teilen</a>
       
       
       
@@ -784,7 +804,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -794,7 +814,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
@@ -816,6 +836,10 @@
       <ul>
         
           <li>
+            <a href="/2024/01/22/shell-cron-check-process/">shell-cron-check-process</a>
+          </li>
+        
+          <li>
             <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
           </li>
         
@@ -829,10 +853,6 @@
         
           <li>
             <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
       </ul>

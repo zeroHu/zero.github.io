@@ -75,6 +75,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-download-img" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/11/29/download-img/" class="article-date">
+  <time class="dt-published" datetime="2017-11-29T03:47:48.000Z" itemprop="datePublished">2017-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/11/29/download-img/">download-img (下载canvas画出的base64格式图片)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="主要讲解用js下载文件或者图片"><a href="#主要讲解用js下载文件或者图片" class="headerlink" title="主要讲解用js下载文件或者图片"></a>主要讲解用js下载文件或者图片</h4><blockquote>
+<p>起因：因工作需要，用canvas画出了一张图片，图片格式是（base64)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//base64图片转为blob文件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dataURLtoBlob</span>(<span class="params">dataurl</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = dataurl.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>), mime = arr[<span class="number">0</span>].<span class="title function_">match</span>(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>],</span><br><span class="line">        bstr = <span class="title function_">atob</span>(arr[<span class="number">1</span>]), n = bstr.<span class="property">length</span>, u8arr = <span class="keyword">new</span> <span class="title class_">Uint8Array</span>(n);</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        u8arr[n] = bstr.<span class="title function_">charCodeAt</span>(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Blob</span>([u8arr], &#123; <span class="attr">type</span>: mime &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//**blob to dataURL**</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">blobToDataURL</span>(<span class="params">blob, callback</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">FileReader</span>();</span><br><span class="line">    a.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params">e</span>) &#123; <span class="title function_">callback</span>(e.<span class="property">target</span>.<span class="property">result</span>); &#125;;</span><br><span class="line">    a.<span class="title function_">readAsDataURL</span>(blob);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成</span></span><br><span class="line"><span class="keyword">var</span> _file = <span class="title function_">dataURLtoBlob</span>(imgbase64); <span class="comment">// c就是base64字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Blob_test();</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">BlobDownload</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> blob;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="variable language_">window</span>.<span class="property">Blob</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;不支持&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        blob = _file;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;------------&gt;&#x27;</span>,<span class="variable language_">window</span>.<span class="property">URL</span>.<span class="title function_">createObjectURL</span>(blob));</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable language_">window</span>.<span class="property">URL</span>)&#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;download-btn&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;a download=&quot;invitationCard.jpg&quot; href=&quot;&#x27;</span> + <span class="variable language_">window</span>.<span class="property">URL</span>.<span class="title function_">createObjectURL</span>(blob) + <span class="string">&#x27;&quot; target=&quot;_blank&quot;&gt;下载邀请函图片&lt;/a&gt;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">BlobDownload</span>();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/11/29/download-img/" data-id="clronyeqj00208gdk5ipngfmk" data-title="download-img (下载canvas画出的base64格式图片)" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-nginx-vue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2017/11/24/nginx-vue/" class="article-date">
@@ -135,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/11/24/nginx-vue/" data-id="clrk2yrf8004dg8dk89l01fey" data-title="vue-nginx" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/11/24/nginx-vue/" data-id="clronyer1004e8gdkdorrgvu8" data-title="vue-nginx" class="article-share-link">Teilen</a>
       
       
       
@@ -176,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/11/13/common-use/" data-id="clrk2yrel0017g8dkfd6zfuhk" data-title="common-use" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/11/13/common-use/" data-id="clronyeqa00128gdk7zqkclto" data-title="common-use" class="article-share-link">Teilen</a>
       
       
       
@@ -277,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/10/19/33-js-object-prototype-chain/" data-id="clrk2yref000ig8dk9lc607b0" data-title="33-js-object-prototype-chain" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/10/19/33-js-object-prototype-chain/" data-id="clronyeq6000k8gdk1qsn1tlh" data-title="33-js-object-prototype-chain" class="article-share-link">Teilen</a>
       
       
       
@@ -362,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/10/10/js-code/" data-id="clrk2yrf0003ag8dkelju5llf" data-title="JavaScript algorithm" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/10/10/js-code/" data-id="clronyeqs003b8gdkgjov23q5" data-title="JavaScript algorithm" class="article-share-link">Teilen</a>
       
       
       
@@ -403,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/28/nginx-express/" data-id="clrk2yrf70048g8dk1q268phs" data-title="nginx-express" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/28/nginx-express/" data-id="clronyeqz00478gdkhdckbp7w" data-title="nginx-express" class="article-share-link">Teilen</a>
       
       
       
@@ -445,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/13/gulp/" data-id="clrk2yrey0030g8dk22nvc33s" data-title="gulp" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/13/gulp/" data-id="clronyeqq002z8gdk8o29gncb" data-title="gulp" class="article-share-link">Teilen</a>
       
       
       
@@ -540,7 +583,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/12/js-heigh-pf/" data-id="clrk2yrf3003og8dk0089b7bg" data-title="高性能javascript" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/12/js-heigh-pf/" data-id="clronyeqv003q8gdk2yd0929l" data-title="高性能javascript" class="article-share-link">Teilen</a>
       
       
       
@@ -650,7 +693,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/12/js-full-stack-js-webdlp/" data-id="clrk2yrf2003kg8dkgv5o6fep" data-title="fullStackJavascriptWebDevelopment(全栈知识点)" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/12/js-full-stack-js-webdlp/" data-id="clronyequ003j8gdk5lzz8p3q" data-title="fullStackJavascriptWebDevelopment(全栈知识点)" class="article-share-link">Teilen</a>
       
       
       
@@ -789,74 +832,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/07/css-flex/" data-id="clrk2yreo001jg8dkh3iq2uyg" data-title="css-flex" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/07/css-flex/" data-id="clronyeqd001f8gdk45af376f" data-title="css-flex" class="article-share-link">Teilen</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-xml-httpRequest-fetch" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/08/21/xml-httpRequest-fetch/" class="article-date">
-  <time class="dt-published" datetime="2017-08-21T07:07:59.000Z" itemprop="datePublished">2017-08-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/08/21/xml-httpRequest-fetch/">fetch</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><blockquote>
-<p>fetch 规范与 jQuery.ajax() 主要有两种方式的不同</p>
-</blockquote>
-<ul>
-<li>从 fetch()返回的 Promise 将不会拒绝HTTP错误状态, 即使响应是一个 HTTP 404 或 500。相反，它会正常解决 (其中ok状态设置为false),  并且仅在网络故障时或任何阻止请求完成时，它才会拒绝。</li>
-<li>默认情况下, fetch在服务端不会发送或接收任何 cookies, 如果站点依赖于维护一个用户会话，则导致未经认证的请求(要发送 cookies，必须发送凭据头)</li>
-</ul>
-<blockquote>
-<p>普通fetch get img 请求</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myImage = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;img&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;flowers.jpg&#x27;</span>)</span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">blob</span>();</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">myBlob</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> objectURL = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(myBlob);</span><br><span class="line">    myImage.<span class="property">src</span> = objectURL;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>普通参数get请求</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;/api/website/banners/&#x27;</span>).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;</span><br><span class="line">    response.<span class="title function_">json</span>().<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">data</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;err===&gt;&quot;</span>,err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>fetch 也可以接受第二个参数</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myHeaders = <span class="keyword">new</span> <span class="title class_">Headers</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myInit = &#123; <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">               <span class="attr">headers</span>: myHeaders,</span><br><span class="line">               <span class="attr">mode</span>: <span class="string">&#x27;cors&#x27;</span>,</span><br><span class="line">               <span class="attr">cache</span>: <span class="string">&#x27;default&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;flowers.jpg&#x27;</span>,myInit)</span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> response.<span class="title function_">blob</span>();</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">myBlob</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> objectURL = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(myBlob);</span><br><span class="line">  myImage.<span class="property">src</span> = objectURL;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>fetch post请求</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> <span class="title class_">FormData</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;login-form&#x27;</span>));</span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&quot;/login&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&quot;POST&quot;</span>,</span><br><span class="line">  <span class="attr">body</span>: form</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/21/xml-httpRequest-fetch/" data-id="clrk2yrfm005xg8dkh6n03zeq" data-title="fetch" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li></ul>
 
     </footer>
   </div>
@@ -884,7 +864,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -894,7 +874,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
@@ -916,6 +896,10 @@
       <ul>
         
           <li>
+            <a href="/2024/01/22/shell-cron-check-process/">shell-cron-check-process</a>
+          </li>
+        
+          <li>
             <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
           </li>
         
@@ -929,10 +913,6 @@
         
           <li>
             <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/21/encryption/">encryption</a>
           </li>
         
       </ul>
