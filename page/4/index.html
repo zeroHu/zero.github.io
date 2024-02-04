@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,74 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-33-js-apply-call-bind" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/09/33-js-apply-call-bind/" class="article-date">
+  <time class="dt-published" datetime="2019-05-09T08:44:04.000Z" itemprop="datePublished">2019-05-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/05/09/33-js-apply-call-bind/">33-js-apply-call-bind</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="how-to-use-apply-call-bind"><a href="#how-to-use-apply-call-bind" class="headerlink" title="how to use apply, call, bind"></a>how to use apply, call, bind</h3><blockquote>
+<p>when I want to write this blog, I feel so sad, because I know how to use, but I cannot not explain why so? and involving this and prototype …</p>
+</blockquote>
+<h4 id="how-to-use-call-or-Function-prototype-call"><a href="#how-to-use-call-or-Function-prototype-call" class="headerlink" title="how to use call or Function.prototype.call"></a>how to use <code>call</code> or <code>Function.prototype.call</code></h4><blockquote>
+<p>fun.call(thisArg, arg1, arg2, arg3…) &#x2F;&#x2F; thisArg is the fun function execute this point, if not sent thisArg or null || undefined then the this will be point global.this</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">findVal</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if you want the findVal function show 1, how should you do ? </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(findVal.<span class="title function_">call</span>(obj, <span class="number">1</span>, <span class="number">2</span>)) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="how-to-use-apply-or-Function-prototype-apply"><a href="#how-to-use-apply-or-Function-prototype-apply" class="headerlink" title="how to use apply or Function.prototype.apply"></a>how to use <code>apply</code> or <code>Function.prototype.apply</code></h4><blockquote>
+<p>function.apply(thisArg, [argArray]), and the apply is similar call, just change the arg1, arg2, … to argArray</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">findVal</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if you want the findVal function show 1, how should you do ? </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(findVal.<span class="title function_">apply</span>(obj, [<span class="number">1</span>,<span class="number">2</span>])) <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="how-to-use-bind-or-Function-prototype-bind"><a href="#how-to-use-bind-or-Function-prototype-bind" class="headerlink" title="how to use bind or Function.prototype.bind"></a>how to use <code>bind</code> or <code>Function.prototype.bind</code></h4><blockquote>
+<p>function.bind(thisArg, arg1, arg2, arg3)<br>  <code>bind</code> create a new function return that, when called, has its <code>this</code> keyward set to the provided value</p>
+</blockquote>
+<p><strong>simple example</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">findVal</span>: <span class="keyword">function</span>(<span class="params">m, n</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + m</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// now we can think about if we execute obj.findVal() what you expect the end ? is 1?</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="title function_">findVal</span>()) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> showVal = obj.<span class="property">findVal</span>;</span><br><span class="line"><span class="comment">// now you can once again think about the answer , is also 1?</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">showVal</span>()); <span class="comment">// undefined </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// how should we make the showVal function is correct ? </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// now !!! we can use bind. bind can make the showVal functions this point obj</span></span><br><span class="line"><span class="keyword">var</span> showValBind = obj.<span class="property">findVal</span>.<span class="title function_">bind</span>(obj, <span class="number">20</span>, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">showValBind</span>()); <span class="comment">// 51</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// bind functions can execute twice now we can use bind do more</span></span><br><span class="line"> <span class="keyword">var</span> showValBind2 = obj.<span class="property">findVal</span>.<span class="title function_">bind</span>(obj, <span class="number">20</span>);</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">showValBind2</span>(<span class="number">30</span>)); <span class="comment">// 51 </span></span><br><span class="line"><span class="comment">//  now you know bind can separate the arguments just like function(arg1)(arg2)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="how-to-similate-a-function-bind"><a href="#how-to-similate-a-function-bind" class="headerlink" title="how to similate a function bind"></a>how to similate a function bind</h3><h4 id="similate-bind"><a href="#similate-bind" class="headerlink" title="similate bind"></a>similate bind</h4><blockquote>
+<p>from how to use bind we know bind features is can back a function and recive arguments.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// we can use apply to similate bind solve the `this` point</span></span><br><span class="line"><span class="comment">// now if we chat use simBind realize the top `showValBind2` return value. what should we write for the simBind ?</span></span><br><span class="line"><span class="comment">// first time</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">simBind</span> = <span class="keyword">function</span>(<span class="params">context</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">apply</span>(context)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// now test </span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">32</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="title function_">simBind</span>(obj)()); <span class="comment">// yes !!! we can get a 32</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// second time to solve the first time function cannot introduct arguments</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">simBind</span> = <span class="keyword">function</span>(<span class="params">context</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">let</span> arg1 = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> argArray = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">apply</span>(<span class="variable language_">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">apply</span>(context, arg1.<span class="title function_">concat</span>(argArray))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">n1, n2</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + n1 + n2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="title function_">simBind</span>(obj, <span class="number">11</span>)(<span class="number">12</span>)); <span class="comment">// yes !!! we can get a 55</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="title function_">simBind</span>(obj, <span class="number">11</span>, <span class="number">12</span>)()); <span class="comment">// yes !!! we can get a 55</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// now we should deal the new function `this` point </span></span><br><span class="line"><span class="comment">// in the bind function when we new is `this` is not ponit the thisArg.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span> (name, age) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">habit</span> = <span class="string">&#x27;sleep&#x27;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">value</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(name)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">friend</span> = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// =====bind resulte====</span></span><br><span class="line"><span class="keyword">var</span> bindFoo = bar.<span class="title function_">bind</span>(foo, <span class="string">&#x27;myname&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title function_">bindFoo</span>(<span class="number">12</span>);</span><br><span class="line"><span class="comment">// now `this` is point obj so  console.log(this.value) is undefined</span></span><br><span class="line"><span class="comment">// myname</span></span><br><span class="line"><span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">habit</span>) <span class="comment">// sleep</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">friend</span>) <span class="comment">// zero</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// =====simBind resulte====</span></span><br><span class="line"><span class="keyword">var</span> simbindFoo = bar.<span class="title function_">simBind</span>(foo, <span class="string">&#x27;myname&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="title function_">simbindFoo</span>(<span class="number">12</span>); <span class="comment">// this is also point simbindFoo</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// myname</span></span><br><span class="line"><span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">habit</span>) <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">friend</span>) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// and now the bind is different with my simBind is new Function `this` point is not a same object</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// thrid time</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">simBind</span> = <span class="keyword">function</span>(<span class="params">context</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">let</span> arg1 = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> fonp = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> found =  <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> argArray = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">apply</span>(<span class="variable language_">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">apply</span>(<span class="variable language_">this</span> <span class="keyword">instanceof</span> fonp ? <span class="variable language_">this</span> : context, arg1.<span class="title function_">concat</span>(argArray))</span><br><span class="line">  &#125;</span><br><span class="line">  fonp.<span class="property"><span class="keyword">prototype</span></span> = <span class="variable language_">this</span>.<span class="property"><span class="keyword">prototype</span></span>;</span><br><span class="line">  found.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title function_">fonp</span>();</span><br><span class="line">  <span class="keyword">return</span> found;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// end the simBind.....</span></span><br></pre></td></tr></table></figure>
+
+<p>** refrence doc **</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call">MDN call</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">MDN apply</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">MDN bind</a><br><a target="_blank" rel="noopener" href="https://medium.com/@ivansifrim/the-differences-between-call-apply-bind-276724bb825b">lvan sifrim</a><br><a target="_blank" rel="noopener" href="https://www.codementor.io/niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp">niladri sekhar dutta</a><br><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/11">mqyqingfeng</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/09/33-js-apply-call-bind/" data-id="cls6ugy0a0004igdkbkxa1rek" data-title="33-js-apply-call-bind" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-33-js-recursion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -126,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="clronyeq7000q8gdk6y509q3z" data-title="33-js-recursion" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/08/33-js-recursion/" data-id="cls6ugy0q000pigdkdt4t35ov" data-title="33-js-recursion" class="article-share-link">Share</a>
       
       
       
@@ -190,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="clronyeqk00258gdk7mre1c9y" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/07/es6-array-methods/" data-id="cls6ugy14002digdk1cvpcsnk" data-title="Why and when to use forEach, map, filter, reduce, and find in JavaScript" class="article-share-link">Share</a>
       
       
       
@@ -263,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="clronyeqc001c8gdkcbcjaecj" data-title="compound-rate" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/05/06/compound-rate/" data-id="cls6ugy0w001digdkhy369brm" data-title="compound-rate" class="article-share-link">Share</a>
       
       
       
@@ -306,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="clronyer3004m8gdk21u5cr5i" data-title="product-manager-operation" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/04/30/product-manager-operation/" data-id="cls6ugy1m004pigdkbvri484e" data-title="product-manager-operation" class="article-share-link">Share</a>
       
       
       
@@ -360,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="clronyer700558gdkeol86ddj" data-title="高效习惯" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/04/28/thoughts-read-book/" data-id="cls6ugy1p0058igdk19lq15ar" data-title="高效习惯" class="article-share-link">Share</a>
       
       
       
@@ -406,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/04/20/js-base/" data-id="clronyeqr00368gdk8s726j0t" data-title="js-base" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/04/20/js-base/" data-id="cls6ugy1b0039igdk1c55clsu" data-title="js-base" class="article-share-link">Share</a>
       
       
       
@@ -469,7 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/03/05/tools-frp/" data-id="clronyer800588gdkf6zi5i14" data-title="frp-tools" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/03/05/tools-frp/" data-id="cls6ugy1q005bigdkhi7r2lg3" data-title="frp-tools" class="article-share-link">Share</a>
       
       
       
@@ -519,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="clronyeqv003n8gdk6eqd48e8" data-title="js-message-carousel" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="cls6ugy1f003vigdk4gxyf0lg" data-title="js-message-carousel" class="article-share-link">Share</a>
       
       
       
@@ -561,7 +629,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="clronyer2004j8gdk8a8tfd1r" data-title="self introduction" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="cls6ugy1l004migdkfo6w38xx" data-title="self introduction" class="article-share-link">Share</a>
       
       
       
@@ -575,58 +643,11 @@
 
 
   
-    <article id="post-css-progress" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/01/11/css-progress/" class="article-date">
-  <time class="dt-published" datetime="2019-01-11T03:32:29.000Z" itemprop="datePublished">2019-01-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/01/11/css-progress/">css-progress</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="css-展示顶部页面下拉进度条"><a href="#css-展示顶部页面下拉进度条" class="headerlink" title="css 展示顶部页面下拉进度条"></a>css 展示顶部页面下拉进度条</h3><blockquote>
-<p>前言： 阮一峰老师的博客就有顶部一条展示页面高度的进度条。。。（如何得知用户当前滚动页面的距离并且通知顶部进度条）当时略有好奇，但是没研究。今日偶然看见一片好文。。。觉得有必要记录下来。对！！！我只是代码的搬运工~ 非我的观点 也非我的思路</p>
-</blockquote>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案，我是一个非常长的文案。</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right top, <span class="number">#ffcc00</span> <span class="number">50%</span>, <span class="number">#eee</span> <span class="number">50%</span>);</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">100vh</span> + <span class="number">5px</span>); // css 线条的高度</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/11/css-progress/" data-id="clronyeqi001v8gdk6p441xch" data-title="css-progress" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -640,7 +661,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -650,16 +671,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -667,9 +688,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/02/02/auth-code/">auth-code</a>
+          </li>
         
           <li>
             <a href="/2024/01/22/shell-cron-check-process/">shell-cron-check-process</a>
@@ -685,10 +710,6 @@
         
           <li>
             <a href="/2023/03/03/fs/">fs</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/27/merge-multiple-csv-or-xlsx/">merge-multiple-csv-or-xlsx</a>
           </li>
         
       </ul>
