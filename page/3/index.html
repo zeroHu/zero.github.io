@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,61 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-33-js-pure-function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/06/12/33-js-pure-function/" class="article-date">
+  <time class="dt-published" datetime="2019-06-12T08:51:42.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/06/12/33-js-pure-function/">33-js-pure-function</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="what-is-a-function"><a href="#what-is-a-function" class="headerlink" title="what is a function"></a>what is a function</h3><blockquote>
+<p>a function is a process which takes some input, called arguments, and produces some output called a return value. functions may serve the following purposes:</p>
+</blockquote>
+<ul>
+<li>mapping: produce some output based on given inputs. a function maps input values to output values.</li>
+<li>procedures: a function may be called  to perform a sequence of steps. the sequence is known as a procedure, and programming in this style is known as procedural programming.</li>
+<li>I&#x2F;O: some functions exist to communicate with other parts of the system, such as the screen, storage, system logs, or network.</li>
+</ul>
+<h3 id="pure-functions-are-all-about-mapping"><a href="#pure-functions-are-all-about-mapping" class="headerlink" title="pure functions are all about mapping"></a>pure functions are all about mapping</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">2</span>,<span class="number">1</span>,<span class="number">10</span>,<span class="number">20</span>) <span class="comment">// 20</span></span><br><span class="line"><span class="comment">// in this example, 2, 1, 10, 20 are arguments. they&#x27;re values passed into the function</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="pure-function"><a href="#pure-function" class="headerlink" title="pure function"></a>pure function</h3><ul>
+<li>一个函数的返回结果只依赖于它的参数</li>
+<li>在执行过程中里面没有副作用（表示不会更改外面的数据）</li>
+<li>优点： 纯函数可靠性高，可读性高，bug率少。input一样的情况下output永远一样<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 是纯函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">x, y</span>) =&gt; x+y</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">compute</span> = x =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br><span class="line">  <span class="keyword">return</span> x + obj.<span class="property">a</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不是纯函数</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">x</span>) =&gt; a + x <span class="comment">// 依赖了a</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">compute</span> = (<span class="params">x, obj</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> x + obj.<span class="property">a</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">compute</span>(<span class="number">1</span>, &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;) </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/06/12/33-js-pure-function/" data-id="cls77hfbt000mg4dk0crg217q" data-title="33-js-pure-function" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-33-js-object-create-assign" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -127,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="cls6ugy0n000higdk7eklh574" data-title="33-js-object-create-assign" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/11/33-js-object-create-assign/" data-id="cls77hfbr000gg4dkcllk9je9" data-title="33-js-object-create-assign" class="article-share-link">Teilen</a>
       
       
       
@@ -212,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="cls6ugy0m000figdkh2a5fm44" data-title="33-js-factories-classes" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/10/33-js-factories-classes/" data-id="cls77hfbq000eg4dk28ic27u4" data-title="33-js-factories-classes" class="article-share-link">Teilen</a>
       
       
       
@@ -271,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="cls6ugy0s000tigdkbp9z09oa" data-title="33-js-setTimeout-setInterval" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-settimeout-setinterval/" data-id="cls77hfbu000sg4dkha8b9cfz" data-title="33-js-setTimeout-setInterval" class="article-share-link">Teilen</a>
       
       
       
@@ -339,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="cls6ugxzy0000igdk3xhidagw" data-title="33-js-iife-module-namespace" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-IIFE-module-namespace/" data-id="cls77hfbh0001g4dkeho81c40" data-title="33-js-iife-module-namespace" class="article-share-link">Teilen</a>
       
       
       
@@ -407,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="cls6ugy0l000eigdkc7uycvnr" data-title="33-js-expression-statement" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/09/33-js-expression-statement/" data-id="cls77hfbq000bg4dk4whnf1lx" data-title="33-js-expression-statement" class="article-share-link">Teilen</a>
       
       
       
@@ -471,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="cls6ugy0s000vigdk1m2l3ehf" data-title="33-js-scope" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/04/33-js-scope/" data-id="cls77hfbu000qg4dk16eagr3j" data-title="33-js-scope" class="article-share-link">Teilen</a>
       
       
       
@@ -535,7 +590,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="cls6ugy0o000jigdkb691f4uf" data-title="33-js-implicit-coercion-equals" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/06/04/33-js-implicit-coercion-equals/" data-id="cls77hfbp0009g4dk1wrs1hrd" data-title="33-js-implicit-coercion-equals" class="article-share-link">Teilen</a>
       
       
       
@@ -639,7 +694,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="cls6ugy0t000zigdkcat05wcb" data-title="33-js-value-types" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/29/33-js-value-types/" data-id="cls77hfbv000wg4dkbz1od26y" data-title="33-js-value-types" class="article-share-link">Teilen</a>
       
       
       
@@ -710,7 +765,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="cls6ugy1p0054igdk0rfsb31c" data-title="if-i-have-500w-money" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/05/23/thoughts-if-you-have-500w-money/" data-id="cls77hfcy0058g4dkhvgs4q58" data-title="if-i-have-500w-money" class="article-share-link">Teilen</a>
       
       
       
@@ -724,71 +779,11 @@
 
 
   
-    <article id="post-33-js-call-stack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2019/05/14/33-js-call-stack/" class="article-date">
-  <time class="dt-published" datetime="2019-05-14T09:03:27.000Z" itemprop="datePublished">2019-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2019/05/14/33-js-call-stack/">33-js-call-stack</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="call-stack"><a href="#call-stack" class="headerlink" title="call stack"></a>call stack</h3><p><strong>what is call stack</strong><br>a call stack is a data structure that uses the last in, first out(IIFO) principle to temporarily store and manage function invocatin (call).</p>
-<blockquote>
-<p>call stack is tell us how is the function call, and just like a interpreter for mechanism. the order of function and what time is the function call , and what time is the function out.</p>
-</blockquote>
-<h4 id="why-js-is-a-single-threaded-single-concurrent-language"><a href="#why-js-is-a-single-threaded-single-concurrent-language" class="headerlink" title="why js is a single threaded single concurrent language"></a>why js is a single threaded single concurrent language</h4><blockquote>
-<p>as we know that javascript is a single threaded single concurrent language. but what’s mean??? that means at a time js only can deal one task or a a piece of code. it has a single call stack which along with other parts like heap, queue constitutes the javascript concurrency modal.</p>
-</blockquote>
-<p><img src="http://static.zeroyh.cn/1_ZSFHnq9iMHIApVLcgwczPQ.png"></p>
-<h4 id="just-to-know-how-is-js-code-run"><a href="#just-to-know-how-is-js-code-run" class="headerlink" title="just to know how is js code run"></a>just to know how is js code run</h4><ul>
-<li>when a script calls a function, the interpreter adds it to the call stack.</li>
-<li>any function called by that function added to the call stack further up. and run anywhere their calls are reached.</li>
-<li>when the current function is finished. the interpreter takes it off the stack.</li>
-<li>if the stack takes more space than it had assigned, it results in a error “stack overflow”.</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;foo is start&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">bar</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;bar is start&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">foo</span>());</span><br><span class="line"><span class="comment">// what&#x27;s  the js running ? let me show you the call stack.</span></span><br><span class="line"><span class="comment">// 1. first when we run console.log(foo()); now the call stack will push the console.log(foo());</span></span><br><span class="line"><span class="comment">// 2. when foo() called, now call stack will push the foo()</span></span><br><span class="line"><span class="comment">// 3. then the foo called then return bar(), now call stack will push the bar()</span></span><br><span class="line"><span class="comment">// 4. now called bar, and run the `console.log(&#x27;bar is start`) then the bar is pop off the call stack.</span></span><br><span class="line"><span class="comment">// 5. then the foo is pop off the call back</span></span><br><span class="line"><span class="comment">// 6. then the `console.log(foo())` is pop off the call stack</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://static.zeroyh.cn/1_E3zTWtEOiDWw7d0n7Vp-mA.gif" alt="the foo and bar run gif"><br><img src="http://static.zeroyh.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-22%20%E4%B8%8B%E5%8D%8810.03.00.png" alt="the error show the call stack"></p>
-<p><strong>refrence doc</strong></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Call_stack">MDN</a><br><a target="_blank" rel="noopener" href="https://medium.com/@gaurav.pandvia/understanding-javascript-function-executions-tasks-event-loop-call-stack-more-part-1-5683dea1f5ec">Gaurav Pandvia</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8aGhZQkoFbQ&list=PL4SfyCkRAwT7LQmbaxcVWRTaQITtCCAwZ">Vedio Philip Roberts</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/05/14/33-js-call-stack/" data-id="cls6ugy060002igdk3xd1bgtf" data-title="33-js-call-stack" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -802,7 +797,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -812,14 +807,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
@@ -829,9 +824,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/02/04/jwt/">jwt</a>
+          </li>
         
           <li>
             <a href="/2024/02/02/auth-code/">auth-code</a>
@@ -847,10 +846,6 @@
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/03/fs/">fs</a>
           </li>
         
       </ul>

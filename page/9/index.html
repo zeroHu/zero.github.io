@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,116 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-js-full-stack-js-webdlp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/09/12/js-full-stack-js-webdlp/" class="article-date">
+  <time class="dt-published" datetime="2017-09-12T03:54:35.000Z" itemprop="datePublished">2017-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/09/12/js-full-stack-js-webdlp/">fullStackJavascriptWebDevelopment(全栈知识点)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="全栈掌握知识点自理"><a href="#全栈掌握知识点自理" class="headerlink" title="全栈掌握知识点自理"></a>全栈掌握知识点自理</h3><h4 id="知识点梳理"><a href="#知识点梳理" class="headerlink" title="知识点梳理"></a>知识点梳理</h4><p><img src="http://static.zeroyh.cn/full-stack-1.jpg" alt="图片"></p>
+<h4 id="什么是全栈开发"><a href="#什么是全栈开发" class="headerlink" title="什么是全栈开发"></a>什么是全栈开发</h4><ul>
+<li>Web网站的构成<ul>
+<li>服务器 &#x2F; 网络和服务器环境</li>
+<li>数据建模</li>
+<li>业务逻辑&#x2F;展示逻辑</li>
+<li>API层 &#x2F; Action &#x2F; MVC</li>
+<li>UI &#x2F; 用户体验</li>
+<li>产品需求</li>
+</ul>
+</li>
+<li>掌握多种技能，并能利用多种技能独立完成产品的人</li>
+<li>如果聪明的人用脑用心，就能在更短的时间内构件更好的产品</li>
+<li>了解的技术细节越多, 开发的产品就越好<ul>
+<li>整体流程人性化</li>
+<li>减少逻辑冗余</li>
+<li>减少奇怪丑陋的代码</li>
+</ul>
+</li>
+</ul>
+<h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><ul>
+<li>模块化<ul>
+<li>CommonJS &#x2F; AMD</li>
+<li>RequireJS</li>
+</ul>
+</li>
+<li>基础库<ul>
+<li>Underscore &#x2F; Lodash</li>
+<li>jQuery</li>
+<li>Async &#x2F; EventProxy</li>
+</ul>
+</li>
+<li>模板引擎<ul>
+<li>Mustache &#x2F; Hogan &#x2F; Handlerbars &#x2F; HTMLBars</li>
+<li>React</li>
+<li>Vue</li>
+<li>Angular</li>
+</ul>
+</li>
+<li>模板引擎开发环境构建<ul>
+<li>Grunt &#x2F; Glup &#x2F; Webpack</li>
+<li>cssmin &#x2F; UglifyJS &#x2F; r.js &#x2F; Templates</li>
+<li>Watch &#x2F; Nodemon &#x2F; Livereload</li>
+<li>csshint  &#x2F; jshint</li>
+<li>Mocha &#x2F; supertest &#x2F; Karma &#x2F; PhantomJS</li>
+<li>Bower &#x2F; Browserify</li>
+</ul>
+</li>
+<li>概念<ul>
+<li>ECMAScript &#x2F; ES5 &#x2F; ES2015(ES6) &#x2F;ES2016(ES7)</li>
+<li>面向对象 &#x2F; 原型 &#x2F; 原型链 &#x2F; 作用域</li>
+<li>函数式语言 &#x2F; 匿名函数 &#x2F; 闭包</li>
+<li>动态类型 &#x2F; 延迟绑定 &#x2F; 弱类型</li>
+<li>深度回调 &#x2F; 异步循环 &#x2F; 事件脱耦</li>
+<li>响应式 &#x2F; Restful API &#x2F; OAuth &#x2F; SPA</li>
+<li>MVC &#x2F; MVP &#x2F; MVVM</li>
+</ul>
+</li>
+</ul>
+<h4 id="express-hbs-项目初始化"><a href="#express-hbs-项目初始化" class="headerlink" title="express-hbs 项目初始化"></a>express-hbs 项目初始化</h4><ul>
+<li>node环境安装</li>
+<li>express-generator组件安装</li>
+<li>搭建一个Express服务<ul>
+<li>express –hbs –css sass –git full_stack_web_framework_training</li>
+<li>cd full_stack_web_framework_training</li>
+<li>npm install</li>
+<li>npm start</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/09/12/js-full-stack-js-webdlp/" data-id="cls77hfcn003og4dk96lrcyk4" data-title="fullStackJavascriptWebDevelopment(全栈知识点)" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-css-flex" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -200,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/07/css-flex/" data-id="cls6ugy0y001jigdk9xk9doo9" data-title="css-flex" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/09/07/css-flex/" data-id="cls77hfc8001ng4dkcf1y64zf" data-title="css-flex" class="article-share-link">Teilen</a>
       
       
       
@@ -263,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/21/xml-httpRequest-fetch/" data-id="cls6ugy1u005xigdkeknl3dhx" data-title="fetch" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/08/21/xml-httpRequest-fetch/" data-id="cls77hfd30061g4dk202466vm" data-title="fetch" class="article-share-link">Teilen</a>
       
       
       
@@ -348,7 +458,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/18/xml-httpRequest-ajax-detail/" data-id="cls6ugy1v005zigdk2ovp7re5" data-title="ajax 请求参数详情，cache 理解" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/08/18/xml-httpRequest-ajax-detail/" data-id="cls77hfd2005wg4dkhu0c5owe" data-title="ajax 请求参数详情，cache 理解" class="article-share-link">Teilen</a>
       
       
       
@@ -422,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/18/xml-httpRequest/" data-id="cls6ugy1u005vigdk4onk84k4" data-title="XMLHttpRequest" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/08/18/xml-httpRequest/" data-id="cls77hfd30063g4dk9eumfx7d" data-title="XMLHttpRequest" class="article-share-link">Teilen</a>
       
       
       
@@ -500,7 +610,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/02/css-box-shadow/" data-id="cls6ugy0w001cigdk65w93e05" data-title="css-box-shadow" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/08/02/css-box-shadow/" data-id="cls77hfc6001ig4dk9qi2e53i" data-title="css-box-shadow" class="article-share-link">Teilen</a>
       
       
       
@@ -570,7 +680,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/01/css-layout/" data-id="cls6ugy10001tigdk3w2j6r70" data-title="css-layout (css布局)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/08/01/css-layout/" data-id="cls77hfca001vg4dkbdbr23ja" data-title="css-layout (css布局)" class="article-share-link">Teilen</a>
       
       
       
@@ -616,7 +726,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/07/31/js-table2excel/" data-id="cls6ugy1g003zigdkcrc69wmv" data-title="table2excel table 转为excel js处理" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/07/31/js-table2excel/" data-id="cls77hfcp0040g4dk5v7m37vr" data-title="table2excel table 转为excel js处理" class="article-share-link">Teilen</a>
       
       
       
@@ -662,7 +772,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/07/31/js-copy/" data-id="cls6ugy1b003bigdke65d625p" data-title="js-copy" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/07/31/js-copy/" data-id="cls77hfcl003eg4dk1c3n6v2u" data-title="js-copy" class="article-share-link">Teilen</a>
       
       
       
@@ -702,7 +812,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/07/24/html-placeholder/" data-id="cls6ugy1a0034igdkhl1k9iri" data-title="placeholder html空格符号" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2017/07/24/html-placeholder/" data-id="cls77hfcj0034g4dkd9l1fpdm" data-title="placeholder html空格符号" class="article-share-link">Teilen</a>
       
       
       
@@ -716,73 +826,11 @@
 
 
   
-    <article id="post-css-center" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/07/18/css-center/" class="article-date">
-  <time class="dt-published" datetime="2017-07-18T10:30:10.000Z" itemprop="datePublished">2017-07-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/07/18/css-center/">css3 center(css 居中)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="CSS居中"><a href="#CSS居中" class="headerlink" title="CSS居中"></a>CSS居中</h3><h4 id="水平居中初探"><a href="#水平居中初探" class="headerlink" title="水平居中初探"></a>水平居中初探</h4><h5 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h5><blockquote>
-<p>定宽定高div 水平居中</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第一种 margin */</span></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 第二种 绝对定位 */</span></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>定宽不定高div 水平居中</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span>222<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">background</span>:red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>hello i am a span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="垂直居中初探"><a href="#垂直居中初探" class="headerlink" title="垂直居中初探"></a>垂直居中初探</h4><blockquote>
-<p>宽高是固定的垂直居中</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Am I centered yet?<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Center me, please!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*绝对定位解决方案*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">3em</span>; <span class="comment">/* 6/2 = 3 */</span></span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">9em</span>; <span class="comment">/* 18/2 = 9 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">18em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">6em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*简写版*/</span></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*非绝对定位解决方案*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*(只能用于视口居中的位置)*/</span></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">18em</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">50vh</span> auto <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(flex 通用版 部分浏览器支持不太好)<br><img src="http://upload.zeroyh.cn/flex-center.jpg" alt="flex-center"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">background</span>: yellow;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 或者 */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">background</span>: yellow;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/07/18/css-center/" data-id="cls6ugy0x001figdkaae46pdx" data-title="css3 center(css 居中)" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -796,7 +844,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -806,14 +854,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
@@ -823,9 +871,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/02/04/jwt/">jwt</a>
+          </li>
         
           <li>
             <a href="/2024/02/02/auth-code/">auth-code</a>
@@ -841,10 +893,6 @@
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/03/fs/">fs</a>
           </li>
         
       </ul>

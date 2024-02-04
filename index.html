@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,70 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-jwt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/02/04/jwt/" class="article-date">
+  <time class="dt-published" datetime="2024-02-04T03:14:45.000Z" itemprop="datePublished">2024-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/02/04/jwt/">jwt</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="JWT家族"><a href="#JWT家族" class="headerlink" title="JWT家族"></a>JWT家族</h3><h4 id="JWT-json-web-token"><a href="#JWT-json-web-token" class="headerlink" title="JWT(json web token)"></a>JWT(json web token)</h4><ul>
+<li>用途是：在网络上安全传输的开放标准，通常用于身份验证和信息交换</li>
+<li>结构是：Header(头部:包含关于生成jwt的原信息，例如使用的加密算法和令牌的类型).Payload(负载：关于实体&#x2F;用户的数据信息).Signature(签名：使用头部和负载以及秘密密钥生成的签名)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># jwt 示例</span><br><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.  </span><br><span class="line">eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.  </span><br><span class="line">TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="JWS-json-web-Signature"><a href="#JWS-json-web-Signature" class="headerlink" title="JWS(json web Signature)"></a>JWS(json web Signature)</h4><ul>
+<li>其实我们大部分正常用于身份校验的JWT 就是 JWS，也就是头部一定要声明算法，然后经过了秘钥加密头部、负载后生成了Signature的内容。</li>
+</ul>
+<h4 id="JWE-json-web-encryption"><a href="#JWE-json-web-encryption" class="headerlink" title="JWE(json web encryption)"></a>JWE(json web encryption)</h4><p>JWS 仅仅是对声明(claims)作了签名，保证了其不被篡改，但是其 payload(中段负载) 信息是暴露的。也就是 JWS 仅仅能保证数据的完整性而不能保证数据不被泄露。它不适合传递敏感数据。JWE 的出现就是为了解决这个问题的。具体的可以看下图：</p>
+<p>JWE 生成步骤</p>
+<ul>
+<li>与JWS Header相同标志加密算法和类型</li>
+<li>生成一个随机的256位的 content encryption key（CEK）</li>
+<li>使用 rsa(pkcs1)算法对token接收者的公钥对CEK进行加密，以生成JWE加密秘钥</li>
+<li>生成随机128位JWE初始化向量</li>
+<li>将附加身份平局参数加入Header</li>
+<li>使用CEK作为加密秘钥，JWT初始化向量 和 上面的附加身份凭据参数，使用AES(cbc_hmac_sha_256)算法对纯文本执行身份证加密，生成密文，同时<br>会随之生成一个128位的Authentication Tag</li>
+<li>将生成的五段加密串使用Base64进行编码，然后使用”.”按照顺序连接起来就是组成Token</li>
+</ul>
+<p><img src="/2024/02/04/jwt/Snipaste_2024-02-04_15-41-12.png" alt="服务器图"></p>
+<p>可见，JWE的计算过程相对繁琐，不够轻量级，因此适合与数据传输而非token认证，但该协议也足够安全可靠，用简短字符串描述了传输内容，兼顾数据的安全性与完整性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/02/04/jwt/" data-id="cls77hfcr0047g4dkh3410aru" data-title="jwt" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-auth-code" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -108,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/02/02/auth-code/" data-id="cls6ugy0u0013igdkbcgt5jm4" data-title="auth-code" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2024/02/02/auth-code/" data-id="cls77hfbw0012g4dk9asnh13f" data-title="auth-code" class="article-share-link">Teilen</a>
       
       
       
@@ -156,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/22/shell-cron-check-process/" data-id="cls6ugy1o004zigdk7f18aycr" data-title="shell-cron-check-process" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2024/01/22/shell-cron-check-process/" data-id="cls77hfcw0050g4dkaj3lgdmk" data-title="shell-cron-check-process" class="article-share-link">Teilen</a>
       
       
       
@@ -210,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/19/network-set-fixed-ip/" data-id="cls6ugy1h0045igdk19fc3t3i" data-title="network-set-fixed-ip" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2024/01/19/network-set-fixed-ip/" data-id="cls77hfcs004eg4dkgjgxhtnh" data-title="network-set-fixed-ip" class="article-share-link">Teilen</a>
       
       
       
@@ -264,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/03/stream/" data-id="cls6ugy1o0051igdkbgqv17r4" data-title="stream" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/03/stream/" data-id="cls77hfcx0053g4dk9nft8z9q" data-title="stream" class="article-share-link">Teilen</a>
       
       
       
@@ -327,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/03/fs/" data-id="cls6ugy19002zigdkfsj9hnom" data-title="fs" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/03/fs/" data-id="cls77hfci002xg4dkd28z0ing" data-title="fs" class="article-share-link">Teilen</a>
       
       
       
@@ -383,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/27/merge-multiple-csv-or-xlsx/" data-id="cls6ugy1h0043igdkbfk05mqa" data-title="merge-multiple-csv-or-xlsx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/27/merge-multiple-csv-or-xlsx/" data-id="cls77hfcr0049g4dk8q4g7vlx" data-title="merge-multiple-csv-or-xlsx" class="article-share-link">Teilen</a>
       
       
       
@@ -427,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/encryption/" data-id="cls6ugy130028igdk1jcxdfsb" data-title="encryption" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/21/encryption/" data-id="cls77hfcd0028g4dk7cyl4fyx" data-title="encryption" class="article-share-link">Teilen</a>
       
       
       
@@ -474,7 +538,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/21/xlsx-create-and-download/" data-id="cls6ugy1t005qigdkbils1zwt" data-title="xlsx-create-and-download" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/21/xlsx-create-and-download/" data-id="cls77hfd1005ug4dkbpz0do81" data-title="xlsx-create-and-download" class="article-share-link">Teilen</a>
       
       
       
@@ -523,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/28/frp/" data-id="cls6ugy18002uigdkfhbo5ncz" data-title="frp" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/28/frp/" data-id="cls77hfch002ug4dkgt1q7c09" data-title="frp" class="article-share-link">Teilen</a>
       
       
       
@@ -537,83 +601,11 @@
 
 
   
-    <article id="post-js-variable" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/04/08/js-variable/" class="article-date">
-  <time class="dt-published" datetime="2022-04-08T13:38:51.000Z" itemprop="datePublished">2022-04-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/08/js-variable/">js-variable</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="前端变量命名的规范"><a href="#前端变量命名的规范" class="headerlink" title="前端变量命名的规范"></a>前端变量命名的规范</h3><blockquote>
-<p>变量即是用来存储信息的，那么我们js的变量的命名有两个限制</p>
-</blockquote>
-<ol>
-<li>变量名称必须仅包含字母, 数字, 符号 $ 和 _</li>
-<li>首字母不能是数字 </li>
-<li>非保留字<br><code>break,case,catch,class,const,continue,debugger,default,delete,do,else, export,extends,finally,for,function,if,import,in,instanceof,new,return,super,switch,this, throw,try,typeof,var,void,while,with,yield</code>等<br>根据以上两则限制，我们可以举出一下例子。</li>
-</ol>
-<p>有效的命名:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let username, UserName, USERNAME, username1, u1, _username, $username, u1$, u1_ ...... 等等</span><br></pre></td></tr></table></figure>
-
-<p>无效的命名:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let user@, user%, 23user, 2333, !sus1等</span><br></pre></td></tr></table></figure>
-
-<h4 id="通用规范"><a href="#通用规范" class="headerlink" title="通用规范"></a>通用规范</h4><p>js 一般采用驼峰式命名，eg: isSure, isLong, infoData 等等类似， 如果是一个单词，就直接采用小写， eg: age, sex, name</p>
-<h4 id="全大写"><a href="#全大写" class="headerlink" title="全大写"></a>全大写</h4><p>但是你肯定也在js里面见到过全是大写定义的变量，比如:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">COLORRED</span> = <span class="string">&#x27;#F00&#x27;</span>,</span><br><span class="line">    <span class="variable constant_">MAXNUM</span> = <span class="number">100</span></span><br></pre></td></tr></table></figure>
-
-<p>全大写，一般是代表这个数是一个常量，也就是说不会被改变的数字。</p>
-<h4 id="开头"><a href="#开头" class="headerlink" title="_开头"></a>_开头</h4><p>变量私有但可以暴露给外部访问，则用单个下划线。<br>eg：var _status &#x3D; false</p>
-<p>变量私有且只在特定范围内有效，强烈不建议直接访问，则用双下划线。<br>__selfStatus &#x3D; true</p>
-<p>单下划线的私有变量，可以直接访问，但不能用于修改。<br>双下划线的变量既不能直接访问更不能直接修改。</p>
-<h4 id="开头-1"><a href="#开头-1" class="headerlink" title="$开头"></a>$开头</h4><p>与关键字或保留字或内置变量同名的变量用前缀符号$表示，并且$应该在下划线后。<br>eg： $options, $class, __$dirname</p>
-<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>构造函数应该首字母大写<br>必填参数小驼峰，选填参数用_xX</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eg： <span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">clone</span>(<span class="params">obj, _isDeep</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="一般常用场景分析"><a href="#一般常用场景分析" class="headerlink" title="一般常用场景分析"></a>一般常用场景分析</h4><h5 id="表示可见性，进行中状态的推荐方式isXxx"><a href="#表示可见性，进行中状态的推荐方式isXxx" class="headerlink" title="表示可见性，进行中状态的推荐方式isXxx"></a>表示可见性，进行中状态的推荐方式isXxx</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">eg: </span><br><span class="line">isShow: 是否展示</span><br><span class="line">isVisible: 是否可见</span><br><span class="line">isRunning: 正在运行中</span><br><span class="line">isLoading: 正在加载中</span><br></pre></td></tr></table></figure>
-<h5 id="配置类，选项类"><a href="#配置类，选项类" class="headerlink" title="配置类，选项类"></a>配置类，选项类</h5><p>allowXx表示功能属性，noXx, 不建议</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allowScale, noDeal</span><br></pre></td></tr></table></figure>
-
-<h5 id="函数命名"><a href="#函数命名" class="headerlink" title="函数命名"></a>函数命名</h5><p>主动监听采用onXx, 被动处理使用handleXx</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: onSubmit, handleStatusChange, onKeydown 等</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/08/js-variable/" data-id="cls6ugy1i0048igdke03c6hpr" data-title="js-variable" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -627,7 +619,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -637,14 +629,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
@@ -654,9 +646,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/02/04/jwt/">jwt</a>
+          </li>
         
           <li>
             <a href="/2024/02/02/auth-code/">auth-code</a>
@@ -672,10 +668,6 @@
         
           <li>
             <a href="/2023/03/03/stream/">stream</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/03/fs/">fs</a>
           </li>
         
       </ul>
