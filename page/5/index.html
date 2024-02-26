@@ -75,6 +75,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js-message-carousel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/01/18/js-message-carousel/" class="article-date">
+  <time class="dt-published" datetime="2019-01-18T10:03:33.000Z" itemprop="datePublished">2019-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/01/18/js-message-carousel/">js-message-carousel</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="消息轮播"><a href="#消息轮播" class="headerlink" title="消息轮播"></a>消息轮播</h3><blockquote>
+<p>以前没咋想过这个功能，思维被局限于图片轮播的形式了。今儿突发了一种觉得挺棒棒的。记录下来~</p>
+</blockquote>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;notice&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第1条公告第1条公告第1条公告第1条公告第1条公告第1条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第2条公告第2条公告第2条公告第2条公告第2条公告第2条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第3条公告第3条公告第3条公告第3条公告第3条公告第3条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第4条公告第4条公告第4条公告第4条公告第4条公告第4条公告<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>,<span class="selector-tag">ul</span>,<span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.notice</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#b3effe</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.notice</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">35px</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;../jquery.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 调用 公告滚动函数</span></span><br><span class="line">  <span class="built_in">setInterval</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> obj = $(<span class="string">&#x27;.notice ul&#x27;</span>); <span class="comment">// obj : 动画的节点，本例中是ul</span></span><br><span class="line">    <span class="keyword">var</span> top = <span class="string">&#x27;-35px&#x27;</span>; <span class="comment">// top : 动画的高度，本例中是-35px; 注意向上滚动是负数</span></span><br><span class="line">    <span class="keyword">var</span> time = <span class="number">500</span>; <span class="comment">// time : 动画的速度，即完成动画所用时间，本例中是500毫秒，即marginTop从0到-35px耗时500毫秒</span></span><br><span class="line">    $(obj).<span class="title function_">animate</span>(&#123;</span><br><span class="line">      <span class="attr">marginTop</span>: top</span><br><span class="line">    &#125;, time, <span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="comment">// function : 回调函数，每次动画完成，marginTop归零，并把此时第一条信息添加到列表最后</span></span><br><span class="line">      $(<span class="variable language_">this</span>).<span class="title function_">css</span>(&#123;</span><br><span class="line">        <span class="attr">marginTop</span>: <span class="string">&quot;0&quot;</span></span><br><span class="line">      &#125;).<span class="title function_">find</span>(<span class="string">&quot;:first&quot;</span>).<span class="title function_">appendTo</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/01/18/js-message-carousel/" data-id="clt2nxy6w003qowdkh8f26say" data-title="js-message-carousel" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-other-self-introduction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2019/01/15/other-self-introduction/" class="article-date">
@@ -103,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="cls77hfcv004qg4dk9g5sghgb" data-title="self introduction" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/01/15/other-self-introduction/" data-id="clt2nxy76004sowdk5a8i24jr" data-title="self introduction" class="article-share-link">Teilen</a>
       
       
       
@@ -150,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2019/01/11/css-progress/" data-id="cls77hfcb0020g4dkav915a2c" data-title="css-progress" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2019/01/11/css-progress/" data-id="clt2nxy6g001xowdk88zdfxk4" data-title="css-progress" class="article-share-link">Teilen</a>
       
       
       
@@ -195,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/12/14/thoughts-ppt-sell/" data-id="cls77hfcy005ag4dkhh4o20w2" data-title="ppt sell" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/12/14/thoughts-ppt-sell/" data-id="clt2nxy7a005bowdke4if343t" data-title="ppt sell" class="article-share-link">Teilen</a>
       
       
       
@@ -243,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/09/03/js-image-wh-average-color/" data-id="cls77hfcm003mg4dk49x6f7f0" data-title="获取图片的原始高度宽度和获取图片的平均色值" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/09/03/js-image-wh-average-color/" data-id="clt2nxy6y003vowdkhzjr4amr" data-title="获取图片的原始高度宽度和获取图片的平均色值" class="article-share-link">Teilen</a>
       
       
       
@@ -296,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/07/09/product-manager/" data-id="cls77hfcv004tg4dkc5rrfxr0" data-title="product-manager" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/07/09/product-manager/" data-id="clt2nxy77004zowdkcuao08kk" data-title="product-manager" class="article-share-link">Teilen</a>
       
       
       
@@ -435,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/06/14/css-shapes/" data-id="cls77hfcb001zg4dke4ib5lnl" data-title="css-shapes" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/06/14/css-shapes/" data-id="clt2nxy6i0025owdk23169a1r" data-title="css-shapes" class="article-share-link">Teilen</a>
       
       
       
@@ -484,7 +534,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/05/09/git/" data-id="cls77hfci002zg4dkekom8jfp" data-title="git 疑难杂症" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/05/09/git/" data-id="clt2nxy6q002zowdk2t36gjh5" data-title="git 疑难杂症" class="article-share-link">Teilen</a>
       
       
       
@@ -539,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/13/33-js-variable/" data-id="cls77hfbw000yg4dkdw9z3mc3" data-title="33-js-value-variable" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/04/13/33-js-variable/" data-id="clt2nxy660010owdkeuhi9rso" data-title="33-js-value-variable" class="article-share-link">Teilen</a>
       
       
       
@@ -616,81 +666,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/11/js-module/" data-id="cls77hfcp003yg4dkb6tv3jf9" data-title="js-module" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2018/04/11/js-module/" data-id="clt2nxy700042owdkhrqy2bbx" data-title="js-module" class="article-share-link">Teilen</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-es6-export-import" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2018/04/10/es6-export-import/" class="article-date">
-  <time class="dt-published" datetime="2018-04-10T11:06:22.000Z" itemprop="datePublished">2018-04-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2018/04/10/es6-export-import/">es6-export-import</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="es6-的模块"><a href="#es6-的模块" class="headerlink" title="es6 的模块"></a>es6 的模块</h3><blockquote>
-<p>模块就是一个对其他模块暴露自己的属性和方法的文件。</p>
-</blockquote>
-<h4 id="导出-export"><a href="#导出-export" class="headerlink" title="导出 export"></a>导出 <code>export</code></h4><p>作为一个模块，可以选择性给其他模块暴露自己的属性和方法，供其他模块使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> firstname = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> name = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">var</span> firstname = <span class="string">&#x27;zero&#x27;</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">export</span> &#123; firstname, name &#125;</span><br></pre></td></tr></table></figure>
-<p><font color="red">通常来说上面的导出变量方法是常用的，如果你想导出的名字和命名的变量名字不一样可以用下面这种</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">v1</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">v2</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    v1 <span class="keyword">as</span> stream1;</span><br><span class="line">    v2 <span class="keyword">as</span> stream2;</span><br><span class="line">    v2 <span class="keyword">as</span> streamother2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 上面的代码使用as关键字后，重名名了v1和v2的对外接口，重命名后，v2可以用不同的名字输出2次</span></span><br></pre></td></tr></table></figure>
-<p><font color="red"><code>export</code>命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> m = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">export</span> m;</span><br><span class="line"><span class="comment">// 上面的这种写法会报错，原因：上面都是直接输出了一个值（1和2），而不是输出接口。</span></span><br><span class="line"><span class="comment">// file export.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> m = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; m &#125;</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; n <span class="keyword">as</span> nothername &#125;</span><br><span class="line"><span class="comment">// 上面的这几种写法都是正确的，接口名和变量建立了联系</span></span><br></pre></td></tr></table></figure>
-
-<p><font color="red"><code>export</code>可以出现在模块的任何位置，只要处于模块顶层就可以，如果处于块级作用域就会报错，<code>import</code> 同 <code>export</code></font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> <span class="string">&quot;bar&quot;</span>; <span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()</span><br></pre></td></tr></table></figure>
-<h4 id="默认导出-export-default"><a href="#默认导出-export-default" class="headerlink" title="默认导出 export default"></a>默认导出 <code>export default</code></h4><blockquote>
-<p>export default 本质就是该命令后面的值赋值给default变量后再默认，所以直接将一个值写在export defualt 后</p>
-</blockquote>
-<p><font color="red">每个模块支持我们导出<font color="green">一个</font>没有名字的变量，使用关键字<code>export default</code>来实现</font><br>示例</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file one.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;one&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// fiel two.js</span></span><br><span class="line"><span class="keyword">import</span> oneFn <span class="keyword">from</span> <span class="string">&#x27;./one.js&#x27;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>export default命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能对应一个方法。</p>
-</blockquote>
-<p><font color="red">默认输出和正常输出 在import的时候不一样，默认输出不需要大括号，正常输出需要大括号</font></p>
-<h4 id="导入-import"><a href="#导入-import" class="headerlink" title="导入 import"></a>导入 <code>import</code></h4><blockquote>
-<p>作为一个模块可以根据需要引入其他模块提供的属性或者方法，供本模块使用</p>
-</blockquote>
-<p><font color="red"><code>import</code> 接受一对大括号，里面指定要从其他模块导入的变量名，大括号里面的变量名必须和被导入模块的对外接口名相同，如果想为被导入的模块的对外接口不一样的名字，需要用<code>as</code>关键字，重新命名</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file import.js </span></span><br><span class="line"><span class="keyword">import</span> &#123; a, m <span class="keyword">as</span> motername, nothername &#125; <span class="keyword">from</span> <span class="string">&#x27;./export.js&#x27;</span></span><br></pre></td></tr></table></figure>
-<p><font color="red"><code>import</code>后面的<code>from</code> 指定模块文件的位置，可以是相对路劲，也可以是绝对路劲。如果只是模块名，不带有路劲，必须配有配置文件，告诉javascript引擎该模块的位置</font><br><font color="red"><code>import</code>具有提升，会提升到整个模块的顶部，优先执行</font><br>示例</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下列代码是能够正常运行的</span></span><br><span class="line"><span class="title function_">foo</span>()</span><br><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2018/04/10/es6-export-import/" data-id="cls77hfcf002ig4dk4vwwf3ur" data-title="es6-export-import" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
 
     </footer>
   </div>
@@ -718,7 +698,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -728,7 +708,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
@@ -750,6 +730,10 @@
       <ul>
         
           <li>
+            <a href="/2024/02/21/mvvm-resource-read/">mvvm-resource-read</a>
+          </li>
+        
+          <li>
             <a href="/2024/02/04/jwt/">jwt</a>
           </li>
         
@@ -763,10 +747,6 @@
         
           <li>
             <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/03/stream/">stream</a>
           </li>
         
       </ul>
