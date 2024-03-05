@@ -48,7 +48,7 @@ class App extends React.Component {
   }
 }
 
-```
+
 可以看到App实际返回的是 div 这里面是使用了jsx (语法糖，因为写的时候便捷，不用写为对象的形式， jsx会自动执行类里面的render函数) 的语法，便捷的讲 App 实例化为  <App /> 
 jsx在实际运行的时候会转化为React.createElement语法也就是上面的实际执行的执行是的以下代码
 
@@ -80,6 +80,7 @@ jsx在实际运行的时候会转化为React.createElement语法也就是上面�
 
 
 5. 那么当页面调用setState的时候本质上也就是对比dom节点变化，刷新页面
+```
 
 #### 总结，整个mini-react的内容本质上就是将页面内容转为虚拟dom，在虚拟dom中间对比变更节点，然后更新到页面上展示。当然完整版的react有更多更优化的方法和边界处理。
 
