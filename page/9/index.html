@@ -63,10 +63,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -74,6 +74,48 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-gulp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/09/13/gulp/" class="article-date">
+  <time class="dt-published" datetime="2017-09-13T02:49:13.000Z" itemprop="datePublished">2017-09-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2017/09/13/gulp/">gulp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="gulp-配置"><a href="#gulp-配置" class="headerlink" title="gulp 配置"></a>gulp 配置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>); <span class="comment">//压缩代码</span></span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>); <span class="comment">//合并为一个代码</span></span><br><span class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">&#x27;gulp-rename&#x27;</span>); <span class="comment">//重命名</span></span><br><span class="line"><span class="keyword">var</span> gutil = <span class="built_in">require</span>(<span class="string">&#x27;gulp-util&#x27;</span>); <span class="comment">//工具</span></span><br><span class="line"><span class="keyword">var</span> fileinclude = <span class="built_in">require</span>(<span class="string">&#x27;gulp-file-include&#x27;</span>); <span class="comment">//.inc解析</span></span><br><span class="line"><span class="keyword">var</span> md5 = <span class="built_in">require</span>(<span class="string">&#x27;gulp-md5-plus&#x27;</span>); <span class="comment">//md5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pug = <span class="built_in">require</span>(<span class="string">&#x27;gulp-pug&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-csso&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> gulpminify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minify&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> named = <span class="built_in">require</span>(<span class="string">&#x27;vinyl-named&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;gulp-webpack&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义路劲</span></span><br><span class="line"><span class="keyword">var</span> path = &#123;</span><br><span class="line">    <span class="string">&#x27;build&#x27;</span>: <span class="string">&#x27;build/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;src&#x27;</span>: <span class="string">&#x27;src/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;js&#x27;</span>: <span class="string">&#x27;src/js/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;libjs&#x27;</span>: <span class="string">&#x27;src/js/lib/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;css&#x27;</span>: <span class="string">&#x27;src/css/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;html&#x27;</span>: <span class="string">&#x27;src/html/&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;css&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 处理每个页面的css</span></span><br><span class="line">    gulp.<span class="title function_">src</span>(path.<span class="property">css</span> + <span class="string">&#x27;*.scss&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">sass</span>()) <span class="comment">//sass 处理</span></span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">minifyCSS</span>()) <span class="comment">//压缩 css</span></span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">concat</span>(<span class="string">&#x27;all.min.css&#x27;</span>)) <span class="comment">// 合并为在一个css</span></span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">md5</span>(<span class="number">10</span>, path.<span class="property">build</span> + <span class="string">&#x27;html/*.html&#x27;</span>))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(path.<span class="property">build</span> + <span class="string">&#x27;/css/&#x27;</span>)); <span class="comment">//拷贝css 到一个目录</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;html&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">src</span>(path.<span class="property">html</span> + <span class="string">&#x27;*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">fileinclude</span>(&#123;</span><br><span class="line">            <span class="attr">prefix</span>: <span class="string">&#x27;@@&#x27;</span>,</span><br><span class="line">            <span class="attr">basepath</span>: <span class="string">&#x27;@file&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        <span class="comment">// .pipe(pug()) //处理模板</span></span><br><span class="line">        <span class="comment">// .pipe(gulpminify()) //压缩html</span></span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(path.<span class="property">build</span> + <span class="string">&#x27;/html/&#x27;</span>));</span><br><span class="line">    <span class="comment">// .on(&#x27;end&#x27;, done);</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;js&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">src</span>([</span><br><span class="line">            path.<span class="property">libjs</span> + <span class="string">&#x27;jquery.js&#x27;</span>,</span><br><span class="line">            path.<span class="property">libjs</span> + <span class="string">&#x27;template.js&#x27;</span>,</span><br><span class="line">        ])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">concat</span>(<span class="string">&#x27;base.min.js&#x27;</span>)) <span class="comment">//合并为一个js</span></span><br><span class="line">        <span class="comment">// .pipe(rename(&#123;suffix: &#x27;.min&#x27;&#125;))//重新命名</span></span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(path.<span class="property">build</span> + <span class="string">&#x27;/js/lib/&#x27;</span>));</span><br><span class="line"></span><br><span class="line">    gulp.<span class="title function_">src</span>([</span><br><span class="line">            path.<span class="property">js</span> + <span class="string">&#x27;*.js&#x27;</span>,</span><br><span class="line">        ])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">named</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">webpack</span>(&#123;</span><br><span class="line">            <span class="attr">output</span>: &#123;</span><br><span class="line">                <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">module</span>: &#123;</span><br><span class="line">                <span class="attr">loaders</span>: [</span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">&#x27;jsx-loader&#x27;</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">test</span>: <span class="regexp">/\.(html|tpl)$/</span>, <span class="attr">loader</span>: <span class="string">&#x27;html-loader&#x27;</span> &#125;</span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">resolve</span>: &#123;</span><br><span class="line">                    <span class="attr">extensions</span>: [<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;.js&#x27;</span>, <span class="string">&#x27;.scss&#x27;</span>],</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">uglify</span>()) <span class="comment">//处理压缩</span></span><br><span class="line">        .<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">function</span>(<span class="params">err</span>) &#123; gutil.<span class="title function_">log</span>(gutil.<span class="property">colors</span>.<span class="title function_">red</span>(<span class="string">&#x27;[Error]&#x27;</span>), err.<span class="title function_">toString</span>()); &#125;)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">md5</span>(<span class="number">10</span>, path.<span class="property">build</span> + <span class="string">&#x27;html/*.html&#x27;</span>))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(path.<span class="property">build</span> + <span class="string">&#x27;/js/&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 运行所有</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, [<span class="string">&#x27;html&#x27;</span>, <span class="string">&#x27;js&#x27;</span>, <span class="string">&#x27;css&#x27;</span>]); <span class="comment">//默认任务</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// watch 事件</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&quot;watch&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    gulp.<span class="title function_">watch</span>([</span><br><span class="line">        path.<span class="property">js</span> + <span class="string">&#x27;*.js&#x27;</span>,</span><br><span class="line">    ], [<span class="string">&quot;js&quot;</span>]);</span><br><span class="line"></span><br><span class="line">    gulp.<span class="title function_">watch</span>([</span><br><span class="line">        path.<span class="property">css</span> + <span class="string">&#x27;*.scss&#x27;</span>,</span><br><span class="line">    ], [<span class="string">&quot;css&quot;</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zeroyh.cn/gulp-dir.jpg" alt="目录图"><br><a target="_blank" rel="noopener" href="https://github.com/zeroHu/gulp-webpack">项目地址</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/09/13/gulp/" data-id="cltdpes0q003154dk4ipreuva" data-title="gulp" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-js-heigh-pf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -156,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/12/js-heigh-pf/" data-id="clt2nxy6v003nowdkdohzguif" data-title="高性能javascript" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/12/js-heigh-pf/" data-id="cltdpes0w003j54dk0qlxfdsb" data-title="高性能javascript" class="article-share-link">Share</a>
       
       
       
@@ -266,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/12/js-full-stack-js-webdlp/" data-id="clt2nxy6v003lowdk513peaxi" data-title="fullStackJavascriptWebDevelopment(全栈知识点)" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/12/js-full-stack-js-webdlp/" data-id="cltdpes0x003l54dkd4ak4sbj" data-title="fullStackJavascriptWebDevelopment(全栈知识点)" class="article-share-link">Share</a>
       
       
       
@@ -405,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/09/07/css-flex/" data-id="clt2nxy6b001kowdk0k808evo" data-title="css-flex" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/09/07/css-flex/" data-id="cltdpes0f001q54dkdedz17c2" data-title="css-flex" class="article-share-link">Share</a>
       
       
       
@@ -468,7 +510,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/21/xml-httpRequest-fetch/" data-id="clt2nxy7j006bowdkfwx02bw9" data-title="fetch" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/08/21/xml-httpRequest-fetch/" data-id="cltdpes1g005y54dk4cchbtxs" data-title="fetch" class="article-share-link">Share</a>
       
       
       
@@ -553,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/18/xml-httpRequest-ajax-detail/" data-id="clt2nxy7i0067owdk84tm99vw" data-title="ajax 请求参数详情，cache 理解" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/08/18/xml-httpRequest-ajax-detail/" data-id="cltdpes1f005v54dk6kcahvpz" data-title="ajax 请求参数详情，cache 理解" class="article-share-link">Share</a>
       
       
       
@@ -627,7 +669,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/18/xml-httpRequest/" data-id="clt2nxy7k006eowdk8x9gbndn" data-title="XMLHttpRequest" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/08/18/xml-httpRequest/" data-id="cltdpes1g005z54dkbf405pbe" data-title="XMLHttpRequest" class="article-share-link">Share</a>
       
       
       
@@ -705,7 +747,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/02/css-box-shadow/" data-id="clt2nxy6a001iowdkcn9ucnbd" data-title="css-box-shadow" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/08/02/css-box-shadow/" data-id="cltdpes01001d54dk9g4neogt" data-title="css-box-shadow" class="article-share-link">Share</a>
       
       
       
@@ -775,7 +817,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/08/01/css-layout/" data-id="clt2nxy6f001towdkf8da2wmz" data-title="css-layout (css布局)" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/08/01/css-layout/" data-id="cltdpes0i002254dkdc1d4d1p" data-title="css-layout (css布局)" class="article-share-link">Share</a>
       
       
       
@@ -821,53 +863,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2017/07/31/js-table2excel/" data-id="clt2nxy6y003xowdk2mf78qrn" data-title="table2excel table 转为excel js处理" class="article-share-link">Teilen</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-js-copy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/07/31/js-copy/" class="article-date">
-  <time class="dt-published" datetime="2017-07-31T08:06:38.000Z" itemprop="datePublished">2017-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/07/31/js-copy/">js-copy</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="js-复制功能"><a href="#js-复制功能" class="headerlink" title="js 复制功能"></a>js 复制功能</h3><blockquote>
-<p>原文地址 <a target="_blank" rel="noopener" href="http://web.jobbole.com/86054/">http://web.jobbole.com/86054/</a><br>核心代码是 document.execCommand(‘copy’)复制代码</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;twitter&quot;</span> <span class="attr">value</span>=<span class="string">&quot;hello zero i am&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-copytarget</span>=<span class="string">&quot;#twitter&quot;</span>&gt;</span>copy<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果是要复制div内的内容则方法是写一个input框放在页面外 position:absolute left:-3000000px;定义在页面的外部（不可以用hidden 或者display:none） --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="string">&quot;use strict&quot;</span>;</span><br><span class="line">    <span class="comment">// click events</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, copy, <span class="literal">true</span>);</span><br><span class="line">    <span class="comment">// event handler</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">copy</span>(<span class="params">e</span>) &#123;</span><br><span class="line">        <span class="comment">// find target element</span></span><br><span class="line">        <span class="keyword">var</span> t = e.<span class="property">target</span>,</span><br><span class="line">            c = t.<span class="property">dataset</span>.<span class="property">copytarget</span>,</span><br><span class="line">            inp = c ? <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(c) : <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">// is element selectable?</span></span><br><span class="line">        <span class="keyword">if</span> (inp &amp;&amp; inp.<span class="property">select</span>) &#123;</span><br><span class="line">            <span class="comment">// select text</span></span><br><span class="line">            inp.<span class="title function_">select</span>();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&quot;copy&quot;</span>)) &#123;</span><br><span class="line">                    <span class="comment">// copy text</span></span><br><span class="line">                    <span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&quot;copy&quot;</span>);</span><br><span class="line">                    inp.<span class="title function_">blur</span>();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="title function_">alert</span>(<span class="string">&quot;您的浏览器暂不支持复制功能，请手动复制&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">                <span class="title function_">alert</span>(<span class="string">&quot;您的浏览器暂不支持复制功能，请手动复制&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/07/31/js-copy/" data-id="clt2nxy6t003bowdk4t2a2k0y" data-title="js-copy" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2017/07/31/js-table2excel/" data-id="cltdpes0z003w54dkced11qj1" data-title="table2excel table 转为excel js处理" class="article-share-link">Share</a>
       
       
       
@@ -885,7 +881,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -899,7 +895,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/33-js-concepts/" rel="tag">33-js-concepts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html/" rel="tag">Html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackingTools/" rel="tag">PackingTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Product/" rel="tag">Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thoughts/" rel="tag">Thoughts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XMLHttpRequest/" rel="tag">XMLHttpRequest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/" rel="tag">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/authCode-auth/" rel="tag">authCode, auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/" rel="tag">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/components/" rel="tag">components</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv-xlsx/" rel="tag">csv, xlsx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitTools/" rel="tag">gitTools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduce/" rel="tag">introduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/" rel="tag">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wechat/" rel="tag">wechat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/" rel="tag">xlsx</a></li></ul>
     </div>
   </div>
 
@@ -909,16 +905,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
+      <a href="/tags/33-js-concepts/" style="font-size: 20px;">33-js-concepts</a> <a href="/tags/Css/" style="font-size: 17.14px;">Css</a> <a href="/tags/ES6/" style="font-size: 15.71px;">ES6</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/PackingTools/" style="font-size: 11.43px;">PackingTools</a> <a href="/tags/Product/" style="font-size: 11.43px;">Product</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Thoughts/" style="font-size: 14.29px;">Thoughts</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/XMLHttpRequest/" style="font-size: 14.29px;">XMLHttpRequest</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/authCode-auth/" style="font-size: 10px;">authCode, auth</a> <a href="/tags/canvas/" style="font-size: 11.43px;">canvas</a> <a href="/tags/components/" style="font-size: 10px;">components</a> <a href="/tags/csv-xlsx/" style="font-size: 10px;">csv, xlsx</a> <a href="/tags/encryption/" style="font-size: 10px;">encryption</a> <a href="/tags/gitTools/" style="font-size: 10px;">gitTools</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/introduce/" style="font-size: 10px;">introduce</a> <a href="/tags/javascript/" style="font-size: 18.57px;">javascript</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 12.86px;">nginx</a> <a href="/tags/node/" style="font-size: 12.86px;">node</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/wechat/" style="font-size: 11.43px;">wechat</a> <a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
     </div>
   </div>
 
@@ -926,9 +922,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/03/03/thirdAPISecret/">thirdAPISecret</a>
+          </li>
         
           <li>
             <a href="/2024/02/21/mvvm-resource-read/">mvvm-resource-read</a>
@@ -944,10 +944,6 @@
         
           <li>
             <a href="/2024/01/22/shell-cron-check-process/">shell-cron-check-process</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/19/network-set-fixed-ip/">network-set-fixed-ip</a>
           </li>
         
       </ul>
